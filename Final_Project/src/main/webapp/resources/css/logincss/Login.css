@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+#main {
+	
+}
+
+.hidden {
+	position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    font: 0/0 Arial;
+}
+
+.wrapper_member_login {
+	padding-top: 100px;
+	height: 1055px;
+}
+
+.login_header_wrapper {
+	width: 100%;
+	height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.login_container_wrapper {
+	width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.login_contents_wrap {
+	width: 420px;
+}
+
+.id_text {
+	width: 420px;
+	height: 44px;
+	border-bottom: none;
+}
+
+.pwd_text {
+	width: 420px;
+	height: 44px;
+}
+
+.login_btn_wrap {
+	margin-top: 25px;
+}
+
+.login_button {
+	width: 420px;
+	height: 50px;
+}
+
+.save_id_box {
+	display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.sns_login_list {
+	list-style: none;
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.sns_login_item {
+	border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn_sns_login {
+	border:none;
+	background-color: white;
+	cursor: pointer;
+}
+
+.p_content {
+	font-size: 14px;
+	text-align: center;
+}
+
+.btn_wrap {
+	border: 1px solid gray;
+	text-align: center;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.btn_wrap a{
+	height: 100%;
+	width: 100%;
+	display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.footer_wrapper {
+	width: 100%;
+	height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright {
+	font-size: 16px;
+}
