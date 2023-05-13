@@ -2,70 +2,72 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>   
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>피터팬</title>
-<link rel="stylesheet" href="${path }/resources/css/logincss/Login.css" />
+<title>피터팬/로그인</title>
+<link rel="stylesheet" href="${path }/resources/css/member/login.css" />
 </head>
 <body>
 
-	<div class="wrapper_member_login" id="main">
-		<header class="login_header_wrapper">
-			<div class="login_header_inner">
+	<div class="wrapper member_login" id="main">
+		<header class="header_wrapper">
+			<div class="header_inner">
 				<div class="logo_box">
 					<a class="logo_link">
-						<img src="">
+						<img src="${path }/resources/css/images/logo/peterpan_logo.png" height="90px" width="180px">
 					</a>
 				</div>
 			</div>
 		</header>
 		
-		<main class="login_container_wrapper">
+		<main class="container_wrapper">
 			<div class="login_contents_wrap">
-				<div class="login_form_wrap">
-					<div class="form_id_pwd">
-						<div class="id_box">
-							<input type="text" placeholder="아이디를 입력해 주세요." class="id_text">
-						</div>
-						<div>
-							<input type="text" placeholder="비밀번호를 입력해 주세요." class="pwd_text">
+				<form method="post" action="<%=request.getContextPath() %>/login_ok.go">
+					<div class="login_form_wrap">
+						<div class="form_id_pwd">
+							<div class="id_box">
+								<input type="text" placeholder="아이디를 입력해 주세요." class="id_text">
+							</div>
+							<div>
+								<input type="password" placeholder="비밀번호를 입력해 주세요." class="pwd_text">
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="login_btn_wrap">
-					<button class="login_button">
-						<span class="text">로그인</span>
-					</button>
-				</div>
-				<div class="save_id_box">
-					<span class="form_chk">
-						<input type="checkbox" id="formSaveId">
-						<label for="formSaveId">
-							<span>아이디 저장</span>
-						</label>
-					</span>
-					<a href="" class="btn_text_link">아이디/비밀번호 찾기</a>
-				</div>
+					<div class="login_btn_wrap">
+						<button type="submit" class="login_button">
+							<span class="text">로그인</span>
+						</button>
+					</div>
+					<div class="save_id_box">
+						<span class="form_chk">
+							<input type="checkbox" id="formSaveId">
+							<label for="formSaveId">
+								<span>아이디 저장</span>
+							</label>
+						</span>
+						<a href="" class="btn_text_link">아이디/비밀번호 찾기</a>
+					</div>
+				</form>
 				<div class="sns_login_box">
 					<ul class="sns_login_list">
 						<li class="sns_login_item">
-							<button class="btn_sns_login" onclick="">
-								<img height="65px" width="75px" src="${path }/resources/images/logo/naver_logo.png">
+							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/naver_login.go'">
+								<img height="65px" width="75px" src="${path }/resources/css/images/logo/naver_logo.png">
 								<span class="hidden">네이버로그인</span>
 							</button>
 						</li>
 						<li class="sns_login_item">
-							<button class="btn_sns_login">
-								<img height="65px" width="75px" src="${path }/resources/images/logo/kakao_logo.png">
+							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/kakao_login.go'">
+								<img height="65px" width="75px" src="${path }/resources/css/images/logo/kakao_logo.png">
 								<span class="hidden">카카오로그인</span>
 							</button>
 						</li>
 						<li class="sns_login_item">
-							<button class="btn_sns_login">
-								<img height="65px" width="75px" src="${path }/resources/images/logo/google_logo.png">
+							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/google_login.go'">
+								<img height="65px" width="75px" src="${path }/resources/css/images/logo/google_logo.png">
 								<span class="hidden">구글로그인</span>
 							</button>
 						</li>

@@ -6,7 +6,10 @@
 <configuration>
   
   <typeAliases>
-  
+  	<typeAlias type="com.book.memberDAO.LoginDAO" alias="logindao" />
+  	<typeAlias type="com.book.memberDAO.JoinDAO" alias="joindao" />
+  	<typeAlias type="com.book.model.MemberDTO" alias="memberdto" />
+  	<typeAlias type="com.book.model.LoginDTO" alias="logindto"/>
   </typeAliases>
   
 </configuration>

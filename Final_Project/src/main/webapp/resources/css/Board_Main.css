@@ -1,0 +1,177 @@
+@charset "UTF-8";
+.joinForm {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	padding: 30px, 20px;
+	background-color: #FFFFFF;
+	text-align: center;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.joinForm h2 {
+	text-align: center;
+	margin: 30px;
+}
+
+.textForm {
+	border-bottom: 2px solid #adadad;
+	margin: 30px;
+	padding: 10px 10px;
+}
+
+.menu_text{
+	color: #636e72;
+	display:inline-block;
+	padding-left : -230px;
+
+}
+
+.time_textForm {
+	margin: 30px;
+	padding: 10px 10px;
+}
+
+.name {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+.cont {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+.phone {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+.location {
+	width: 100%;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+}
+
+
+/* 타입 */
+
+.select-box {
+  cursor: pointer;
+  position : relative;
+  max-width:  25em;
+  margin: 2em auto;
+
+}
+
+.select-box1 {
+  cursor: pointer;
+  position : relative;
+  max-width:  25em;
+  margin: 2em auto;
+
+}
+
+.select,
+.label {
+  color: #414141;
+  display: block;
+  font-size: 14px;
+}
+
+.select1,
+.label {
+  color: #414141;
+  display: block;
+  font-size: 14px;
+}
+
+
+
+.select {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 5px 0;
+  height: 40px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  background: none transparent;
+  border: 0 none;
+}
+
+.select1 {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 5px 0;
+  height: 40px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  background: none transparent;
+  border: 0 none;
+}
+.select-box1 {
+  background: #f7f7f7;
+}
+
+.select-box2 {
+  background: #f7f7f7;
+}
+
+
+.label {
+  position: relative;
+  padding: 5px 10px;
+  cursor: pointer;
+  
+}
+.open .label::after {
+   content: "▲";
+}
+.label::after {
+  content: "▼";
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 15px;
+  border-left: 5px solid #fff;
+}
+.image{
+	padding-right: -50px;
+	
+}
+
+.main_file{
+margin-left: 100px;
+width : 210px;
+
+}
+
+.pic_txt{
+margin-left : 35px;
+font-size: 15px;
+color: rgba(98, 98, 98);
+}

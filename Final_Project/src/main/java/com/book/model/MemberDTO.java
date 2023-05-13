@@ -12,6 +12,7 @@ public class MemberDTO {
 	private String memberPwd;
 	private String memberName;
 	private String memberPhone;
+	private String memberEmail;
 	private String memberAddr;
 	private String memberTier;
 	private String token;
