@@ -13,7 +13,13 @@ public class MemberDTO {
 	private String memberName;
 	private String memberPhone;
 	private String memberEmail;
-	private String memberAddr;
+	private int memberBirth;
+	private String memberGender;
 	private String memberTier;
 	private String token;
+	
+	// 주소 관련
+	private String addrPost;
+	private String addrMain;
+	private String addrDetail;
 }

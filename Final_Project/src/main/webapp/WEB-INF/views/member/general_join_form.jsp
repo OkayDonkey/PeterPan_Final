@@ -2,14 +2,18 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>피터팬/회원가입</title>
-<link rel="stylesheet" href="${path }/resources/css/member/login.css" />
-<link rel="stylesheet" href="${path }/resources/css/member/join.css" />
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+<!-- 다음 주소 가져오는 api -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<!-- 다음 주소 가져오는 api end -->
+<link rel="stylesheet" href="resources/css/member/login.css" />
+<link rel="stylesheet" href="resources/css/member/join.css" />
 </head>
 <body>
 
@@ -18,7 +22,7 @@
 			<div class="header_inner">
 				<div class="logo_box">
 					<a class="logo_link">
-						<img src="${path }/resources/css/images/logo/peterpan_logo.png" height="90px" width="180px">
+						<img src="resources/css/images/logo/peterpan_logo.png" height="90px" width="180px">
 					</a>
 				</div>
 			</div>
@@ -47,7 +51,7 @@
 				</div>
 				
 				<div class="form_wrap">
-					<form method="post" action="<%=request.getContextPath() %>/general_join_ok.go">
+					<form id="join_form" method="post" action="<%=request.getContextPath() %>/general_join_ok.go">
 						<div class="joinforminsert">
 							<div class="form_box">
 								<div class="form_title">
@@ -181,16 +185,16 @@
 								</div>
 								<div class="form_cont">
 									<div class="input_btn_box">
-										<input type="text" name="memberEmail" class="form_ip" id="formJoin07" placeholder="생년월일 8자리를 입력해 주세요." maxlength="8">
+										<input type="text" name="memberBirth" class="form_ip" id="formJoin07" placeholder="생년월일 8자리를 입력해 주세요." maxlength="8">
 										<div class="form_filter_box">
 											<span class="form_filter">
-												<input id="rdoFilter02" type="radio" name="rdoFilter">
+												<input id="rdoFilter02" type="radio" name="memberGender" value="남">
 												<label for="rdoFilter02">
 													<span>남</span>
 												</label>
 											</span>
 											<span class="form_filter">
-												<input id="rdoFilter01" type="radio" name="rdoFilter">
+												<input id="rdoFilter01" type="radio" name="memberGender" value="여">
 												<label for="rdoFilter01">
 													<span>여</span>
 												</label>
@@ -208,11 +212,228 @@
 									</div>
 								</div>
 							</div>
+							<div class="form_box">
+								<div class="form_title">
+									<label for="formJoin05" class="form_label">
+										<span class="form_label_span">주소</span>
+										<span class="required">
+											<span class="hidden">필수입력</span>
+										</span>
+									</label>
+								</div>
+								
+								<div class="form_cont">
+									<div class="input_btn_box">
+										<input type="text" id="post" name="addrPost" class="form_ip" id="formJoin06" placeholder="우편변호" readonly>
+										<button type="button" class="btn_ip btn_light_gray" onclick="findAddr()">
+											<span>주소 찾기</span>
+										</button>
+									</div>
+								</div>
+								<div class="form_cont">
+									<input name="addrMain" class="form_ip" id="addr" type="text" placeholder="주소" readonly>
+								</div>
+								<div class="form_cont">
+									<input name="addrDetail" class="form_ip" type="text" placeholder="상세 주소" maxlength="50">
+								</div>
+								<input type="hidden" name="memberAddr">
+							</div>
 						</div>
 					</form>
 				</div>
+
+	<script type="text/javascript">
+		function findAddr() {
+	        new daum.Postcode({
+	            oncomplete : function(data) {
+	                console.log(data);
+	
+	                var roadAddr = data.roadAddress; // 도로명 주소 변수
+	                var jibunAddr = data.jibunAddress; // 지번 주소 변수
+	                
+	                document.getElementById('post').value = data.zonecode;
+	                if (roadAddr !== '') {
+	                    document.getElementById("addr").value = roadAddr;
+	                } else if (jibunAddr !== '') {
+	                    document.getElementById("addr").value = jibunAddr;
+	                }
+	            }
+	        }).open();
+	    };
+	</script>
+				
+	<!-- 서비스 이용약관 동의 -->
+				
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#termsAllChk").click(function() {
+				if($("#termsAllChk").is(":checked")) {
+          $("input[name=check1]").prop("checked", true);
+          $("input[name=check2]").prop("checked", true);
+          $("input[name=check3]").prop("checked", true);
+          $("input[name=check4]").prop("checked", true);
+        } else {
+          $("input[name=check1]").prop("checked", false);
+          $("input[name=check2]").prop("checked", false);
+          $("input[name=check3]").prop("checked", false);
+          $("input[name=check4]").prop("checked", false);
+        }
+			});
+			
+			$("input[name=check1], input[name=check2], input[name=check3], input[name=check4]").click(function() {
+				var total = $("input[name=check1], input[name=check2], input[name=check3], input[name=check4]").length;
+				var checked = $("input[name=check1]:checked, input[name=check2]:checked, input[name=check3]:checked, input[name=check4]:checked").length;
+				
+				if(total != checked) $("#termsAllChk").prop("checked", false);
+				else $("#termsAllChk").prop("checked", true); 
+			});
+		});
+		
+		// 피터팬 마케팅 수신 동의 체크박스
+		$(document).ready(function() {
+			$("#termsMarketingChk").click(function() {
+				if($("#termsMarketingChk").is(":checked")) $("input[name=check2]").prop("checked", true);
+				else $("input[name=check2]").prop("checked", false);
+			});
+			
+			$("input[name=check2]").click(function() {
+				var checked = $("input[name=check2]:checked").length;
+				
+				if(checked > 0) $("#termsMarketingChk").prop("checked", true);
+				else $("#termsMarketingChk").prop("checked", false); 
+			});
+		});
+	</script>
+
+				<div class="title_wrap_def">
+					<p class="title_heading" style="font-size: 16px;">서비스 이용약관 동의</p>
+				</div>
+				<div class="terms_agree_chk_wrap">
+					<div class="terms_agree_row">
+						<span class="form_chk">
+							<input id="termsAllChk" type="checkbox">
+							<label for="termsAllChk">
+								<span class="spot">약관 전체 동의</span>
+							</label>
+						</span>
+					</div>
+					<div class="terms_agree_row">
+						<ul class="chk_col_list">
+							<li class="chk_col_item" style="display: flex;">
+								<span class="form_chk">
+									<input id="peterpan" type="checkbox" name="check1" data_type="require">
+									<label for="peterpan">
+										교보문고 이용약관
+										<span class="fc_green">(필수)</span>
+									</label>
+								</span>
+								<div class="right_box_cont">
+									<button type="button" class="btn_more_view">
+										<span>내용보기</span>
+										<span class="ico_arw"></span>
+									</button>
+								</div>
+							</li>
+							<li class="chk_col_item" style="display: flex;"s>
+								<span class="form_chk">
+									<input id="collectionUsage" type="checkbox" name="check1" data_type="require">
+									<label for="collectionUsage">
+										개인정보 수집 및 이용 동의
+										<span class="fc_green">(필수)</span>
+									</label>
+								</span>
+								<div class="right_box_cont">
+									<button type="button" class="btn_more_view">
+										<span>내용보기</span>
+										<span class="ico_arw"></span>
+									</button>
+								</div>
+							</li>
+							<li class="chk_col_item" style="display: flex;">
+								<span class="form_chk">
+									<input id="consignment" type="checkbox" name="check1" data_type="require">
+									<label for="consignment">
+										개인정보 처리 위탁 동의
+										<span class="fc_green">(필수)</span>
+									</label>
+								</span>
+								<div class="right_box_cont">
+									<button type="button" class="btn_more_view">
+										<span>내용보기</span>
+										<span class="ico_arw"></span>
+									</button>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="terms_agree_row">
+						<ul class="chk_col_list">
+							<li class="chk_col_item" style="display: flex;">
+								<span class="form_chk">
+									<input id="personal" type="checkbox" name="check3" data_type="selective">
+									<label for="personal">
+										개인정보 수집 및 이용 동의
+										<span class="fc_green">(선택)</span>
+									</label>
+								</span>
+								<div class="right_box_cont">
+									<button type="button" class="btn_more_view">
+										<span>내용보기</span>
+										<span class="ico_arw"></span>
+									</button>
+								</div>
+							</li>
+							<li class="chk_col_item" style="display: flex; flex-wrap: wrap;">
+								<span class="form_chk">
+									<input id="termsMarketingChk" type="checkbox" name="check4" data_type="selective">
+									<label for="termsMarketingChk">
+										피터팬 마케팅 수신 동의
+										<span class="fc_green">(선택)</span>
+									</label>
+								</span>
+								<div class="marketing_agree_inner">
+									<ul class="chk_list">
+										<li class="chk_row_item">
+											<span class="form_chk">
+												<input id="sms" type="checkbox" name="check2">
+												<label for="sms">
+													SMS
+												</label>
+											</span>
+										</li>
+										<li class="chk_row_item">
+											<span class="form_chk">
+												<input id="email" type="checkbox" name="check2">
+												<label for="email">
+													이메일
+												</label>
+											</span>
+										</li>
+									</ul>
+									<p class="form_desc">마케팅 수신 동의 시 다양한 혜택을 받아볼 수 있습니다.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 이용약관 동의 end -->
+				
+				<div class="join_form_wrap">
+					<div class="login_btn_wrap">
+						<button form="join_form" type="submit" class="login_button" style="width: 400px;">
+							<span class="text">회원가입</span>
+						</button>
+					</div>
+				</div>
 			</div>
 		</main>
+		<footer class="footer_wrapper">
+			<div class="footer_inner">
+				<div class="copyright">
+					© PeterPan BOOK CENTREs
+				</div>
+			</div>
+		</footer>
 	</div>
 
 </body>

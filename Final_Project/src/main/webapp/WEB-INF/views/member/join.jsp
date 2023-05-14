@@ -40,19 +40,19 @@
 						<ul class="sns_login_list">
 							<li class="sns_login_item">
 								<button class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/naver_join.go'">
-									<img height="65px" width="75px" src="${path }/resources/css/images/logo/naver_logo.png">
+									<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
 									<span class="hidden">네이버회원가입</span>
 								</button>
 							</li>
 							<li class="sns_login_item">
 								<button class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/kakao_join.go'">
-									<img height="65px" width="75px" src="${path }/resources/css/images/logo/kakao_logo.png">
+									<img height="55px" width="65px" src="${path }/resources/css/images/logo/kakao_logo.png">
 									<span class="hidden">카카오회원가입</span>
 								</button>
 							</li>
 							<li class="sns_login_item">
 								<button class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/google_join.go'">
-									<img height="65px" width="75px" src="${path }/resources/css/images/logo/google_logo.png">
+									<img height="55px" width="65px" src="${path }/resources/css/images/logo/google_logo.png">
 									<span class="hidden">구글회원가입</span>
 								</button>
 							</li>
@@ -118,6 +118,13 @@
 				</div>
 			</div>
 		</main>
+		<footer class="footer_wrapper">
+			<div class="footer_inner">
+				<div class="copyright">
+					© PeterPan BOOK CENTREs
+				</div>
+			</div>
+		</footer>
 	</div>
 
 </body>

@@ -36,26 +36,28 @@
 }
 
 .login_contents_wrap {
-	width: 420px;
+	width: 340px;
 }
 
 .id_text {
-	width: 401px;
-    height: 55px;
+	width: 319px;
+    height: 44px;
     border-bottom: none;
     padding-left: 15px;
-    font-size: 17px;
+    font-size: 14px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    border: 1px solid #d5d5d5;
 }
 
 .pwd_text {
-	width: 401px;
-    height: 55px;
+	width: 319px;
+    height: 44px;
     padding-left: 15px;
-    font-size: 17px;
+    font-size: 14px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+    border: 1px solid #d5d5d5;
 }
 
 .login_btn_wrap {
@@ -63,14 +65,18 @@
 }
 
 .login_button {
-	width: 420px;
-	height: 60px;
+	width: 340px;
+	height: 50px;
 	border-radius: 6px;
     cursor: pointer;
+    color: #fff;
+    background: #767676;
+    border: 1px solid #767676;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
 
 .text {
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .save_id_box {
@@ -100,17 +106,23 @@
 }
 
 .p_content {
-	font-size: 14px;
+	font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.1em;
 	text-align: center;
+    margin-top: 16px;
+    color: #767676;
 }
 
 .btn_wrap {
-	border: 1px solid gray;
+	border: 1px solid #5055b1;
 	text-align: center;
-	height: 60px;
+	height: 50px;
 	display: flex;
 	justify-content: center;
 	border-radius: 6px;
+    background: #fff;
+    color: #474c98;
 }
 
 .btn_wrap a{
@@ -119,9 +131,13 @@
 	display: flex;
     align-items: center;
     text-decoration: none;
-    color: black;
+    color: #474c98;;
     justify-content: center;
-    font-size: 19px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+
 }
 
 .join_induce_wrapper {
@@ -133,8 +149,24 @@
 	height: 70px;
     display: flex;
     justify-content: center;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    align-items: center;
 }
 
 .copyright {
-	font-size: 16px;
+	font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.btn_text_link {
+    color: #767676;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    text-align: left;
+    text-decoration: none;
 }

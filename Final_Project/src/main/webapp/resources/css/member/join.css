@@ -149,8 +149,8 @@
 }
 
 .btn_cert_type {
-  width: 234px;
-  height: 140px;
+  width: 194px;
+  height: 124px;
   padding: 0 14px;
   background: #fff;
   border: 1px solid #d5d5d5;
@@ -164,7 +164,7 @@
   display: block;
   margin-top: 10px;
   color: #000;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .cert_type_box .btn_cert_type + .btn_cert_type {
@@ -181,10 +181,13 @@
 }
 
 .bul_item_dot {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 19px;
   letter-spacing: -0.01em;
   padding-left: 9px;
+  color: #595959;
+  font-weight: 400;
+  text-align: left;
 }
 
 .title_wrap_def {
@@ -296,7 +299,7 @@
   font-size: 13px;
   line-height: 19px;
   letter-spacing: -0.01em;
-  background: url(../images/member/join/checkgray.PNG) left top 6px no-repeat;
+  background: url(../images/member/join/checkgray.png) left top 6px no-repeat;
   background-size: 15px 11px;
   color: #767676;
 }
@@ -331,6 +334,7 @@
   background: #767676;
   border: 1px solid #767676;
   transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  cursor: pointer;
 }
 
 .input_btn_box .form_ip {
@@ -375,9 +379,13 @@
   border-radius: 6px 0 0 6px;
 }
 
+.form_filter_box .form_filter:last-child input + label {
+    border-radius: 0 6px 6px 0;
+}
+
 .form_filter_box .form_filter input + label {
+  display: flex;
   flex-direction: row;
-    position: relative;
     z-index: 1;
     min-width: 60px;
     width: 100%;
@@ -395,4 +403,190 @@
     vertical-align: top;
     transition: border-color 0.2s ease-out;
     -webkit-user-select: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_filter_box .form_filter input:checked + label {
+    z-index: 2;
+    border-color: #5055b1;
+    color: white;
+    background-color: #5055b1;
+}
+
+.title_wrap_def ~ .title_wrap_def {
+    margin-top: 30px;
+}
+
+.form_rdo input, .form_chk input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.form_rdo input + label, .form_chk input + label {
+  padding: 2px 0 0 27px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  line-height: 20px;
+  color: #000;
+  cursor: pointer;
+  vertical-align: top;
+  transition: color 0.2s ease-out;
+}
+
+.form_chk input + label:before {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.form_chk input + label:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.form_chk input + label .spot {
+  font-weight: 600;
+}
+
+.form_chk input + label:after {
+  background-position: center 8px;
+  background-repeat: no-repeat;
+  background-size: 10px 7px;
+  background-image: url(../images/member/join/checkgray.png);
+}
+
+.form_chk input + label:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.form_chk input:checked + label:after {
+  background-size: 10px 7px;
+  background-image: url(../images/member/join/checkgray.png);
+}
+
+.fc_green {
+  color: #3c9a17 !important;
+}
+
+.chk_col_list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.right_box_cont {
+  flex: 1;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+
+.btn_more_view {
+    color: #595959;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-align: left;
+    background: none;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn_more_view .ico_arw {
+  display: inline-block;
+  width: 5px;
+  height: 9px;
+  margin-top: 5px;
+  background: url(../images/member/join/rightcusur.PNG) center no-repeat;
+  background-size: 12px 14px;
+  vertical-align: top;
+  margin-left: 3px;
+}
+
+.chk_col_item ~ .chk_col_item {
+  margin-top: 16px;
+}
+
+.terms_agree_chk_wrap .terms_agree_row ~ .terms_agree_row {
+    margin-top: 16px;
+    border-top: 1px solid #eaeaea;
+}
+
+.form_desc {
+    display: block;
+    position: relative;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.marketing_agree_inner {
+    margin: 10px 0 0 28px;
+}
+
+.chk_list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+
+.chk_row_list {
+  margin-top: -16px;
+  font-size: 0;
+}
+
+.chk_row_list .chk_row_item {
+    display: inline-block;
+    margin-top: 16px;
+    margin-right: 24px;
+}
+
+.form_chk {
+    display: inline-block;
+    position: relative;
+    min-height: 22px;
+    vertical-align: top;
+}
+
+.chk_row_item + .chk_row_item {
+  margin-left: 20px;
+}
+
+input:checked + label:before {
+    background-color: #5055b1;
+    border-color: #5055b1;
+}
+
+.addr_input_btn_box {
+  width: 100%;
+  display: flex;
 }

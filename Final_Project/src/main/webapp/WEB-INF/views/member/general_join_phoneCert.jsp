@@ -37,19 +37,19 @@
 				</div>
 				
 				<div class="title_wrap_def">
-					<p class="title_heading" style="font-size: 19px;">본인인증</p>
+					<p class="title_heading" style="font-size: 16px;">본인인증</p>
 				</div>
 				
 				<div class="cert_type_box">
 					<button type="button" class="btn_cert_type" onclick="location.href='general_join_form.go'">
 						<span class="ico_phone">
-							<img src="${path }/resources/css/images/member/join/join_phone.PNG" height="60px">
+							<img src="${path }/resources/css/images/member/join/join_phone.PNG" height="45px">
 						</span>
 						<span class="text">휴대폰 본인인증</span>
 					</button>
 					<button type="button" class="btn_cert_type">
 						<span class="ico_phone">
-							<img src="${path }/resources/css/images/member/join/ipin_join.PNG" height="60px">
+							<img src="${path }/resources/css/images/member/join/ipin_join.PNG" height="45px">
 						</span>
 						<span class="text">아이핀 본인인증</span>
 					</button>
@@ -62,6 +62,13 @@
 				</div>
 			</div>
 		</main>
+		<footer class="footer_wrapper">
+			<div class="footer_inner">
+				<div class="copyright">
+					© PeterPan BOOK CENTREs
+				</div>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>

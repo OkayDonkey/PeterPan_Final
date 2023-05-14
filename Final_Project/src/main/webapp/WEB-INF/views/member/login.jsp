@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>피터팬/로그인</title>
 <link rel="stylesheet" href="${path }/resources/css/member/login.css" />
+<link rel="stylesheet" href="${path }/resources/css/member/join.css" />
 </head>
 <body>
 
@@ -29,10 +30,10 @@
 					<div class="login_form_wrap">
 						<div class="form_id_pwd">
 							<div class="id_box">
-								<input type="text" placeholder="아이디를 입력해 주세요." class="id_text">
+								<input name="memberId" type="text" placeholder="아이디를 입력해 주세요." class="id_text" maxlength="20">
 							</div>
 							<div>
-								<input type="password" placeholder="비밀번호를 입력해 주세요." class="pwd_text">
+								<input name="memberPwd" type="password" placeholder="비밀번호를 입력해 주세요." class="pwd_text" maxlength="18">
 							</div>
 						</div>
 					</div>
@@ -55,19 +56,19 @@
 					<ul class="sns_login_list">
 						<li class="sns_login_item">
 							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/naver_login.go'">
-								<img height="65px" width="75px" src="${path }/resources/css/images/logo/naver_logo.png">
+								<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
 								<span class="hidden">네이버로그인</span>
 							</button>
 						</li>
 						<li class="sns_login_item">
 							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/kakao_login.go'">
-								<img height="65px" width="75px" src="${path }/resources/css/images/logo/kakao_logo.png">
+								<img height="55px" width="65px" src="${path }/resources/css/images/logo/kakao_logo.png">
 								<span class="hidden">카카오로그인</span>
 							</button>
 						</li>
 						<li class="sns_login_item">
 							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/google_login.go'">
-								<img height="65px" width="75px" src="${path }/resources/css/images/logo/google_logo.png">
+								<img height="55px" width="65px" src="${path }/resources/css/images/logo/google_logo.png">
 								<span class="hidden">구글로그인</span>
 							</button>
 						</li>

@@ -14,8 +14,8 @@ public class JoinDAOImpl implements JoinDAO{
 
 	// 회원가입 처리
 	@Override
-	public void join(MemberDTO memberDTO) throws Exception {
-		this.sqlSession.insert("join", memberDTO);
+	public int join(MemberDTO memberDTO) throws Exception {
+		return this.sqlSession.insert("generalJoin", memberDTO);
 	}
 
 }
