@@ -45,8 +45,6 @@ public class JoinController {
 		
 		dto.setMemberPwd(hashedPwd);
 		
-		System.out.println("hashedPwd >>>"+hashedPwd);
-		
 		int check = this.dao.join(dto);
 		
 		response.setContentType("text/html; charset=UTF-8");

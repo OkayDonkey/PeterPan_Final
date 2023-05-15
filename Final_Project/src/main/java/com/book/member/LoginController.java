@@ -2,6 +2,7 @@ package com.book.member;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -31,28 +32,28 @@ public class LoginController {
 		
 		MemberDTO memberdto = this.dao.generalLogin(dto);
 		
-		session = request.getSession();
-		
-		System.out.println(BCrypt.checkpw(dto.getMemberPwd(), memberdto.getMemberPwd()));
-		
-		if(memberdto.getMemberPwd().equals(dto.getMemberPwd())) {
-			System.out.println("로그인 성공");
-			session.setAttribute("seesionId", dto.getMemberId());
+		if(memberdto == null || !BCrypt.checkpw(dto.getMemberPwd(), memberdto.getMemberPwd())) {
+			System.out.println("로그인 실패");
 			
-			return "home";
-		}else {
-			session.setAttribute("seesionId", null);
-			
-			System.out.println("실패 비밀번호 다름");
 			return "member/login";
 		}
 		
+		model.addAttribute("user", memberdto);
 		
-		/*
-		 * if(memberdto == null || !BCrypt.checkpw(dto.getMemberPwd(),
-		 * memberdto.getMemberPwd())) { return "member/login"; }
-		 */
-		 
+		session = request.getSession();
+		
+		System.out.println("logincontrooler");
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping("logout.go")
+	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
+		
+	        httpSession.removeAttribute("login");
+	        httpSession.invalidate();
+		
+		return "redirect:/";
 	}
 	
 	

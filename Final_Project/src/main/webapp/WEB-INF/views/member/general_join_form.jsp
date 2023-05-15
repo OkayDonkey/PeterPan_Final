@@ -50,8 +50,10 @@
 					</div>
 				</div>
 				
+	<script type="text/javascript" src="resources/js/member/join.js"></script>   
+				
 				<div class="form_wrap">
-					<form id="join_form" method="post" action="<%=request.getContextPath() %>/general_join_ok.go">
+					<form id="join_form" name="f" method="post" onsubmit="return check()" action="<%=request.getContextPath() %>/general_join_ok.go">
 						<div class="joinforminsert">
 							<div class="form_box">
 								<div class="form_title">
@@ -122,7 +124,7 @@
 									</label>
 								</div>
 								<div class="form_cont">
-									<input type="password" name="memberPwd" class="form_ip" id="formJoin03" placeholder="비밀번호를 한 번 더 입력해 주세요." maxlength="15">
+									<input type="password" name="memberCheckPwd" class="form_ip" id="formJoin03" placeholder="비밀번호를 한 번 더 입력해 주세요." maxlength="15">
 								</div>
 							</div>
 							<div class="form_box">
