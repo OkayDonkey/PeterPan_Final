@@ -6,7 +6,11 @@
 <configuration>
   
   <typeAliases>
-  
+	
+	
+	<typeAlias type="com.book.main04DAO.BookDAO" alias="main_bookDao"/>
+	<typeAlias type="com.book.model.BookDTO" alias="main_bookDto"/>
+	
   </typeAliases>
   
 </configuration>

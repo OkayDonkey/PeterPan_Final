@@ -28,8 +28,9 @@
 		
 		<div class="container-fluid navbar-inner">
 			<!-- navbar brand-->
-			<a class="navbar-brand" style="min-width: 100px" href="../home.jsp"><img
-				width="250" src="resources/css/s_img/test.png" alt="Fooding" /></a>
+			<a class="navbar-brand" style="min-width: 100px" href="<%=request.getContextPath()%>/">
+				<img width="250" src="resources/css/s_img/test.png" alt="Fooding" />
+			</a>
 			<!-- navbar collapse area-->
 			
 			
@@ -105,7 +106,7 @@
 								
 								<div class="dropdown-column">
 									<div
-										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-4 mb-3"
+										class="bg-position-center bg-	no-repeat bg-size-cover text-center px-3 py-4 mb-3"
 										style="background-image: url(img/megamenu/cat_bg01.jpg)">
 										<h3 class="h5 text-white text-shadow my-3">일본</h3>
 									</div>

@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" pageEncoding="UTF-8"%>
+<%@ page session="false" pageEncoding="UTF-8"%>]
+<%@ 
+	taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" 
+%>
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -18,11 +21,15 @@
 
 <style>
 	/* 메인 전체 css */
+.home_container {
+	padding-bottom: 50px; /* footer의 높이만큼 여백 추가 */	
+}
 
 .home_home{
 		margin: 0 auto;
 		align-content:center;
 		text-align: center;
+		
 }
 
 /* ----------------------------------------- */
@@ -64,8 +71,14 @@
 	margin: auto;    
 }
 
+.new_books > new_book_wrap > new_book >img{
+	
+	width: 270px;
+	height: 350px;
+}
 </style>
 
+<!-- ------------------------- css end-------------------------------- -->
 
 <body>
 
@@ -95,12 +108,47 @@
 			<div class="new_books_plus">
 				<a href="#">더보기</a>
 			</div>
-			<div>
+			
+			<div class ="new_book_wrap">
+				<c:set var="list" value="${List }"/>
+				<c:forEach items="${list }" var="dto" varStatus="status">
+					<c:if test="${status.index < 3 }">
+						<div class ="new_book">
+							<img src="${dto.bookCover }">
+							${dto.bookName }					
+						</div>
+					</c:if>
+				</c:forEach>			
+			</div>
+		</div>
+		<div class="best_books">
+			<div class="best_book_plus">
+				<a>더보기</a>
+			</div>
+			
+			<div class="best_book_wrap">
+				<c:set var ="bestlist" value="${bestList }"/>
+				<c:forEach items="${bestlist }" var="B_dto" varStatus="status">
+					<c:if test="${status.index < 6 }">
+						<div>
+							<img>${B_dto.bookCover }	
+							${B_dto.bookName }	
+						</div>	
+					
+					
+					</c:if>
+				
+				
+				
+				</c:forEach>
 			
 			</div>
 		</div>
 	</div>
 </div>
+
+<jsp:include page="./top/footer.jsp" />
+
 
 <!--슬라이드 CDN 시작 -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -121,3 +169,4 @@
 </body>
 
 </html>
+			
