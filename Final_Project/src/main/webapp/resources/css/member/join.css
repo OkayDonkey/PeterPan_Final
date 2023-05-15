@@ -1,0 +1,592 @@
+@charset "UTF-8";
+
+.join_contents_wrap {
+	width: 400px;
+}
+
+.join_btn_wrap {
+  background: #5055b1;
+  border: 1px solid #5055b1;
+}
+
+.join_text {
+  color: white;
+}
+
+.join_benefit_wrap {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #dcddef;
+  box-sizing: border-box;
+}
+
+.join_benefit_wrap .benefit_title {
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.benefit_coupon_box {
+
+}
+
+.coupon_item {
+  display: inline-block;
+  width: 111px;
+  text-align: center;
+  font-size: 0;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.coupon_inner {
+    height: 66px;
+}
+
+.left_box {
+    padding: 10px 0 0 11px;
+    border-radius: 8px 0 0 8px;
+}
+
+.coupon_logo {
+  height: 15px;
+  margin-bottom: 7px;
+}
+
+.coupon_val {
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    color: #000;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    word-break: break-all;
+}
+
+.unit {
+  color: #000;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  vertical-align: 1px;
+}
+
+.right_box {
+  flex: 0 22px;
+  border-radius: 0 8px 8px 0;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.title_wrap {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title_heading {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.title_wrap .right_area .step_round_desc {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #3c9a17;
+    font-weight: 600;
+}
+
+.step_round_list {
+    font-size: 0;
+    padding-left: 12px;
+}
+
+.step_round_list .step_item {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #d5d5d5;
+    border-radius: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.step_round_list .step_item.active {
+  width: 24px;
+  height: 24px;
+  padding-top: 3px;
+  font-size: 13px;
+  line-height: 17px;
+  letter-spacing: -0.01em;
+  background-color: #4dac27;
+  font-weight: 700;
+  color: #fff;
+}
+
+.step_round_list .step_item ~ .step_item {
+    margin-left: 6px;
+}
+
+.right_area {
+  display: flex;
+  align-items: center;
+}
+
+.btn_cert_type {
+  width: 194px;
+  height: 124px;
+  padding: 0 14px;
+  background: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.cert_type_box .btn_cert_type .text {
+  display: block;
+  margin-top: 10px;
+  color: #000;
+  font-size: 14px;
+}
+
+.cert_type_box .btn_cert_type + .btn_cert_type {
+  margin-left: 6px;
+}
+
+.info_text_box {
+  margin-top: 30px;
+  display: block;
+  padding: 18px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.bul_item_dot {
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  padding-left: 9px;
+  color: #595959;
+  font-weight: 400;
+  text-align: left;
+}
+
+.title_wrap_def {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title_wrap_def .required {
+  display: flex;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  color: #595959;
+  vertical-align: top;
+}
+
+.required::before {
+  content: "*";
+  margin-right: 5px;
+  color: #4dac27;
+  font-size: 22px;
+}
+
+.form_label {
+  display: flex;
+  color: #000;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  cursor: default;
+}
+
+.form_label_span {
+  margin-right: 7px;
+}
+
+.form_cont {
+  margin-top: 5px;
+  color: #595959;
+}
+
+.form_ip {
+  display: inline-block;
+  width: 100%;
+  height: 44px;
+  padding: 0 14px 2px;
+  color: #000;
+  font-size: 14px;
+  line-height: 42px;
+  letter-spacing: -0.01em;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-out;
+  outline: none;
+}
+
+.form_wrap .form_box ~ .form_box {
+    margin-top: 20px;
+}
+
+.pw_valid_wrap {
+    margin-top: 6px;
+}
+
+.valid_state {
+    display: block;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+
+.valid_step_box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.valid_step_list {
+  font-size: 0;
+  height: 3px;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.step_item {
+    display: inline-block;
+    width: 80px;
+    height: 3px;
+    background-color: #eaeaea;
+    border-radius: 2px;
+    vertical-align: top;
+}
+
+.step_item ~ .step_item {
+  margin-left: 4px;
+}
+
+.pw_valid_list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.pw_valid_item {
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  background: url(../images/member/join/checkgray.png) left top 6px no-repeat;
+  background-size: 15px 11px;
+  color: #767676;
+}
+
+.pw_valid_item + .pw_valid_item {
+    margin-top: 6px;
+}
+
+.input_btn_box {
+  width: 100%;
+  display: flex;
+}
+
+.btn_ip {
+  flex-direction: row;
+  min-width: 86px;
+  height: 44px;
+  padding: 0 19px 1px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.form_ip + .btn_ip {
+  margin-left: 6px;
+}
+
+.btn_light_gray {
+  color: #fff;
+  background: #767676;
+  border: 1px solid #767676;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  cursor: pointer;
+}
+
+.input_btn_box .form_ip {
+  flex: 1;
+}
+
+.valid_desc {
+  display: none;
+    position: relative;
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.form_ip + .form_filter_box {
+  margin-left: 6px;
+}
+
+.form_filter_box {
+  display: flex;
+}
+
+.form_filter_box .form_filter {
+  flex: 1 1 auto;
+}
+
+.form_filter_box .form_filter input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  vertical-align: middle;
+}
+
+.form_filter_box .form_filter:first-child input + label {
+  border-radius: 6px 0 0 6px;
+}
+
+.form_filter_box .form_filter:last-child input + label {
+    border-radius: 0 6px 6px 0;
+}
+
+.form_filter_box .form_filter input + label {
+  display: flex;
+  flex-direction: row;
+    z-index: 1;
+    min-width: 60px;
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    color: #767676;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+    transition: border-color 0.2s ease-out;
+    -webkit-user-select: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_filter_box .form_filter input:checked + label {
+    z-index: 2;
+    border-color: #5055b1;
+    color: white;
+    background-color: #5055b1;
+}
+
+.title_wrap_def ~ .title_wrap_def {
+    margin-top: 30px;
+}
+
+.form_rdo input, .form_chk input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.form_rdo input + label, .form_chk input + label {
+  padding: 2px 0 0 27px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  line-height: 20px;
+  color: #000;
+  cursor: pointer;
+  vertical-align: top;
+  transition: color 0.2s ease-out;
+}
+
+.form_chk input + label:before {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.form_chk input + label:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.form_chk input + label .spot {
+  font-weight: 600;
+}
+
+.form_chk input + label:after {
+  background-position: center 8px;
+  background-repeat: no-repeat;
+  background-size: 10px 7px;
+  background-image: url(../images/member/join/checkgray.png);
+}
+
+.form_chk input + label:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.form_chk input:checked + label:after {
+  background-size: 10px 7px;
+  background-image: url(../images/member/join/checkgray.png);
+}
+
+.fc_green {
+  color: #3c9a17 !important;
+}
+
+.chk_col_list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.right_box_cont {
+  flex: 1;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+
+.btn_more_view {
+    color: #595959;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-align: left;
+    background: none;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn_more_view .ico_arw {
+  display: inline-block;
+  width: 5px;
+  height: 9px;
+  margin-top: 5px;
+  background: url(../images/member/join/rightcusur.PNG) center no-repeat;
+  background-size: 12px 14px;
+  vertical-align: top;
+  margin-left: 3px;
+}
+
+.chk_col_item ~ .chk_col_item {
+  margin-top: 16px;
+}
+
+.terms_agree_chk_wrap .terms_agree_row ~ .terms_agree_row {
+    margin-top: 16px;
+    border-top: 1px solid #eaeaea;
+}
+
+.form_desc {
+    display: block;
+    position: relative;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.marketing_agree_inner {
+    margin: 10px 0 0 28px;
+}
+
+.chk_list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+
+.chk_row_list {
+  margin-top: -16px;
+  font-size: 0;
+}
+
+.chk_row_list .chk_row_item {
+    display: inline-block;
+    margin-top: 16px;
+    margin-right: 24px;
+}
+
+.form_chk {
+    display: inline-block;
+    position: relative;
+    min-height: 22px;
+    vertical-align: top;
+}
+
+.chk_row_item + .chk_row_item {
+  margin-left: 20px;
+}
+
+input:checked + label:before {
+    background-color: #5055b1;
+    border-color: #5055b1;
+}
+
+.addr_input_btn_box {
+  width: 100%;
+  display: flex;
+}

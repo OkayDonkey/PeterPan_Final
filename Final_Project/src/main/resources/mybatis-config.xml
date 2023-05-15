@@ -11,6 +11,10 @@
 	<typeAlias type="com.book.main04DAO.BookDAO" alias="main_bookDao"/>
 	<typeAlias type="com.book.model.BookDTO" alias="main_bookDto"/>
 	
+  	<typeAlias type="com.book.memberDAO.LoginDAO" alias="logindao" />
+  	<typeAlias type="com.book.memberDAO.JoinDAO" alias="joindao" />
+  	<typeAlias type="com.book.model.MemberDTO" alias="memberdto" />
+  	<typeAlias type="com.book.model.LoginDTO" alias="logindto"/>
   </typeAliases>
   
 </configuration>

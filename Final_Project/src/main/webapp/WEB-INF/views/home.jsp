@@ -1,3 +1,4 @@
+<%@page import="javax.servlet.http.HttpSession"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" pageEncoding="UTF-8"%>]
 <%@ 
@@ -5,6 +6,8 @@
 %>
 <html>
 <head>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<!--슬라이드 css 시작 -->
@@ -150,6 +153,8 @@
 <jsp:include page="./top/footer.jsp" />
 
 
+<script type="resources/js/vendor.min.js"></script>
+<script type="resources/js/theme.min.js"></script>
 <!--슬라이드 CDN 시작 -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- 슬라이드 CDN 끝-->
@@ -166,6 +171,16 @@
 	});
 
 </script>
+
+
+<c:if test="${sessionScope.Id == null }">
+	<input type="button" value="로그인" onclick="location.href='login.go'">
+</c:if>
+
+<c:if test="${sessionScope.Id != null }">
+	<input type="button" value="로그아웃" onclick="location.href='logout.go'">
+</c:if>
+
 </body>
 
 </html>
