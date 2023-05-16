@@ -5,6 +5,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800");
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 
 @font-face {
 	font-family: 'GmarketSansMedium';
@@ -3317,7 +3322,7 @@ fieldset:disabled a.btn {
 .btn-dark {
 	color: #fff;
 	background-color: #222;
-	border-color: #222
+	border: none;
 }
 
 .btn-dark:hover {

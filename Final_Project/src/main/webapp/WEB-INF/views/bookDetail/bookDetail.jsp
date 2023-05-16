@@ -26,7 +26,7 @@
 
 
 		<!-- 		Incloud Header Area		 -->
-<div class="container align-content-center" style="min-width:1200px;"><!-- 가로폭 컨테이너 -->
+<div class="container align-content-center" style="min-width:1250px;"><!-- 가로폭 컨테이너 -->
 		<h2 class="pt-4 pb-5 text-center">${book.bookName}</h2>
 	<div class="row justify-content-sm-between" style=" padding:10px;" >
 	
@@ -193,15 +193,22 @@
 			<!-- 팝업 End-->
 			
 			<!-- Launch extra large modal -->
-			<button type="button" class="btn-dark btn-outline-dark" data-toggle="modal" data-target=".modalXL" style="width:330px; height: 40px; border-radius: 0.2em;">
-			<span style="font-size: 15px;">매장 &nbsp;재고·위치</span>
+			<button type="button" class="btn-dark" data-toggle="modal" data-target=".modal" style="width:330px; height: 40px; border-radius: 0.3em; /* border-color: none; background-color: #282828; color:white; font-size: 10px;*/">
+			<span style="font-size: 13px;">매장 &nbsp;재고·위치</span>
 			  </button>
 			
-			  <!-- Modal markup -->
-			  <div class="modal modalXL" tabindex="-1" role="dialog" >
-			    <div class="modal-dialog modal-xl" role="document">
-			      <div class="modal-content" style="width: 1100px; border-radius: 0.4em;">
-			      	<div class="row offset-sm-0">
+			  
+			  <div class="modal" tabindex="-1" role="dialog">
+				  <div class="modal-dialog modal-xl" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				       <div class="row offset-sm-0">
 			      		<div style="padding:20px;">
 			      			<div id="map" style="width:600px;height:500px; border-radius: 0.4em;"></div>
 			      		</div>
@@ -209,9 +216,13 @@
 				      		<p style="font-size: 13px;">*서울시, 경기도에 있는 교보문고를 기준으로 생성한 지도입니다.</p>
 						</div>
 			    	</div>
-			      </div>
-			    </div>
-			  </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">&nbsp;닫 기&nbsp;</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			  <!-- Modal markup End-->
 			
 						
