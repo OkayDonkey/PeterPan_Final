@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,14 +28,16 @@ public class Main05Controller {
 	public String bookDetail(@RequestParam("bookNo") int bookNo, Model model, HttpServletResponse response) {
 
 	    BookDTO cont = this.dao.getBookDetail(bookNo);
-	    System.out.println(cont);
-
+	    System.out.println("책 정보:"+cont);
+	    
+	    
 	    Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE, 2);
 	    Date twoDaysLater = cal.getTime();
 
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("MM월 dd일");
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd일 E요일", Locale.KOREAN);
 	    String twoDaysLaterStr = dateFormat.format(twoDaysLater);
+
 
 	    response.setContentType("text/html;charset=UTF-8");
 	    model.addAttribute("twoDaysLater", twoDaysLaterStr);
