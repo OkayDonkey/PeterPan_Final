@@ -59,22 +59,29 @@
 				<ol class="carousel-indicators">
 					<li class="active" data-target="#carouselBSExample"
 						data-slide-to="0" style="background-color: #383838;">1</li>
-					<c:if test="${!empty book.bookImg2}">
+					<c:if test="${!empty book.bookImg1}">
 						<li data-target="#carouselBSExample" data-slide-to="1"  style="background-color: #383838;">2</li>
 					</c:if>
-					<c:if test="${!empty book.bookImg3}">
+					<c:if test="${!empty book.bookImg2}">
 						<li data-target="#carouselBSExample" data-slide-to="2"  style="background-color: #383838;">3</li>
 					</c:if>
-					<c:if test="${!empty book.bookImg4}">
+					<c:if test="${!empty book.bookImg3}">
 						<li data-target="#carouselBSExample" data-slide-to="3"  style="background-color: #383838;">4</li>
 					</c:if>
 				</ol>
 				<div class="carousel-inner"  >
 					<div class="carousel-item active" style="height: 500px; ">
 						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+							src="${book.bookCover }"
+							alt="${book.bookName}" />
+					</div>
+					<c:if test="${!empty book.bookImg1}">
+					<div class="carousel-item" style="height: 500px;">
+						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg1 }"
 							alt="${book.bookName}" />
 					</div>
+					</c:if>
 					<c:if test="${!empty book.bookImg2}">
 					<div class="carousel-item" style="height: 500px;">
 						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
@@ -86,13 +93,6 @@
 					<div class="carousel-item" style="height: 500px;">
 						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg3 }"
-							alt="${book.bookName}" />
-					</div>
-					</c:if>
-					<c:if test="${!empty book.bookImg4}">
-					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
-							src="${book.bookImg4 }"
 							alt="${book.bookName}" />
 					</div>
 					</c:if>
@@ -202,7 +202,7 @@
 				  <div class="modal-dialog modal-xl" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title">Modal title</h5>
+				        <h5 class="modal-title"><img src="resources/img/hatLogo.png" width="50px;">피터팬 | 매장 위치 </h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -214,6 +214,7 @@
 			      		</div>
 				      	<div style="width: 400px; padding: 30px 10px;" class="container align-content-center">
 				      		<p style="font-size: 13px;">*서울시, 경기도에 있는 교보문고를 기준으로 생성한 지도입니다.</p>
+							<div id="innerStoreInfo"></div>
 						</div>
 			    	</div>
 				      </div>
