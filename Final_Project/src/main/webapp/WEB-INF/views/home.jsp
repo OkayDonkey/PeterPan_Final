@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" pageEncoding="UTF-8" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -10,6 +9,11 @@
 </head>
 <body>
 
+
+<a href="<%=request.getContextPath()%>/boardPage.go">[게시판]</a>
+
+
+                                                                                                                                                            
 <h1>Hello world!</h1>
 
 <c:set var="session" value="${session }" />
