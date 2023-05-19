@@ -16,6 +16,8 @@
 	
 	
 	
+  	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
+  	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
   	<typeAlias type="com.book.memberDAO.LoginDAO" alias="logindao" />
   	<typeAlias type="com.book.memberDAO.JoinDAO" alias="joindao" />
    	<typeAlias type="com.book.model.MemberDTO" alias="memberdto" />

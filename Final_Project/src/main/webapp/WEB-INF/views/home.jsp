@@ -10,6 +10,8 @@
 
 <!--슬라이드 css 시작 -->
 <!-- CSS -->
+
+
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
@@ -26,7 +28,7 @@
 
 <body>
 	 	<jsp:include page="./top/top.jsp" />
-		
+		 <a href="<%=request.getContextPath()%>/boardPage.go">[게시판]</a>
 			<!-- 슬라이드부 start -->
 			<div class="slide_div_wrap" >
 				<div class="slide_div">
