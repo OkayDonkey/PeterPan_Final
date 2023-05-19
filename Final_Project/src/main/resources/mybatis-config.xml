@@ -6,7 +6,8 @@
 <configuration>
   
   <typeAliases>
-  
+  	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
+  	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
   </typeAliases>
   
 </configuration>
