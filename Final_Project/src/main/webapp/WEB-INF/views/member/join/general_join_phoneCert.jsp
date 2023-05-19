@@ -41,7 +41,7 @@
 				</div>
 				
 				<div class="cert_type_box">
-					<button type="button" class="btn_cert_type" onclick="location.href='general_join_form.go'">
+					<button type="button" class="btn_cert_type" onclick="openPhone()">
 						<span class="ico_phone">
 							<img src="${path }/resources/css/images/member/join/join_phone.PNG" height="45px">
 						</span>
@@ -55,6 +55,21 @@
 					</button>
 				</div>
 				
+				<script type="text/javascript">
+					var popupWidth = 480;
+					var popupHeight = 730;
+					
+					var screenWidth = window.screen.availWidth;
+				    var screenHeight = window.screen.availHeight;
+				
+				    var popupX = (screenWidth - popupWidth) / 2;
+				    var popupY = (screenHeight - popupHeight) / 2;
+					
+					function openPhone() {
+				        window.open("general_join_phone.go", "_blank", "height=" + popupHeight  + ", width=" + popupWidth  + ", left="+ popupX + ", top="+ popupY);
+				    }
+				</script>
+
 				<div class="info_text_box">
 					<p class="bul_item_dot">
 						본인인증이 잘 되지 않을 경우, 고객센터(1544-0000) 문의를 통해 접수해 주세요.

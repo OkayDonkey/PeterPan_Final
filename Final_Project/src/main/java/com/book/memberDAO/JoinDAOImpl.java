@@ -18,4 +18,19 @@ public class JoinDAOImpl implements JoinDAO{
 		return this.sqlSession.insert("generalJoin", memberDTO);
 	}
 
+	@Override
+	public int checkId(String id) {
+		return this.sqlSession.selectOne("checkId", id);
+	}
+
+	@Override
+	public int updateMailKey(MemberDTO memberDto) throws Exception {
+		return sqlSession.update("updateMailKey", memberDto);
+	}
+
+	@Override
+	public int checkEmail(String email) {
+		return sqlSession.selectOne("checkEmail", email);
+	}
+
 }

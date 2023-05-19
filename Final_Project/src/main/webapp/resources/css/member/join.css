@@ -590,3 +590,9 @@ input:checked + label:before {
   width: 100%;
   display: flex;
 }
+
+.validcheck {
+  font-size: 13px;
+  margin-left: 5px;
+  color: red;
+}

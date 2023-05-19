@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.book.model.MemberDTO;
+
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 	
 	private static final String LOGIN = "login";
@@ -38,14 +40,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		
 		HttpSession httpSession = request.getSession();
 		ModelMap modelMap = modelAndView.getModelMap();
-		Object memberdto = modelMap.get("user");
-		String meberId = "loginId";
+		MemberDTO memberdto = (MemberDTO) modelMap.get("user");
 		
 		if (memberdto != null) {
 			logger.info("new login success");
 			
-			httpSession.setAttribute("login", memberdto);
-			httpSession.setAttribute("Id", meberId);
+			httpSession.setAttribute("session", memberdto);
 			
 			System.out.println(memberdto);
 		}

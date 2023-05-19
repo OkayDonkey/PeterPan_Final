@@ -118,6 +118,7 @@
 				</div>
 			</div>
 		</main>
+		
 		<footer class="footer_wrapper">
 			<div class="footer_inner">
 				<div class="copyright">

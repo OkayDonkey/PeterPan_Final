@@ -17,4 +17,14 @@ public class LoginDAOImpl implements LoginDAO{
 	public MemberDTO generalLogin(LoginDTO dto) {
 		return sqlSession.selectOne("generalLogin", dto);
 	}
+
+	@Override
+	public int updateMailAuth(MemberDTO memberDto) throws Exception {
+		return sqlSession.update("updateMailAuth", memberDto);
+	}
+
+	@Override
+	public int emailAuthFail(String id) throws Exception {
+		return sqlSession.selectOne("emailAuthFail", id);
+	}
 }

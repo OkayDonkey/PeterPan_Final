@@ -41,6 +41,19 @@
 		    <version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.11</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20160810</version>
+		</dependency>
 		
 		<!-- JSON Data -->
 		<dependency>
@@ -216,10 +229,25 @@
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!-- 암호화 jbcrypt -->
 		<dependency> 
 		  <groupId>org.mindrot</groupId> 
 		  <artifactId>jbcrypt</artifactId> 
 		  <version>0.3m</version> 
+		</dependency>
+		
+		<!-- mail library -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+		<!-- mail 서포트 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
 		</dependency>
 
 		<!-- @Inject -->
