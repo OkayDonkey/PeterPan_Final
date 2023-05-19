@@ -10,6 +10,7 @@ public interface BookDAO {
 	List<BookDTO> getbooklist();
 	
 	List<BookDTO> getbestlist();
-	
+
+
 }
 

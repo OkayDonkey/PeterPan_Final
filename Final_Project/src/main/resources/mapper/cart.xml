@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="cartDao">
+
+<insert id="c_insert" parameterType="cartDto">
+<selectKey resultType="int"
+			keyProperty="cartNo" order="BEFORE">
+			select count(cartNo) from bookCart
+		</selectKey>
+ 	insert into bookCart values(#{cartNo} + 1,#{bookNo},#{memberId}) 
+
+</insert>
+
+</mapper>

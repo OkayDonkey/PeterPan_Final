@@ -2,6 +2,7 @@ package com.book.main04DAO;
 
 import java.util.List;
 
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +23,9 @@ public class BookDAOImpl implements BookDAO {
 	@Override
 	public List<BookDTO> getbestlist() {
 	return this.sqlSession.selectList("best_all");
+
 	
 	}
+
+
 }

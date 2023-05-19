@@ -19,13 +19,21 @@
 <mapper namespace="main_bookDao">
 
 	<select id="main_all" resultType="main_bookDto">
-		select * from book
+		select * from book order by bookRelDate desc;	
 	</select>
 
 	<select id="best_all" resultType="main_bookDto">	
 		select * from book order by bookLike desc
 	
+	</select> 
+
+
+<!-- 	<select id="best_all" resultType="main_bookDto">	
+		select * from book order by bookLike desc limit 4
+	
 	</select>
+ -->	
+	
 	<!-- 
 	        일반적으로 DB 작업을 하다 보면 먼저 사전에 어떤 값을 가져와서
 	        해당 값을 증가시킨 후 입력하거나 혹은 입력된 후에 증가값을 가져올

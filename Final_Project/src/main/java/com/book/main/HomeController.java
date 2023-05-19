@@ -47,5 +47,8 @@ public class HomeController {
 		
 		return "home";
 	}
-
+	@RequestMapping("footer.go")
+	public String footer() {
+		return "top/footer";
+}
 }
