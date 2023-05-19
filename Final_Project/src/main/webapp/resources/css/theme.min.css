@@ -6040,7 +6040,9 @@ a.badge-dark.focus {
 	white-space: nowrap;
 	background-color: #5c77fc;
 	-webkit-transition: width 0.6s ease;
-	transition: width 0.6s ease
+	transition: width 0.6s ease;
+	border-radius: 1em;
+	
 }
 
 @media (prefers-reduced-motion : reduce) {
@@ -16651,7 +16653,124 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     
 }
 
+#innerStoreInfo {
+  /* 기존 스타일 */
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  
+  /* 스크롤바 스타일 */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
 
+/* 스크롤바 색상 설정 */
+#innerStoreInfo::-webkit-scrollbar {
+  width: 10px; /* 스크롤바 너비 */
+  height: 80px;
+  background-color: transparent; /* 배경 색상 */
+}
+
+/* 스크롤바의 스크롤 트랙 설정 */
+#innerStoreInfo::-webkit-scrollbar-track {
+  border-radius: 0.5em; /* 트랙의 둥근 모서리 반지름 */
+}
+
+/* 스크롤바의 스크롤 핸들 설정 */
+#innerStoreInfo::-webkit-scrollbar-thumb {
+  background-color: #75bf22; /* 핸들 색상 */
+  border-radius: 4px; /* 핸들의 둥근 모서리 반지름 */
+}
+
+.markerContent .btn-light:hover {
+	background-color: #d0f0ac;
+}
+
+.sps_inner {
+    width: 1250px;
+    margin: 0 auto;
+    height: 100%;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.tabs {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-flex;
+}
+
+.tabs li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.tab_item a {
+    display: inline-block;
+    width: 130px;
+    height: 80px;
+    padding:28px 0;
+    text-align: center;
+}
+.tab_item a:hover >.tab_text{
+    display: inline-block;
+    width: 130px;
+    height: 80px;
+    text-align: center;
+    color:black;
+}
+
+.tab_text	{
+	color: #767676;
+	font-size: 1.1em;
+}
+
+.detail_info_main	{
+	width:820px;
+	font-size: 1em;
+}
+
+.col_review	img{
+	padding:0;
+	margin:10px -2.4px;
+	
+}
+.detail_info_side	{
+	width:380px;
+}
+
+.detail_info_main img	{
+	border-radius: 2em;
+}
+
+.smallTextBox	{
+	border: 1px solid #696969;
+	border-radius: 0.5em;
+	font-size: 10px;
+    padding: 4px 7px;
+    color:#696969;
+    
+}
+
+.smallTextBoxGreen	{
+	border: 1px solid #4dac27;
+	border-radius: 0.5em;
+	font-size: 10px;
+    padding: 4px 7px;
+    color:#4dac27;
+}
+
+.smallTextBoxBlue	{
+	border: 1px solid #2747ac;
+	border-radius: 0.5em;
+	font-size: 10px;
+    padding: 4px 7px;
+    color:#2747ac;
+}
 
 
 /*  BookDetailCss  --End--*/

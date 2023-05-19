@@ -8,6 +8,8 @@
   <typeAliases>
   	<typeAlias type="com.book.model.BookDAO" alias="bookDao"/>	
   	<typeAlias type="com.book.model.BookDTO" alias="bookDto"/>
+  	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>
+  	<typeAlias type="com.book.model.ReviewPercentDTO" alias="reviewPerDto"/>
   </typeAliases>
   
 </configuration>

@@ -5,9 +5,12 @@
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
 <head>
 <meta charset="UTF-8">
 <c:set var="book" value="${Cont}"/>  	 
+<c:set var="reviewList" value="${review}"/>  	 
+<c:set var="perR" value="${PercentR}"/>  	 
 <title>${book.bookName} | ${book.bookWriter} - 피터팬</title>
 <!-- 부트스트랩 필수파일 -->
    
@@ -22,12 +25,12 @@
    
 <!-- 부트스트랩 필수파일 END-->
 </head>
-<body style="font-family: MICEGothic Bold; color:black;">
+<body style="font-family: MICEGothic Bold; color:black; ">
 
 
 		<!-- 		Incloud Header Area		 -->
-<div class="container align-content-center" style="min-width:1250px;"><!-- 가로폭 컨테이너 -->
-		<h2 class="pt-4 pb-5 text-center">${book.bookName}</h2>
+<div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
+		<h2 class="pt-4 pb-4 text-center">${book.bookName}</h2>
 	<div class="row justify-content-sm-between" style=" padding:10px;" >
 	
 		<div class="flex-column pt-5" style="width:330px;">
@@ -41,14 +44,27 @@
 			<c:if test="${book.bookWeekBest == 1 }">
 				<div class="book_best_box">
 					<img src="resources/img/trophyIco.png" style="width:20px; height: 20px;"> &nbsp;
-					<a href="" style="text-decoration: none; color: #404040;" >주간 베스트 TOP 10</a> 
+					<a href="#" style="text-decoration: none; color: #404040;" >주간 베스트 TOP 10</a> 
 				</div>
 			</c:if>
 				<div style="border-bottom :1px solid #eaeaea; border-top :1px solid #eaeaea; height: auto;" class="text-left">
 				<br>
 				
-					<p style="font-family: MICEGothic Light; color: gray; font-size: 13px;">
-					%%%%%%%%%		리뷰 점수 평점기능 넣기  %%%%%%%%
+				<p style="color: #4dac27;">추천해요</p>
+				<div class="prod_review_box">
+					<div class="col_review">
+						<div class="progress" style="background-color:#ffffff00;">
+							  <div class="progress-bar bg-success" role="progressbar" style="width:${perR.like_percentage}%; background-color: #6dd046!important;" aria-valuenow="${perR.like_percentage}" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+				
+					</div>
+				</div>	  	
+					<p style="font-family: MICEGothic Light; color: gray; font-size: 13px; margin-top:10px;">
+						<c:set var="columnCount" value="0" />
+							<c:forEach var="review" items="${reviewList}">
+							  <c:set var="columnCount" value="${columnCount + 1}" />
+							</c:forEach>
+						<c:out value="${columnCount}" />&nbsp;개의 리뷰 중 <fmt:formatNumber value="${perR.like_percentage}" pattern="###" />%의 구매자가 추천
 					</p>
 				</div>
 		</div>
@@ -109,10 +125,16 @@
 			</div>
 
 			<div class="flex-column pt-5" style="width:330px;" style="font-family: MICEGothic Light">
-			
-			
 				<div style="border-bottom :1px solid #eaeaea; height: auto;" class="text-left">
-				<br>
+				<c:if test="${book.bookWeekBest == 1 }">
+					<span class="smallTextBoxGreen">MD의 선택</span>
+					<span class="smallTextBoxGreen">주간 베스트TOP10</span>
+				</c:if>
+				<c:if test="${book.bookPrice > 15000 }">
+					<span class="smallTextBoxBlue">배송비 무료</span>
+				</c:if>
+				<span class="smallTextBox">소득공제</span>
+				<br><br>
 					<p style="font-size: 20px;">${book.bookName}</p>
 						<p style="font-size: 1.7em; " class="text-left">
 							<span style="color: #4dac27; ">10%</span>
@@ -124,7 +146,7 @@
 				
 				<div style="border-bottom :1px solid #eaeaea; border-top :1px solid #eaeaea; height: auto; padding:20px 0;" class="text-left">
 						<span style="font-size: 1em;">적립 / 혜택</span>
-						<span style="color: #4dac27; margin-left: 180px;">
+						<span style="color: #4dac27; margin-left: 170px;">
 							<fmt:formatNumber>${book.bookPrice * 0.05 }</fmt:formatNumber>P</span>
 						<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
 			<!-- 팝업 -->		
@@ -202,7 +224,10 @@
 				  <div class="modal-dialog modal-xl" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title"><img src="resources/img/hatLogo.png" width="50px;">피터팬 | 매장 위치 </h5>
+				        <h5 class="modal-title">
+				        	<span style="font-size: 1.3em;">피터팬 </span>
+				        	<span style="font-size: 1em;">- 매장 위치 </span>
+				        </h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -212,9 +237,13 @@
 			      		<div style="padding:20px;">
 			      			<div id="map" style="width:600px;height:500px; border-radius: 0.4em;"></div>
 			      		</div>
-				      	<div style="width: 400px; padding: 30px 10px;" class="container align-content-center">
-				      		<p style="font-size: 13px;">*서울시, 경기도에 있는 교보문고를 기준으로 생성한 지도입니다.</p>
-							<div id="innerStoreInfo"></div>
+				      	<div style="width: 400px; padding: 20px 10px;" class="container align-content-center">
+				      		<div id="innerStoreInfo" style="   max-height: 500px; /* 표시할 최대 높이 조정 */
+																		  overflow-y: auto; /* 수직 스크롤 활성화 */
+																		  border: 1px solid #ccc; /* 박스 테두리 설정 */
+																		  padding: 10px;
+																		  border-radius: 0.4em;"></div>
+				      		<p style="font-size: 13px;">*서울시에 있는 교보문고를 기준으로 생성한 지도입니다.</p>
 						</div>
 			    	</div>
 				      </div>
@@ -225,11 +254,46 @@
 				  </div>
 				</div>
 			  <!-- Modal markup End-->
-			
-						
 		</div>
-	</div>
-</div>		
+		<!-- 		책 정보 슬라이더 구역 끝		 -->
+			<div class="sps_inner">
+	            <ul class="tabs" >
+	                <li class="tab_item"><a href="#book_detail_info_event" ><span class="tab_text">이벤트</span></a></li>
+	                <li class="tab_item"><a href="#book_detail_info_img" ><span class="tab_text">상품정보</span></a></li>
+	                <li class="tab_item"><a href="#" ><span class="tab_text">리뷰(123)</span></a></li>
+	                <li class="tab_item" ><a href="#" ><span class="tab_text">교환/반품/품절</span></a></li>
+	            </ul>
+       		</div>
+       		
+       		<div>
+       			<section class="detail_info_main" id="book_detail_info_event" >
+       				<img src="resources/img/bookEvent.png">
+       			</section>
+       			<section class="detail_info_main" id="book_detail_info_img" style="margin: 30px 0px; border-radius: 2em;">
+       				<img alt="${book.bookName}" src="${book.bookImg4 }">
+       			</section>
+       			<section style="margin: 50px 0px;">
+       				<h3>책 소개</h3>
+       				<br>
+       				<h5>이 책이 속한 분야</h5>
+       				<h6>${book.bookCategory }<span style="margin:0 15px;">></span>${book.bookGenre }</h6>
+       				<br><br>
+       				<p>${book.bookCont }</p>
+       			</section>
+       			<section>4</section>
+       			<section>5</section>
+       		</div>
+       		<div class="detail_info_side">
+       			<section>1</section>
+       			<section>2</section>
+       			<section>3</section>
+       			<section>4</section>
+       			<section>5</section>
+       		</div>
+       		
+	</div>		<!-- flex row container -->
+</div>		<!-- width 1250 container -->
+
 		<!-- 		Incloud Footer Area		 -->
 		
 	<script src="resources/js/bookDetail.js"></script>	
