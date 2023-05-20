@@ -10,6 +10,16 @@
 <title>피터팬/로그인</title>
 <link rel="stylesheet" href="${path }/resources/css/member/login.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/join.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    // 오류 메시지가 존재할 경우 알림창을 띄움
+    var errorMessage = "${errorMessage}";
+    if (errorMessage) {
+        alert(errorMessage);
+    }
+</script>
 </head>
 <body>
 
@@ -61,7 +71,7 @@
 							</button>
 						</li>
 						<li class="sns_login_item">
-							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/kakao_login.go'">
+							<button type="button" class="btn_sns_login" onclick="kakaoLogin()">
 								<img height="55px" width="65px" src="${path }/resources/css/images/logo/kakao_logo.png">
 								<span class="hidden">카카오로그인</span>
 							</button>
@@ -73,6 +83,10 @@
 							</button>
 						</li>
 					</ul>
+					
+					<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+					<script type="text/javascript" src="resources/js/member/kakaoLogin.js"></script>
+					
 					<p class="p_content">
 						개인정보 보호를 위해 공용 pc에서 사용 시 SNS계정의 로그아웃
 						<br>

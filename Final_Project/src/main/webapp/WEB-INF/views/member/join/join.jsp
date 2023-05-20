@@ -10,6 +10,8 @@
 <title>피터팬/회원가입</title>
 <link rel="stylesheet" href="${path }/resources/css/member/login.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/join.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	
@@ -45,7 +47,7 @@
 								</button>
 							</li>
 							<li class="sns_login_item">
-								<button class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/kakao_join.go'">
+								<button class="btn_sns_login" onclick="kakaoLogin()">
 									<img height="55px" width="65px" src="${path }/resources/css/images/logo/kakao_logo.png">
 									<span class="hidden">카카오회원가입</span>
 								</button>
@@ -59,6 +61,9 @@
 						</ul>
 					</div>
 				</div>
+				
+				<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+				<script type="text/javascript" src="resources/js/member/kakaoLogin.js"></script>
 				
 				<!-- 신규회원 혜택 -->
 				<div class="join_benefit_wrap">
@@ -75,9 +80,6 @@
 											1,000
 											<span class="unit">원</span>
 										</span>
-									</span>
-									<span class="right_box">
-										<img src="${path }/resources/css/images/member/join/coupon_right_blueimg.PNG">
 									</span>
 								</div>
 							</div>
