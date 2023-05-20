@@ -5,8 +5,6 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-
 public class BookDTO {
 
 	private int bookNo;
@@ -24,5 +22,6 @@ public class BookDTO {
 	private String bookImg2;
 	private String bookImg3;
 	private String bookImg4;
+	private int bookWeekBest;
 
 }

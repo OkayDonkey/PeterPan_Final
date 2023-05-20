@@ -5,6 +5,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800");
+@import url("//fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
+}
 
 @font-face {
 	font-family: 'GmarketSansMedium';
@@ -26,6 +31,20 @@
     font-family: 'LINESeedKR-Bd';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
     font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MICEGothic Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 200;
     font-style: normal;
 }
 
@@ -3303,7 +3322,7 @@ fieldset:disabled a.btn {
 .btn-dark {
 	color: #fff;
 	background-color: #222;
-	border-color: #222
+	border: none;
 }
 
 .btn-dark:hover {
@@ -6021,7 +6040,8 @@ a.badge-dark.focus {
 	white-space: nowrap;
 	background-color: #5c77fc;
 	-webkit-transition: width 0.6s ease;
-	transition: width 0.6s ease
+	transition: width 0.6s ease;
+	border-radius: 1em;
 }
 
 @media (prefers-reduced-motion : reduce) {
@@ -7002,7 +7022,6 @@ a.close.disabled {
 	height: calc(800px * 0.5);
 }
 
-
 .carousel.pointer-event {
 	-ms-touch-action: pan-y;
 	touch-action: pan-y
@@ -7160,6 +7179,14 @@ a.close.disabled {
 	background: no-repeat 50%/100% 100%
 }
 
+.carousel-control-prev-icon-gray,
+.carousel-control-next-icon-gray {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: no-repeat 50%/100% 100%
+}
+
 .carousel-control-prev-icon {
 	background-image:
 		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e")
@@ -7169,6 +7196,17 @@ a.close.disabled {
 	background-image:
 		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e")
 }
+
+.carousel-control-prev-icon-gray {
+ 	background-image:
+		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23282828' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e")
+}
+
+.carousel-control-next-icon-gray {
+  	background-image:
+		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23282828' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e")
+}
+
 
 .carousel-indicators {
 	position: absolute;
@@ -16610,4 +16648,275 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	width: 100%;
 	padding-right: 20px;
 }
+
+/*  BookDetailCss  */
+
+.book_best_box {
+    display: flex;
+    
+}
+
+#innerStoreInfo {
+  /* 기존 스타일 */
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  
+  /* 스크롤바 스타일 */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+/* 스크롤바 색상 설정 */
+#innerStoreInfo::-webkit-scrollbar {
+  width: 10px; /* 스크롤바 너비 */
+  height: 80px;
+  background-color: transparent; /* 배경 색상 */
+}
+
+/* 스크롤바의 스크롤 트랙 설정 */
+#innerStoreInfo::-webkit-scrollbar-track {
+  border-radius: 0.5em; /* 트랙의 둥근 모서리 반지름 */
+}
+
+/* 스크롤바의 스크롤 핸들 설정 */
+#innerStoreInfo::-webkit-scrollbar-thumb {
+  background-color: #b0e774; /* 핸들 색상 */
+  border-radius: 4px; /* 핸들의 둥근 모서리 반지름 */
+}
+
+.markerContent .btn-light:hover {
+	background-color: #d0f0ac;
+}
+
+.sps_inner {
+    width: 1250px;
+    margin: 0 auto;
+    height: 100%;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.tabs {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-flex;
+}
+
+.tabs li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.tab_item a {
+    display: inline-block;
+    width: 130px;
+    height: 80px;
+    padding:28px 0;
+    text-align: center;
+}
+.tab_item a:hover >.tab_text{
+    display: inline-block;
+    width: 130px;
+    height: 80px;
+    text-align: center;
+    color:black;
+}
+
+.tab_text	{
+	color: #767676;
+	font-size: 1.1em;
+}
+
+.detail_info_main	{
+	width:820px;
+	font-size: 1em;
+}
+
+.col_review	img{
+	padding:0;
+	margin:10px -2.4px;
+	
+}
+.detail_info_side	{
+	width:380px;
+}
+
+.detail_info_main img	{
+	border-radius: 2em;
+}
+
+.smallTextBox	{
+	border: 1px solid #696969;
+	border-radius: 0.5em;
+	font-size: 10px;
+    padding: 4px 7px;
+    color:#696969;
+    
+}
+
+.smallTextBoxGreen	{
+	border: 1px solid #4dac27;
+	border-radius: 0.5em;
+	font-size: 10px;
+    padding: 4px 7px;
+    color:#4dac27;
+}
+
+.smallTextBoxBlue	{
+	border: 1px solid #2747ac;
+	border-radius: 0.5em;
+	font-size: 10px;
+    padding: 4px 7px;
+    color:#2747ac;
+}
+
+.hoverBuyBar	{
+	width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 94px;
+    border-top: 1px solid #ccc;
+    min-width: 1440px;
+    background-color: #fff;
+    z-index: 102;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.hBB_left	{
+	width: 210px;
+	display: contents;
+}
+
+.hBB_left p	{
+	margin-left: 80px;
+}
+
+.hBB_right	{
+	width: 700px;
+	margin-left: 200px;
+	display: flex;
+	align-items: center;
+}
+
+.RoundBox_s	{
+	width: 104px;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.RoundBox_s	button{
+	width: 25px;
+    height: 44px;
+	background-color: #fff0;
+	border: none;
+}
+
+.RoundBox_s	button:focus-visible{
+	background-color: #fff0;
+	border: 0px solid #fff0;
+}
+
+.RoundBox_m 	{
+	width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+}
+
+.RoundBox_l 	{
+	width: 120px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+}
+
+.homeIcon	{
+	display: block;
+    width: 22px;
+    height: 22px;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    background-size: 21px 19px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_home@2x.png);
+}	
+
+.cateBar	{
+	position: relative;
+    padding-top: 20px;
+    z-index: 102;
+    width: 1200px;
+	padding: 0;   
+	list-style: none;  
+    display: flex;
+    margin-top: 20px;
+    color: #767676;
+}
+
+.cateBar	a{
+	margin-left: 20px;
+	color: #767676;
+}
+
+#catePopup1	{
+	border: 1px solid #afafaf;
+    border-radius: 0.5em;
+    font-size: 15px;
+    color: #696969;
+    width: 90px;
+    margin-left: 60px;
+    height: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    margin-top: -10px;
+}
+
+#catePopup2	{
+	border: 1px solid #afafaf;
+	border-radius: 0.5em;
+	font-size: 15px;
+    color:#696969;
+    width:100px;
+    margin-left: 170px;
+    height: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin-top: -10px;
+}
+
+#catePopup1	a{
+    padding: 1px;
+    color: #767676;
+}
+
+#catePopup2	a{
+    padding: 1px;
+    color: #767676;
+}
+
+:focus-visible{
+	background-color: #fff0;
+	border: 0px solid #fff0;
+}
+
+
+/*  BookDetailCss  --End--*/
+
+
 	/*# sourceMappingURL=theme.min.css.map */

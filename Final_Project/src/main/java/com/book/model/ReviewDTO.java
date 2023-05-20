@@ -13,6 +13,6 @@ public class ReviewDTO {
 	private String reviewTitle;
 	private String reviewFile;
 	private String reviewRegdate;
-	
+	private int bookNo;
 
 }
