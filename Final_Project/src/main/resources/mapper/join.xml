@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="joindao">
+	
+	<insert id="generalJoin" parameterType="memberdto">
+	    <selectKey resultType="int" keyProperty="memberNo" order="BEFORE">
+	        select count(memberNo) from member
+	    </selectKey>
+	
+	    <choose>
+	        <when test="marketingOk != null and marketingOk.length == 3">
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'all')
+	        </when>
+	        <when test="marketingOk != null and ('all' in marketingOk and 'sms' in marketingOk)">
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'sms')
+	        </when>
+	        <when test="marketingOk != null and ('all' in marketingOk and 'email' in marketingOk)">
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'email')
+	        </when>
+	        <when test="marketingOk == null">
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'no')
+	        </when>
+	    </choose>
+	</insert>
+
+	
+	<select id="checkId" parameterType="String" resultType="int">
+		select count(*) from member where memberId = #{memberId}
+	</select>
+	
+	<select id="checkEmail" parameterType="String" resultType="int">
+		select count(*) from member where memberEmail = #{memberEmail}
+	</select>
+	
+	<!-- 회원가입 시 이메일 인증을 위한 랜덤번호 저장 -->
+	<update id="updateMailKey" parameterType="memberdto">
+	    update member set mailKey = #{mailKey} where memberEmail = #{memberEmail} and memberId = #{memberId}
+	</update>
+</mapper>
+
+

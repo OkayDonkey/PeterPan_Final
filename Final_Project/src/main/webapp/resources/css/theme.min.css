@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800");
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url("//fonts.googleapis.com/earlyaccess/nanumgothic.css");
 
 .nanumgothic * {
  font-family: 'Nanum Gothic', sans-serif;
@@ -6042,7 +6042,6 @@ a.badge-dark.focus {
 	-webkit-transition: width 0.6s ease;
 	transition: width 0.6s ease;
 	border-radius: 1em;
-	
 }
 
 @media (prefers-reduced-motion : reduce) {
@@ -7017,6 +7016,12 @@ a.close.disabled {
 	height: calc(800px * 0.5);
 }
 
+.carousel-bookImg{
+	position: relative;
+	width: 300px;
+	height: calc(800px * 0.5);
+}
+
 .carousel.pointer-event {
 	-ms-touch-action: pan-y;
 	touch-action: pan-y
@@ -7048,8 +7053,6 @@ a.close.disabled {
 	transition: transform .6s ease-in-out;
 	transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out
 }
-
-
 
 .carousel-item img {
 	max-height: 100%;
@@ -16820,7 +16823,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	border: none;
 }
 
-.RoundBox_s	button:focus{
+.RoundBox_s	button:focus-visible{
 	background-color: #fff0;
 	border: 0px solid #fff0;
 }
@@ -16907,6 +16910,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     color: #767676;
 }
 
+:focus-visible{
+	background-color: #fff0;
+	border: 0px solid #fff0;
+}
 
 
 /*  BookDetailCss  --End--*/

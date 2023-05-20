@@ -1,0 +1,488 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+}
+
+#wrap {
+  width: 480px;
+  height: 100%;
+  min-height: 808px;
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+
+#header {
+  background-color: #f8f8f8;
+  text-align: center;
+  display: block;
+  letter-spacing: -0.6px;
+}
+
+#header h1 {
+    padding: 15px 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 0;
+}
+
+.agency_select {
+    padding-top: 28px;
+}
+
+.ui_cover {
+    padding-right: 17px;
+    padding-left: 17px;
+    border: 0;
+}
+
+.agency_select > p {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.agency_select .agency_select__items {
+    display: block;
+    width: 310px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.agency_select ul.agency_select__items > li {
+    max-width: 149px;
+    border-radius: 50%;
+}
+
+.agency_select ul > li {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 149px;
+}
+
+input:checked[type="checkbox"], input:checked[type="radio"] {
+    background-color: transparent;
+}
+
+.agency_select input {
+    width: 1px;
+    height: 1px;
+    border: 0;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    left: -9999em;
+    clip: rect(0, 0, 0, 0);
+}
+
+input[type="radio"] {
+    -webkit-appearance: radio;
+}
+
+input, textarea, button, select {
+    -webkit-appearance: none;
+    border-radius: 0;
+    font-size: 18px;
+    font-family: '맑은 고딕', 'Malgun gothic', '돋움', dotum, Arial, Sans-serif;
+    letter-spacing: -1px;
+}
+
+.agency_select ul.agency_select__items label {
+    border: 1px solid #e1e1e1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ui_align_mid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+.ui_align_mid:before {
+    height: 100%;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+}
+
+.ui_align_mid .ele {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto 0 -1px;
+}
+
+.agency_select ul label.ui_align_mid.checked .ele img.firstChild {
+    display: block;
+    width: 100px;
+}
+
+.agency_select ul label.ui_align_mid .ele img.firstChild {
+    display: none;
+}
+
+.agency_select ul li:first-child img {
+    width: 105px;
+}
+
+.agency_select ul label img {
+    pointer-events: none;
+    cursor: pointer;
+}
+
+img {
+    height: auto;
+    vertical-align: top;
+}
+
+.agency_select ul label.ui_align_mid.checked .ele img.lastChild {
+    display: none;
+}
+
+.agency_select ul input+label.checked .current {
+    position: absolute;
+    top: -55px;
+    right: -13px;
+    bottom: -3px;
+    left: -27px;
+    width: 141%;
+    height: 364%;
+    border: 4px solid #FF3A4A;
+    box-sizing: content-box;
+    border-radius: 50%;
+}
+
+.agency_select ul.agency_select__items > li:nth-child(2n) {
+    margin-left: 12px;
+}
+
+.agency_select .agreelist {
+    width: 100%;
+    margin-top: 14px;
+    padding-inline-start: 0;
+}
+
+.agency_select .agreelist.all li {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+
+.agency_select .agreelist li {
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 7px;
+}
+
+.agency_select ul.agency_select__items > li:nth-child(n+3) {
+    margin-top: 12px;
+}
+
+.checkbox {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.agency_select .agreelist .checkbox {
+    vertical-align: top;
+}
+
+.agency_select input {
+    width: 1px;
+    height: 1px;
+    border: 0;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    left: -9999em;
+    clip: rect(0, 0, 0, 0);
+}
+
+.agency_select .agreelist.all .checkbox.check2 input+label {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox.check2 input+label {
+    display: inline-block;
+    padding-left: 0;
+    background-image: url(https://img4.kmcert.com/kmcis/new_web/img/checkbox_check2.png);
+    background-size: cover;
+}
+
+.checkbox.check2 input+label {
+    width: 12px;
+    height: 12px;
+    margin-right: 7px;
+    margin-top: 3px;
+    vertical-align: top;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    cursor: pointer;
+}
+
+agency_select .agreelist label {
+    border: 0;
+}
+
+.agency_select .agreelist.all li label+label {
+    font-weight: 700;
+    color: #222 !important;
+    font-size: 20px;
+    letter-spacing: -1px;
+    vertical-align: top;
+}
+
+.agency_select .agreelist.all+.agreelist {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.agency_select .agreelist .checkbox.check2 button {
+    color: #666;
+    font-size: 13px;
+    font-weight: 350;
+    text-align: left;
+    padding: 0;
+
+}
+
+.checkbox.check2 button {
+    position: relative;
+    font-size: 13px;
+    color: #4a4a4a;
+    vertical-align: top;
+    padding-bottom: 3px;
+    text-align: left;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    -webkit-appearance: none;
+}
+
+.btn_agree_popup {
+    border-bottom: 1px solid #666;
+    padding-bottom: 1px;
+}
+
+.agency_select .btn_skip {
+    width: 100%;
+}
+
+.btn_type6 {
+    background-color: #e9e9e9;
+    border-color: #cbcbcb;
+    color: #666;
+}
+
+.btn_r {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    line-height: 18px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.agency_select .btn_skip2 {
+    margin-top: 8px;
+}
+
+.agency_select:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.footer_kmc {
+    width: 100%;
+    line-height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 10px;
+    color: #9b9b9b;
+    font-size: 8pt;
+    background: url(https://img4.kmcert.com/kmcis/comm/images_v2/img/logo_kmc2.png) no-repeat 96% center #efefef;
+}
+
+.footer_kmc a {
+    font-size: 8pt;
+    color: #4F4F4F;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+
+a:link {
+    text-decoration: none;
+    color: #979797;
+}
+
+.checkbox.check2 input+label.checked {
+    background-image: url(https://img4.kmcert.com/kmcis/new_web/img/checkbox_check2_on_2.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+h4 {
+    border-bottom: 2px solid #FF3A4A;
+    background-color: white;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.certifyWrap_02 {
+    padding-top: 0;
+}
+
+.certifyWrap {
+    padding: 30px;
+}
+
+.certify_user2 .frm_type>li.name {
+    margin-top: 18px;
+}
+
+.certify_user2 li h3 {
+    margin: 0;
+    padding: 13px 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: #111;
+}
+
+.certify_user2 .input {
+    width: 100%;
+    height: 50px;
+    padding: 3px 14px 0;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.certify_user2 .input input {
+    height: 40px;
+    font-size: 18px;
+    color: #000;
+    border: 0;
+    padding: 0;
+    width: 100%;
+}
+
+fieldset {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding-block-end: 0;
+    min-inline-size: min-content;
+    border-width: 0;
+}
+
+.certi_btn_area {
+    margin-top: 18px;
+}
+
+.btn_area2.bt2 li:first-child {
+    width: 50%;
+}
+
+.btn_area2 button {
+    width: 100%;
+}
+
+.btn_type6 {
+    background-color: #e9e9e9;
+    border-color: #cbcbcb;
+    color: #666;
+}
+
+.btn_area2.bt2 li {
+    width: 50%;
+    overflow: visible;
+}
+
+.btn_area2 li {
+    float: left;
+    padding-left: 6px;
+}
+
+.btn_area2:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.btn_type3 {
+    background-color: #707070;
+    border-color: #707070;
+    color: #fff;
+}
+
+.okNobtn {
+    width: 100%;
+    height: 50px;
+    line-height: 18px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #707070;
+    border-color: #707070;
+    color: #fff;
+}
+
+.inputBtn {
+    display: flex;
+    justify-content: space-between;
+}
