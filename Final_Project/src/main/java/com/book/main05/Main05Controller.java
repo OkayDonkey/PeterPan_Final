@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.book.model.BookDAO;
+import com.book.bookmodel.BookDAO;
 import com.book.model.BookDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
