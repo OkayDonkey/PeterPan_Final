@@ -226,6 +226,7 @@ listItems.forEach(function (item, index) {
     zoomToMarker(markers[index]);
   });
 });
+
 //setOptions 메서드를 이용해 옵션을 조정할 수도 있습니다.
 map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
 map.setOptions("tileTransitionl", true);

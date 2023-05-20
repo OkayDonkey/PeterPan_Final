@@ -24,9 +24,9 @@
   		</select>
   		<select id="percentLike" parameterType="int" resultType="reviewPerDto">
   			SELECT
-			    (SELECT COUNT(*) FROM fianlB.like WHERE bookNo = 1) AS like_count,
-			    (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = 1) AS review_count,
-			    CONVERT((SELECT COUNT(*) FROM fianlB.like WHERE bookNo = 1) / (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = 1) * 100, UNSIGNED) AS like_percentage;
+			    (SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) AS like_count,
+			    (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) AS review_count,
+			    CONVERT((SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) / (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) * 100, UNSIGNED) AS like_percentage;
 		</select>
   		
 	</mapper>

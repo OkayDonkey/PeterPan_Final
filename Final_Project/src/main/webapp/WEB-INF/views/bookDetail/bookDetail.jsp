@@ -3,6 +3,11 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate"); // HTTP 1.1
+response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+response.setDateHeader("Expires", 0); // Proxies
+%>
 <!DOCTYPE html>
 <html>
 <link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
@@ -12,6 +17,7 @@
 <c:set var="reviewList" value="${review}"/>  	 
 <c:set var="perR" value="${PercentR}"/>  	 
 <title>${book.bookName} | ${book.bookWriter} - 피터팬</title>
+
 <!-- 부트스트랩 필수파일 -->
    
    <!-- 부트스트랩 JS -->
@@ -27,9 +33,66 @@
 </head>
 <body style="font-family: MICEGothic Bold; color:black; ">
 
+<!-- 구매 하단 호버 바 -->
+<div class="hoverBuyBar">
+	<div class="hBB_left">
+		<span class="mr-4">총 상품 금액</span>	
+		<p style="font-size: 1.6em; margin:0;">
+			<span style="font-size: 0.6em; color: gray; text-decoration: line-through;">
+				<span id="totalPrice2">${book.bookPrice} </span>원</span>		<!-- 도서 판매가 -->
+			<span style="color: #4dac27; font-size: 0.8em; ">10%</span>
+			<span id="totalPrice">${book.bookPrice}</span>원		<!-- 초기 가격 표시 -->
+		</p>
+	</div>
+	<div class="hBB_right">
+		<div class="RoundBox_s">
+			<div>
+				<button id="decrementBtn">-</button>
+			</div>
+			<div id="numberDisplay">1</div>
+			<div>
+				<button id="incrementBtn">+</button>
+			</div>
+		</div>
+		<div class="RoundBox_m">좋아요</div>
+		<div class="RoundBox_l">선물하기</div>
+		<div class="RoundBox_l">장바구니</div>
+		<div class="RoundBox_l">바로구매</div>
+	</div>
+</div>
 
 		<!-- 		Incloud Header Area		 -->
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
+
+<div >
+	<ul class="cateBar">
+		<li><a class="homeIcon" href="<%=request.getContextPath()%>/"></a></li>
+		<li><a href="#">${book.bookCategory }
+		<img style="width:18px; vertical-align: sub;" id="categoryIco1" src="resources/img/pointIco.png" onclick="resetActivePopup(),togglePopup('catePopup1', 'categoryIco1', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">&nbsp;/
+		</a></li>
+		<li><a href="#">${book.bookGenre }
+		<img style="width:18px; vertical-align: sub;" id="categoryIco2" src="resources/img/pointIco.png" onclick="resetActivePopup(),togglePopup('catePopup2', 'categoryIco2', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">&nbsp;
+		</a></li>
+	</ul>
+	<!-- 히든팝업1 -->
+	<div id="catePopup1" hidden >
+		<a href="#"><span>국내도서</span></a>
+		<a href="#"><span>해외도서</span></a>
+		<a href="#"><span>일본도서</span></a>
+	</div>
+	
+	<!-- 히든팝업2 -->
+	<div id="catePopup2" hidden>
+		<a href="#"><span>문학</span></a>
+		<a href="#"><span>역사</span></a>
+		<a href="#"><span>자기계발</span></a>
+		<a href="#"><span>취미</span></a>
+		<a href="#"><span>참고서</span></a>
+		<a href="#"><span>공포/호러</span></a>
+		<a href="#"><span>자기계발</span></a>
+	</div> 
+</div>
+
 		<h2 class="pt-4 pb-4 text-center">${book.bookName}</h2>
 	<div class="row justify-content-sm-between" style=" padding:10px;" >
 	
@@ -53,18 +116,21 @@
 				<p style="color: #4dac27;">추천해요</p>
 				<div class="prod_review_box">
 					<div class="col_review">
-						<div class="progress" style="background-color:#ffffff00;">
+						<div class="progress" style="background-color: #dbdbdbd1;border-radius: 1em;">
 							  <div class="progress-bar bg-success" role="progressbar" style="width:${perR.like_percentage}%; background-color: #6dd046!important;" aria-valuenow="${perR.like_percentage}" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 				
 					</div>
 				</div>	  	
 					<p style="font-family: MICEGothic Light; color: gray; font-size: 13px; margin-top:10px;">
-						<c:set var="columnCount" value="0" />
+						<c:set var="reviewCount" value="0" />
 							<c:forEach var="review" items="${reviewList}">
-							  <c:set var="columnCount" value="${columnCount + 1}" />
+							  <c:set var="reviewCount" value="${reviewCount + 1}" />
 							</c:forEach>
-						<c:out value="${columnCount}" />&nbsp;개의 리뷰 중 <fmt:formatNumber value="${perR.like_percentage}" pattern="###" />%의 구매자가 추천
+							<c:if test="${reviewCount == 0}">리뷰가 없습니다</c:if>
+							<c:if test="${reviewCount > 0}">
+								<c:out value="${reviewCount}" />&nbsp;개의 리뷰 중 <fmt:formatNumber value="${perR.like_percentage}" pattern="###" />%의 구매자가 추천
+							</c:if>
 					</p>
 				</div>
 		</div>
@@ -113,19 +179,19 @@
 					</div>
 					</c:if>
 				</div>
-				<a class="carousel-control-prev" href="#carouselBSExample"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon-gray" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a> <a class="carousel-control-next" href="#carouselBSExample"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon-gray" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
+					<a class="carousel-control-prev" href="#carouselBSExample"
+						role="button" data-slide="prev"> <span
+						class="carousel-control-prev-icon-gray" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#carouselBSExample"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon-gray" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
 
 			<div class="flex-column pt-5" style="width:330px;" style="font-family: MICEGothic Light">
-				<div style="border-bottom :1px solid #eaeaea; height: auto;" class="text-left">
+				<div style="height: auto;" class="text-left">
 				<c:if test="${book.bookWeekBest == 1 }">
 					<span class="smallTextBoxGreen">MD의 선택</span>
 					<span class="smallTextBoxGreen">주간 베스트TOP10</span>
@@ -260,7 +326,7 @@
 	            <ul class="tabs" >
 	                <li class="tab_item"><a href="#book_detail_info_event" ><span class="tab_text">이벤트</span></a></li>
 	                <li class="tab_item"><a href="#book_detail_info_img" ><span class="tab_text">상품정보</span></a></li>
-	                <li class="tab_item"><a href="#" ><span class="tab_text">리뷰(123)</span></a></li>
+	                <li class="tab_item"><a href="#" ><span class="tab_text">리뷰(${reviewCount})</span></a></li>
 	                <li class="tab_item" ><a href="#" ><span class="tab_text">교환/반품/품절</span></a></li>
 	            </ul>
        		</div>
@@ -301,6 +367,48 @@
     <script src="resources/js/theme.min.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5vpu3ugfk8"></script>
     <script src="resources/js/naverMap.js"></script>
-     
+     <script type="text/javascript">
+		 document.cookie = "safeCookie1=foo; SameSite=Lax";
+		 document.cookie = "crossCookie=bar; SameSite=None; Secure";
+	</script>
+	<script>
+	function updateTotalPrice() {
+		
+		  var originalPrice = ${book.bookPrice }; // 책의 판매가
+		  var discount = 0.1; // 할인율 (10%)
+		  var bookQuantity = parseInt(document.getElementById("numberDisplay").innerText); // 책의 권수
+
+		  var discountedPrice = originalPrice - (originalPrice * discount); // 할인 적용된 가격
+		  var unDiscountedPrice = originalPrice; // 할인 적용된 가격
+		  var totalPrice = discountedPrice * bookQuantity; // 총 상품 가격
+		  var totalPrice2 = unDiscountedPrice * bookQuantity; // 총 상품 가격
+
+		  document.getElementById("totalPrice").innerText = totalPrice.toLocaleString();
+		  document.getElementById("totalPrice2").innerText = totalPrice2.toLocaleString();
+		}
+
+		document.getElementById("decrementBtn").addEventListener("click", function() {
+		  var numberDisplay = document.getElementById("numberDisplay");
+		  var bookQuantity = parseInt(numberDisplay.innerText);
+
+		  if (bookQuantity > 1) {
+		    bookQuantity--;
+		    numberDisplay.innerText = bookQuantity;
+		    updateTotalPrice();
+		  }
+		});
+
+		document.getElementById("incrementBtn").addEventListener("click", function() {
+		  var numberDisplay = document.getElementById("numberDisplay");
+		  var bookQuantity = parseInt(numberDisplay.innerText);
+
+		  bookQuantity++;
+		  numberDisplay.innerText = bookQuantity;
+		  updateTotalPrice();
+		});
+
+		updateTotalPrice(); // 초기 총 상품 금액 업데이트
+
+</script>
 </body>
 </html>
