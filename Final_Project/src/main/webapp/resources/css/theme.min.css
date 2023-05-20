@@ -2347,7 +2347,7 @@ pre code {
 	color: #404040;
 	background-color: #fff;
 	background-clip: padding-box;
-	border: 2px solid #ff9326;
+	border: 2px solid  #40E0D0;
 	border-radius: 0;
 	-webkit-transition: border-color 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
 	transition: border-color 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
@@ -12121,6 +12121,7 @@ label:not(.form-check-label):not(.custom-control-label):not(.custom-file-label):
 }
 
 .navbar {
+	
 	z-index: 1030;
 	-webkit-transition: -webkit-box-shadow 0.25s ease-in-out;
 	transition: -webkit-box-shadow 0.25s ease-in-out;
@@ -12175,6 +12176,13 @@ label:not(.form-check-label):not(.custom-control-label):not(.custom-file-label):
 	position: absolute;
 	top: 0;
 	right: 0;
+	height: 100%
+}
+
+.navbar-btns1 {
+	position: absolute;
+	top: 0;
+	left: 300px;
 	height: 100%
 }
 
