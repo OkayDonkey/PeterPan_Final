@@ -20,4 +20,11 @@
 	    select count(*) from member where memberId = #{memberId} and mailAuth = 1
 	</select>
 	
+	<select id="snsLogincheck" parameterType="String" resultType="int">
+	    select count(*) from member where memberId = #{email}
+	</select>
+	
+	<select id="snsLogin" parameterType="String" resultType="memberdto">
+		select * from member where memberId = #{email}
+	</select>
 </mapper>

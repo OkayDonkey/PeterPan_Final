@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -162,5 +163,17 @@ public class JoinController {
 	    }
 	    
 	}
+	
+	@RequestMapping("snsJoin_phone_check.go")
+	public ResponseEntity<Integer> SNSJoinPhoneCheck(@RequestParam("okNo") int insertNo, HttpSession session) {
+		
+	    if (insertNo == (Integer) session.getAttribute("validateNo")) {
+	        session.removeAttribute("validateNo");
+	        return ResponseEntity.ok(1);
+	    } else {
+	        return ResponseEntity.ok(0);
+	    }
+	}
+
 	
 }

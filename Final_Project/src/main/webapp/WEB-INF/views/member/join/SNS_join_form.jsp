@@ -52,6 +52,8 @@
 				
 				<div class="form_wrap">
 					<form id="join_form" name="f" method="post" onsubmit="return check()" action="<%=request.getContextPath() %>/general_join_ok.go">
+					<input type="hidden" name="memberId" value="${kakaoEmail }">
+					<input type="hidden" name="memberPwd" value="snsPwd">
 						<div class="joinforminsert">
 							<div class="form_box">
 								<div class="form_title">
@@ -63,7 +65,7 @@
 									</label>
 								</div>
 								<div class="form_cont">
-									<input type="text" name="memberName" value="${memberName }" readonly class="form_ip" id="formJoin04" onkeyup="checkInput(this, 'name')" placeholder="이름을 입력해 주세요." maxlength="20">
+									<input type="text" name="memberName" value="${kakaoNickname }" class="form_ip" id="formJoin04" onkeyup="checkInput(this, 'name')" placeholder="이름을 입력해 주세요." maxlength="20">
 								</div>
 								<span id="namecheck" class="validcheck" style="display: none;"></span>
 							</div>
@@ -76,14 +78,16 @@
 										</span>
 									</label>
 								</div>
-								<div class="form_cont">
-									<div class="input_btn_box">
-										<input type="text" name="memberPhone" class="form_ip" id="formJoin05" onkeyup="checkInput(this, 'phone')" maxlength="11">
-										<button type="button" class="btn_ip btn_light_gray" onclick="sendPhone()">
-											<span>인증</span>
-										</button>
-									</div>
-									<span id="phonecheck" class="validcheck" style="display: none;"></span>
+								<div class="snsphonecheck">
+								  <div class="form_cont">
+								    <div class="input_btn_box">
+								      <input type="text" name="memberPhone" class="form_ip" id="formJoin05" placeholder="휴대폰번호를 입력해주세요." onkeyup="checkInput(this, 'phone')" maxlength="11">
+								      <button type="button" class="btn_ip btn_light_gray" onclick="SNSsendPhone()">
+								        <span>인증</span>
+								      </button>
+								    </div>
+								    <span id="phonecheck" class="validcheck" style="display: none;"></span>
+								  </div>
 								</div>
 							</div>
 							
@@ -100,7 +104,7 @@
 								</div>
 								<div class="form_cont">
 									<div class="form_cont">
-										<input type="text" name="memberEmail" readonly class="form_ip" id="formJoin06" onkeyup="checkInput(this, 'email')" placeholder="이메일을 입력해 주세요." maxlength="50">
+										<input type="text" name="memberEmail" value="${kakaoEmail }" readonly class="form_ip" id="formJoin06" onkeyup="checkInput(this, 'email')" placeholder="이메일을 입력해 주세요." maxlength="50">
 									</div>
 									<span id="emailcheck" class="validcheck" style="display: none;"></span>
 								</div>

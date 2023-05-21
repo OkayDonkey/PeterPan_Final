@@ -54,7 +54,7 @@ public class LoginServiceImpl implements LoginService{
 			
 			sb.append("grant_type=authorization_code");
 			sb.append("&client_id=741eb3ae7fa62ff6c3ce720118cad209"); //본인이 발급받은 key
-			sb.append("&redirect_uri=http://localhost:8585/main/SNS_join_form.go"); // 본인이 설정한 주소
+			sb.append("&redirect_uri=http://localhost:8585/main/kakao_login_ok.go"); // 본인이 설정한 주소
 			sb.append("&code=" + authorize_code);
 			
 			bw.write(sb.toString());

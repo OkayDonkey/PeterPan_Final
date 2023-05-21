@@ -1,3 +1,6 @@
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -65,10 +68,19 @@
 				<div class="sns_login_box">
 					<ul class="sns_login_list">
 						<li class="sns_login_item">
-							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/naver_login.go'">
-								<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
-								<span class="hidden">네이버로그인</span>
-							</button>
+						
+						<%
+						    String clientId = "eTDbNDf4IbCBkdCrvj09";//애플리케이션 클라이언트 아이디값";
+						    String redirectURI = URLEncoder.encode("http://localhost:8585/main/naver_login_ok.go", "UTF-8");
+						    SecureRandom random = new SecureRandom();
+						    String state = new BigInteger(130, random).toString();
+						    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+						    apiURL += "&client_id=" + clientId;
+						    apiURL += "&redirect_uri=" + redirectURI;
+						    apiURL += "&state=" + state;
+						    session.setAttribute("state", state);
+						 %>
+						 <a href="<%=apiURL%>"><img height="56" src="${path }/resources/css/images/logo/naver_logo.png"/></a>
 						</li>
 						<li class="sns_login_item">
 							<button type="button" class="btn_sns_login" onclick="kakaoLogin()">
@@ -84,8 +96,13 @@
 						</li>
 					</ul>
 					
+					<!-- 카카오 로그인 -->
 					<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 					<script type="text/javascript" src="resources/js/member/kakaoLogin.js"></script>
+					
+					<!-- 네이버 로그인 -->
+					<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+					<script type="text/javascript" src="resources/js/member/naverLogin.js"></script>
 					
 					<p class="p_content">
 						개인정보 보호를 위해 공용 pc에서 사용 시 SNS계정의 로그아웃

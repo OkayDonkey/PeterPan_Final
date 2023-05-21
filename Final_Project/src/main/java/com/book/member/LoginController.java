@@ -90,14 +90,14 @@ public class LoginController {
 		String reqUrl = 
 				"https://kauth.kakao.com/oauth/authorize"
 				+ "?client_id=741eb3ae7fa62ff6c3ce720118cad209"
-				+ "&redirect_uri=http://localhost:8585/main/SNS_join_form.go"
+				+ "&redirect_uri=http://localhost:8585/main/kakao_login_ok.go"
 				+ "&response_type=code";
 		
 		return reqUrl;
 	}
 	
-	@RequestMapping("SNS_join_form.go")
-	public String kakaoLogin(@RequestParam(value = "code", required = false) String code) throws Exception {
+	@RequestMapping("kakao_login_ok.go")
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, Model model, HttpSession httpSession) throws Exception {
 		
 		System.out.println("#########" + code);
 		
@@ -105,11 +105,42 @@ public class LoginController {
 		
 		HashMap<String, Object> userInfo = loginService.getUserInfo(access_Token);
 		
-		System.out.println("###access_Token#### : " + access_Token);
-		System.out.println("###nickname#### : " + userInfo.get("nickname"));
-		System.out.println("###email#### : " + userInfo.get("email"));
+		String nickname = (String) userInfo.get("nickname");
+		String email = (String) userInfo.get("email");
 		
-		return "member/join/SNS_join_form";
-    	}
+		System.out.println("###kakao_access_Token#### : " + access_Token);
+		System.out.println("###kakao_nickname#### : " + userInfo.get("nickname"));
+		System.out.println("###kakao_email#### : " + userInfo.get("email"));
+		
+		int isLoggedIn = this.dao.checkLoginStatus(email);
+		
+		if(isLoggedIn == 1) {
+			MemberDTO dto = this.dao.SNSLogin(email);
+			
+			// 이메일 인증 했는지 확인
+		    if (loginService.emailAuthFail(dto.getMemberId()) != 1) {
+		        System.out.println("이메일 인증 안됨");
+		        String errorMessage = "이메일 인증 후 로그인 해주세요.";
+		        model.addAttribute("errorMessage", errorMessage);
+		        return "member/login";
+		    }
+			
+			httpSession.setAttribute("session", dto);
+			
+			return "redirect:/";
+		} else {
+			model.addAttribute("kakaoNickname", nickname);
+			model.addAttribute("kakaoEmail", email);
+			
+			return "member/join/SNS_join_form";
+		}
+		
+    }
+	
+	@RequestMapping("naver_login_ok.go")
+	public String naverLohinOk() {
+		
+		return "redirect:/";
+	}
 	
 }
