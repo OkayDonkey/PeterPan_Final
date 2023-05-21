@@ -15,24 +15,21 @@ response.setDateHeader("Expires", 0); // Proxies
 <meta charset="UTF-8">
 <c:set var="book" value="${Cont}"/>  	 
 <c:set var="reviewList" value="${review}"/>  	 
-<c:set var="perR" value="${PercentR}"/>  	 
+<c:set var="perR" value="${PercentR}"/>
+<c:set var="session" value="${session }" />  	 
 <title>${book.bookName} | ${book.bookWriter} - 피터팬</title>
 
 <!-- 부트스트랩 필수파일 -->
-   
    <!-- 부트스트랩 JS -->
-    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     
    <!-- 부트스트랩 CSS -->
    <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
    <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
-   
 <!-- 부트스트랩 필수파일 END-->
 </head>
 <body style="font-family: MICEGothic Bold; color:black; ">
-
 <!-- 구매 하단 호버 바 -->
 <div class="hoverBuyBar">
 	<div class="hBB_left">
@@ -47,16 +44,18 @@ response.setDateHeader("Expires", 0); // Proxies
 	<div class="hBB_right">
 		<div class="RoundBox_s">
 			<div>
-				<button id="decrementBtn">-</button>
+				<button id="decrementBtn" class="decrementBtn">-</button>
 			</div>
 			<div id="numberDisplay">1</div>
 			<div>
-				<button id="incrementBtn">+</button>
+				<button id="incrementBtn" class="incrementBtn">+</button>
 			</div>
 		</div>
-		<div class="RoundBox_m">좋아요</div>
-		<div class="RoundBox_l">선물하기</div>
-		<div class="RoundBox_l">장바구니</div>
+		<div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
+  			<img id="heartIcon" src="resources/img/heart.png" width="23px;">
+		</div>
+
+		<div class="RoundBox_l_white">장바구니</div>
 		<div class="RoundBox_l">바로구매</div>
 	</div>
 </div>
@@ -304,9 +303,9 @@ response.setDateHeader("Expires", 0); // Proxies
 			      			<div id="map" style="width:600px;height:500px; border-radius: 0.4em;"></div>
 			      		</div>
 				      	<div style="width: 400px; padding: 20px 10px;" class="container align-content-center">
-				      		<div id="innerStoreInfo" style="   max-height: 500px; /* 표시할 최대 높이 조정 */
-																		  overflow-y: auto; /* 수직 스크롤 활성화 */
-																		  border: 1px solid #ccc; /* 박스 테두리 설정 */
+				      		<div id="innerStoreInfo" style="   max-height: 500px; 
+																		  overflow-y: auto; 
+																		  border: 1px solid #ccc; 
 																		  padding: 10px;
 																		  border-radius: 0.4em;"></div>
 				      		<p style="font-size: 13px;">*서울시에 있는 교보문고를 기준으로 생성한 지도입니다.</p>
@@ -362,15 +361,12 @@ response.setDateHeader("Expires", 0); // Proxies
 
 		<!-- 		Incloud Footer Area		 -->
 		
-	<script src="resources/js/bookDetail.js"></script>	
+	<script src="resources/js/book/bookDetail.js"></script>	
     <script src="resources/js/vendor.min.js"></script>
     <script src="resources/js/theme.min.js"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5vpu3ugfk8"></script>
-    <script src="resources/js/naverMap.js"></script>
-     <script type="text/javascript">
-		 document.cookie = "safeCookie1=foo; SameSite=Lax";
-		 document.cookie = "crossCookie=bar; SameSite=None; Secure";
-	</script>
+    <script src="resources/js/book/naverMap.js"></script>
+ 
 	<script>
 	function updateTotalPrice() {
 		

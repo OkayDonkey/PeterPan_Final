@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.book.bookmodel.BookDAO;
 import com.book.model.BookDTO;
+import com.book.model.DibsDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
 
@@ -37,6 +38,7 @@ public class Main05Controller {
 	    
 	    ReviewPercentDTO RPDto = this.dao.getPercentReview(bookNo);
 	    System.out.println("리뷰-좋아요, 추천 % 데이터:"+RPDto);
+	    System.out.println();
 	    
 	    Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE, 2);
@@ -54,7 +56,7 @@ public class Main05Controller {
 
 	    return "bookDetail/bookDetail";
 	}
-
 	
+
 	
 }

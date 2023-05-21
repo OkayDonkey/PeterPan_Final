@@ -16692,7 +16692,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 .sps_inner {
     width: 1250px;
-    margin: 0 auto;
+    margin: 35px auto;
     height: 100%;
     border-bottom: 1px solid #eaeaea;
 }
@@ -16753,7 +16753,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .smallTextBox	{
 	border: 1px solid #696969;
 	border-radius: 0.5em;
-	font-size: 10px;
+	font-size: 12px;
     padding: 4px 7px;
     color:#696969;
     
@@ -16762,7 +16762,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .smallTextBoxGreen	{
 	border: 1px solid #4dac27;
 	border-radius: 0.5em;
-	font-size: 10px;
+	font-size: 12px;
     padding: 4px 7px;
     color:#4dac27;
 }
@@ -16770,7 +16770,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .smallTextBoxBlue	{
 	border: 1px solid #2747ac;
 	border-radius: 0.5em;
-	font-size: 10px;
+	font-size: 12px;
     padding: 4px 7px;
     color:#2747ac;
 }
@@ -16800,8 +16800,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 
 .hBB_right	{
-	width: 700px;
-	margin-left: 200px;
+	width: 500px;
+	margin-left: 400px;
 	display: flex;
 	align-items: center;
 }
@@ -16833,6 +16833,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     height: 50px;
     border: 1px solid #ccc;
     border-radius: 0.3em;
+    margin-left: 15px;
+     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .RoundBox_l 	{
@@ -16840,6 +16844,37 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     height: 50px;
     border: 1px solid #ccc;
     border-radius: 0.3em;
+    margin-left: 6px;
+    display: flex;
+    align-items: center;
+    background: #5055b1;
+    border: 1px px solid #5055b1;
+    justify-content: center;
+    color: white;
+}
+
+.RoundBox_l:hover 	{
+    background: #2c307c;
+    transition: background-color 0.4s ease-out, border-color 0.4s ease-out;
+}
+
+
+.RoundBox_l_white 	{
+	width: 120px;
+    height: 50px;
+    border: 1px solid #5055b1;
+    border-radius: 0.3em;
+    margin-left: 6px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    justify-content: center;
+    color:#5055b1;
+}
+
+.RoundBox_l_white:hover 	{
+    background: #0000000f;
+    transition: background-color 0.4s ease-out, border-color 0.4s ease-out;
 }
 
 .homeIcon	{
@@ -16910,10 +16945,20 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     color: #767676;
 }
 
-:focus-visible{
-	background-color: #fff0;
-	border: 0px solid #fff0;
-}
+ .decrementBtn{
+	border: 0px solid #fff0 !important;
+	border-radius: 0 !important;
+	outline: none !important;
+} 
+
+ .incrementBtn{
+	border: 0px solid #fff0 !important;
+	border-radius: 0 !important;
+	outline: none !important;
+} 
+
+
+
 
 
 /*  BookDetailCss  --End--*/
