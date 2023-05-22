@@ -34,4 +34,15 @@ public class BookDAOImpl implements BookDAO {
 		return this.sqlSession.selectOne("percentLike", bookNo);
 	}
 	
+	@Override
+	public List<BookDTO> getbooklist() {
+	return this.sqlSession.selectList("main_all");
+	}
+	
+	@Override
+	public List<BookDTO> getbestlist() {
+	return this.sqlSession.selectList("best_all");
+	}
+
+	
 }

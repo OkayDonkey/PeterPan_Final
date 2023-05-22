@@ -6,27 +6,35 @@
 <configuration>
   
   <typeAliases>
-	
-	
-	<typeAlias type="com.book.main04DAO.BookDAO" alias="main_bookDao"/>
-	<typeAlias type="com.book.model.BookDTO" alias="main_bookDto"/>
+  
+  
+	<!-- book -->
 	<typeAlias type="com.book.model.CartDTO" alias="cartDto"/>
-<!-- 	<typeAlias type="com.book.main08DAO.MemmberDAO" alias="memberDao"/> -->
-	<typeAlias type="com.book.main08DAO.CartDAO" alias="cartDao"/>
+  	<typeAlias type="com.book.model.BookDTO" alias="bookDto"/>	
+	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		
+  	<typeAlias type="com.book.model.ReviewPercentDTO" alias="reviewPerDto"/>		
+  	<typeAlias type="com.book.model.DibsDTO" alias="DibsDto"/>		
+	
+	<typeAlias type="com.book.bookmodel.CartDAO" alias="cartDao"/>
+  	<typeAlias type="com.book.bookmodel.BookDAO" alias="bookDao"/>
+	<!-- book End-->
 	
 	
-	
-  	<typeAlias type="com.book.bookmodel.BookDAO" alias="bookDao"/>	<!-- Book -->
-  	<typeAlias type="com.book.model.BookDTO" alias="bookDto"/>		<!-- Book -->
-  	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		<!-- Book -->
-  	<typeAlias type="com.book.model.ReviewPercentDTO" alias="reviewPerDto"/>		<!-- Book -->
-  	<typeAlias type="com.book.model.DibsDTO" alias="DibsDto"/>		<!-- Book -->
-  	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
-  	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
-  	<typeAlias type="com.book.memberDAO.LoginDAO" alias="logindao" />
-  	<typeAlias type="com.book.memberDAO.JoinDAO" alias="joindao" />
+	<!-- member -->
    	<typeAlias type="com.book.model.MemberDTO" alias="memberdto" />
  	<typeAlias type="com.book.model.LoginDTO" alias="logindto"/>
+	
+	<typeAlias type="com.book.membermodel.LoginDAO" alias="logindao" />
+  	<typeAlias type="com.book.membermodel.JoinDAO" alias="joindao" />
+	<!-- member End-->
+	
+	<!-- board -->
+  	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
+
+  	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
+	<!-- board End-->
+  	
+  
   </typeAliases>
   
 </configuration>

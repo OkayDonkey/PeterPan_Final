@@ -18,10 +18,10 @@ public class DibDAOImpl implements DibDAO{
 		return this.sqlSession.selectOne("DibCheck", memberNo);
 	}
 	
-	@Override
-	public int insertDibs(int memberNo) {
-		// TODO Auto-generated method stub
-		return this.sqlSession.insert("", parameter);
-	}
+@Override
+public int insertDibs(int memberNo) {
+	// TODO Auto-generated method stub
+	return 0;
+}
 	
 }	

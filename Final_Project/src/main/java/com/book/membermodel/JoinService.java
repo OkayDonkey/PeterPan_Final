@@ -1,4 +1,4 @@
-package com.book.memberDAO;
+package com.book.membermodel;
 
 import javax.servlet.http.HttpSession;
 

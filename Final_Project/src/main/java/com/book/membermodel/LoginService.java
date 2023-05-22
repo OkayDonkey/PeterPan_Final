@@ -1,4 +1,4 @@
-package com.book.memberDAO;
+package com.book.membermodel;
 
 import java.util.HashMap;
 

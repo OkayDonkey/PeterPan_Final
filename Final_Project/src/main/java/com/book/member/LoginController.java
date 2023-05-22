@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.book.memberDAO.LoginDAO;
-import com.book.memberDAO.LoginService;
+import com.book.membermodel.LoginDAO;
+import com.book.membermodel.LoginService;
 import com.book.model.LoginDTO;
 import com.book.model.MemberDTO;
 

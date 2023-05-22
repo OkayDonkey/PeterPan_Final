@@ -13,4 +13,9 @@ public interface BookDAO {
 	List<ReviewDTO> getReviewCont(int bookNo);
 
 	ReviewPercentDTO getPercentReview(int bookNo);
+	
+	List<BookDTO> getbooklist();
+	
+	List<BookDTO> getbestlist();
+
 }

@@ -4,39 +4,8 @@
 
 <html>
 <head>
-	<title>Home</title>
-</head>
-
-
-
-<body>
-
-<a href="<%=request.getContextPath()%>/boardPage.go">[게시판]</a>
-<h1><a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=1">1번 책 상세정보</a></h1>
-
-                                                                                                                                                            
-<h1>Hello world!</h1>
-
-<c:set var="session" value="${session }" />
-<c:if test="${session.memberNo == null }">
-	<input type="button" value="로그인" onclick="location.href='login.go'">
-</c:if>
-
-<c:if test="${session.memberNo != null }">
-	<input type="button" value="로그아웃" onclick="location.href='logout.go'">
-</c:if>
-
-<P>The time on the server is ${serverTime}. </P>
-
-<jsp:include page="./top/footer.jsp" />
-
-<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <!--슬라이드 css 시작 -->
 <!-- CSS -->
-
-
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
@@ -45,15 +14,18 @@
 <link rel="stylesheet" type ="text/css" href ="resources/css/main/main.css">
 
 
-
-<title>Home</title>
-
-
 </head>
 
 
+
 <body>
- 	 	<jsp:include page="./top/top.jsp" /> 
+
+
+                                                                                                                                                          
+
+
+
+	<jsp:include page="./top/top.jsp" /> 
 			<!-- 슬라이드부 start -->
 			<div class="slide_div_wrap" >
 				<div class="slide_div">
@@ -146,7 +118,7 @@
 										<thead>
 											<tr>
 												<th>
-													<a>
+													<a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${B_dto.bookNo}">
 														<img id="book_img" src="${B_dto.bookCover}">
 													</a>
 												</th>

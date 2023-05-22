@@ -16,13 +16,13 @@
      namespace 명은 mapper 들을 구분하는데 식별자로 사용이 됨.     
 -->
   
-<mapper namespace="main_bookDao">
+<mapper namespace="bookDao">
 
-	<select id="main_all" resultType="main_bookDto">
+	<select id="main_all" resultType="bookDto">
 		select * from book order by bookRelDate desc;	
 	</select>
 
-	<select id="best_all" resultType="main_bookDto">	
+	<select id="best_all" resultType="bookDto">	
 		select * from book order by bookLike desc
 	
 	</select> 

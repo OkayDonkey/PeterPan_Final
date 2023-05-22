@@ -1,4 +1,4 @@
-package com.book.main05;
+package com.book.book;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,7 +33,7 @@ public class DibsController {
 			System.out.println("좋아요 데이터 있음");
 		}else {	// 로그인 데이터가 없거나 좋아요 데이터가 없을 때
 			System.out.println("좋아요 데이터 없음");
-			this.dao
+			
 		}
 		
 	}

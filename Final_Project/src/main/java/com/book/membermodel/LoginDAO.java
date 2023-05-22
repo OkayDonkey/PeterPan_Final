@@ -1,4 +1,4 @@
-package com.book.memberDAO;
+package com.book.membermodel;
 
 import com.book.model.LoginDTO;
 import com.book.model.MemberDTO;

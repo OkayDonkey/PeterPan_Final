@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.book.memberDAO.JoinDAO;
-import com.book.memberDAO.JoinService;
+import com.book.membermodel.JoinDAO;
+import com.book.membermodel.JoinService;
 import com.book.model.MemberDTO;
 
 @Controller

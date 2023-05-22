@@ -1,4 +1,4 @@
-package com.book.main08;
+package com.book.book;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.book.main08DAO.CartDAO;
+import com.book.bookmodel.CartDAO;
 import com.book.model.CartDTO;
 
 @Controller
