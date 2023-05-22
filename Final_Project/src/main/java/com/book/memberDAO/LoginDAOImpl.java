@@ -27,4 +27,14 @@ public class LoginDAOImpl implements LoginDAO{
 	public int emailAuthFail(String id) throws Exception {
 		return sqlSession.selectOne("emailAuthFail", id);
 	}
+
+	@Override
+	public int checkLoginStatus(String email) {
+		return sqlSession.selectOne("snsLogincheck", email);
+	}
+
+	@Override
+	public MemberDTO SNSLogin(String email) {
+		return sqlSession.selectOne("snsLogin", email);
+	}
 }

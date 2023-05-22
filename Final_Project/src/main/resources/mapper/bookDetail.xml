@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  
+	DTD(Document Type Definition)
+	
+	- 작성한 문서가 어떤 문서인지에 대해서 정의해 놓은 것
+	- 하나의 시스템 내에서 사용할 xml 데이터의 구조를 정의하여 유효성을 점검 시 사용하는 태그
+-->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 
+  	namespace 명은 패키지명을 포함하여 DAO 인터페이스 이름으로 작성하는 것이 관려임 
+  	namespace 명은 mapper들을 구분하는데 식별자로 사용이됨
+  -->
+  	<mapper namespace="bookDao">
+  	
+  		<select id="detail" parameterType="int" resultType="bookDto" >
+  			select * from book where bookNo = #{bookNo}
+  		</select>
+  		<select id="reviewCont" parameterType="int" resultType="reviewDto">
+  			select * from review where bookNo = #{bookNo}
+  		</select>
+  		<select id="percentLike" parameterType="int" resultType="reviewPerDto">
+  			SELECT
+			    (SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) AS like_count,
+			    (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) AS review_count,
+			    CONVERT((SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) / (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) * 100, UNSIGNED) AS like_percentage;
+		</select>
+  		
+	</mapper>
+  

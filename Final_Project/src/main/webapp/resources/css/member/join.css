@@ -596,3 +596,208 @@ input:checked + label:before {
   margin-left: 5px;
   color: red;
 }
+
+.wrapper.member_login .container_wrapper .contents_wrap {
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 0;
+}
+
+.ico_info_wrap {
+    display: block;
+    text-align: center;
+}
+
+.ico_info_wrap .ico_img_box {
+    margin-bottom: 20px;
+}
+
+.ico_info_wrap .ico_img_box [class^=ico_] {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ico_member_restore {
+    display: inline-block;
+    width: 69px;
+    height: 52px;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    background-size: 69px 52px;
+    background-image: url(../images/common/ink/ico_member_restore@2x.png);
+}
+
+element.style {
+}
+.ico_info_wrap .ico_img_box [class^=ico_] {
+    display: inline-block;
+    vertical-align: top;
+}
+.ico_member_restore {
+    display: inline-block;
+    width: 69px;
+    height: 52px;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    background-size: 69px 52px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_member_restore@2x.png);
+}
+.ico_info_wrap {
+    display: block;
+    text-align: center;
+}
+
+.ico_info_wrap .ico_text_box .ico_title {
+    display: block;
+    color: #000;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box {
+    margin-top: 40px;
+    padding: 31px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_name_box {
+    word-break: break-all;
+    font-size: 0;
+    text-align: center;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_name_box .id_name {
+    display: inline-block;
+    color: #000;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_info_box {
+    display: block;
+    margin-top: 7px;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_info_box .id_info_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    font-size: 0;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_info_box .id_info_inner .id_info {
+    display: inline-block;
+    color: #767676;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_info_box .id_info_inner .id_info .date {
+    font-weight: 500;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap .id_result_single_box .id_text_wrap .id_info_box .id_info_inner .gap {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    margin: 0 8px 0;
+    background-color: #d5d5d5;
+    font-size: 0;
+    vertical-align: top;
+}
+
+.btn_wrap.justify {
+    display: flex;
+}
+
+.btn_wrap.page_bottom {
+    margin-top: 40px;
+    border: none;
+}
+
+.btn_wrap {
+    display: block;
+    font-size: 0;
+    text-align: center;
+}
+
+.btn_wrap.justify [class^=btn_] {
+    flex: 1;
+    min-width: auto;
+}
+
+a.btn_line_primary, button.btn_line_primary {
+    color: #474c98;
+    border: 1px solid #5055b1;
+    background: #fff;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+a.btn_lg, button.btn_lg {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    min-width: 200px;
+    height: 50px;
+    padding: 0 23px 1px;
+    border-radius: 6px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.btn_wrap.justify [class^=btn_] + [class^=btn_] {
+    margin-left: 6px;
+}
+
+a.btn_primary, button.btn_primary, a.btn_line_primary.active, button.btn_line_primary.active {
+    color: #fff;
+    background: #5055b1;
+    border: 1px solid #5055b1;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+
+

@@ -1,3 +1,6 @@
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -10,6 +13,16 @@
 <title>피터팬/로그인</title>
 <link rel="stylesheet" href="${path }/resources/css/member/login.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/join.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    // 오류 메시지가 존재할 경우 알림창을 띄움
+    var errorMessage = "${errorMessage}";
+    if (errorMessage) {
+        alert(errorMessage);
+    }
+</script>
 </head>
 <body>
 
@@ -55,13 +68,13 @@
 				<div class="sns_login_box">
 					<ul class="sns_login_list">
 						<li class="sns_login_item">
-							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/naver_login.go'">
-								<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
-								<span class="hidden">네이버로그인</span>
-							</button>
+						 <button type="button" class="btn_sns_login" onclick="location.href='${apiURL}'">
+							<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
+							<span class="hidden">네이버로그인</span>
+						</button>
 						</li>
 						<li class="sns_login_item">
-							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/kakao_login.go'">
+							<button type="button" class="btn_sns_login" onclick="kakaoLogin()">
 								<img height="55px" width="65px" src="${path }/resources/css/images/logo/kakao_logo.png">
 								<span class="hidden">카카오로그인</span>
 							</button>
@@ -73,6 +86,15 @@
 							</button>
 						</li>
 					</ul>
+					
+					<!-- 카카오 로그인 -->
+					<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+					<script type="text/javascript" src="resources/js/member/kakaoLogin.js"></script>
+					
+					<!-- 네이버 로그인 -->
+					<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+					<script type="text/javascript" src="resources/js/member/naverLogin.js"></script>
+					
 					<p class="p_content">
 						개인정보 보호를 위해 공용 pc에서 사용 시 SNS계정의 로그아웃
 						<br>

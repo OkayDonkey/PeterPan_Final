@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+/* 메인 전체 css */
+body {
+	height: 100%;
+	width: 100%;
+}
+
+.home_container {
+	width: 1200PX;
+	margin: 0 auto;
+	align-content: center;
+	text-align: center;
+}
+
+.home_home {
+}
+
+/* ----------------------------------------- */
+/* 슬라이드css */
+
+.slide_div_wrap {
+/* 	margin-top: 200px;	
+ */	
+}
+.slick-prev:before, .slick-next:before {
+	color: black;
+}
+
+.slick-prev {
+	left: 160px;
+	z-index: 1;
+	color: black;
+}
+
+.slick-next {
+	right: 160px;
+	z-index: 1;
+	color: black;
+}
+
+.slide_div_wrap {
+	height: 350px;
+}
+
+.slide_div img {
+	margin: auto;
+}
+
+.slide_div_wrap {
+	padding: 15px 0 15px 0;
+	background: white;
+}
+
+.image_wrap img {
+	width: 1200px;
+	height: 450px;
+	display: block;
+	margin: auto;
+}
+
+/*----------------------슬라이드 END  */
+
+/* 신간 css start */
+#book_img {
+	filter: drop-shadow(5px 5px 5px #000);
+	width: 180px;
+	height: 270px;
+}
+
+.new_books {
+	margin-top: 100px;
+	text-align: center;
+}
+
+.new_book_wrap {
+	display: flex;
+}
+
+.new_book {
+	flex: 1;
+	margin-right: 20px;
+	MARGIN-LEFT: 20px;
+}
+
+.new_book table {
+	border-collapse: collapse;
+}
+
+.new_book th, .new_book td {
+	text-align: center;
+}
+.new_book td {
+	font-size: 15px;
+}
+
+/* 신간 css end */
+
+/* 베스트 셀러 css start */
+
+.best_books {
+	margin-top: 100px;
+}
+
+.best_book_wrap {
+	display: flex;
+	flex-wrap: wrap; /* 테이블이 너비를 벗어날 경우 다음 줄로 넘어가도록 설정 */
+
+}
+
+.best_book {
+	flex: 1;
+	margin-right: 20px;
+	MARGIN-LEFT: 20px;
+}
+
+.best_book table {
+	width: 100%; /* 테이블의 너비를 100%로 설정 */
+	table-layout: fixed; /* 열의 너비를 고정으로 설정 */
+}
+
+.best_book th, .best_book td {
+	width: 33%; /* 각 열의 너비를 33%로 설정 (3개의 열이므로 각 열은 1/3의 너비를 가짐) */
+	text-align: center;
+}
+.best_book td{
+	height: 23px;
+}
+
+
+/* 베스트 셀러 css end */
+.books_plus {
+	margin-bottom: 30px;
+	height: 50px;
+}
+
+.books_plus span {
+	font-size: 35px;
+	font-weight: bold;
+	float: left;
+	border-bottom: 2px solid black;
+}
+
+.books_plus a {
+	float:right;
+	color: white;
+	text-decoration: none;	
+}
+.books_plus a:hover {
+	color: black;
+}
+
+.best_rank{
+	width:25px;
+	height:25px;
+	border:1px solid #4dac27;
+	background-color: #4dac27;
+	border-top-right-radius:8px;
+	border-bottom-left-radius:8px;
+	color: white;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+/*----------------css end-------------*/

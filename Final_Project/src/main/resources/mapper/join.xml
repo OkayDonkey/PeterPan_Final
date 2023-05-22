@@ -40,6 +40,14 @@
 	<update id="updateMailKey" parameterType="memberdto">
 	    update member set mailKey = #{mailKey} where memberEmail = #{memberEmail} and memberId = #{memberId}
 	</update>
+	
+	<select id="checkPhone" parameterType="memberdto" resultType="int">
+		select count(*) from member where memberPhone = #{memberPhone}
+	</select>
+	
+	<select id="getmemberone" parameterType="String" resultType="memberdto">
+		select * from member where memberPhone = #{memberPhone}
+	</select>
 </mapper>
 
 

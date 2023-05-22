@@ -146,4 +146,14 @@ public class JoinServiceIpl  implements JoinService{
 
    }
 
+	@Override
+	public int checkIfAlreadyJoined(MemberDTO dto) {
+		return joinDao.checkIfAlreadyJoined(dto);
+	}
+
+	@Override
+	public MemberDTO getmemberonelist(String phone) {
+		return joinDao.getmemberonelist(phone);
+	}
+
 }

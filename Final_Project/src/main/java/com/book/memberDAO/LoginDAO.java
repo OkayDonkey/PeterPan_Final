@@ -13,4 +13,10 @@ public interface LoginDAO{
 	
 	// 이메일 인증을 안 했으면 0을 반환, 로그인 시 인증했나 안 했나 체크하기 위함
 	int emailAuthFail(String id) throws Exception;
+
+	// sns(카카오)에서 로그인 했을 시 id 값이 카카오 email 값  id 값이 있는지 확인
+	int checkLoginStatus(String email);
+
+	// SNS 로그인 처리
+	MemberDTO SNSLogin(String email);
 }
