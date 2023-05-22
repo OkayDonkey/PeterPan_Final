@@ -25,13 +25,15 @@ public class DibsController {
 		
 		MemberDTO Mdto = (MemberDTO)session.getAttribute("session");
 		System.out.println("세션 회원정보 :"+Mdto);
+		System.out.println("DibDTO정보 :"+dto.getMemberNo());
 		
-		int DDto = this.dao.checkDibs(dto);
+		int check = this.dao.checkDibs(dto.getMemberNo());
 			
-		if(DDto == 1) { // 좋아요를 이미 눌렀을 때
+		if(check == 1) { // 좋아요를 이미 눌렀을 때
 			System.out.println("좋아요 데이터 있음");
 		}else {	// 로그인 데이터가 없거나 좋아요 데이터가 없을 때
 			System.out.println("좋아요 데이터 없음");
+			this.dao
 		}
 		
 	}

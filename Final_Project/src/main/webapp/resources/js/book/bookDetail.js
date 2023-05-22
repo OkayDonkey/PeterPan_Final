@@ -39,9 +39,6 @@ function resetActivePopup() {
 	
 	function toggleLike(memNo, bookNo) {
 	 
-	 if(memNo == null){
-	 	alert("로그인 후 이용할 수 있는 서비스입니다.");
-	 }else{
 	 		alert("ajax호출");
 		  $.ajax({
 			    type: 'POST',
@@ -61,12 +58,6 @@ function resetActivePopup() {
 			      console.log(error); // 오류 발생시 콘솔에 출력
 		   		 }
 		      });
-	 }
-	 
-	
-    
-
-	 
 	 
 	 
 	  var heartIcon = document.getElementById("heartIcon");
@@ -87,4 +78,6 @@ function resetActivePopup() {
 }
 
 
-
+function needLogin(){
+alert("로그인 후 이용할 수 있는 서비스입니다.");
+}

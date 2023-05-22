@@ -31,6 +31,7 @@ response.setDateHeader("Expires", 0); // Proxies
 </head>
 <body style="font-family: MICEGothic Bold; color:black; ">
 <!-- 구매 하단 호버 바 -->
+<h4>${session }</h4>
 <div class="hoverBuyBar">
 	<div class="hBB_left">
 		<span class="mr-4">총 상품 금액</span>	
@@ -51,9 +52,23 @@ response.setDateHeader("Expires", 0); // Proxies
 				<button id="incrementBtn" class="incrementBtn">+</button>
 			</div>
 		</div>
-		<div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
+		<c:choose>
+			<c:when test="${empty session.memberId }">
+				<div class="RoundBox_m" id="dibs" onclick="needLogin()">
+  					<img id="heartIcon" src="resources/img/heart.png" width="23px;">
+				</div>
+			</c:when>
+			<c:when test="${!empty session.memberId }">
+				<div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
+  					<img id="heartIcon" src="resources/img/heart.png" width="23px;">
+				</div>
+			</c:when>
+		</c:choose>
+		<%--
+		 <div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
   			<img id="heartIcon" src="resources/img/heart.png" width="23px;">
 		</div>
+		 --%>
 
 		<div class="RoundBox_l_white">장바구니</div>
 		<div class="RoundBox_l">바로구매</div>
@@ -216,7 +231,7 @@ response.setDateHeader("Expires", 0); // Proxies
 						<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
 			<!-- 팝업 -->		
 			<div id="popupPoint" hidden 
-					style="position: fixed; background-color: white; border: 1px solid black;
+					style="position: absolute; background-color: white; border: 1px solid black;
 							width:330px; border-radius: 0.5em; margin-top:10px; padding:20px; 
 							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);">
 				<div style="border-bottom: 1px solid #eaeaea;">
@@ -257,7 +272,7 @@ response.setDateHeader("Expires", 0); // Proxies
 				</div>
 				<!-- 팝업 -->
 				<div id="popupDrvInfo" hidden 
-					style="position: fixed; background-color: white; border: 1px solid black;
+					style="position: absolute; background-color: white; border: 1px solid black;
 							width:330px; border-radius: 0.5em; margin-top:10px; padding:20px; 
 							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);">
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">국내도서/외국도서</p>
@@ -279,7 +294,7 @@ response.setDateHeader("Expires", 0); // Proxies
 			</div>
 			<!-- 팝업 End-->
 			
-			<!-- Launch extra large modal -->
+			<!-- large modal -->
 			<button type="button" class="btn-dark" data-toggle="modal" data-target=".modal" style="width:330px; height: 40px; border-radius: 0.3em; /* border-color: none; background-color: #282828; color:white; font-size: 10px;*/">
 			<span style="font-size: 13px;">매장 &nbsp;재고·위치</span>
 			  </button>

@@ -16,8 +16,8 @@
   -->
   	<mapper namespace="DibDao">
   	
-		<select id="DibCheck" parameterType="DibsDTO" resultType="int">
-			select * from dibs where memberNo = #	{memberNo}
+		<select id="DibCheck"  parameterType="int" resultType="int">
+			select count(*) from dibs where memberNo = #{value}
 		</select>
   		
 	</mapper>

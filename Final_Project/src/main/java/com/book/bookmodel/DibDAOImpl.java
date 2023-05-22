@@ -12,10 +12,16 @@ public class DibDAOImpl implements DibDAO{
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-@Override
-	public int checkDibs(DibsDTO dto) {
+	@Override
+	public int checkDibs(int memberNo) {
 
-		return this.sqlSession.selectOne("DibCheck", dto);
+		return this.sqlSession.selectOne("DibCheck", memberNo);
+	}
+	
+	@Override
+	public int insertDibs(int memberNo) {
+		// TODO Auto-generated method stub
+		return this.sqlSession.insert("", parameter);
 	}
 	
 }	
