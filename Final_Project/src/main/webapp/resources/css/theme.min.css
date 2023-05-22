@@ -16814,6 +16814,58 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	align-items: center;
 }
 
+.RoundBox1	{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #767676;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.RoundBox2	{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #5055b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.RoundBox1:hover	{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #545454;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.RoundBox2:hover{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #3e428e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
 .RoundBox_s	{
 	width: 104px;
     height: 44px;
@@ -16926,6 +16978,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     align-items: center;
     position: fixed;
     margin-top: -10px;
+    background-color: white;
 }
 
 #catePopup2	{
@@ -16941,6 +16994,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     flex-direction: column;
     position: fixed;
     margin-top: -10px;
+    background-color: white;
 }
 
 #catePopup1	a{
@@ -16965,7 +17019,43 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	outline: none !important;
 } 
 
+.needLoginPopup	{
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0000007d;
+    top:0;
+    bottom: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    
+}
 
+.LoginPopupBox	{
+	width: 360px;
+    padding: 30px;
+    color: black;
+    z-index: 2010;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1em;
+    position: fixed;
+    opacity: 1;
+    top: 210px;
+}
+
+.LoginPopupBox	p	{
+	color: black;
+	z-index: 2002;
+	
+	
+}
 
 
 

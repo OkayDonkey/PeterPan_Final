@@ -16,9 +16,14 @@
   -->
   	<mapper namespace="DibDao">
   	
-		<select id="DibCheck"  parameterType="int" resultType="int">
-			select count(*) from dibs where memberNo = #{value}
+		<select id="DibCheck"  parameterType="DibsDto" resultType="DibsDto">
+			select * from dibs where memberNo = #{memberNo} and bookNo = #{bookNo}
 		</select>
-  		
+  		<insert id="insertDib" parameterType="DibsDto" >
+  			insert into dibs values(#{memberNo},#{bookNo})
+  		</insert>
+  		<delete id="deleteDib" parameterType="DibsDto">
+  			DELETE FROM dibs WHERE memberNo =#{memberNo} AND bookNo = #{bookNo}
+  		</delete>
 	</mapper>
   

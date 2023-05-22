@@ -16,7 +16,10 @@ response.setDateHeader("Expires", 0); // Proxies
 <c:set var="book" value="${Cont}"/>  	 
 <c:set var="reviewList" value="${review}"/>  	 
 <c:set var="perR" value="${PercentR}"/>
-<c:set var="session" value="${session }" />  	 
+<c:set var="session" value="${session }" /> 
+<script type="text/javascript">
+	const path = "<%= request.getContextPath()%>/";
+</script> 	 
 <title>${book.bookName} | ${book.bookWriter} - 피터팬</title>
 
 <!-- 부트스트랩 필수파일 -->
@@ -30,8 +33,10 @@ response.setDateHeader("Expires", 0); // Proxies
 <!-- 부트스트랩 필수파일 END-->
 </head>
 <body style="font-family: MICEGothic Bold; color:black; ">
+
 <!-- 구매 하단 호버 바 -->
-<h4>${session }</h4>
+<input type="hidden" id="bookNo" value="${book.bookNo }">
+<input type="hidden" id="memberNo" value="${session.memberNo }">
 <div class="hoverBuyBar">
 	<div class="hBB_left">
 		<span class="mr-4">총 상품 금액</span>	
@@ -54,12 +59,12 @@ response.setDateHeader("Expires", 0); // Proxies
 		</div>
 		<c:choose>
 			<c:when test="${empty session.memberId }">
-				<div class="RoundBox_m" id="dibs" onclick="needLogin()">
+				<div class="RoundBox_m" id="dibsLogin" onclick="needLogin();">
   					<img id="heartIcon" src="resources/img/heart.png" width="23px;">
 				</div>
 			</c:when>
 			<c:when test="${!empty session.memberId }">
-				<div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
+				<div class="RoundBox_m" id="dibs" onclick="toggleLike();">
   					<img id="heartIcon" src="resources/img/heart.png" width="23px;">
 				</div>
 			</c:when>
@@ -75,7 +80,19 @@ response.setDateHeader("Expires", 0); // Proxies
 	</div>
 </div>
 
-		<!-- 		Incloud Header Area		 -->
+<div id="needLoginPopup"  class="needLoginPopup"	hidden>
+	<div class="LoginPopupBox">
+		<p>로그인 후 이용가능합니다.</p>
+		<p style="margin-bottom: 40px; font-weight: 100;">로그인 페이지로 이동하시겠습니까?</p>
+		<div class="row">
+			<div class="RoundBox1" onclick="needLogin();">취소</div>
+			<div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+		</div>
+	</div>
+</div>
+<!-- 구매 하단 호버 바 End-->
+
+		<jsp:include page="../top/top.jsp" /> <!-- 		Incloud Header Area		 -->
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
 
 <div >
@@ -252,7 +269,7 @@ response.setDateHeader("Expires", 0); // Proxies
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">3만원 이상 구매 시, 등급별 2~4% 추가</span> 
-							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959; margin-left: 27px;"><fmt:formatNumber>${book.bookPrice * 0.05 }</fmt:formatNumber>P</span>
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959; margin-left: 18px;"><fmt:formatNumber>${book.bookPrice * 0.05 }</fmt:formatNumber>P</span>
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">리뷰 작성 시, e교환권 추가 최대 </span> 

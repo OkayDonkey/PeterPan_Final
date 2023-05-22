@@ -31,53 +31,94 @@ function resetActivePopup() {
   activePopup = null;
 }
 
+// 좋아요 Ajax===============
 
-//==============================================================
+var isLiked = false; // 좋아요 상태를 저장하는 변수
+var heartIcon = document.getElementById("heartIcon");
+var memberNo = document.getElementById("memberNo").value;
+var bookNo = document.getElementById("bookNo").value;
 
-
-	var isLiked = false; // 좋아요 상태를 저장하는 변수
-	
-	function toggleLike(memNo, bookNo) {
-	 
-	 		alert("ajax호출");
-		  $.ajax({
-			    type: 'POST',
-			    url: 'dibs.go',
-			    data: {
-			      memberNo: memNo,
-			      bookNo: bookNo,
-			    },
-			    success: function (data) {
-			      if (data == 1) { // DB에서 삭제 성공시
-			        // 좋아요 활성
-			      } else if (data == 2) {//좋아요 비활성 상태일 경우
-			          
-			      }
-			    },
-			    error: function (request, status, error) {
-			      console.log(error); // 오류 발생시 콘솔에 출력
-		   		 }
-		      });
-	 
-	 
-	  var heartIcon = document.getElementById("heartIcon");
-	
-	  if (isLiked) {
-	    // 좋아요 상태에서 클릭하면 좋아요 취소
-	    heartIcon.setAttribute("src", "resources/img/heart.png");
-	    isLiked = false;
-	    // 좋아요 취소를 처리할 추가적인 로직을 작성할 수 있습니다.
-	  } else {
-	    // 좋아요 상태가 아닐 때 클릭하면 좋아요
-	    heartIcon.setAttribute("src", "resources/img/heart_fill.png");
-	    isLiked = true;
-	    // 좋아요를 처리할 추가적인 로직을 작성할 수 있습니다.
-	  }
-	  
-	  
-}
+$(document).ready(function () {
+  var memberNo = document.getElementById("memberNo").value;
+  var bookNo = document.getElementById("bookNo").value;
+  var heartIcon = document.getElementById("heartIcon"); // heartIcon 변수 정의 필요
+  
+  console.log("bookNo"+bookNo);
+  console.log("memberNo"+memberNo);
+  
+  $.ajax({
+    type: "POST",
+    url: path+"checkDibs.go",
+    data: {
+      memberNo: memberNo,
+      bookNo: bookNo
+    },
+    success: function (result) {
+      console.log("Ajax반환 성공 데이터:" + result);
+      if (result > 0) {
+        heartIcon.setAttribute("src", "resources/img/heart_fill.png");
+        isLiked = true;
+      } else {
+        heartIcon.setAttribute("src", "resources/img/heart.png");
+        isLiked = false;
+      }
+    },
+    error: function (request, status, error) {
+      console.log(status + " : " + error); // 오류 발생시 콘솔에 출력
+    }
+  });
+});
 
 
-function needLogin(){
-alert("로그인 후 이용할 수 있는 서비스입니다.");
+  function needLogin() {
+    var popupElement = document.getElementById("needLoginPopup");
+
+    // 팝업 토글
+    if (popupElement.hidden === false) {
+      popupElement.hidden = true;
+    } else {
+      popupElement.hidden = false;
+    }
+  }
+
+ 
+
+
+
+ function toggleLike() {
+    console.log("ToggleLike ajax호출");
+    $.ajax({
+      type: 'POST',
+      url: 'dibs.go',
+      data: {
+        memberNo: memberNo,
+        bookNo: bookNo,
+      },
+      success: function (result) {
+      console.log(result);
+      if (result > 0) {
+        heartIcon.setAttribute("src", "resources/img/heart_fill.png");
+        isLiked = true;
+      } else {
+        heartIcon.setAttribute("src", "resources/img/heart.png");
+        isLiked = false;
+      }
+    },
+      error: function (request, status, error) {
+        console.log(error); // 오류 발생시 콘솔에 출력
+      }
+    });
+  }
+  
+
+
+function needLogin() {
+  var popupElement = document.getElementById("needLoginPopup");
+
+  // 팝업 토글
+  if (popupElement.hidden === false) {
+    popupElement.hidden = true;
+  } else {
+    popupElement.hidden = false;
+  }
 }

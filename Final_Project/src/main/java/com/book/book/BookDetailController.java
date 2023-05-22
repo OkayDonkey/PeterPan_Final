@@ -22,7 +22,7 @@ import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
 
 @Controller
-public class Main05Controller {
+public class BookDetailController {
 	
 	@Autowired
 	private BookDAO dao;

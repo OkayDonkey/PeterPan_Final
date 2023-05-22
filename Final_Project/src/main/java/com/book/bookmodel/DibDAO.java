@@ -1,8 +1,14 @@
 package com.book.bookmodel;
 
+import java.util.List;
+
+import com.book.model.DibsDTO;
+
 public interface DibDAO {
 	
-	int checkDibs(int memberNo);
+	DibsDTO checkDibs(DibsDTO DDto);
 	
-	int insertDibs(int memberNo);
+	int insertDibs(DibsDTO DDto);
+	
+	int deleteDibs(DibsDTO DDto);
 }
