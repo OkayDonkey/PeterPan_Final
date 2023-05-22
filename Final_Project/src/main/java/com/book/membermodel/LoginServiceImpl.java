@@ -9,6 +9,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -140,6 +142,120 @@ public class LoginServiceImpl implements LoginService{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return userInfo;
+	}
+
+	@Override
+	public String getnaverAccessToken(String authorize_code, HttpSession session) throws Exception {
+		
+		String access_token = "";
+	    String refresh_token = "";
+	    String reqURL = "https://nid.naver.com/oauth2.0/token";
+		String clientId = "eTDbNDf4IbCBkdCrvj09";
+	    String clientSecret = "0V9OEgK2DD";//애플리케이션 클라이언트 시크릿값";
+	    String state = (String) session.getAttribute("state");
+	    String redirectURI = "http://localhost:8585/main/naver_login_ok.go";
+	    
+	    URL url = new URL(reqURL);
+		
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		
+		conn.setRequestMethod("POST");
+		
+		conn.setDoOutput(true);
+		
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("grant_type=authorization_code");
+		sb.append("&client_id="+clientId); //본인이 발급받은 key
+		sb.append("&client_secret="+clientSecret); //애플리케이션 클라이언트 시크릿값";
+		sb.append("&redirect_uri="+redirectURI); // 본인이 설정한 주소
+		sb.append("&code=" + authorize_code);
+		sb.append("&state=" + state);
+		
+		bw.write(sb.toString());
+		bw.flush();
+		
+		int responseCode = conn.getResponseCode();
+		
+		System.out.println("responseCode : " + responseCode);
+	    
+		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		
+		String line = "";
+		String result = "";
+		
+		while ((line = br.readLine()) != null) {
+			result += line;
+		}
+		
+		System.out.println("response body : " + result);
+		
+		JsonParser parser = new JsonParser();
+		JsonElement element = parser.parse(result);
+		
+		access_token = element.getAsJsonObject().get("access_token").getAsString();
+		refresh_token = element.getAsJsonObject().get("refresh_token").getAsString();
+		
+		System.out.println("access_token : " + access_token);
+		System.out.println("refresh_token : " + refresh_token);
+		
+		br.close();
+		bw.close();
+		
+		return access_token;
+	}
+
+	@Override
+	public HashMap<String, Object> getnaverUserInfo(String access_Token) throws Exception {
+		
+		HashMap<String, Object> userInfo = new HashMap<String, Object>();
+		
+		String reqURL = "https://openapi.naver.com/v1/nid/me";
+		
+		URL url = new URL(reqURL);
+		
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+		
+		int responseCode = conn.getResponseCode();
+		
+		System.out.println("responseCode : " + responseCode);
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		
+		String line = "";
+		String result = "";
+		
+		while ((line = br.readLine()) != null) {
+			result += line;
+		}
+		
+		System.out.println("response body : " + result);
+		
+		JsonParser parser = new JsonParser();
+		
+		JsonElement element = parser.parse(result);
+		
+		JsonObject response = element.getAsJsonObject().get("response").getAsJsonObject();
+		
+		String name = response.getAsJsonObject().get("name").getAsString();
+		String email = response.getAsJsonObject().get("email").getAsString();
+		String phone = response.getAsJsonObject().get("mobile").getAsString();
+		String birthyear = response.getAsJsonObject().get("birthyear").getAsString();
+		String birthday = response.getAsJsonObject().get("birthday").getAsString();
+		String gender = response.getAsJsonObject().get("gender").getAsString();
+		
+		userInfo.put("nickname", name);
+		userInfo.put("email", email);
+		userInfo.put("phone", phone);
+		userInfo.put("birthyear", birthyear);
+		userInfo.put("birthday", birthday);
+		userInfo.put("gender", gender);
 		
 		return userInfo;
 	}
