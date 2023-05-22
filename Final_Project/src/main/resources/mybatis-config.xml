@@ -16,6 +16,11 @@
 	
 	
 	
+  	<typeAlias type="com.book.bookmodel.BookDAO" alias="bookDao"/>	<!-- Book -->
+  	<typeAlias type="com.book.model.BookDTO" alias="bookDto"/>		<!-- Book -->
+  	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		<!-- Book -->
+  	<typeAlias type="com.book.model.ReviewPercentDTO" alias="reviewPerDto"/>		<!-- Book -->
+  	<typeAlias type="com.book.model.DibsDTO" alias="DibsDto"/>		<!-- Book -->
   	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
   	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
   	<typeAlias type="com.book.memberDAO.LoginDAO" alias="logindao" />

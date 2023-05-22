@@ -11,5 +11,9 @@ public interface JoinService {
 	void join(MemberDTO memberDto) throws Exception;
 	
 	int sendSMS(String phone, HttpSession session) throws Exception;
+	
+	int checkIfAlreadyJoined(MemberDTO dto);
+
+	MemberDTO getmemberonelist(String phone);
 
 }

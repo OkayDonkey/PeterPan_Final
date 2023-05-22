@@ -33,4 +33,14 @@ public class JoinDAOImpl implements JoinDAO{
 		return sqlSession.selectOne("checkEmail", email);
 	}
 
+	@Override
+	public int checkIfAlreadyJoined(MemberDTO dto) {
+		return sqlSession.selectOne("checkPhone", dto);
+	}
+
+	@Override
+	public MemberDTO getmemberonelist(String phone) {
+		return sqlSession.selectOne("getmemberone", phone);
+	}
+
 }
