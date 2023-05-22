@@ -68,19 +68,10 @@
 				<div class="sns_login_box">
 					<ul class="sns_login_list">
 						<li class="sns_login_item">
-						
-						<%
-						    String clientId = "eTDbNDf4IbCBkdCrvj09";//애플리케이션 클라이언트 아이디값";
-						    String redirectURI = URLEncoder.encode("http://localhost:8585/main/naver_login_ok.go", "UTF-8");
-						    SecureRandom random = new SecureRandom();
-						    String state = new BigInteger(130, random).toString();
-						    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-						    apiURL += "&client_id=" + clientId;
-						    apiURL += "&redirect_uri=" + redirectURI;
-						    apiURL += "&state=" + state;
-						    session.setAttribute("state", state);
-						 %>
-						 <a href="<%=apiURL%>"><img height="56" src="${path }/resources/css/images/logo/naver_logo.png"/></a>
+						 <button type="button" class="btn_sns_login" onclick="location.href='${apiURL}'">
+							<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
+							<span class="hidden">네이버로그인</span>
+						</button>
 						</li>
 						<li class="sns_login_item">
 							<button type="button" class="btn_sns_login" onclick="kakaoLogin()">
