@@ -20,7 +20,8 @@ body {
 /* 슬라이드css */
 
 .slide_div_wrap {
-	margin-top: 200px;	
+/* 	margin-top: 200px;	
+ */	
 }
 .slick-prev:before, .slick-next:before {
 	color: black;

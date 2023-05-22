@@ -25,7 +25,7 @@ public class CartDAOImpl implements CartDAO{
 	@Override
 	public int insertCart(CartDTO dto) {
 		return this.SqlSession.insert("c_insert",dto );
-		
+
 	}
 
 }

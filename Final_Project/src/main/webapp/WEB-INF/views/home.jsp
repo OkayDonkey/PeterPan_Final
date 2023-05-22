@@ -5,7 +5,6 @@
 <html>
 <head>
 
-<jsp:include page="./top/footer.jsp" />
 
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -22,6 +21,7 @@
 <link rel="stylesheet" type ="text/css" href ="resources/css/main/main.css">
 
 
+
 <title>Home</title>
 
 
@@ -29,12 +29,11 @@
 
 
 <body>
-	 	<jsp:include page="./top/top.jsp" />
-		 <a href="<%=request.getContextPath()%>/boardPage.go">[게시판]</a>
+ 	 	<jsp:include page="./top/top.jsp" /> 
 			<!-- 슬라이드부 start -->
 			<div class="slide_div_wrap" >
 				<div class="slide_div">
-	
+
 					<div>
 						<a href="#"><img class="image_wrap"
 							src="resources\css\s_img\test_sl_1.jpg" style=" width: 1200px; height: 350px;"> </a>
@@ -70,13 +69,19 @@
 											<tr>
 												<th>
 												
-													<%-- <a href="<%=request.getContextPath()%>/cart.go?bookNo=${dto.bookNo}&memberId=${sessionScope.Id}" id="modalOpen">
+													 <a href="<%=request.getContextPath()%>/cart.go?bookNo=${dto.bookNo}&memberId=${session.memberNo}" id="modalOpen">
  														<img id="book_img" src="${dto.bookCover }">														
-													</a> --%>
-													<%-- data-context-path="<%=request.getContextPath()%>" data-book-no="${dto.bookNo}" data-member-id="${sessionScope.Id}" --%>
-													<a href="#" data-context-path="<%=request.getContextPath()%>" data-book-no="${dto.bookNo}" data-member-id="${sessionScope.Id}" onclick="modalOpen(event);">
+													</a> 
+													
+													
+													<%--
+																아래 스크립트에 클릭을 통한 스크립트 실행
+													 data-context-path="<%=request.getContextPath()%>" data-book-no="${dto.bookNo}" data-member-id="${sessionScope.Id}" --%>
+													<%-- <a href="#" data-context-path="<%=request.getContextPath()%>" data-book-no="${dto.bookNo}" data-member-id="${session.memberNo}" onclick="modalOpen(event);">
 													    <img id="book_img" src="${dto.bookCover}">
-													</a>
+													</a> --%>
+													
+													
 												</th>
 											</tr>
 										</thead>
@@ -153,9 +158,7 @@
 
 	<script type="resources/js/vendor.min.js"></script>
 	<script type="resources/js/theme.min.js"></script>
-	
-	
-	
+
 	
 	<!--슬라이드 CDN 시작 -->
 	<script type="text/javascript"
@@ -171,23 +174,22 @@
 			});
 		
 		});
-
-	    function modalOpen(event) {
+	    
+	   <%--  function modalOpen(event) {
 	        event.preventDefault();
-	        
+
 	        var contextPath = event.currentTarget.getAttribute('data-context-path');
 	        var bookNo = event.currentTarget.getAttribute('data-book-no');
-	        var memberId = '<%=(String)session.getAttribute("memberId")%>';
-	        
-	        
-	       if(memberId != null){
+	        var memberId = '<%=(String)session.getAttribute("memberNo")%>';
+
+	        if (memberId != null) {
 	            document.location.href = contextPath + '/cart.go?bookNo=' + bookNo + '&memberId=' + memberId;
-	       }else{
-	        	alert("로그인 먼저 부탁드립니다");
-	        	history.back();
+	        } else {
+	            alert("로그인 먼저 부탁드립니다");
+	            history.back();
 	        }
-	     } 
-	    
+	    }
+ --%>
 	</script>
 
 </body>

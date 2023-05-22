@@ -226,11 +226,13 @@ margin-left: 5px;
 													class="widget-categories-indicator"
 													data-feather="chevron-right"> </i><span
 													class="font-size-sm">후기 게시판</span></a></li>
-											<li><a
-												href="<%=request.getContextPath()%>/free_board.do"> <i
+													
+													
+											<li><a href="<%=request.getContextPath()%>/boardPage.go"> <i				
 													class="widget-categories-indicator"
 													data-feather="chevron-right"> </i><span
-													class="font-size-sm">자유 게시판</span></a></li>
+													class="font-size-sm">자유 게시판-지영</span></a></li>
+													
 										</ul>
 									</div>
 								</div>
@@ -271,13 +273,23 @@ margin-left: 5px;
 
 						<a href="$">회원가입</a>					
 					
-					 	<c:if test="${sessionScope.Id == null }">
+					<%--  	<c:if test="${sessionScope.Id == null }">
 							<input type="button" value="로그인" onclick="location.href='login.go'">
 						</c:if>
 				
 						<c:if test="${sessionScope.Id != null }">
 							<input type="button" value="로그아웃" onclick="location.href='logout.go'">
+						</c:if> --%>
+						
+						<c:set var="session" value="${session }" />
+						<c:if test="${session.memberNo == null }">
+						    <input type="button" value="로그인" onclick="location.href='login.go'">
 						</c:if>
+						
+						<c:if test="${session.memberNo != null }">
+						    <input type="button" value="로그아웃" onclick="location.href='logout.go'">
+						</c:if>
+						
 				</div>
 				<div class="my_info">
 					<a href="#">
@@ -287,9 +299,10 @@ margin-left: 5px;
 					<img src="resources\css\s_img\cart_b.png">
 					</a>
 				</div>
-			
-		</div>
-	</header>
 
-</body>
-</html>
+		</div>
+		
+	</header>
+		<div style="margin:200px; ">
+		
+		</div>
