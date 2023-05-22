@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>고객센터 - 피터팬</title>
+<title><img src="resources/img/Peter_Pan.png" width="40px">고객센터 - 피터팬</title>
 </head>
 <body>
 
@@ -147,93 +147,44 @@
 		 		</div>
 		 	</div>
 		 		
-		 		<div>
-		 			<h2 class="title_heading">1:1 문의</h2>
-		 		</div>
-		 		<div class="customer_wrap">
-	 			   <div class="boxbg">
-		              <a href="#" class="inquiry">
-		                <span class="ico_inquiry01"></span>
-		                <p class="name">1:1 문의 접수</p>
-		              </a>
-		              <a href="#" class="inquiry" style="border-left: 1px solid #eaeaea;">
-		                <span class="ico_inquiry02"></span>
-		                <p class="name">1:1 문의 내역</p>
-		              </a>
-		            </div>	
-			 		
-			 		<div class="box_1">
-			 			<p class="text">전화 상담</p>
-			 			<a href="#" class="box_num">1544-1900</a>
-			 			<p class="desc">평일 09:00~18:00 <br> (주말 및 공휴일 휴무)</p>
-			 		</div>
-			 		
-		 			<div class="box_2">
-		 				<p class="title">보이는 ARS</p>
-		 				<p class="desc">평일 09:00~18:00 <br> (주말 및 공휴일 휴무)</p>
-		 				<a href="#">
-								<span class="tel_text_1">전화상담서비스 안내도
-									<img src="resources/img/icons-tel-text.png" width="10px" >
-								</span>
-						</a>
-		 			</div>
-			 	</div>	<!-- end. customer_wrap -->
-			 		
 			 	<div class="notice_wrap">
 			 		<div class="notice_head">
-				 		<h2 class="title_heading">공지사항</h2>
-				 		<div class="notice_heading">
-				 			<a>
-				 				<span class="notice_head_more">더보기</span>
-				 				<span  class="notice_head_icon"><img src="resources/img/icons-tel-text.png" width="13px" ></span>
-				 			</a>
-				 		</div>
+				 		<h2 class="title_heading">Best 10</h2>
 			 		</div>
 			 	
-			 	<table class="tbl_col_line">
-			 		<colgroup>
-			 			<col style="width: 125px;">
-			 			<col style="width: 500px;">
-			 			<col style="width:180px;">
-			 			<col style="width: 174px;">
-			 		</colgroup>
-			 		
-			 		<tbody class="notice_tbody">
-			 			<tr>
-			 				<td class="fc_light_gray">1</td>
-			 				<td class="align_left">
-			 					<a href="#" >
-			 						<span class="align_left_text">피터팬 개인정보 처리방침 변경 안내 (6/11)</span>
-			 					</a>
-			 				</td>
-			 				<td class="fc_light_gray">고객센터</td>
-			 				<td class="fc_light_gray">2023.06.01</td>
-			 			</tr>
-			 		
-			 			<tr>
-			 				<td class="fc_light_gray">2</td>
-			 				<td class="align_left">
-			 					<a href="#" >
-			 						<span class="align_left_text">도서상품권(북앤라이프), 해피머니상품권 긴급 점검 안내 (4/28~5/4)</span>
-			 					</a>
-			 				</td>
-			 				<td class="fc_light_gray">고객센터</td>
-			 				<td class="fc_light_gray">2023.04.28</td>
-			 			</tr>
-			 		
-			 			<tr>
-			 				<td class="fc_light_gray">3</td>
-			 				<td class="align_left">
-			 					<a href="#" >
-			 						<span class="align_left_text">중고장터 서비스 종료</span>
-			 					</a>
-			 				</td>
-			 				<td class="fc_light_gray">고객센터</td>
-			 				<td class="fc_light_gray">2023.04.16</td>
-			 			</tr>
-			 		</tbody>
-			 	</table>
+			 	
 			 	</div>	
+			 		
+			 		
+		 		<div id="accordion">
+				  <div class="card">
+				    <div class="card-header" id="headingOne">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				          Q
+				        </button>
+				        <span>
+				        	검색이 되지 않거나 품절/절판인 도서는 구입할 수 없나요?
+				        </span>
+				      </h5>
+				    </div>
+				    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+				      <div class="card-body">
+				        검색이 되지 않는 도서는 품절/절판일 경우가 대부분이므로 검색 옵션 중 [품절/절판상품 포함] 란에 체크하신 후 한번 더 검색해보시기 바랍니다.
+						<br>품절이나 절판으로 표시된 도서는 출판사에서도 더 이상 발간하지 않고 재고가 없는 경우가 대부분이라 구하기 어려운 도서입니다. 
+						<br>이 경우 회원님께서 요청하셔도 구입시기를 확실하게 약속드릴 수 없습니다. 
+						<br>이러한 도서의 구입가능 여부를 확인하시려면 고객센터의 1:1 문의 접수 이용하여 주시면, 최대한 확인하여 답변드리겠습니다.
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			 		
+			 		
+			 		
+			 		
+			 		
+			 		
+			 		
 			 		
 			 		
 			 		
@@ -252,6 +203,10 @@
 <!-- 부트스트랩 JS -->
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
 </html>
