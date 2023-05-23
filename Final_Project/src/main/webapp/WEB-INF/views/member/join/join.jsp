@@ -41,7 +41,7 @@
 					<div class="sns_login_box">
 						<ul class="sns_login_list">
 							<li class="sns_login_item">
-								<button class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/naver_join.go'">
+								<button type="button" class="btn_sns_login" onclick="location.href='${apiURL}'">
 									<img height="55px" width="65px" src="${path }/resources/css/images/logo/naver_logo.png">
 									<span class="hidden">네이버회원가입</span>
 								</button>
@@ -53,7 +53,7 @@
 								</button>
 							</li>
 							<li class="sns_login_item">
-								<button class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/google_join.go'">
+								<button class="btn_sns_login" onclick="googleLogin()">
 									<img height="55px" width="65px" src="${path }/resources/css/images/logo/google_logo.png">
 									<span class="hidden">구글회원가입</span>
 								</button>
@@ -62,8 +62,13 @@
 					</div>
 				</div>
 				
+				<!-- 카카오 로그인 -->
 				<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-				<script type="text/javascript" src="resources/js/member/kakaoLogin.js"></script>
+				<script type="text/javascript" src="resources/js/member/SNSLogin.js"></script>
+				
+				<!-- 네이버 로그인 -->
+				<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+				<script type="text/javascript" src="resources/js/member/naverLogin.js"></script>
 				
 				<!-- 신규회원 혜택 -->
 				<div class="join_benefit_wrap">
