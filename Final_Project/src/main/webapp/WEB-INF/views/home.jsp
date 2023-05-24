@@ -65,7 +65,8 @@
 											<tr>
 												<th>
 												
-													 <a href="<%=request.getContextPath()%>/cart.go?bookNo=${dto.bookNo}&memberId=${session.memberNo}" id="modalOpen">
+													<%--  <a href="<%=request.getContextPath()%>/cart.go?bookNo=${dto.bookNo}&memberId=${session.memberId}" id="modalOpen"> --%>
+													 <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}">
  														<img id="book_img" src="${dto.bookCover }">														
 													</a> 
 													
@@ -105,7 +106,7 @@
 					<div class="books_plus">
 						<span>베스트 작품</span> <a href="#"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px;">더보기</a>
 					</div>
-	
+					
 					<div class="best_book_wrap">
 						<c:set var="bestlist" value="${bestList}" />
 						<c:forEach items="${bestlist}" var="B_dto" varStatus="status">
