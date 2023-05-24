@@ -52,7 +52,7 @@
 				
 				<div class="form_wrap">
 					<form id="join_form" name="f" method="post" onsubmit="return check()" action="<%=request.getContextPath() %>/general_join_ok.go">
-					<input type="hidden" name="memberId" value="${kakaoEmail }">
+					<input type="hidden" name="memberId" value="${SNSEmail }">
 					<input type="hidden" name="memberPwd" value="snsPwd">
 						<div class="joinforminsert">
 							<div class="form_box">
@@ -65,7 +65,7 @@
 									</label>
 								</div>
 								<div class="form_cont">
-									<input type="text" name="memberName" value="${kakaoNickname }" class="form_ip" id="formJoin04" onkeyup="checkInput(this, 'name')" placeholder="이름을 입력해 주세요." maxlength="20">
+									<input type="text" name="memberName" value="${SNSNickname }" class="form_ip" id="formJoin04" onkeyup="checkInput(this, 'name')" placeholder="이름을 입력해 주세요." maxlength="20">
 								</div>
 								<span id="namecheck" class="validcheck" style="display: none;"></span>
 							</div>
@@ -104,7 +104,7 @@
 								</div>
 								<div class="form_cont">
 									<div class="form_cont">
-										<input type="text" name="memberEmail" value="${kakaoEmail }" readonly class="form_ip" id="formJoin06" onkeyup="checkInput(this, 'email')" placeholder="이메일을 입력해 주세요." maxlength="50">
+										<input type="text" name="memberEmail" value="${SNSEmail }" readonly class="form_ip" id="formJoin06" onkeyup="checkInput(this, 'email')" placeholder="이메일을 입력해 주세요." maxlength="50">
 									</div>
 									<span id="emailcheck" class="validcheck" style="display: none;"></span>
 								</div>

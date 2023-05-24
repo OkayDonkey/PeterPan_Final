@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.book.model.BookDTO;
+import com.book.model.NewRelBookDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
 
@@ -24,25 +25,31 @@ public class BookDAOImpl implements BookDAO {
 	
 	@Override
 	public List<ReviewDTO> getReviewCont(int bookNo) {
-		// TODO Auto-generated method stub
+		 
 		return this.sqlSession.selectList("reviewCont", bookNo);
 	}
 	
 	@Override
 	public ReviewPercentDTO getPercentReview(int bookNo) {
-		// TODO Auto-generated method stub
+		 
 		return this.sqlSession.selectOne("percentLike", bookNo);
 	}
 	
 	@Override
 	public List<BookDTO> getbooklist() {
+		
 	return this.sqlSession.selectList("main_all");
 	}
 	
 	@Override
 	public List<BookDTO> getbestlist() {
+		
 	return this.sqlSession.selectList("best_all");
 	}
 
-	
+	@Override
+	public List<NewRelBookDTO> getNewRelBook() {
+		 
+		return this.sqlSession.selectList("newRelBook");
+	}
 }

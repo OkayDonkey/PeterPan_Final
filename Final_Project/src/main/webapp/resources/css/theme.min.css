@@ -7,6 +7,49 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800");
 @import url("//fonts.googleapis.com/earlyaccess/nanumgothic.css");
 
+/* 
+@font-face {
+    font-family: 'Pretendard-S';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-M';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-L;
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+프리텐다드 폰트 끝
+
+@font-face {
+    font-family: 'SUIT-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
+    font-weight:Light;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
 .nanumgothic * {
  font-family: 'Nanum Gothic', sans-serif;
 }
@@ -34,20 +77,7 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'MICEGothic Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'MICEGothic Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
-    font-weight: 200;
-    font-style: normal;
-}
-
+ */
 :root {
 	--blue: #007bff;
 	--indigo: #6610f2;
@@ -16680,6 +16710,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     
 }
 
+
 #innerStoreInfo {
   /* 기존 스타일 */
   max-height: 300px;
@@ -16830,6 +16861,64 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	align-items: center;
 }
 
+.borderRoundGray	{
+	border-radius: 0.5em;
+	border: 1px solid #eaeaea;
+	padding: 10px;
+}
+
+.RoundBox1	{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #767676;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.RoundBox2	{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #5055b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.RoundBox1:hover	{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #545454;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.RoundBox2:hover{
+	border-radius: 0.5em;
+    z-index: 2005;
+    color: white;
+    width: 140px;
+    height: 44px;
+    background: #3e428e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
 .RoundBox_s	{
 	width: 104px;
     height: 44px;
@@ -16942,6 +17031,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     align-items: center;
     position: fixed;
     margin-top: -10px;
+    background-color: white;
 }
 
 #catePopup2	{
@@ -16957,6 +17047,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     flex-direction: column;
     position: fixed;
     margin-top: -10px;
+    background-color: white;
 }
 
 #catePopup1	a{
@@ -16981,10 +17072,196 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	outline: none !important;
 } 
 
+.needLoginPopup	{
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0000007d;
+    top:0;
+    bottom: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.LoginPopupBox	{
+	width: 360px;
+    padding: 30px;
+    color: black;
+    z-index: 2010;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1em;
+    position: fixed;
+    opacity: 1;
+    top: 210px;
+}
+
+.LoginPopupBox	p	{
+	color: black;
+	z-index: 2002;
+	
+	
+}
+
+.moreBtn		{
+	margin-left: 120px;
+	font-size: 0.6em;
+	color:#767676;
+}
+
+
+.moreBtn:hover	{
+	margin-left: 120px;
+	font-size: 0.6em;
+	color:#000000;
+}
+
+.reviewBox	{
+	width: 100%;
+	
+}
+.reviewBoxTop	{
+	width: 100%;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.infoBoxTop	{
+	width: 100%;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reviewBoxBottom	{
+	width: 100%;
+}
+
+.BorderBlackBottomText	{
+	border-bottom: 2px solid black;
+	width: 110px;
+	text-align: center;
+	padding:8px;
+}
 
 
 
+.writeIco {
+    background-image: url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_review@2x.png");
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 20px; /* 이미지의 높이를 명시적으로 지정해보세요 */
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    background-size: 15px;
+}
 
+
+.writeBtn	{
+	border: none;
+	background-color: #5055b1;
+	color:white;
+	width: 100px;
+	border-radius: 0.4em;
+	font-size:0.8em;
+	font-family: sans-serif;
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 38px;
+}
+
+.reviewBlock	{
+	display: flex;
+    padding: 20px;
+    flex-direction: column;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.reviewBlock-info	{
+	display: flex;
+    padding: 20px;
+    flex-direction: column;
+    border-bottom: 1px solid #eaeaea;
+}
+
+
+
+.reviewBuyerBox	{
+	border-radius: 1em;
+	border:1px solid #767676;
+	width: 50px;
+	height: 20px;
+	padding:3px 6px;
+	font-size: 10px;
+	margin-right: 10px;
+}
+
+.smallTextGray	{
+    font-size: 12px;
+    color: #696969;
+    display: inline-block;
+    border-right: 1px solid #2d2d2d;
+    padding: 0 15px;
+}
+
+.TextGray	{
+    font-size: 0.9em;
+    color: #2d2d2d;
+}
+
+.BorderBlackBottomText2	{
+    width: 830px;
+    text-align: left;
+    padding: 30px;
+    border-bottom: 2px solid #767676;
+}
+
+.reviewWritePop	{
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 700px !important;
+    width: 550px !important;
+    padding: 30px 34px;
+    background: #fff;
+    border-radius: 16px;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.xIcon{
+	
+	background-image:url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_dialog_close@2x.png");
+	background-repeat: no-repeat;
+	background-size: 24px;
+}
+
+
+.reviewWriterInput		{
+	border: none;
+	padding: 10px;
+	font-weight: 100;
+	width: 100%;
+	height: 150px;
+	font-size: 0.85em;
+}
 /*  BookDetailCss  --End--*/
 
 

@@ -1,5 +1,7 @@
 package com.book.bookmodel;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,15 +15,20 @@ public class DibDAOImpl implements DibDAO{
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public int checkDibs(int memberNo) {
+	public DibsDTO checkDibs(DibsDTO DDto) {
 
-		return this.sqlSession.selectOne("DibCheck", memberNo);
+		return this.sqlSession.selectOne("DibCheck", DDto);
 	}
 	
-@Override
-public int insertDibs(int memberNo) {
-	// TODO Auto-generated method stub
-	return 0;
-}
+	@Override
+	public int insertDibs(DibsDTO DDto) {
+		// TODO Auto-generated method stub
+		return this.sqlSession.insert("insertDib",DDto);
+	}
 	
+	@Override
+	public int deleteDibs(DibsDTO DDto) {
+		// TODO Auto-generated method stub
+		return this.sqlSession.delete("deleteDib",DDto);
+	}
 }	
