@@ -18,11 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.book.bookmodel.BookDAO;
 import com.book.model.BookDTO;
 import com.book.model.DibsDTO;
+import com.book.model.NewRelBookDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
 
 @Controller
-public class Main05Controller {
+public class BookDetailController {
 	
 	@Autowired
 	private BookDAO dao;
@@ -38,12 +39,16 @@ public class Main05Controller {
 	    
 	    ReviewPercentDTO RPDto = this.dao.getPercentReview(bookNo);
 	    System.out.println("리뷰-좋아요, 추천 % 데이터:"+RPDto);
+	    
+	    List<NewRelBookDTO> newRel = (List<NewRelBookDTO>) this.dao.getNewRelBook();
+	    System.out.println("신작 정보:"+newRel);
+	    
 	    System.out.println();
 	    
 	    Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE, 2);
 	    Date twoDaysLater = cal.getTime();
-
+	    
 	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd일 E요일", Locale.KOREAN);
 	    String twoDaysLaterStr = dateFormat.format(twoDaysLater);
 
@@ -53,10 +58,11 @@ public class Main05Controller {
 	    model.addAttribute("review", review);
 	    model.addAttribute("Cont", cont);
 	    model.addAttribute("PercentR", RPDto);
+	    model.addAttribute("NewRelBook", newRel);
 
 	    return "bookDetail/bookDetail";
 	}
 	
-
+	
 	
 }

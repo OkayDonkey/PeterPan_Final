@@ -9,3 +9,14 @@ function kakaoLogin() {
     },
   });
 }
+
+function googleLogin() {
+  $.ajax({
+    url: "google_login.go",
+    type: "get",
+    dataType: "text",
+    success: function (res) {
+      location.href = res;
+    },
+  });
+}

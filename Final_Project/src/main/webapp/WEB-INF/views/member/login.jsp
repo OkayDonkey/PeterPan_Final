@@ -62,7 +62,7 @@
 								<span>아이디 저장</span>
 							</label>
 						</span>
-						<a href="" class="btn_text_link">아이디/비밀번호 찾기</a>
+						<a href="<%=request.getContextPath() %>/id_pwd_search.go" class="btn_text_link">아이디/비밀번호 찾기</a>
 					</div>
 				</form>
 				<div class="sns_login_box">
@@ -80,7 +80,7 @@
 							</button>
 						</li>
 						<li class="sns_login_item">
-							<button type="button" class="btn_sns_login" onclick="location.href='<%=request.getContextPath() %>/google_login.go'">
+							<button type="button" class="btn_sns_login" onclick="googleLogin()">
 								<img height="55px" width="65px" src="${path }/resources/css/images/logo/google_logo.png">
 								<span class="hidden">구글로그인</span>
 							</button>
@@ -89,11 +89,10 @@
 					
 					<!-- 카카오 로그인 -->
 					<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-					<script type="text/javascript" src="resources/js/member/kakaoLogin.js"></script>
+					<script type="text/javascript" src="resources/js/member/SNSLogin.js"></script>
 					
 					<!-- 네이버 로그인 -->
 					<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-					<script type="text/javascript" src="resources/js/member/naverLogin.js"></script>
 					
 					<p class="p_content">
 						개인정보 보호를 위해 공용 pc에서 사용 시 SNS계정의 로그아웃

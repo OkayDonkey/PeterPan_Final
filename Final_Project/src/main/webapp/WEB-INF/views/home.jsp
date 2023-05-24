@@ -13,17 +13,8 @@
 <!-- 슬라이드 css 끝-->
 <link rel="stylesheet" type ="text/css" href ="resources/css/main/main.css">
 
-
 </head>
-
-
-
 <body>
-
-
-                                                                                                                                                          
-
-
 
 	<jsp:include page="./top/top.jsp" /> 
 			<!-- 슬라이드부 start -->

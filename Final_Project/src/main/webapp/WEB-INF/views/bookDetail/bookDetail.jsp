@@ -16,7 +16,11 @@ response.setDateHeader("Expires", 0); // Proxies
 <c:set var="book" value="${Cont}"/>  	 
 <c:set var="reviewList" value="${review}"/>  	 
 <c:set var="perR" value="${PercentR}"/>
-<c:set var="session" value="${session }" />  	 
+<c:set var="newB" value="${NewRelBook}"/>
+<c:set var="session" value="${session }" /> 
+<script type="text/javascript">
+	const path = "<%= request.getContextPath()%>/";
+</script> 	 
 <title>${book.bookName} | ${book.bookWriter} - 피터팬</title>
 
 <!-- 부트스트랩 필수파일 -->
@@ -29,9 +33,13 @@ response.setDateHeader("Expires", 0); // Proxies
    <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
 <!-- 부트스트랩 필수파일 END-->
 </head>
-<body style="font-family: MICEGothic Bold; color:black; ">
+<body style="color:black; font-family:SUIT-Regular;">
+<p style="font-family:SUIT-Light; ">200사이즈 폰트 테스트</p>
+<p style="font-family:SUIT-Regular; ">300사이즈 폰트 테스트</p>
+<p style="font-family:SUIT-Bold; ">500사이즈 폰트 테스트</p>
 <!-- 구매 하단 호버 바 -->
-<h4>${session }</h4>
+<input type="hidden" id="bookNo" value="${book.bookNo }">
+<input type="hidden" id="memberNo" value="${session.memberNo }">
 <div class="hoverBuyBar">
 	<div class="hBB_left">
 		<span class="mr-4">총 상품 금액</span>	
@@ -54,12 +62,12 @@ response.setDateHeader("Expires", 0); // Proxies
 		</div>
 		<c:choose>
 			<c:when test="${empty session.memberId }">
-				<div class="RoundBox_m" id="dibs" onclick="needLogin()">
+				<div class="RoundBox_m" id="dibsLogin" onclick="needLogin();">
   					<img id="heartIcon" src="resources/img/heart.png" width="23px;">
 				</div>
 			</c:when>
 			<c:when test="${!empty session.memberId }">
-				<div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
+				<div class="RoundBox_m" id="dibs" onclick="toggleLike();">
   					<img id="heartIcon" src="resources/img/heart.png" width="23px;">
 				</div>
 			</c:when>
@@ -78,11 +86,22 @@ response.setDateHeader("Expires", 0); // Proxies
 	</div>
 </div>
 
-		<!-- 		Incloud Header Area		 -->
+<div id="needLoginPopup"  class="needLoginPopup"	hidden>
+	<div class="LoginPopupBox">
+		<p>로그인 후 이용가능합니다.</p>
+		<p style="margin-bottom: 40px; font-weight: 100;">로그인 페이지로 이동하시겠습니까?</p>
+		<div class="row">
+			<div class="RoundBox1" onclick="needLogin();">취소</div>
+			<div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+		</div>
+	</div>
+</div>
+<!-- 구매 하단 호버 바 End-->
+
+		
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
 
-
-<div >
+<div>
 	<ul class="cateBar">
 		<li><a class="homeIcon" href="<%=request.getContextPath()%>/"></a></li>
 		<li><a href="#">${book.bookCategory }
@@ -256,7 +275,7 @@ response.setDateHeader("Expires", 0); // Proxies
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">3만원 이상 구매 시, 등급별 2~4% 추가</span> 
-							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959; margin-left: 27px;"><fmt:formatNumber>${book.bookPrice * 0.05 }</fmt:formatNumber>P</span>
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959; margin-left: 18px;"><fmt:formatNumber>${book.bookPrice * 0.05 }</fmt:formatNumber>P</span>
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">리뷰 작성 시, e교환권 추가 최대 </span> 
@@ -349,7 +368,7 @@ response.setDateHeader("Expires", 0); // Proxies
 	            </ul>
        		</div>
        		
-       		<div>
+       		<div  class="detail_info_main mb-5">
        			<section class="detail_info_main" id="book_detail_info_event" >
        				<img src="resources/img/bookEvent.png">
        			</section>
@@ -364,21 +383,202 @@ response.setDateHeader("Expires", 0); // Proxies
        				<br><br>
        				<p>${book.bookCont }</p>
        			</section>
-       			<section>4</section>
-       			<section>5</section>
-       		</div>
-       		<div class="detail_info_side">
-       			<section>1</section>
-       			<section>2</section>
-       			<section>3</section>
-       			<section>4</section>
-       			<section>5</section>
+       			<!-- 하단 리뷰영역 -->
+       			<section>
+       			<div class="reviewBox row">
+       				<div class="reviewBoxTop">
+	       				<div class="BorderBlackBottomText">전체 리뷰(${reviewCount})</div>
+	       				<div>
+	       				
+	       					<c:choose>
+								<c:when test="${empty session.memberId }">
+									<button class="writeBtn"  onclick="needLogin();">
+										<span class="writeIco"></span>	       				
+										<span>리뷰 작성</span>	       				
+				       				</button>
+								</c:when>
+								<c:when test="${!empty session.memberId }">
+									<button class="writeBtn"  onclick="reviewPopup();">
+										<span class="writeIco"></span>	       				
+										<span>리뷰 작성</span>	       				
+				       				</button>
+								</c:when>
+							</c:choose>
+	       				</div>
+       				</div>
+       				
+					<div class="reviewBoxBottom">
+							<c:forEach  items="${reviewList }" var="rView">
+								<div class="reviewBlock">
+									<div class="container">
+										<p>
+											<span class="reviewBuyerBox">구매자</span>
+											<span class="smallTextGray mr-1">${rView.memberId }</span>
+											<span class="smallTextGray mr-1">${rView.reviewRegdate }</span>
+											<span class="smallTextGray mr-1">${rView.reviewTitle }</span>
+										</p>
+									</div>
+									<div class="container"><p class="TextGray">${rView.reviewCont }</p></div>
+								</div>
+							</c:forEach>
+					</div>
+					
+       			</div>
+       			</section>
+       			<!-- 하단 리뷰영역 End -->
+       			<section>
+       				<div class="infoBoxTop row">
+	       				<div class="BorderBlackBottomText2 mt-5">교환/반품/품절 안내</div>
+       						<div class="reviewBlock-info">
+									<div class="container">
+											<p>반품/교환방법</p>
+											<p class="TextGray">마이룸 > 주문관리 > 주문/배송내역 > 주문조회 > 반품/교환 신청, [1:1 상담 > 반품/교환/환불] <br>또는 고객센터 (1544-1900)
+											* 오픈마켓, 해외배송 주문, 기프트 주문시 [1:1 상담>반품/교환/환불] 또는 고객센터 (1544-1900)</p>
+									</div>
+							</div>
+							<div class="reviewBlock-info">
+									<div class="container">
+											<p>반품/교환가능 기간</p>
+											<p class="TextGray">변심반품의 경우 수령 후 7일 이내,<br>
+														상품의 결함 및 계약내용과 다를 경우 문제점 발견 후 30일 이내</p>
+									</div>
+							</div>
+							<div class="reviewBlock-info">
+									<div class="container">
+											<p>반품/교환비용</p>
+											<p class="TextGray">변심 혹은 구매착오로 인한 반품/교환은 반송료 고객 부담</p>
+									</div>
+							</div>
+							<div class="reviewBlock-info">
+									<div class="container">
+											<p>반품/교환 불가 사유</p>
+											<p class="TextGray">
+															1) 소비자의 책임 있는 사유로 상품 등이 손실 또는 훼손된 경우<br>
+															(단지 확인을 위한 포장 훼손은 제외)<br>
+															2) 소비자의 사용, 포장 개봉에 의해 상품 등의 가치가 현저히 감소한 경우<br>
+															예) 화장품, 식품, 가전제품(악세서리 포함) 등<br>
+															3) 복제가 가능한 상품 등의 포장을 훼손한 경우<br>
+															예) 음반/DVD/비디오, 소프트웨어, 만화책, 잡지, 영상 화보집<br>
+															4) 소비자의 요청에 따라 개별적으로 주문 제작되는 상품의 경우 ((1)해외주문도서)<br>
+															5) 디지털 컨텐츠인 eBook, 오디오북 등을 1회 이상 다운로드를 받았을 경우<br>
+															6) 시간의 경과에 의해 재판매가 곤란한 정도로 가치가 현저히 감소한 경우<br>
+															7) 전자상거래 등에서의 소비자보호에 관한 법률이 정하는 소비자 청약철회 제한 내용에 해당되는 경우<br>
+											</p>
+									</div>
+							</div>
+							<div class="reviewBlock-info">
+									<div class="container">
+											<p>상품 품절</p>
+											<p class="TextGray">공급사(출판사) 재고 사정에 의해 품절/지연될 수 있으며, 품절 시 관련 사항에 대해서는 이메일과 문자로 안내드리겠습니다.</p>
+									</div>
+							</div>
+							<div class="reviewBlock-info">
+									<div class="container">
+											<p>소비자 피해보상 환불 지연에 따른 배상</p>
+											<p class="TextGray">1) 상품의 불량에 의한 교환, A/S, 환불, 품질보증 및 피해보상 등에 관한 사항은 소비자분쟁 해결 기준 <br>
+											(공정거래위원회 고시)에 준하여 처리됨<br>2) 대금 환불 및 환불지연에 따른 배상금 지급 조건, 절차 등은 전자상거래 등에서의 소비자 보호에 관한 법률에 따라 처리함</p>
+									</div>
+							</div>
+						</div>
+       			</section>
+       		<div  class="mb-5 px-2"></div>
        		</div>
        		
-	</div>		<!-- flex row container -->
+       		<!-- 상세페이지 오른쪽 사이드바 -->
+			<div class="detail_info_side">
+				<section class="container pb-4 mt-md-3">
+					<h5 class="h5 text-left pb-2">
+						추천 이벤트<a class="moreBtn" href="#">더보기 ></a>
+					</h5>
+					<div class="owl-carousel "  data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "margin": 10, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":1},"630":{"items":2},"991":{"items":3},"1200":{"items":1}} }'>
+					  <img style="border-radius: 1em; width: 260px;" src="https://contents.kyobobook.co.kr/pmtn/2022/event/e5f1a5ef6cd54ce98f602ec3402d617e.jpg"/>
+					  <img style="border-radius: 1em; width: 260px;"  src="https://contents.kyobobook.co.kr/pmtn/2022/event/bd59a332c04b48d6abd7d0bfe570d4e5.jpg"/>
+					  <img style="border-radius: 1em; width: 260px;"  src="https://contents.kyobobook.co.kr/pmtn/2022/event/3c10e5972f304d62b73ade3f936d8b8a.jpg"/>
+					  <img style="border-radius: 1em; width: 260px;"  src="https://contents.kyobobook.co.kr/pmtn/2022/event/c3402a1bfc38412d8b8975f9305e13d5.jpg"/>
+					  <img style="border-radius: 1em; width: 260px;"  src="https://contents.kyobobook.co.kr/pmtn/2022/event/a87a5c2bdbfe4d2cab152b0f0ab166dd.jpg"/>
+					</div>
+				</section>
+				<section>
+				<div class="container pb-4 mt-3">
+					<h5 class="h5 text-left pb-2">
+						새로 나온 책<a class="moreBtn" href="#">더보기 ></a>
+					</h5>
+					<div class="row">
+						<c:forEach  items="${newB }" var="newBook">
+							<div class="row ailgn-content-center pl-4">
+								<div class="px-2 my-2">
+									<img width="120" alt="${ newBook.bookCover}" src="${ newBook.bookCover}">
+								</div>
+								<div class="px-2 my-2" style="width: 150px;">
+										<div class="text-left mt-4 mb-2">${ newBook.bookName}</div>
+										<div style=" font-family: MICEGothic Light; font-size: 0.95em;" class="text-left mb-2">${ newBook.bookWriter}</div>
+										<div class="text-left mb-2" style="font-size: 0.9em; ">
+										<span style="color: #4dac27; font-size: 0.9em; ">10%</span>
+										<fmt:formatNumber>${ newBook.bookPrice}</fmt:formatNumber>원
+										</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+				</section>
+			</div>
+			
+		</div>		<!-- flex row container -->
+		
 </div>		<!-- width 1250 container -->
 
+		<!-- 리뷰작성 팝업 -->
+	<div id="reviewPopup"  class="needLoginPopup" hidden>
+		<!-- 
+				1. 입력창을 만들어서 name값 매칭시키기. 
+				2. 팝업창에 데이터를 Ajax로 받아서 Controller에 전송 및 insert문 수행
+				3. insert성공 시 reviewPopup()을 다시 호출하여 창을 닫은 후 innerHTML로 리뷰블럭 쏘기
+				4. 실패시 오류메세지 출력하기 ( 다시 시도해주세요 )
+		 -->
+ 		<div class="reviewWritePop mt-3">
+ 		<div>
+		<form method="post" action="${path }insertReview.go">
+			<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
+			<input type="hidden" id="memberNo" name="memberNo" value="${session.memberNo }">
+			<div><p>리뷰작성<span class="xIcon"></span></p></div>
+			
+			<div class="borderRoundGray">
+					<div class="row ailgn-content-center pl-4">
+						<div class="px-2 my-2">
+							<img width="120" alt="${ book.bookCover}" src="${ book.bookCover}">
+						</div>
+						<div class="px-2 my-2" style="width: 150px;">
+							<div class="text-left mt-4 mb-2">${ book.bookName}</div>
+							<div style="font-family: MICEGothic Light; font-size: 0.95em;"
+								class="text-left mb-2">${ book.bookWriter}</div>
+							<div class="text-left mb-2" style="font-size: 0.9em;">
+								<span style="color: #4dac27; font-size: 0.9em;">10%</span>
+								<fmt:formatNumber>${ book.bookPrice}</fmt:formatNumber>
+								원
+							</div>
+						</div>
+					</div>
+			</div>
+			
+			<div><p>리뷰작성<span style="color:#3c9a17;">*</span></p></div>
+			<div class="borderRoundGray">
+				<textarea name="review_cont" class="reviewWriterInput" 
+				placeholder="내용을 10자 이상 입력해주세요. &#10;주제와 무관한 댓글, 악플, 배송문의 등의 글은 임의 삭제될 수 있습니다."></textarea>
+			</div>
+			
+		</form>
+		</div>
+				<div class="row">
+					<div class="RoundBox1" onclick="reviewPopup();">취소</div>
+					<div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+				</div>
+		</div>
+	</div>
+		<!-- 리뷰작성 팝업 End-->
+		
 		<!-- 		Incloud Footer Area		 -->
+		<jsp:include page="../top/footer.jsp" />
 		
 	<script src="resources/js/book/bookDetail.js"></script>	
     <script src="resources/js/vendor.min.js"></script>
