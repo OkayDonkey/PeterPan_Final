@@ -31,6 +31,33 @@
 <link rel="stylesheet" media="screen" id="main-styles"
 	href="resources/css/vendor.min.css" />
 <style>
+
+
+@font-face {
+    font-family: 'SUIT-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
+    font-weight:Light;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td, tr, th, li, ul, ol {
+	font-family: 'SUIT-Regular';
+}
+
 .header {
 	width: 100%;
 	

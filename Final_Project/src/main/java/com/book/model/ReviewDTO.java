@@ -9,10 +9,12 @@ import lombok.*;
 public class ReviewDTO {
 	
 	private int reviewNo;
-	private String reviewCont;
+	private int bookNo;
+	private int memberNo;
 	private String reviewTitle;
+	private String reviewCont;
 	private String reviewFile;
 	private String reviewRegdate;
-	private int bookNo;
+	private String memberId;
 
 }
