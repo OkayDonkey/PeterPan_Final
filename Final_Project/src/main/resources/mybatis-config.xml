@@ -14,9 +14,12 @@
 	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		
   	<typeAlias type="com.book.model.ReviewPercentDTO" alias="reviewPerDto"/>		
   	<typeAlias type="com.book.model.DibsDTO" alias="DibsDto"/>		
+  	<typeAlias type="com.book.model.NewRelBookDTO" alias="newRelBookDto"/>		
+  	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		
 	
 	<typeAlias type="com.book.bookmodel.CartDAO" alias="cartDao"/>
   	<typeAlias type="com.book.bookmodel.BookDAO" alias="bookDao"/>
+  	<typeAlias type="com.book.bookmodel.ReviewDAO" alias="reviewDao"/>
 	<!-- book End-->
 	
 	

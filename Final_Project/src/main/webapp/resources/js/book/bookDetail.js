@@ -122,3 +122,16 @@ function needLogin() {
     popupElement.hidden = false;
   }
 }
+
+function reviewPopup() {
+  var popupElement = document.getElementById("reviewPopup");
+
+  // 팝업 토글
+  if (popupElement.hidden === false) {
+    popupElement.hidden = true;
+  } else {
+    popupElement.hidden = false;
+  }
+}
+
+

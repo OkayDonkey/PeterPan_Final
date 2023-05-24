@@ -3,6 +3,7 @@ package com.book.bookmodel;
 import java.util.List;
 
 import com.book.model.BookDTO;
+import com.book.model.NewRelBookDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
 
@@ -17,5 +18,7 @@ public interface BookDAO {
 	List<BookDTO> getbooklist();
 	
 	List<BookDTO> getbestlist();
+
+	List<NewRelBookDTO> getNewRelBook();
 
 }
