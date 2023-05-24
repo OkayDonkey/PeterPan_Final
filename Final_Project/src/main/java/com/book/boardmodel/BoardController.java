@@ -8,7 +8,10 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
 
 
@@ -20,19 +23,28 @@ public class BoardController {
 	
 	@RequestMapping("boardPage.go")
 	public String mainPage() {
-		/*
-		 * List<BookDTO> mainList = this.dao.getBoardMainList();
-		 * 
-		 * model.addAttribute("mainList", mainList);
-		 */
 		return "board/boardPage";
 	}
 	
-	@RequestMapping("boardBest.go")
+	@RequestMapping("boardFAQ.go")
 	public String mainBest() {
-		return "board/boardBest";
+		return "board/boardFAQ";
 	}
 	
-	
+	@RequestMapping("getCategoryList.go")
+	@ResponseBody
+	public List<BoardDTO> categoryList(@RequestParam("category") String category) {
+		
+		System.out.println(category);
+		
+		if(category.equals("BEST 10") || category.equals("자주 묻는 질문")) {
+			List<BoardDTO> list = this.dao.getbest10List();
+			System.out.println(list);
+			return list;
+		} else {
+			List<BoardDTO> list = this.dao.getcategoryList(category);
+			return list;
+		}
+	}
 
 }
