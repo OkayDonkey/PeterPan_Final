@@ -17091,6 +17091,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     z-index: 2000;
     display: flex;
     justify-content: center;
+    align-items: center;
     
 }
 
@@ -17109,7 +17110,6 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     border-radius: 1em;
     position: fixed;
     opacity: 1;
-    top: 210px;
 }
 
 .LoginPopupBox	p	{

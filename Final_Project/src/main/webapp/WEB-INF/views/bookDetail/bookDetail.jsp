@@ -192,27 +192,27 @@ response.setDateHeader("Expires", 0); // Proxies
 				</ol>
 				<div class="carousel-inner"  >
 					<div class="carousel-item active" style="height: 500px; ">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookCover }"
 							alt="${book.bookName}" />
 					</div>
 					<c:if test="${!empty book.bookImg1}">
 					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg1 }"
 							alt="${book.bookName}" />
 					</div>
 					</c:if>
 					<c:if test="${!empty book.bookImg2}">
 					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg2 }"
 							alt="${book.bookName}" />
 					</div>
 					</c:if>
 					<c:if test="${!empty book.bookImg3}">
 					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg3 }"
 							alt="${book.bookName}" />
 					</div>
@@ -294,8 +294,8 @@ response.setDateHeader("Expires", 0); // Proxies
 				<div style="border-bottom :1px solid #eaeaea; height: auto; font-size: 1em;  font-weight: 600; " class="text-left">
 					<br>
 						<span>배송안내</span>
-						<span style="font-size: 13px; margin-left: 53px;">도서 포함 15,000원 이상 무료배송 </span>
-						<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')">
+						<div class="float-right"><span style="font-size: 13px; margin-left: 53px;">도서 포함 15,000원 이상 무료배송 </span>
+						<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')"></div>
 						<p style="text-align: right;">${twoDaysLater} 도착 예정</p>
 				</div>
 				<!-- 팝업 -->
