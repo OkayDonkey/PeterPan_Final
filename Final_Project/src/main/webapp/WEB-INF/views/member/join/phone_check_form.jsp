@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>피터팬 /본인인증</title>
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<link rel="stylesheet" href="resources/css/member/memberMain.css" />
 <link rel="stylesheet" href="resources/css/member/passPhone.css" />
 </head>
 <body>

@@ -21,4 +21,18 @@ public interface LoginService {
 	String getnaverAccessToken(String authorize_code, HttpSession session) throws Exception;
 
 	HashMap<String, Object> getnaverUserInfo(String access_Token) throws Exception;
+
+	int phoneSearchGetId(MemberDTO dto);
+
+	int emailSearchGetId(MemberDTO dto);
+
+	MemberDTO getmemberonelist(String memberEmail);
+
+	int phoneSearchGetPwd(MemberDTO dto);
+
+	MemberDTO getmemberonelistbyId(String memberId);
+
+	void pwdReset(MemberDTO dto);
+
+	int emailSearchGetPwd(MemberDTO dto);
 }
