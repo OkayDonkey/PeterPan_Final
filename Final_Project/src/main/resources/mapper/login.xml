@@ -27,4 +27,32 @@
 	<select id="snsLogin" parameterType="String" resultType="memberdto">
 		select * from member where memberId = #{email}
 	</select>
+	
+	<select id="phoneSearchgetIdCheck" parameterType="memberdto" resultType="int">
+		select count(*) from member where memberName = #{memberName} and memberBirth = #{memberBirth} and memberPhone = #{memberPhone}
+	</select>
+	
+	<select id="emailSearchgetIdCheck" parameterType="memberdto" resultType="int">
+		select count(*) from member where memberName = #{memberName} and memberBirth = #{memberBirth} and memberEmail = #{memberEmail}
+	</select>
+	
+	<select id="getmemberonelistbyemail" parameterType="String" resultType="memberdto">
+		select * from member where memberEmail = #{memberEmail}
+	</select>
+	
+	<select id="phoneSearchGetPwdCheck" parameterType="memberdto" resultType="int">
+		select count(*) from member where memberId = #{memberId} and memberName = #{memberName} and memberBirth = #{memberBirth} and memberPhone = #{memberPhone}
+	</select>
+	
+	<select id="emailSearchGetPwdCheck" parameterType="memberdto" resultType="int">
+		select count(*) from member where memberId = #{memberId} and memberName = #{memberName} and memberBirth = #{memberBirth} and memberEmail = #{memberEmail}
+	</select>
+	
+	<select id="getmemberonelistbyId" parameterType="String" resultType="memberdto">
+		select * from member where memberId = #{memberId}
+	</select>
+	
+	<update id="pwdReset" parameterType="memberdto">
+		update member set memberPwd = #{memberPwd} where memberId = #{memberId}
+	</update>
 </mapper>

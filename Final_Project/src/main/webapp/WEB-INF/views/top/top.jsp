@@ -28,8 +28,8 @@
 	href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles"
 	href="resources/css/vendor.min.css" />
+	
 <style>
-
 
 @font-face {
     font-family: 'SUIT-Light';
@@ -295,10 +295,10 @@ margin-left: 5px;
 					%>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" style="padding: 1em;"
-						href="LoadRestaurantList.do"><i class="mr-1"></i>레스토랑</a></li>
+						href="LoadRestaurantList.do"><i class="mr-1"></i>몰까요~</a></li>
 				</ul>
 			</div>
-				<div class ="login">
+				<div class ="login" style="right: 10PX;">
 
 						<a href="$">회원가입</a>					
 					
@@ -311,20 +311,23 @@ margin-left: 5px;
 						</c:if> --%>
 						
 						<c:set var="session" value="${session }" />
-						<c:if test="${session.memberNo == null }">
+						<c:if test="${session.memberId == null }">
 						    <input type="button" value="로그인" onclick="location.href='login.go'">
 						</c:if>
 						
-						<c:if test="${session.memberNo != null }">
+						<c:if test="${session.memberId != null }">
 						    <input type="button" value="로그아웃" onclick="location.href='logout.go'">
 						</c:if>
 						
 				</div>
 				<div class="my_info">
+					
 					<a href="#">
 					<img src="resources\css\s_img\us23.png">
 					</a>
-					<a href="#">
+					
+					
+					<a href="cartList.go">
 					<img src="resources\css\s_img\cart_b.png">
 					</a>
 				</div>

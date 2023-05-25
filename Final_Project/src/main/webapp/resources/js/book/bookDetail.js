@@ -135,3 +135,68 @@ function reviewPopup() {
 }
 
 
+function insertReview(){
+
+	  var memberNo = document.getElementById("memberNo").value;
+  	  var memberId = document.getElementById("memberId").value;
+  	  var bookNo = document.getElementById("bookNo").value;
+  	  var reviewTitle = document.getElementById("reviewTitle").value;
+  	  var reviewCont = document.getElementById("reviewCont").value;
+		  	  
+	console.log("insertReview  Ajax호출");
+	console.log("회원번호:"+memberNo);
+	console.log("회원아이디:"+memberId);
+	console.log("책번호:"+bookNo);
+	console.log("리뷰소제목:"+reviewTitle);
+	console.log("리뷰내용:"+reviewCont);
+	
+	$.ajax({
+  type: 'POST',
+  url: 'insertReview.go',
+  dataType: "json",
+  data: {
+    bookNo: bookNo,
+    memberId: memberId,
+    memberNo: memberNo,
+    reviewTitle: reviewTitle,
+    reviewCont: reviewCont,
+  },
+ success: function (data) {
+  console.log("AJAX호출 성공");
+  console.log("데이터 송신완료 값:");
+  console.log(data);
+
+  var card_Elem_id = document.querySelector('#reviewInnerAjax');
+  var num = document.querySelector('#totalReviewNum');
+
+  card_Elem_id.innerHTML = ''; // 기존 내용 지우기
+
+  if (data.length > 0) {
+    data.forEach(function (obj) {
+      card_Elem_id.innerHTML += `
+        <div class="reviewBlock">
+          <div class="container">
+            <p>
+              <span class="reviewBuyerBox">구매자</span>
+              <span class="smallTextGray mr-1">${obj.memberId}</span>
+              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
+              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
+            </p>
+          </div>
+          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
+        </div>
+      `;
+    });
+
+    num.innerText = parseInt(num.innerText) + 1;
+  }
+
+  reviewPopup();    // 팝업 닫아주기
+},
+
+  error: function (request, status, error) {
+    console.log(error); // 오류 발생시 콘솔에 출력
+  }
+});
+
+  }

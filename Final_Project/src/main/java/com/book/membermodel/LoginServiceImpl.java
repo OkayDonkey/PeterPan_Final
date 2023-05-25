@@ -260,4 +260,39 @@ public class LoginServiceImpl implements LoginService{
 		return userInfo;
 	}
 
+	@Override
+	public int phoneSearchGetId(MemberDTO dto) {
+		return this.loginDao.phoneSearchGetId(dto);
+	}
+
+	@Override
+	public int emailSearchGetId(MemberDTO dto) {
+		return this.loginDao.emailSearchGetId(dto);
+	}
+
+	@Override
+	public MemberDTO getmemberonelist(String memberEmail) {
+		return this.loginDao.getmemberonelist(memberEmail);
+	}
+
+	@Override
+	public int phoneSearchGetPwd(MemberDTO dto) {
+		return this.loginDao.phoneSearchGetPwd(dto);
+	}
+	
+	@Override
+	public int emailSearchGetPwd(MemberDTO dto) {
+		return this.loginDao.emailSearchGetPwd(dto);
+	}
+
+	@Override
+	public MemberDTO getmemberonelistbyId(String memberId) {
+		return this.loginDao.getmemberonelistbyId(memberId);
+	}
+
+	@Override
+	public void pwdReset(MemberDTO dto) {
+		this.loginDao.pwdReset(dto);
+	}
+
 }

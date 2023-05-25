@@ -135,8 +135,8 @@
 const contentString = [
   '<div class="markerContent">',
   '  <div class="btn-light p-4" style="border-radius:0.5em; border:none;">',
-  '    <p style="font-size:1.2em; margin-bottom:8px;">{place}</p>',
-  '    <p style="font-size:0.9em; margin-bottom:-10px; " >주소 : {address}<br>',
+  '    <p style="font-size:1.2em; margin-bottom:8px;  font-weight:600;">{place}</p>',
+  '    <p style="font-size:0.9em; margin-bottom:-10px;  font-weight:400;" >주소 : {address}<br>',
   '      영업시간 : {operatingHours}<br>',
   '      휴무 : {holidays}</p>',
   '  </div>',

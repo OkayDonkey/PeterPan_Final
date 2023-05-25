@@ -17,6 +17,7 @@ response.setDateHeader("Expires", 0); // Proxies
 <c:set var="reviewList" value="${review}"/>  	 
 <c:set var="perR" value="${PercentR}"/>
 <c:set var="newB" value="${NewRelBook}"/>
+<c:set var="SameG" value="${SameGenre}"/>
 <c:set var="session" value="${session }" /> 
 <script type="text/javascript">
 	const path = "<%= request.getContextPath()%>/";
@@ -33,13 +34,11 @@ response.setDateHeader("Expires", 0); // Proxies
    <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
 <!-- 부트스트랩 필수파일 END-->
 </head>
-<body style="color:black; font-family:SUIT-Regular;">
-<p style="font-family:SUIT-Light; ">200사이즈 폰트 테스트</p>
-<p style="font-family:SUIT-Regular; ">300사이즈 폰트 테스트</p>
-<p style="font-family:SUIT-Bold; ">500사이즈 폰트 테스트</p>
+<body>
 <!-- 구매 하단 호버 바 -->
 <input type="hidden" id="bookNo" value="${book.bookNo }">
 <input type="hidden" id="memberNo" value="${session.memberNo }">
+<input type="hidden" id="memberId" value="${session.memberId }">
 <div class="hoverBuyBar">
 	<div class="hBB_left">
 		<span class="mr-4">총 상품 금액</span>	
@@ -78,7 +77,10 @@ response.setDateHeader("Expires", 0); // Proxies
 		</div>
 		 --%>
 
-		<div class="RoundBox_l_white">장바구니</div>
+		<div class="RoundBox_l_white" onclick="cart_1()">
+			 <%-- <a href="<%=request.getContextPath()%>/cart.go?bookNo=${book.bookNo}&memberId=${session.memberId}" id="modalOpen"> --%>
+				장바구니
+		</div>
 		<div class="RoundBox_l">바로구매</div>
 	</div>
 </div>
@@ -95,11 +97,14 @@ response.setDateHeader("Expires", 0); // Proxies
 </div>
 <!-- 구매 하단 호버 바 End-->
 
+<!-- 		Incloud Top Area		 -->
+		<jsp:include page="../top/top.jsp" />
+
 		
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
 
 <div>
-	<ul class="cateBar">
+	<ul class="cateBar" >
 		<li><a class="homeIcon" href="<%=request.getContextPath()%>/"></a></li>
 		<li><a href="#">${book.bookCategory }
 		<img style="width:18px; vertical-align: sub;" id="categoryIco1" src="resources/img/pointIco.png" onclick="resetActivePopup(),togglePopup('catePopup1', 'categoryIco1', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">&nbsp;/
@@ -127,27 +132,27 @@ response.setDateHeader("Expires", 0); // Proxies
 	</div> 
 </div>
 
-		<h2 class="pt-4 pb-4 text-center">${book.bookName}</h2>
+		<h2 class="pt-4 pb-4 text-center" style="font-weight: 700;">${book.bookName}</h2>
 	<div class="row justify-content-sm-between" style=" padding:10px;" >
 	
-		<div class="flex-column pt-5" style="width:330px;">
+		<div class="flex-column pt-5" style="width:330px; ">
 			
-			<p style="font-size: 16px; " class="text-left">
+			<p style="font-size: 16px; font-weight: 600;" class="text-left">
 				${book.bookWriter} 저자(글)
 			</p>
-			<p style="font-family: MICEGothic Light; color: gray; font-size: 15px; font-weight: weight;" class="text-left">
+			<p style="color: gray; font-size: 15px; font-weight: 500;" class="text-left">
 			${book.bookTrans} · ${book.bookRelDate}  
 			</p>
 			<c:if test="${book.bookWeekBest == 1 }">
 				<div class="book_best_box">
 					<img src="resources/img/trophyIco.png" style="width:20px; height: 20px;"> &nbsp;
-					<a href="#" style="text-decoration: none; color: #404040;" >주간 베스트 TOP 10</a> 
+					<a href="#" style="text-decoration: none; color: #404040; font-weight: 600;" >주간 베스트 TOP 10</a> 
 				</div>
 			</c:if>
 				<div style="border-bottom :1px solid #eaeaea; border-top :1px solid #eaeaea; height: auto;" class="text-left">
 				<br>
 				
-				<p style="color: #4dac27;">추천해요</p>
+				<p style="color: #4dac27; font-weight: 600;">추천해요</p>
 				<div class="prod_review_box">
 					<div class="col_review">
 						<div class="progress" style="background-color: #dbdbdbd1;border-radius: 1em;">
@@ -156,7 +161,7 @@ response.setDateHeader("Expires", 0); // Proxies
 				
 					</div>
 				</div>	  	
-					<p style="font-family: MICEGothic Light; color: gray; font-size: 13px; margin-top:10px;">
+					<p style="color: gray; font-size: 13px; margin-top:10px; font-weight: 600;">
 						<c:set var="reviewCount" value="0" />
 							<c:forEach var="review" items="${reviewList}">
 							  <c:set var="reviewCount" value="${reviewCount + 1}" />
@@ -224,7 +229,7 @@ response.setDateHeader("Expires", 0); // Proxies
 					</a>
 				</div>
 
-			<div class="flex-column pt-5" style="width:330px;" style="font-family: MICEGothic Light">
+			<div class="flex-column pt-5" style="width:330px;">
 				<div style="height: auto;" class="text-left">
 				<c:if test="${book.bookWeekBest == 1 }">
 					<span class="smallTextBoxGreen">MD의 선택</span>
@@ -235,16 +240,19 @@ response.setDateHeader("Expires", 0); // Proxies
 				</c:if>
 				<span class="smallTextBox">소득공제</span>
 				<br><br>
-					<p style="font-size: 20px;">${book.bookName}</p>
+					<p style="font-size: 20px;  font-weight: 600;">${book.bookName}</p>
 						<p style="font-size: 1.7em; " class="text-left">
-							<span style="color: #4dac27; ">10%</span>
-							<fmt:formatNumber>${book.bookPrice - ( book.bookPrice * 0.1 )} </fmt:formatNumber>원		<!-- 10%할인률 적용된 가격 -->
+							<span style="color: #4dac27; font-weight: 600; ">10%</span>
+							<span style="font-weight: 600; ">
+								<fmt:formatNumber>${book.bookPrice - ( book.bookPrice * 0.1 )} </fmt:formatNumber>원		<!-- 10%할인률 적용된 가격 -->
+							</span>
 							<span style="font-size: 0.6em; color: gray; text-decoration: line-through;">
 							<fmt:formatNumber>${book.bookPrice} </fmt:formatNumber>원</span>		<!-- 도서 판매가 -->
 						</p>
 				</div>
 				
-				<div style="border-bottom :1px solid #eaeaea; border-top :1px solid #eaeaea; height: auto; padding:20px 0;" class="text-left">
+				<div style="border-bottom :1px solid #eaeaea; border-top :1px solid #eaeaea; 
+				height: auto; padding:20px 0;  font-weight: 600; " class="text-left">
 						<span style="font-size: 1em;">적립 / 혜택</span>
 						<span style="color: #4dac27; margin-left: 170px;">
 							<fmt:formatNumber>${book.bookPrice * 0.05 }</fmt:formatNumber>P</span>
@@ -253,7 +261,7 @@ response.setDateHeader("Expires", 0); // Proxies
 			<div id="popupPoint" hidden 
 					style="position: absolute; background-color: white; border: 1px solid black;
 							width:330px; border-radius: 0.5em; margin-top:10px; padding:20px; 
-							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);">
+							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); ">
 				<div style="border-bottom: 1px solid #eaeaea;">
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">기본적립</p>
 					<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">
@@ -283,7 +291,7 @@ response.setDateHeader("Expires", 0); // Proxies
 			</div>
 			<!-- 팝업 End-->
 		</div>
-				<div style="border-bottom :1px solid #eaeaea; height: auto; font-size: 1em;" class="text-left">
+				<div style="border-bottom :1px solid #eaeaea; height: auto; font-size: 1em;  font-weight: 600; " class="text-left">
 					<br>
 						<span>배송안내</span>
 						<span style="font-size: 13px; margin-left: 53px;">도서 포함 15,000원 이상 무료배송 </span>
@@ -316,7 +324,7 @@ response.setDateHeader("Expires", 0); // Proxies
 			
 			<!-- large modal -->
 			<button type="button" class="btn-dark" data-toggle="modal" data-target=".modal" style="width:330px; height: 40px; border-radius: 0.3em; /* border-color: none; background-color: #282828; color:white; font-size: 10px;*/">
-			<span style="font-size: 13px;">매장 &nbsp;재고·위치</span>
+			<span style="font-size: 13px;  font-weight: 600; ">매장 &nbsp;재고·위치</span>
 			  </button>
 			
 			  
@@ -367,6 +375,26 @@ response.setDateHeader("Expires", 0); // Proxies
        		
        		<div  class="detail_info_main mb-5">
        			<section class="detail_info_main" id="book_detail_info_event" >
+       						<div class="row borderRoundGray_bg">
+       						<h3 style="width: 100%;">다른 ${book.bookGenre } 도서<a class="moreBtn_ml" href="#">더보기 ></a></h3>
+						<c:forEach  items="${SameG }" var="same">
+							<div class="column ailgn-content-center pl-1">
+								<div class="px-1 my-2">
+									<img style="border-radius: 0;"width="120px" alt="${ same.bookCover}" src="${ same.bookCover}">
+								</div>
+								<div class="my-2" style="width: 150px;">
+										<div class="text-left mt-1 mb-2 pr-4"  style="font-weight: 600; "><a style="color:black; " href="${path }bookDetail.go?bookNo=${same.bookNo}">${ same.bookName}</a></div>
+										<div style="  font-size: 0.8em; font-weight: 400;" class="text-left mb-1 pr-4">${ same.bookWriter}</div>
+										<div class="text-left mb-2 pr-3" style="font-size: 0.9em;  font-weight: 600;  ">
+										<span style="color: #4dac27; font-size: 1em; ">10%</span>
+										<fmt:formatNumber>${ same.bookPrice}</fmt:formatNumber>원
+										</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+       			</section>
+       			<section class="detail_info_main" id="book_detail_info_event" >
        				<img src="resources/img/bookEvent.png">
        			</section>
        			<section class="detail_info_main" id="book_detail_info_img" style="margin: 30px 0px; border-radius: 2em;">
@@ -384,7 +412,7 @@ response.setDateHeader("Expires", 0); // Proxies
        			<section>
        			<div class="reviewBox row">
        				<div class="reviewBoxTop">
-	       				<div class="BorderBlackBottomText">전체 리뷰(${reviewCount})</div>
+	       				<div class="BorderBlackBottomText">전체 리뷰(<span id="totalReviewNum" >${reviewCount}</span>)</div>
 	       				<div>
 	       				
 	       					<c:choose>
@@ -404,7 +432,7 @@ response.setDateHeader("Expires", 0); // Proxies
 	       				</div>
        				</div>
        				
-					<div class="reviewBoxBottom">
+					<div class="reviewBoxBottom" id="reviewInnerAjax">
 							<c:forEach  items="${reviewList }" var="rView">
 								<div class="reviewBlock">
 									<div class="container">
@@ -428,27 +456,27 @@ response.setDateHeader("Expires", 0); // Proxies
 	       				<div class="BorderBlackBottomText2 mt-5">교환/반품/품절 안내</div>
        						<div class="reviewBlock-info">
 									<div class="container">
-											<p>반품/교환방법</p>
+											<p class="bold-font">반품/교환방법</p>
 											<p class="TextGray">마이룸 > 주문관리 > 주문/배송내역 > 주문조회 > 반품/교환 신청, [1:1 상담 > 반품/교환/환불] <br>또는 고객센터 (1544-1900)
 											* 오픈마켓, 해외배송 주문, 기프트 주문시 [1:1 상담>반품/교환/환불] 또는 고객센터 (1544-1900)</p>
 									</div>
 							</div>
 							<div class="reviewBlock-info">
 									<div class="container">
-											<p>반품/교환가능 기간</p>
+											<p class="bold-font">반품/교환가능 기간</p>
 											<p class="TextGray">변심반품의 경우 수령 후 7일 이내,<br>
 														상품의 결함 및 계약내용과 다를 경우 문제점 발견 후 30일 이내</p>
 									</div>
 							</div>
 							<div class="reviewBlock-info">
 									<div class="container">
-											<p>반품/교환비용</p>
+											<p class="bold-font">반품/교환비용</p>
 											<p class="TextGray">변심 혹은 구매착오로 인한 반품/교환은 반송료 고객 부담</p>
 									</div>
 							</div>
 							<div class="reviewBlock-info">
 									<div class="container">
-											<p>반품/교환 불가 사유</p>
+											<p class="bold-font">반품/교환 불가 사유</p>
 											<p class="TextGray">
 															1) 소비자의 책임 있는 사유로 상품 등이 손실 또는 훼손된 경우<br>
 															(단지 확인을 위한 포장 훼손은 제외)<br>
@@ -465,13 +493,13 @@ response.setDateHeader("Expires", 0); // Proxies
 							</div>
 							<div class="reviewBlock-info">
 									<div class="container">
-											<p>상품 품절</p>
+											<p class="bold-font">상품 품절</p>
 											<p class="TextGray">공급사(출판사) 재고 사정에 의해 품절/지연될 수 있으며, 품절 시 관련 사항에 대해서는 이메일과 문자로 안내드리겠습니다.</p>
 									</div>
 							</div>
 							<div class="reviewBlock-info">
 									<div class="container">
-											<p>소비자 피해보상 환불 지연에 따른 배상</p>
+											<p class="bold-font">소비자 피해보상 환불 지연에 따른 배상</p>
 											<p class="TextGray">1) 상품의 불량에 의한 교환, A/S, 환불, 품질보증 및 피해보상 등에 관한 사항은 소비자분쟁 해결 기준 <br>
 											(공정거래위원회 고시)에 준하여 처리됨<br>2) 대금 환불 및 환불지연에 따른 배상금 지급 조건, 절차 등은 전자상거래 등에서의 소비자 보호에 관한 법률에 따라 처리함</p>
 									</div>
@@ -507,10 +535,11 @@ response.setDateHeader("Expires", 0); // Proxies
 									<img width="120" alt="${ newBook.bookCover}" src="${ newBook.bookCover}">
 								</div>
 								<div class="px-2 my-2" style="width: 150px;">
-										<div class="text-left mt-4 mb-2">${ newBook.bookName}</div>
-										<div style=" font-family: MICEGothic Light; font-size: 0.95em;" class="text-left mb-2">${ newBook.bookWriter}</div>
-										<div class="text-left mb-2" style="font-size: 0.9em; ">
-										<span style="color: #4dac27; font-size: 0.9em; ">10%</span>
+										<div class="text-left mt-4 mb-2"  style="font-weight: 600; ">
+										<a style="color:black; " href="${path }bookDetail.go?bookNo=${ newBook.bookNo}">${ newBook.bookName}</a></div>
+										<div style="  font-size: 0.8em; font-weight: 400;" class="text-left mb-2">${ newBook.bookWriter}</div>
+										<div class="text-left mb-2" style="font-size: 0.9em;  font-weight: 600;  ">
+										<span style="color: #4dac27; font-size: 1em; ">10%</span>
 										<fmt:formatNumber>${ newBook.bookPrice}</fmt:formatNumber>원
 										</div>
 								</div>
@@ -535,41 +564,43 @@ response.setDateHeader("Expires", 0); // Proxies
 		 -->
  		<div class="reviewWritePop mt-3">
  		<div>
-		<form method="post" action="${path }insertReview.go">
 			<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
 			<input type="hidden" id="memberNo" name="memberNo" value="${session.memberNo }">
 			<div><p>리뷰작성<span class="xIcon"></span></p></div>
-			
+			<!-- 책정보 -->
 			<div class="borderRoundGray">
 					<div class="row ailgn-content-center pl-4">
 						<div class="px-2 my-2">
 							<img width="120" alt="${ book.bookCover}" src="${ book.bookCover}">
 						</div>
 						<div class="px-2 my-2" style="width: 150px;">
-							<div class="text-left mt-4 mb-2">${ book.bookName}</div>
-							<div style="font-family: MICEGothic Light; font-size: 0.95em;"
+							<div class="text-left mt-4 mb-2" style="font-weight: 800; font-size: 1.1em; ">${ book.bookName}</div>
+							<div style=" font-size: 0.95em; font-weight: 400; "
 								class="text-left mb-2">${ book.bookWriter}</div>
-							<div class="text-left mb-2" style="font-size: 0.9em;">
-								<span style="color: #4dac27; font-size: 0.9em;">10%</span>
+							<div class="text-left mb-2" style="font-size: 1em; font-weight: 800; ">
+								<span style="color: #4dac27; font-size: 1em;">10%</span>
 								<fmt:formatNumber>${ book.bookPrice}</fmt:formatNumber>
 								원
 							</div>
 						</div>
 					</div>
 			</div>
-			
-			<div><p>리뷰작성<span style="color:#3c9a17;">*</span></p></div>
+			<!-- 책정보 -->
+			<div class="mt-4"><p class="mb-2">리뷰작성<span style="color:#3c9a17; ">*</span></p></div>
 			<div class="borderRoundGray">
-				<textarea name="review_cont" class="reviewWriterInput" 
-				placeholder="내용을 10자 이상 입력해주세요. &#10;주제와 무관한 댓글, 악플, 배송문의 등의 글은 임의 삭제될 수 있습니다."></textarea>
+				<input type="text" id="reviewTitle" class="reviewWriterTitleInput" 
+				placeholder="소제목을 입력해주세요.">
+			</div>
+			<div class="borderRoundGray mt-2">
+				<input type="text" id="reviewCont" class="reviewWriterInput" 
+				placeholder="내용을 10자 이상 입력해주세요. ">
 			</div>
 			
-		</form>
-		</div>
-				<div class="row">
+				<div class="row justify-content-center mt-4">
 					<div class="RoundBox1" onclick="reviewPopup();">취소</div>
-					<div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+					<div class="RoundBox2" onclick="insertReview();">등록</div>
 				</div>
+		</div>
 		</div>
 	</div>
 		<!-- 리뷰작성 팝업 End-->
@@ -585,42 +616,60 @@ response.setDateHeader("Expires", 0); // Proxies
  
 	<script>
 	
+	/* 전역으로 사용 start */
+	var bookNo = "${book.getBookNo()}";
+	var memberId = "${session.getMemberId() }";
+	var cartPrice = null;
+	var cartQuantity = null;
+	/* 전역  사용 end */
+
 	function updateTotalPrice() {
 		
-		  var originalPrice = ${book.bookPrice }; // 책의 판매가
-		  var discount = 0.1; // 할인율 (10%)
-		  var bookQuantity = parseInt(document.getElementById("numberDisplay").innerText); // 책의 권수
+	  var originalPrice = ${book.bookPrice };
+	  var discount = 0.1;
+	  var bookQuantity = parseInt(document.getElementById("numberDisplay").innerText);
 
-		  var discountedPrice = originalPrice - (originalPrice * discount); // 할인 적용된 가격
-		  var unDiscountedPrice = originalPrice; // 할인 적용된 가격
-		  var totalPrice = discountedPrice * bookQuantity; // 총 상품 가격
-		  var totalPrice2 = unDiscountedPrice * bookQuantity; // 총 상품 가격
+	  var discountedPrice = originalPrice - (originalPrice * discount);
+	  var unDiscountedPrice = originalPrice;
+	  var totalPrice = discountedPrice * bookQuantity;
+	  var totalPrice2 = unDiscountedPrice * bookQuantity;
 
-		  document.getElementById("totalPrice").innerText = totalPrice.toLocaleString();
-		  document.getElementById("totalPrice2").innerText = totalPrice2.toLocaleString();
-		}
+	  document.getElementById("totalPrice").innerText = totalPrice.toLocaleString();
+	  document.getElementById("totalPrice2").innerText = totalPrice2.toLocaleString();
 
-		document.getElementById("decrementBtn").addEventListener("click", function() {
-		  var numberDisplay = document.getElementById("numberDisplay");
-		  var bookQuantity = parseInt(numberDisplay.innerText);
+	  // cartPrice와 cartQuantity에 값 할당
+	  cartPrice = totalPrice;
+	  cartQuantity = bookQuantity;
+	}
 
-		  if (bookQuantity > 1) {
-		    bookQuantity--;
-		    numberDisplay.innerText = bookQuantity;
-		    updateTotalPrice();
-		  }
-		});
+	document.getElementById("decrementBtn").addEventListener("click", function() {
+	  var numberDisplay = document.getElementById("numberDisplay");
+	  var bookQuantity = parseInt(numberDisplay.innerText);
 
-		document.getElementById("incrementBtn").addEventListener("click", function() {
-		  var numberDisplay = document.getElementById("numberDisplay");
-		  var bookQuantity = parseInt(numberDisplay.innerText);
+	  if (bookQuantity > 1) {
+	    bookQuantity--;
+	    numberDisplay.innerText = bookQuantity;
+	    updateTotalPrice();
+	  }
+	});
 
-		  bookQuantity++;
-		  numberDisplay.innerText = bookQuantity;
-		  updateTotalPrice();
-		});
+	document.getElementById("incrementBtn").addEventListener("click", function() {
+	  var numberDisplay = document.getElementById("numberDisplay");
+	  var bookQuantity = parseInt(numberDisplay.innerText);
 
-		updateTotalPrice(); // 초기 총 상품 금액 업데이트
+	  bookQuantity++;
+	  numberDisplay.innerText = bookQuantity;
+	  updateTotalPrice();
+	});
+
+	updateTotalPrice();
+
+	function cart_1(){
+	  // cartPrice와 cartQuantity를 미리 할당
+	
+	  
+	  location.href = 'cart.go?bookNo=' + bookNo + '&memberId=' + memberId + '&totalPrice=' + cartPrice + '&cartCount=' + cartQuantity;
+	}
 
 </script>
 </body>

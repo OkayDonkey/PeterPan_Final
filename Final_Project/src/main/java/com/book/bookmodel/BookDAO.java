@@ -21,4 +21,8 @@ public interface BookDAO {
 
 	List<NewRelBookDTO> getNewRelBook();
 
+	List<BookDTO> getSameGenre(int bookNo);
+	
+	
+
 }

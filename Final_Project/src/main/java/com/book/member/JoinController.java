@@ -2,7 +2,6 @@ package com.book.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.security.SecureRandom;
@@ -123,7 +122,7 @@ public class JoinController {
 	}
 	
 	@RequestMapping("general_join_ok.go")
-	public String getneralJoinOk(MemberDTO dto, HttpSession session, HttpServletResponse response) throws Exception {
+	public String getneralJoinOk(MemberDTO dto, HttpSession session) throws Exception {
 		
 		session.removeAttribute("memberName");
 		session.removeAttribute("memberPhone");
