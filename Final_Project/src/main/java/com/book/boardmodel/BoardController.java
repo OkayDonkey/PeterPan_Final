@@ -37,6 +37,8 @@ public class BoardController {
 		
 		model.addAttribute("category", category);
 		
+		System.out.println(category);
+		
 		return "board/boardFAQ";
 	}
 	

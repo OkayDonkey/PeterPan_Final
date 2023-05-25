@@ -19,17 +19,17 @@
 
 						<div>
 							<li class="snb_list" style="margin-bottom: 16px;">
-								<a onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">자주 묻는 질문</a>
+								<a onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go?category=자주 묻는 질문">자주 묻는 질문</a>
 								<div>
 									<ul class="snb_list_box">
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">BEST 10</a></li>
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">회원</a></li>
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">도서/상품정보/교과서</a></li>
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">주문/결제</a></li>
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">배송/수령일 안내</a></li>
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">반품/교환/환불</a></li>
-										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">서비스</a></li>
-										<li class="snb_item"><a class="snb_btn" onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">eBook</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=BEST 10">BEST 10</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=회원">회원</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=도서/상품정보/교과서">도서/상품정보/교과서</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=주문/결제">주문/결제</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=배송/수령일 안내">배송/수령일 안내</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=반품/교환/환불">반품/교환/환불</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=서비스">서비스</a></li>
+										<li class="snb_item"><a class="snb_btn"  href="<%=request.getContextPath() %>/boardFAQ.go?category=eBook">eBook</a></li>
 									</ul>
 								</div>
 							</li>
