@@ -12,8 +12,10 @@
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <!-- 슬라이드 css 끝-->
 <link rel="stylesheet" type ="text/css" href ="resources/css/main/main.css">
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
 
 </head>
+
 <body>
 
 	<jsp:include page="./top/top.jsp" /> 

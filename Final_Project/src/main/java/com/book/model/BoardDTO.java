@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class BoardDTO {
 	private int boardNO;
-	private String boardTitle;
-	private String boardHead;
-	private int boardHit;
-	private String boardRegdate;
-	private String boardFile;
-	private String boardContent;
-	private String boardArea;
 	private int memberNo;
+	private String boardArea;
+	private String boardCategory;
+	private String boardTitle;
+	private String boardContent;
+	private String boardFile;
+	private String boardRegdate;
+	private int boardHit;
 }

@@ -7,10 +7,16 @@
   <mapper namespace="boarddao">
   
   	<select id="all" resultType="boarddto">
-  		select * from board order by boardNO desc;
+  		select * from board order by boardNO desc
   	</select>
   	
+  	<select id="getBest10" resultType="boarddto">
+  		select * from board where boardArea="FAQ" order by boardHit desc limit 10
+  	</select>
   	 
+  	 <select id="getcategoryList" parameterType="String" resultType="boarddto">
+  	 	select * from board where boardCategory=#{category} order by boardNo desc
+  	 </select>
  
   
   </mapper>
