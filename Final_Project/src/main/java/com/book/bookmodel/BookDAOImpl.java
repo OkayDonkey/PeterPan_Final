@@ -52,4 +52,10 @@ public class BookDAOImpl implements BookDAO {
 		 
 		return this.sqlSession.selectList("newRelBook");
 	}
+	
+	@Override
+	public List<BookDTO> getSameGenre(int bookNo) {
+		
+		return this.sqlSession.selectList("sameGenre",bookNo);
+	}
 }

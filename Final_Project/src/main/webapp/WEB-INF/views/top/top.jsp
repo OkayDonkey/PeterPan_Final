@@ -26,7 +26,6 @@
 	
 <style>
 
-
 @font-face {
     font-family: 'SUIT-Light';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');

@@ -32,7 +32,10 @@
 			    CONVERT((SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) / (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) * 100, UNSIGNED) AS like_percentage;
 		</select>
 		<select id="newRelBook" resultType="newRelBookDto">
-			SELECT * FROM book ORDER BY bookRelDate DESC LIMIT 10
+			SELECT * FROM book ORDER BY bookRelDate DESC LIMIT 10 
+		</select>
+		<select id="sameGenre" parameterType="int" resultType="bookDto">
+			SELECT * FROM book WHERE bookGenre = (SELECT bookGenre FROM book WHERE bookNo = #{bookNo}) ORDER BY RAND() LIMIT 10
 		</select>
   		
 	</mapper>

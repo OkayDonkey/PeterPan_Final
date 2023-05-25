@@ -20,9 +20,9 @@ public class ReviewDAOImpl implements ReviewDAO{
 		return this.sqlSession.insert("insertView", dto);
 	}
 	
-@Override
+	@Override
 	public List<ReviewDTO> loadReview(int bookNo) {
 		 
-		return this.sqlSession.selectList("loadReview");
+		return this.sqlSession.selectList("loadIdReview",bookNo);
 	}
 }

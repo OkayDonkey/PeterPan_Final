@@ -16734,6 +16734,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     margin: 35px auto;
     height: 100%;
     border-bottom: 1px solid #eaeaea;
+    font-weight: 600;
 }
 
 .tabs {
@@ -16792,8 +16793,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .smallTextBox	{
 	border: 1px solid #696969;
 	border-radius: 0.5em;
-	font-size: 12px;
-    padding: 4px 7px;
+	font-size: 12.5px;
+    padding: 3px 7px;
     color:#696969;
     
 }
@@ -16801,16 +16802,16 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .smallTextBoxGreen	{
 	border: 1px solid #4dac27;
 	border-radius: 0.5em;
-	font-size: 12px;
-    padding: 4px 7px;
+	font-size: 12.5px;
+    padding: 3px 7px;
     color:#4dac27;
 }
 
 .smallTextBoxBlue	{
 	border: 1px solid #2747ac;
 	border-radius: 0.5em;
-	font-size: 12px;
-    padding: 4px 7px;
+	font-size: 12.5px;
+    padding: 3px 7px;
     color:#2747ac;
 }
 
@@ -16827,6 +16828,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
+    color:#323232;
 }
 
 .hBB_left	{
@@ -16849,6 +16852,13 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	border-radius: 0.5em;
 	border: 1px solid #eaeaea;
 	padding: 10px;
+}
+
+.borderRoundGray_bg	{
+	background-color:#f7f7f7;
+	border-radius: 1em;
+	border: 1px solid #f7f7f7;
+	padding: 38px; 
 }
 
 .RoundBox1	{
@@ -16994,6 +17004,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     display: flex;
     margin-top: 20px;
     color: #767676;
+    font-weight: 600;
 }
 
 .cateBar	a{
@@ -17107,6 +17118,19 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	color:#000000;
 }
 
+.moreBtn_ml		{
+	margin-left: 480px;
+	font-size: 13px;
+	color:#767676;
+}
+
+
+.moreBtn_ml:hover	{
+	margin-left: 480px;
+	font-size: 13px;
+	color:#000000;
+}
+
 .reviewBox	{
 	width: 100%;
 	
@@ -17135,6 +17159,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	width: 110px;
 	text-align: center;
 	padding:8px;
+	font-weight: 600;
 }
 
 
@@ -17209,6 +17234,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     text-align: left;
     padding: 30px;
     border-bottom: 2px solid #767676;
+    font-weight: 600;
 }
 
 .reviewWritePop	{
@@ -17237,13 +17263,25 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	background-size: 24px;
 }
 
+.bold-font	{
+	font-weight: 600;
+}
 
 .reviewWriterInput		{
 	border: none;
 	padding: 10px;
-	font-weight: 100;
+	font-weight: 400;
 	width: 100%;
 	height: 150px;
+	font-size: 0.85em;
+}
+
+.reviewWriterTitleInput	{
+	border: none !important;
+	padding: 10px;
+	font-weight: 400;
+	width: 100%;
+	height: 23px;
 	font-size: 0.85em;
 }
 /*  BookDetailCss  --End--*/
