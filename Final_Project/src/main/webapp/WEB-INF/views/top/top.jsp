@@ -317,7 +317,7 @@ margin-left: 5px;
 				</div>
 				<div class="my_info">
 					
-					<a href="#">
+					<a href="<%=request.getContextPath() %>/myPage.go">
 					<img src="resources\css\s_img\us23.png">
 					</a>
 					
