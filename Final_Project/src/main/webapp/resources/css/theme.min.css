@@ -356,6 +356,7 @@ button:focus {
 	outline: 5px auto -webkit-focus-ring-color
 }
 
+
 input,
 button,
 select,
@@ -5424,12 +5425,21 @@ input[type="button"].btn-block {
 	margin-left: 1.25rem
 }
 
-.card-header {
+/* .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
 	background-color: rgba(0, 0, 0, 0.03);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.085)
 }
+ */
+.card-header {
+	padding: .75rem 1.25rem;
+	margin-bottom: 0;
+	background-color: white;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.085)
+}
+
+
 
 .card-header+.list-group .list-group-item:first-child {
 	border-top: 0

@@ -1,9 +1,12 @@
 package com.book.boardmodel;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.MemberDTO;
 
 
 @Controller
@@ -27,24 +31,32 @@ public class BoardController {
 	}
 	
 	@RequestMapping("boardFAQ.go")
-	public String mainBest() {
+	public String mainBest(HttpServletRequest request, Model model) {
+		
+		String category = request.getParameter("category");
+		
+		model.addAttribute("category", category);
+		
 		return "board/boardFAQ";
 	}
 	
 	@RequestMapping("getCategoryList.go")
 	@ResponseBody
-	public List<BoardDTO> categoryList(@RequestParam("category") String category) {
+	public Map<String, Object> categoryList(@RequestParam("category") String category, BoardDTO dto) {
+		Map<String, Object>  maplist = new HashMap<String, Object>();
 		
 		System.out.println(category);
+		List<BoardDTO> list = null;
 		
 		if(category.equals("BEST 10") || category.equals("자주 묻는 질문")) {
-			List<BoardDTO> list = this.dao.getbest10List();
-			System.out.println(list);
-			return list;
-		} else {
-			List<BoardDTO> list = this.dao.getcategoryList(category);
-			return list;
+			list = this.dao.getbest10List();
+		}else {
+			list= this.dao.getcategoryList(category);
 		}
+			maplist.put("list", list);
+			maplist.put("category", category);
+			
+			return maplist;
 	}
 
 }

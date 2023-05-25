@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
 <title>고객센터 - 피터팬</title>
 </head>
 <body>
@@ -18,19 +19,17 @@
 
 						<div>
 							<li class="snb_list" style="margin-bottom: 16px;">
-								<a href="#">자주 묻는 질문</a>
+								<a onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">자주 묻는 질문</a>
 								<div>
 									<ul class="snb_list_box">
-										<li class="snb_item">
-											<a class="snb_btn"  href="#">BEST 10</a>
-										</li>
-										<li class="snb_item"><a class="snb_btn" href="#">회원</a></li>
-										<li class="snb_item"><a class="snb_btn" href="#">도서/상품정보/교과서</a></li>
-										<li class="snb_item"><a class="snb_btn" href="#">주문/결제</a></li>
-										<li class="snb_item"><a class="snb_btn" href="#">배송/수령일 안내</a></li>
-										<li class="snb_item"><a class="snb_btn" href="#">반품/교환/환불</a></li>
-										<li class="snb_item"><a class="snb_btn" href="#">서비스</a></li>
-										<li class="snb_item"><a class="snb_btn" href="#">eBook</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">BEST 10</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">회원</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">도서/상품정보/교과서</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">주문/결제</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">배송/수령일 안내</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">반품/교환/환불</a></li>
+										<li class="snb_item"><a class="snb_btn"  onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">서비스</a></li>
+										<li class="snb_item"><a class="snb_btn" onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go">eBook</a></li>
 									</ul>
 								</div>
 							</li>
@@ -66,8 +65,7 @@
 								<a href="#" class="snb_ars">보이는 ARS</a>
 							</div>
 							<p class="desc">
-								앱스토어에서 <span class="fw_medium">'보이는 ARS'</span> <br> 앱 설치 후
-								이용
+								앱스토어에서 <span class="fw_medium">'보이는 ARS'</span><br> 앱 설치 후 이용
 							</p>
 							<div class="tel_text_box">
 								<a href="#"> <span class="tel_text">전화상담서비스 안내도</span> <img
@@ -78,6 +76,7 @@
 					</ul>
 				</div>
 			</div>
+			
 			
 <script type="text/javascript">
 	
@@ -97,5 +96,5 @@
 
 </body>
 
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
+
 </html>

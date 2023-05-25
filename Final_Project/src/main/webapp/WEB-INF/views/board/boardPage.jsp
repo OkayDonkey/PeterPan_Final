@@ -13,12 +13,15 @@
 	<jsp:include page="./../top/top.jsp" />
 
 	<!-- 화면 나누기 구성 -->
-	<div class="container align-content-center" style="min-width: 1200px;">
+	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
 	<div class="row justify-content-sm-between" style="width: 1200px;">
 
 		<!-- 왼쪽 메뉴바 -->
 		<jsp:include page="../boardInclude/boardLeft.jsp" />
 			
+			
+			
+			<!-- 오른쪽 메뉴바 -->
 			<!-- 창마다 바뀜 -->
 			<div class="main" style="width: 900px;">
 				<div class="main_heading">
@@ -160,6 +163,10 @@
 			<!-- 오른쪽 끝 -->
 		</div>
 	</div>
+
+	<!-- footer -->
+	<jsp:include page="./../top/footer.jsp" />
+
 
 </body>
 <!-- 부트스트랩 CSS -->
