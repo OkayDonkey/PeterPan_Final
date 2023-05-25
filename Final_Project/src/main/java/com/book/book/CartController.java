@@ -104,12 +104,10 @@ public class CartController {
 		if(check > 0) {
 			this.Cdao.deletecheck(dto);
 			out.println("<script>");
-			out.println("alert('삭제됨')");
 			out.println("location.href='cartList.go'");
 			out.println("</script>");
 		}else {
 			out.println("<script>");
-			out.println("<alert('못나간다')>");
 			out.println("histroy.back()");
 			out.println("</script>");			
 		}

@@ -6,24 +6,34 @@
   
 <mapper namespace="reviewDao">
 	
-	<select id="loadReview" parameterType="int" resultType="reviewDto">
-		
-		SELECT * FROM review WHERE bookNo = #{bookNo} ORDER BY reviewRegdate DESC
+	<select id="loadReview" parameterType="int"
+	resultType="reviewDto">
+
+	SELECT * FROM review WHERE bookNo = #{bookNo} ORDER BY reviewRegdate DESC
 	</select>
-	
-	<select id="loadIdReview" parameterType="int" resultType="reviewDto">
-	SELECT r.*, m.memberId FROM review r JOIN member m ON r.memberNo = m.memberNo
-WHERE r.bookNo = #{bookNo} ORDER BY r.reviewRegdate DESC
+
+	<select id="loadIdReview" parameterType="int"
+		resultType="reviewDto">
+		SELECT r.*, m.memberId FROM review r JOIN member m ON r.memberNo =
+		m.memberNo
+		WHERE r.bookNo = #{bookNo} ORDER BY r.reviewRegdate DESC
 	</select>
-	
+
 	<insert id="insertView" parameterType="reviewDto">
-	  <selectKey keyProperty="reviewNo" resultType="int" order="BEFORE">
-	    SELECT COALESCE(MAX(reviewNo), 0) + 1 FROM review
-	  </selectKey>
-	  insert into review (reviewNo, memberNo, reviewTitle, reviewCont, reviewFile, reviewRegdate, bookNo)
-	  values (#{reviewNo}, #{memberNo}, #{reviewTitle}, #{reviewCont}, #{reviewFile}, sysdate(), #{bookNo})
+		<selectKey keyProperty="reviewNo" resultType="int"
+			order="BEFORE">
+			SELECT COALESCE(MAX(reviewNo), 0) + 1 FROM review
+		</selectKey>
+		insert into review (reviewNo, memberNo, reviewTitle, reviewCont,
+		reviewFile, reviewRegdate, bookNo, recommend)
+		values (#{reviewNo}, #{memberNo}, #{reviewTitle}, #{reviewCont},
+		#{reviewFile}, sysdate(), #{bookNo}, #{recommend})
 	</insert>
 
+	<insert id="insertLike" parameterType="likeDto">
+		insert into `like` (memberNo, bookNo)
+		values(#{memberNo},#{bookNo})
+	</insert>
 
 
 </mapper>

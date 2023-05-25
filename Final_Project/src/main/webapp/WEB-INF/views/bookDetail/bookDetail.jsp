@@ -71,16 +71,16 @@ response.setDateHeader("Expires", 0); // Proxies
 				</div>
 			</c:when>
 		</c:choose>
-		<%--
-		 <div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
-  			<img id="heartIcon" src="resources/img/heart.png" width="23px;">
-		</div>
-		 --%>
 
-		<div class="RoundBox_l_white" onclick="cart_1()">
-			 <%-- <a href="<%=request.getContextPath()%>/cart.go?bookNo=${book.bookNo}&memberId=${session.memberId}" id="modalOpen"> --%>
-				장바구니
-		</div>
+			<c:choose>
+				<c:when test="${empty session.memberId }">
+					<div class="RoundBox_l_white" onclick="needLogin();">장바구니</div>
+				</c:when>
+				<c:when test="${!empty session.memberId }">
+					<div class="RoundBox_l_white" onclick="cart_1()">장바구니</div>
+				</c:when>
+			</c:choose>
+
 		<div class="RoundBox_l">바로구매</div>
 	</div>
 </div>
@@ -368,7 +368,7 @@ response.setDateHeader("Expires", 0); // Proxies
 	            <ul class="tabs" >
 	                <li class="tab_item"><a href="#book_detail_info_event" ><span class="tab_text">이벤트</span></a></li>
 	                <li class="tab_item"><a href="#book_detail_info_img" ><span class="tab_text">상품정보</span></a></li>
-	                <li class="tab_item"><a href="#" ><span class="tab_text">리뷰(${reviewCount})</span></a></li>
+	                <li class="tab_item"><a href="#totalReviewNum" ><span class="tab_text">리뷰(${reviewCount})</span></a></li>
 	                <li class="tab_item" ><a href="#" ><span class="tab_text">교환/반품/품절</span></a></li>
 	            </ul>
        		</div>
@@ -404,8 +404,10 @@ response.setDateHeader("Expires", 0); // Proxies
        				<h3>책 소개</h3>
        				<br>
        				<h5>이 책이 속한 분야</h5>
+       		
        				<h6>${book.bookCategory }<span style="margin:0 15px;">></span>${book.bookGenre }</h6>
        				<br><br>
+       						<div id="totalReviewNum" ></div>
        				<p>${book.bookCont }</p>
        			</section>
        			<!-- 하단 리뷰영역 -->
@@ -441,6 +443,12 @@ response.setDateHeader("Expires", 0); // Proxies
 											<span class="smallTextGray mr-1">${rView.memberId }</span>
 											<span class="smallTextGray mr-1">${rView.reviewRegdate }</span>
 											<span class="smallTextGray mr-1">${rView.reviewTitle }</span>
+											<c:if test="${rView.recommend == true }">
+												<span class="recommend_img"></span>
+											</c:if>
+											<c:if test="${rView.recommend == false }">
+												<span class="notRecommend_img"></span>
+											</c:if>
 										</p>
 									</div>
 									<div class="container"><p class="TextGray">${rView.reviewCont }</p></div>
@@ -583,6 +591,10 @@ response.setDateHeader("Expires", 0); // Proxies
 								원
 							</div>
 						</div>
+					<div class="likeCheckBox" id="likeCheckBox" onclick="checkLike( 'resources/img/Bad.png' , 'resources/img/Good.png' )">
+						<img id="LikePng" width="80px" src="resources/img/Bad.png">
+						<input id="checkBox" name="likeCheck" type="radio" value="false" hidden>
+					</div>
 					</div>
 			</div>
 			<!-- 책정보 -->
@@ -666,8 +678,6 @@ response.setDateHeader("Expires", 0); // Proxies
 
 	function cart_1(){
 	  // cartPrice와 cartQuantity를 미리 할당
-	
-	  
 	  location.href = 'cart.go?bookNo=' + bookNo + '&memberId=' + memberId + '&totalPrice=' + cartPrice + '&cartCount=' + cartQuantity;
 	}
 

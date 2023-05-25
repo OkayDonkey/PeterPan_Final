@@ -16815,6 +16815,19 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     color:#2747ac;
 }
 
+.buyTextBoxBlue	{
+	height:50px;
+	border: 1px solid #5055b1;
+	border-radius: 0.5em;
+	font-size: 1em;
+	font-weight: 700;
+    padding: 3px 7px;
+    color:white;
+    background-color: #5055b1;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+
 .hoverBuyBar	{
 	width: 100%;
     position: fixed;
@@ -17074,6 +17087,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     background: #0000007d;
     top:0;
     bottom: 0;
+    left: 0;
     z-index: 2000;
     display: flex;
     justify-content: center;
@@ -17224,6 +17238,13 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     padding: 0 15px;
 }
 
+.smallTextGrayNone	{
+    font-size: 12px;
+    color: #696969;
+    display: inline-block;
+    padding: 0 15px;
+}
+
 .TextGray	{
     font-size: 0.9em;
     color: #2d2d2d;
@@ -17284,7 +17305,95 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	height: 23px;
 	font-size: 0.85em;
 }
+
+.likeCheckBox	{
+	width: 150px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recommend_img	{
+	background-image: url("../img/Good.png");
+	background-repeat: no-repeat;
+	background-size: 70px;
+	width: 100px;
+	display: inline-block;
+	position: relative;
+    height: 50px;
+    float: right;
+    top: 23px;
+}
+
+.notRecommend_img		{
+	background-image: url("../img/Bad.png");
+	background-repeat: no-repeat;
+	background-size: 70px;
+	width: 100px;
+	display: inline-block;
+	position: relative;
+    height: 50px;
+    float: right;
+    top: 23px;
+}
+
+.border_bottom_gray	{
+	border-bottom: 1px solid #d7d7d7;
+}
+
+.border-y-bold	{
+	border-bottom: 1px solid #c4c4c4;
+	border-top: 1px solid black;
+	font-weight: 800;
+	color: black;
+	font-size: 1.2em;
+}
+
+.flex_center_center		{
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bold	{
+	font-weight: 600;
+}
+
+.bookCartWidth	{
+	width: 400px !important;
+}
+
+.border-x-light	{
+	padding:0 30px;
+	border-left: 1px solid #eaeaea;
+	border-right: 1px solid #eaeaea;
+}
+
+.border-right-light	{
+	border-right: 1px solid #767676;
+}
+
+.Fixed	{
+	width:350px;
+	position: fixed;
+	margin: 0 30px;
+}
+
+.deleteBtn	{
+	width: 17px;
+    border: none;
+    background-color: #00000000;
+    background-size: 17px;
+    top: 12px;
+    float: right;
+    right: 40px;
+    position: relative;
+}
 /*  BookDetailCss  --End--*/
 
+	
+}
 
 	/*# sourceMappingURL=theme.min.css.map */
