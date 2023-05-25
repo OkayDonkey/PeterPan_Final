@@ -19,4 +19,19 @@ public interface LoginDAO{
 
 	// SNS 로그인 처리
 	MemberDTO SNSLogin(String email);
+
+	int phoneSearchGetId(MemberDTO dto);
+
+	int emailSearchGetId(MemberDTO dto);
+
+	MemberDTO getmemberonelist(String memberEmail);
+
+	int phoneSearchGetPwd(MemberDTO dto);
+	
+	int emailSearchGetPwd(MemberDTO dto);
+
+	MemberDTO getmemberonelistbyId(String memberId);
+
+	void pwdReset(MemberDTO dto);
+
 }

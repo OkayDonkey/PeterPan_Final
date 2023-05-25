@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>피터팬/로그인</title>
+<link rel="stylesheet" href="${path }/resources/css/member/memberMain.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/login.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/join.css" />
 

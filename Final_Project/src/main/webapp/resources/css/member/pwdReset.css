@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.ico_info_wrap + .form_wrap {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #000;
+}
+
+.wrapper.member_login .container_wrapper .contents_wrap.login {
+    width: 340px;
+}
