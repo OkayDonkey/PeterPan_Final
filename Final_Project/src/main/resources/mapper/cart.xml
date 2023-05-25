@@ -6,13 +6,38 @@
   
 <mapper namespace="cartDao">
 
-<insert id="c_insert" parameterType="cartDto">
-<selectKey resultType="int"
-			keyProperty="cartNo" order="BEFORE">
-			select count(cartNo) from bookCart
-		</selectKey>
- 	insert into bookCart values(#{cartNo} + 1,#{bookNo},#{memberId}) 
+	<insert id="c_insert" parameterType="cartDto">
+		<selectKey resultType="int"	keyProperty="cartNo" order="BEFORE">
+				select count(cartNo) from bookCart
+			</selectKey>
+			insert into bookCart values(#{cartNo} + 1,#{bookNo},#{memberId},#{cartCount}) 
+	</insert>
+	
+	<select id="c_list" parameterType="String" resultType="cartDto">	
 
-</insert>
+		select *
+				from bookCart a left outer join book b on a.bookNo = b.bookNo
+				where memberId = #{memberId}
+		
+	</select>	
+	 
+	<update id="ifcart" parameterType="cartDto">
+		update bookCart set cartCount = cartCount + #{cartCount} where bookNo=#{bookNo}
+	</update>
+	
+	<select id="check" parameterType="cartDto" resultType="int">
+	select count(*) from bookCart where bookNo=#{bookNo} and memberId=#{memberId}
+	
+	</select>
+	
+	<delete id="delete" parameterType="cartDto">
+	
+	delete from bookCart where cartNo=${cartNo}
+	
+	</delete>
+	
+	<update id="deletecheck" parameterType="cartDto">
+		<![CDATA[update bookCart set cartNo= cartNo-1 where cartNo > #{cartNo} ]]>
 
+	</update>
 </mapper>

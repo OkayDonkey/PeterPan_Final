@@ -78,7 +78,10 @@ response.setDateHeader("Expires", 0); // Proxies
 		</div>
 		 --%>
 
-		<div class="RoundBox_l_white">장바구니</div>
+		<div class="RoundBox_l_white" onclick="cart_1()">
+			 <%-- <a href="<%=request.getContextPath()%>/cart.go?bookNo=${book.bookNo}&memberId=${session.memberId}" id="modalOpen"> --%>
+				장바구니
+		</div>
 		<div class="RoundBox_l">바로구매</div>
 	</div>
 </div>
@@ -585,42 +588,60 @@ response.setDateHeader("Expires", 0); // Proxies
  
 	<script>
 	
+	/* 전역으로 사용 start */
+	var bookNo = "${book.getBookNo()}";
+	var memberId = "${session.getMemberId() }";
+	var cartPrice = null;
+	var cartQuantity = null;
+	/* 전역  사용 end */
+
 	function updateTotalPrice() {
 		
-		  var originalPrice = ${book.bookPrice }; // 책의 판매가
-		  var discount = 0.1; // 할인율 (10%)
-		  var bookQuantity = parseInt(document.getElementById("numberDisplay").innerText); // 책의 권수
+	  var originalPrice = ${book.bookPrice };
+	  var discount = 0.1;
+	  var bookQuantity = parseInt(document.getElementById("numberDisplay").innerText);
 
-		  var discountedPrice = originalPrice - (originalPrice * discount); // 할인 적용된 가격
-		  var unDiscountedPrice = originalPrice; // 할인 적용된 가격
-		  var totalPrice = discountedPrice * bookQuantity; // 총 상품 가격
-		  var totalPrice2 = unDiscountedPrice * bookQuantity; // 총 상품 가격
+	  var discountedPrice = originalPrice - (originalPrice * discount);
+	  var unDiscountedPrice = originalPrice;
+	  var totalPrice = discountedPrice * bookQuantity;
+	  var totalPrice2 = unDiscountedPrice * bookQuantity;
 
-		  document.getElementById("totalPrice").innerText = totalPrice.toLocaleString();
-		  document.getElementById("totalPrice2").innerText = totalPrice2.toLocaleString();
-		}
+	  document.getElementById("totalPrice").innerText = totalPrice.toLocaleString();
+	  document.getElementById("totalPrice2").innerText = totalPrice2.toLocaleString();
 
-		document.getElementById("decrementBtn").addEventListener("click", function() {
-		  var numberDisplay = document.getElementById("numberDisplay");
-		  var bookQuantity = parseInt(numberDisplay.innerText);
+	  // cartPrice와 cartQuantity에 값 할당
+	  cartPrice = totalPrice;
+	  cartQuantity = bookQuantity;
+	}
 
-		  if (bookQuantity > 1) {
-		    bookQuantity--;
-		    numberDisplay.innerText = bookQuantity;
-		    updateTotalPrice();
-		  }
-		});
+	document.getElementById("decrementBtn").addEventListener("click", function() {
+	  var numberDisplay = document.getElementById("numberDisplay");
+	  var bookQuantity = parseInt(numberDisplay.innerText);
 
-		document.getElementById("incrementBtn").addEventListener("click", function() {
-		  var numberDisplay = document.getElementById("numberDisplay");
-		  var bookQuantity = parseInt(numberDisplay.innerText);
+	  if (bookQuantity > 1) {
+	    bookQuantity--;
+	    numberDisplay.innerText = bookQuantity;
+	    updateTotalPrice();
+	  }
+	});
 
-		  bookQuantity++;
-		  numberDisplay.innerText = bookQuantity;
-		  updateTotalPrice();
-		});
+	document.getElementById("incrementBtn").addEventListener("click", function() {
+	  var numberDisplay = document.getElementById("numberDisplay");
+	  var bookQuantity = parseInt(numberDisplay.innerText);
 
-		updateTotalPrice(); // 초기 총 상품 금액 업데이트
+	  bookQuantity++;
+	  numberDisplay.innerText = bookQuantity;
+	  updateTotalPrice();
+	});
+
+	updateTotalPrice();
+
+	function cart_1(){
+	  // cartPrice와 cartQuantity를 미리 할당
+	
+	  
+	  location.href = 'cart.go?bookNo=' + bookNo + '&memberId=' + memberId + '&totalPrice=' + cartPrice + '&cartCount=' + cartQuantity;
+	}
 
 </script>
 </body>
