@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
 <title>고객센터 - 피터팬</title>
 </head>
 <body>
@@ -35,10 +35,10 @@
 							</li>
 								
 							<li class="snb_list" style="margin-bottom: 16px;"><a
-								href="#">1:1 문의</a>
+								href="<%=request.getContextPath() %>/boardQna.go">1:1 문의</a>
 								<div>
 									<ul class="snb_list_box">
-										<li class="snb_item"><a href="#">1:1 문의 접수</a></li>
+										<li class="snb_item"><a href="<%=request.getContextPath() %>/boardQna.go">1:1 문의 접수</a></li>
 										<li class="snb_item"><a href="#">1:1 문의 내역</a></li>
 									</ul>
 								</div></li>

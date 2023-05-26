@@ -30,5 +30,10 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<BoardDTO> getcategoryList(String category) {
 		return this.sqlSession.selectList("getcategoryList", category);
 	}
+	
+	@Override
+	public int insertQna(BoardDTO dto) {
+		return this.sqlSession.insert("add", dto);
+	}
 
 }

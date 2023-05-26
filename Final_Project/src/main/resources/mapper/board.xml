@@ -17,6 +17,14 @@
   	 <select id="getcategoryList" parameterType="String" resultType="boarddto">
   	 	select * from board where boardCategory=#{category} order by boardNo desc
   	 </select>
- 
+ 	 
+ 	<insert id="add" parameterType="boarddto">
+ 		<selectKey resultType="int" keyProperty="boardNO" order="BEFORE">
+           select count(boardNO) from board
+       </selectKey>
+ 	
+		INSERT INTO board (boardNO, memberNo, boardArea, boardCategory, boardTitle, boardContent, boardFile, boardRegdate, boardHit)
+		VALUES (#{boardNO}+1, #{memberNo}, #{boardArea}, #{boardCategory}, #{boardTitle}, #{boardContent}, #{boardFile}, NOW(), 0)
+	</insert>
   
   </mapper>

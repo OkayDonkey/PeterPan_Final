@@ -33,11 +33,9 @@
 	
 	<!-- board -->
   	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
-
   	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
 	<!-- board End-->
-  	
-  
+	
   </typeAliases>
   
 </configuration>

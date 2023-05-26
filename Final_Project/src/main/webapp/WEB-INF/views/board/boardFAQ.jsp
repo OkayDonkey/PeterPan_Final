@@ -7,7 +7,7 @@
 <!-- 부트스트랩 CSS -->
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
 </head>
@@ -31,7 +31,6 @@
 				<div class="main_heading">
 					<h2 class="main_heading_1" >자주 묻는 질문</h2>
 				</div>
-			<h1>input테그 정의해서 카테고리를  js단에서 변수로 지정하여<br> 해당 카테고리 변수에 맞는  innerTEXT가 일치하면 <br>그 엘리먼트 속성에  cliked속성을 주도록하자</h1>
 			<!-- 검색창 -->
 			<div>
 				<div>
