@@ -29,6 +29,7 @@
 	
 	<typeAlias type="com.book.membermodel.LoginDAO" alias="logindao" />
   	<typeAlias type="com.book.membermodel.JoinDAO" alias="joindao" />
+  	<typeAlias type="com.book.membermodel.MypageDAO" alias="mypagedao"/>
 	<!-- member End-->
 	
 	<!-- board -->

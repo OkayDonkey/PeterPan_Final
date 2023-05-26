@@ -1,8 +1,6 @@
 package com.book.member;
 
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.security.SecureRandom;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.book.membermodel.LoginDAO;

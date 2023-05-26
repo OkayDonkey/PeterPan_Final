@@ -49,21 +49,21 @@
 					
 					<div class="asked_category_list">
 						<ul>
-							<li><a href="<%=request.getContextPath()%>/boardFAQ.go">BEST 10</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=BEST 10">BEST 10</a></li>
 
-							<li><a href="#">회원</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=회원">회원</a></li>
 
-							<li><a href="#">도서/상품정보/교과서</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=도서/상품정보/교과서">도서/상품정보/교과서</a></li>
 
-							<li><a href="#">주문/결제</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=주문/결제">주문/결제</a></li>
 
-							<li><a href="#">배송/수령일 안내</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=배송/수령일 안내">배송/수령일 안내</a></li>
 
-							<li><a href="#">반품/교환/환불</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=반품/교환/환불">반품/교환/환불</a></li>
 
-							<li><a href="#">서비스</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=서비스">서비스</a></li>
 
-							<li><a href="#">eBook</a></li>
+							<li><a href="<%=request.getContextPath() %>/boardFAQ.go?category=eBook">eBook</a></li>
 						</ul>
 					</div>
 		

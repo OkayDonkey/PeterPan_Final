@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, button, textarea, p, blockquote, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.wrapper .container_wrapper.my_home {
+    position: relative;
+}
+
+.wrapper .container_wrapper {
+    min-height: calc(100vh - 80px);
+}
+
+.wrapper .container_wrapper.my_home:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 354px;
+    background-size: cover;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/bg_myroom_main@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap {
+    position: relative;
+    padding-top: 20px;
+    z-index: 102;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list {
+    font-size: 0;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:first-child {
+    margin-right: 10px;
+}
+
+
+
+
+

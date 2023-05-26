@@ -35,7 +35,9 @@ public class BoardController {
 		String category = request.getParameter("category");
 
 		model.addAttribute("category", category);
-
+		
+		System.out.println(category);
+		
 		return "board/boardFAQ";
 	}
 

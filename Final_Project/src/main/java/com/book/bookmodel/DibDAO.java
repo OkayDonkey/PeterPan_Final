@@ -1,7 +1,5 @@
 package com.book.bookmodel;
 
-import java.util.List;
-
 import com.book.model.DibsDTO;
 
 public interface DibDAO {

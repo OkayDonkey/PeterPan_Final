@@ -53,21 +53,21 @@
 				
 				<div class="asked_category_list">
 						<ul class="tab_menu">
-							<li class="tab_item"><a class="tab_a" id="clicked" href="#">BEST 10</a></li>
+							<li class="tab_item"><a class="tab_a clicked" href="#">BEST 10</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#">회원</a></li>
+							<li class="tab_item"><a class="tab_a" href="#">회원</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#" >도서/상품정보/교과서</a></li>
+							<li class="tab_item"><a class="tab_a" href="#" >도서/상품정보/교과서</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#">주문/결제</a></li>
+							<li class="tab_item"><a class="tab_a" href="#">주문/결제</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#">배송/수령일 안내</a></li>
+							<li class="tab_item"><a class="tab_a" href="#">배송/수령일 안내</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#">반품/교환/환불</a></li>
+							<li class="tab_item"><a class="tab_a" href="#">반품/교환/환불</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#">서비스</a></li>
+							<li class="tab_item"><a class="tab_a" href="#">서비스</a></li>
 	
-							<li class="tab_item"><a class="tab_a"  href="#">eBook</a></li>
+							<li class="tab_item"><a class="tab_a" href="#">eBook</a></li>
 						</ul>
 					</div>
 			</div>
@@ -77,7 +77,8 @@
 					<p class="category_title"></p>
 				</div>
 				<div id="accordion"></div>	
-			<!-- <script type="text/javascript" src="resources/js/board/boardFAQ.js"></script> -->
+			
+			<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
 			
 		</div>
 	</div>
