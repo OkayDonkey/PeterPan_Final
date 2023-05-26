@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.book.model.BookDTO;
 
-public interface MypageDAO {
+public interface MypageService {
 
 	List<BookDTO> getRecommendbookRandom();
 
