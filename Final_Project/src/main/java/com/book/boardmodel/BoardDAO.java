@@ -13,5 +13,9 @@ public interface BoardDAO {
 
 	List<BoardDTO> getcategoryList(String category);
 
+	// 1:1 문의 접수
+	int insertQna(BoardDTO dto);
+
+
 
 }

@@ -7,7 +7,7 @@
 <!-- 부트스트랩 CSS -->
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
 </head>

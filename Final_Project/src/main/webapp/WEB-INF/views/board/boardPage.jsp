@@ -19,8 +19,6 @@
 		<!-- 왼쪽 메뉴바 -->
 		<jsp:include page="../boardInclude/boardLeft.jsp" />
 			
-			
-			
 			<!-- 오른쪽 메뉴바 -->
 			<!-- 창마다 바뀜 -->
 			<div class="main" style="width: 900px;">
@@ -177,5 +175,5 @@
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>
 
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard_01.css"/>
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
 </html>
