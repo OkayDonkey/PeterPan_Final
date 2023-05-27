@@ -16824,7 +16824,20 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     padding: 3px 7px;
     color:white;
     background-color: #5055b1;
+    cursor: pointer;
+}
+
+.buyTextBoxBlue.flex_center_center:hover	{
+	height:50px;
+	border: 1px solid #424695;
+	border-radius: 0.5em;
+	font-size: 1em;
+	font-weight: 700;
+    padding: 3px 7px;
+    color:white;
+    background-color: #424695;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+	 cursor: pointer;
 }
 
 
@@ -17391,8 +17404,32 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     right: 40px;
     position: relative;
 }
+
+.FAQ_Btn	{
+	color: #000;
+    background: #fff;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+    border-radius: 0.5em;
+    padding:7px;
+    width: 100px;
+    height:38px;
+    font-weight: 600;
+    float: right;
+    font-size: 12px !important;
+}
 /*  BookDetailCss  --End--*/
 
+.flex_column	{
+	display: flex;
+	flex-direction: column;
+}
+
+.strikeNum	{
+	text-decoration: line-through;
+	color: gray;
+	font-size: 13px;
+}
 	
 }
 

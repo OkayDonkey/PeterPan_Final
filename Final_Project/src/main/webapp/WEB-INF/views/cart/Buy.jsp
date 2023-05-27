@@ -33,13 +33,13 @@
 				<div class="border-y-bold py-3"><!-- top -->
 					피터팬 도서 장바구니
 				</div>
-				<div id="cartItems">
+				
 				<c:forEach  items="${list }" var="dto" >
 				<c:if test="${!empty list }">
 					<c:set var="totalprice" value="${dto.bookPrice * dto.cartCount}" /> <!-- total price 정의  -->
 					<c:set var ="cartTotalPrice" value="${cartTotalPrice + totalprice }" />
 					
-					<div class="column border_bottom_gray"   id="cartItems"><!-- bottom -->
+					<div class="column border_bottom_gray"><!-- bottom -->
 						<div class="row ailgn-content-center pl-4 ">
 						<div class="row py-3">
 							<div class="px-2 my-2">
@@ -53,24 +53,21 @@
 					 								{location.href='cartDelete.go?cartNo=${dto.cartNo}'}else{retrun}"></span></div>
 									<div class="text-left mb-2" style="font-size: 1em;  font-weight: 700;  ">
 									<span style="color: #4dac27; font-size: 0.9em; font-weight: 600;  ">10%</span>
-									<fmt:formatNumber>${ dto.bookPrice - ( dto.bookPrice * 0.1)}</fmt:formatNumber>원
-									<span class="strikeNum"><fmt:formatNumber>${ dto.bookPrice}</fmt:formatNumber>원</span>
+									<fmt:formatNumber>${ dto.bookPrice}</fmt:formatNumber>원
 									</div>
 							</div>
 						</div>
 						<div class="flex_center_center border-x-light">
-							<span class="mb-2 bold" id="totalCostDisplay${ dto.bookNo}">
-								<fmt:formatNumber> ${totalprice - ( totalprice * 0.1 ) } </fmt:formatNumber>원
+							<span class="mb-2 bold">
+								<fmt:formatNumber> ${totalprice } </fmt:formatNumber>원
 							</span>
 							<div class="RoundBox_s bold">
 								<div>
-									<button id="decrementBtn${ dto.bookNo}" class="decrementBtn" 
-									onclick="costMinusCalculator(${ dto.bookNo},${ dto.bookPrice},${dto.cartCount });">-</button>
+									<button id="decrementBtn" class="decrementBtn">-</button>
 								</div>
-								<div id="numberDisplay${ dto.bookNo}">${ dto.cartCount}</div>
+								<div id="numberDisplay">${ dto.cartCount}</div>
 								<div>
-									<button id="incrementBtn${ dto.bookNo}" class="incrementBtn"
-									onclick="costPlusCalculator(${ dto.bookNo},${ dto.bookPrice},${dto.cartCount });">+</button>
+									<button id="incrementBtn" class="incrementBtn">+</button>
 								</div>
 							</div>
 						</div>
@@ -82,10 +79,8 @@
 					</div>
 				</c:if>
 				</c:forEach>
-				</div>
 				
 			</div>
-			<img src="resources/img/payBar.png" class="my-5">
 			<div class="flex_column">
 				<div class="container">
 					<button class="FAQ_Btn mt-5" onclick="location.href='boardPage.go'">주문/결제 FAQ</button>
@@ -161,54 +156,7 @@
 
 <br><br><br><br><br><br><br><br>
 <jsp:include page="../top/footer.jsp" /> 
-<script>
-	
 
-function costPlusCalculator(bookNo, bookCost, bookEA) {
-	  console.log("책번호: " + bookNo + ", 책가격: " + bookCost + ", 책수량: " + bookEA);
-	  
-	  var displayNo = document.getElementById("numberDisplay" + bookNo);
-	  console.log("해당 책의 수량: " + displayNo.innerText);
-	  
-	  var currentQuantity = parseInt(displayNo.innerText);
-	  var newQuantity = currentQuantity + 1;
-	  
-	  displayNo.innerText = newQuantity;
-	  
-	  updateTotalCost(bookNo, bookCost, newQuantity);
-	  
-	  console.log("변경된 책의 수량 및 변수값: " + displayNo.innerText);
-	}
-
-	function costMinusCalculator(bookNo, bookCost, bookEA) {
-	  console.log("책번호: " + bookNo + ", 책가격: " + bookCost + ", 책수량: " + bookEA);
-	  
-	  var displayNo = document.getElementById("numberDisplay" + bookNo);
-	  console.log("해당 책의 수량: " + displayNo.innerText);
-	  
-	  var currentQuantity = parseInt(displayNo.innerText);
-	  var newQuantity = currentQuantity - 1;
-	  
-	  if (newQuantity >= 1) {
-	    displayNo.innerText = newQuantity;
-	    
-	    updateTotalCost(bookNo, bookCost, newQuantity);
-	  }
-	  
-	  console.log("변경된 책의 수량 및 변수값: " + displayNo.innerText);
-	}
-
-	function updateTotalCost(bookNo, bookCost, bookQuantity) {
-	  var totalPrice = (bookCost - ( bookCost * 0.1 )) * bookQuantity;
-	  var totalCostDisplay = document.getElementById("totalCostDisplay" + bookNo);
-	  totalCostDisplay.innerText = totalPrice.toLocaleString() + "원";
-	  
-	  console.log("변경된 책의 총액: " +  totalCostDisplay.innerText);
-	  
-	}
-
-
-</script>
 <script src="resources/js/book/bookDetail.js"></script>	
 </body>
 </html>

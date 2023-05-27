@@ -435,6 +435,12 @@ response.setDateHeader("Expires", 0); // Proxies
        				</div>
        				
 					<div class="reviewBoxBottom" id="reviewInnerAjax">
+					<c:if test="${empty reviewList }">
+						<div class="flex_center_center p-5">
+							<img class="mb-2" width="36px" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png">
+							<p class="flex_center_center">이 상품의 첫 리뷰어가 되어주세요.</p>
+						</div>
+					</c:if>
 							<c:forEach  items="${reviewList }" var="rView">
 								<div class="reviewBlock">
 									<div class="container">
@@ -571,48 +577,48 @@ response.setDateHeader("Expires", 0); // Proxies
 				4. 실패시 오류메세지 출력하기 ( 다시 시도해주세요 )
 		 -->
  		<div class="reviewWritePop mt-3">
- 		<div>
-			<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
-			<input type="hidden" id="memberNo" name="memberNo" value="${session.memberNo }">
-			<div><p>리뷰작성<span class="xIcon"></span></p></div>
-			<!-- 책정보 -->
-			<div class="borderRoundGray">
-					<div class="row ailgn-content-center pl-4">
-						<div class="px-2 my-2">
-							<img width="120" alt="${ book.bookCover}" src="${ book.bookCover}">
-						</div>
-						<div class="px-2 my-2" style="width: 150px;">
-							<div class="text-left mt-4 mb-2" style="font-weight: 800; font-size: 1.1em; ">${ book.bookName}</div>
-							<div style=" font-size: 0.95em; font-weight: 400; "
-								class="text-left mb-2">${ book.bookWriter}</div>
-							<div class="text-left mb-2" style="font-size: 1em; font-weight: 800; ">
-								<span style="color: #4dac27; font-size: 1em;">10%</span>
-								<fmt:formatNumber>${ book.bookPrice}</fmt:formatNumber>
-								원
+		 		<div>
+					<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
+					<input type="hidden" id="memberNo" name="memberNo" value="${session.memberNo }">
+					<div><p>리뷰작성<span class="xIcon"></span></p></div>
+					<!-- 책정보 -->
+					<div class="borderRoundGray">
+							<div class="row ailgn-content-center pl-4">
+								<div class="px-2 my-2">
+									<img width="120" alt="${ book.bookCover}" src="${ book.bookCover}">
+								</div>
+								<div class="px-2 my-2" style="width: 150px;">
+									<div class="text-left mt-4 mb-2" style="font-weight: 800; font-size: 1.1em; ">${ book.bookName}</div>
+									<div style=" font-size: 0.95em; font-weight: 400; "
+										class="text-left mb-2">${ book.bookWriter}</div>
+									<div class="text-left mb-2" style="font-size: 1em; font-weight: 800; ">
+										<span style="color: #4dac27; font-size: 1em;">10%</span>
+										<fmt:formatNumber>${ book.bookPrice}</fmt:formatNumber>
+										원
+									</div>
+								</div>
+							<div class="likeCheckBox" id="likeCheckBox" onclick="checkLike( 'resources/img/Bad.png' , 'resources/img/Good.png' )">
+								<img id="LikePng" width="80px" src="resources/img/Bad.png">
+								<input id="checkBox" name="likeCheck" type="radio" value="false" hidden>
 							</div>
+							</div>
+					</div>
+					<!-- 책정보 -->
+					<div class="mt-4"><p class="mb-2">리뷰작성<span style="color:#3c9a17; ">*</span></p></div>
+					<div class="borderRoundGray">
+						<input type="text" id="reviewTitle" class="reviewWriterTitleInput" 
+						placeholder="소제목을 입력해주세요.">
+					</div>
+					<div class="borderRoundGray mt-2">
+						<input type="text" id="reviewCont" class="reviewWriterInput" 
+						placeholder="내용을 10자 이상 입력해주세요. ">
+					</div>
+					
+						<div class="row justify-content-center mt-4">
+							<div class="RoundBox1" onclick="reviewPopup();">취소</div>
+							<div class="RoundBox2" onclick="insertReview();">등록</div>
 						</div>
-					<div class="likeCheckBox" id="likeCheckBox" onclick="checkLike( 'resources/img/Bad.png' , 'resources/img/Good.png' )">
-						<img id="LikePng" width="80px" src="resources/img/Bad.png">
-						<input id="checkBox" name="likeCheck" type="radio" value="false" hidden>
-					</div>
-					</div>
-			</div>
-			<!-- 책정보 -->
-			<div class="mt-4"><p class="mb-2">리뷰작성<span style="color:#3c9a17; ">*</span></p></div>
-			<div class="borderRoundGray">
-				<input type="text" id="reviewTitle" class="reviewWriterTitleInput" 
-				placeholder="소제목을 입력해주세요.">
-			</div>
-			<div class="borderRoundGray mt-2">
-				<input type="text" id="reviewCont" class="reviewWriterInput" 
-				placeholder="내용을 10자 이상 입력해주세요. ">
-			</div>
-			
-				<div class="row justify-content-center mt-4">
-					<div class="RoundBox1" onclick="reviewPopup();">취소</div>
-					<div class="RoundBox2" onclick="insertReview();">등록</div>
 				</div>
-		</div>
 		</div>
 	</div>
 		<!-- 리뷰작성 팝업 End-->

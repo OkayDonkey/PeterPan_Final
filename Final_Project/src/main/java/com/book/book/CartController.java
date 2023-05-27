@@ -74,7 +74,7 @@ public class CartController {
 		
 		}
 	}
-	@RequestMapping("cartList.go")	
+	@RequestMapping("cartList.go")
 	public String cartList(Model model,HttpSession session){
 		
 			MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
@@ -114,4 +114,19 @@ public class CartController {
 			 
 	}
 	
+	
+	@RequestMapping("buy.go")
+	public String buyList(Model model,HttpSession session){
+		
+		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
+
+		List<CartDTO> list = this.Cdao.getcartList(sessiondto.getMemberId());
+		
+		System.out.println(list);
+	
+		model.addAttribute("cList",list );		
+		
+		return "cart/Buy";
 	}
+	
+}
