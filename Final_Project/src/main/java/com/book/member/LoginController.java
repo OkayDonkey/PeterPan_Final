@@ -153,7 +153,7 @@ public class LoginController {
 			model.addAttribute("SNSNickname", nickname);
 			model.addAttribute("SNSEmail", email);
 			
-			return "member/join/kakao_join_form.jsp";
+			return "member/join/kakao_join_form";
 		}
 		
     }

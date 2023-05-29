@@ -1,5 +1,6 @@
 package com.book.member;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -8,12 +9,14 @@ import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.membermodel.LoginService;
 import com.book.membermodel.MypageService;
 import com.book.model.BookDTO;
 import com.book.model.MemberDTO;
@@ -23,6 +26,9 @@ public class MypageController {
 	
 	@Autowired
 	private MypageService service;
+	
+	@Autowired
+	private LoginService Loginservice;
 	
 	@RequestMapping("myPage.go")
 	public void myPage(HttpSession session, MemberDTO dto, HttpServletResponse response, Model model) throws Exception {
@@ -77,6 +83,68 @@ public class MypageController {
 	public String memberInfoModify() {
 		
 		return "member/myPage/memberInfoModify";
+	}
+	
+	@RequestMapping("email_send.go")
+	@ResponseBody
+	public String emailSend(@RequestParam("memberEmail") String email, HttpSession session) throws Exception {
+		
+		String mail_key = this.service.sendEmail(email, session);
+		
+		if(mail_key != null) {
+			return "1";
+		} else {
+			return "0";
+		}
+		
+	}
+	
+	@RequestMapping("member_modify_email_check.go")
+	public ResponseEntity<Integer> memberModifyEmailCheck(@RequestParam("emailOkCode") String emailOkCode, HttpSession session) {
+		
+		if(emailOkCode.equals(session.getAttribute("mail_key"))) {
+			session.removeAttribute("mail_key");
+			return ResponseEntity.ok(1);
+		} else {
+			return ResponseEntity.ok(0);
+		}
+		
+	}
+	
+	@RequestMapping("member_info_modify_ok.go")
+	public void memberInfoModifyOk(MemberDTO dto, HttpServletResponse response, HttpSession session) throws Exception {
+		
+		System.out.println("dto.getMemberPwd() >>>" + dto.getMemberPwd());
+		
+		if(dto.getMemberPwd() != "" && dto.getMemberPwd() != null) {
+			String salt = BCrypt.gensalt();
+			
+			String hashedPwd = BCrypt.hashpw(dto.getMemberPwd(), salt);
+			
+			dto.setMemberPwd(hashedPwd);
+		}
+		
+		int check = this.service.memberInfoModify(dto);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		dto = this.Loginservice.getmemberonelistbyId(dto.getMemberId());
+		
+		if(check > 0) {
+			session.setAttribute("session", dto);
+			out.println("<script>");
+	        out.println("alert('회원 정보가 변경되었습니다.')");
+	        out.println("location.href='myPage.go';");
+	        out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('회원 정보 변경에 실패했습니다.')");
+	        out.println("history.back()");
+	        out.println("</script>");
+		}
+		
 	}
 
 }

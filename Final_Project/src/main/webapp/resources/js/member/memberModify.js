@@ -8,88 +8,43 @@ function check() {
     return false;
   }
 
-  var spanElement = document.getElementById("idcheck"); // 스팬 요소 가져오기
-  var text = spanElement.innerText; // 스팬 요소의 텍스트 가져오기
-  if (text === "* 이미 사용중인 아이디입니다.") {
-    document.getElementById("idcheck").style.display = "inline";
-    f.memberId.focus();
-    return false;
+  if (f.memberPwd.value !== "") {
+    if (
+      !/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(
+        f.memberPwd.value
+      )
+    ) {
+      f.memberPwd.focus();
+      return false;
+    }
+
+    if (/(\w)\1\1/.test(f.memberPwd.value)) {
+      f.memberPwd.focus();
+      return false;
+    }
+
+    if (f.memberPwd.value.search(f.memberId.value) > -1) {
+      f.memberPwd.focus();
+      return false;
+    }
+
+    if (/\s/.test(f.memberPwd.value)) {
+      f.memberPwd.focus();
+      return false;
+    }
   }
 
-  if (
-    !/[a-zA-Z]/.test($("#formJoin01").val()) ||
-    /[^a-zA-Z0-9]/.test($("#formJoin01").val()) ||
-    /[ㄱ-ㅎㅏ-ㅣ가-힣]/.test($("#formJoin01").val())
-  ) {
-    document.getElementById("idcheck").style.color = "red";
-    document.getElementById("idcheck").style.display = "inline";
-    document.getElementById("idcheck").innerHTML =
-      "* 아이디 양식이 맞지 않습니다.";
-    f.memberId.focus();
-    return false;
+  if (f.memberCheckPwd.value !== "") {
+    if (f.memberPwd.value !== f.memberCheckPwd.value) {
+      document.getElementById("chkpwdcheck").style.display = "inline";
+      document.getElementById("chkpwdcheck").innerHTML =
+        "* 작성하신 비밀번호와 다릅니다.";
+      f.memberCheckPwd.focus();
+      return false;
+    }
   }
 
-  if (f.memberPwd.value == "") {
-    document.getElementById("pwdcheck").style.display = "inline";
-    document.getElementById("pwdcheck").innerHTML = "* 비밀번호를 입력하세요.";
-    f.memberPwd.focus();
-    return false;
-  }
-
-  if (
-    !/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(
-      f.memberPwd.value
-    )
-  ) {
-    f.memberPwd.focus();
-    return false;
-  }
-
-  if (/(\w)\1\1/.test(f.memberPwd.value)) {
-    f.memberPwd.focus();
-    return false;
-  }
-
-  if (f.memberPwd.value.search(f.memberId.value) > -1) {
-    f.memberPwd.focus();
-    return false;
-  }
-
-  if (/\s/.test(f.memberPwd.value)) {
-    f.memberPwd.focus();
-    return false;
-  }
-
-  if (f.memberCheckPwd.value == "") {
-    document.getElementById("chkpwdcheck").style.display = "inline";
-    document.getElementById("chkpwdcheck").innerHTML =
-      "* 비밀번호 확인을 입력하세요.";
-    f.memberCheckPwd.focus();
-    return false;
-  }
-
-  if (f.memberPwd.value !== f.memberCheckPwd.value) {
-    document.getElementById("chkpwdcheck").style.display = "inline";
-    document.getElementById("chkpwdcheck").innerHTML =
-      "* 작성하신 비밀번호와 다릅니다.";
-    f.memberCheckPwd.focus();
-    return false;
-  }
-
-  if (f.memberName.value == "") {
-    document.getElementById("namecheck").style.display = "inline";
-    document.getElementById("namecheck").innerHTML = "* 이름을 입력하세요.";
-    f.memberName.focus();
-    return false;
-  }
-
-  if (/[^a-zA-Z0-9가-힣]/.test($("#formJoin04").val())) {
-    document.getElementById("namecheck").style.display = "inline";
-    document.getElementById("namecheck").innerHTML =
-      "* 올바른 양식으로 입력해주세요.";
-    f.memberName.focus();
-    return false;
-  }
+  // 모든 조건을 충족하면 다음 단계로 진행
 
   if (
     !/^(010)\d{8}$/.test(f.memberPhone.value) ||
@@ -117,14 +72,6 @@ function check() {
     return false;
   }
 
-  var spanElement = document.getElementById("emailcheck");
-  var text = spanElement.innerText;
-  if (text === "* 이미 사용중인 이메일입니다.") {
-    document.getElementById("emailcheck").style.display = "inline";
-    f.memberEmail.focus();
-    return false;
-  }
-
   if (
     !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(
       f.memberEmail.value
@@ -134,30 +81,6 @@ function check() {
     document.getElementById("emailcheck").innerHTML =
       "* 이메일 양식이 맞지 않습니다.";
     f.memberEmail.focus();
-    return false;
-  }
-
-  if (f.memberBirth.value == "") {
-    document.getElementById("birthcheck").style.display = "inline";
-    document.getElementById("birthcheck").innerHTML =
-      "* 생년월일을 입력하세요.";
-    f.memberBirth.focus();
-    return false;
-  }
-
-  if (isNaN(f.memberBirth.value) || !/^\d{8}$/.test(f.memberBirth.value)) {
-    document.getElementById("birthcheck").style.display = "inline";
-    document.getElementById("birthcheck").innerHTML =
-      "* 생년월일은 8자리 숫자만 입력이 가능합니다.";
-    f.memberBirth.focus();
-    return false;
-  }
-
-  if (f.memberGender.value == "") {
-    document.getElementById("gendercheck").style.display = "inline";
-    document.getElementById("gendercheck").innerHTML =
-      "* 성별을 선택해 주세요.";
-    f.memberBirth.focus();
     return false;
   }
 
@@ -180,18 +103,6 @@ function check() {
     f.addrDetail.focus();
     return false;
   }
-  var check1 = document.getElementById("peterpan");
-  var check2 = document.getElementById("collectionUsage");
-  var check3 = document.getElementById("consignment");
-
-  if (check1.checked && check2.checked && check3.checked) {
-    // 모든 필수 체크박스가 선택된 경우, 폼을 제출합니다.
-    return true;
-  } else {
-    // 하나라도 선택되지 않은 체크박스가 있으면, 경고창을 표시하고 폼 제출을 방지합니다.
-    alert("체크박스를 모두 체크해주세요.");
-    return false;
-  }
 }
 
 // input 태그 안에 값이 들어오면 입력하라는 span태그의 문구를 숨기는 기능
@@ -208,10 +119,6 @@ function checkInput(input, n) {
     if (input.value !== "") {
       document.getElementById("pwdcheck").style.display = "none";
       document.getElementById("pwdcheck").innerHTML = "";
-    } else {
-      document.getElementById("pwdcheck").style.display = "inline";
-      document.getElementById("pwdcheck").innerHTML =
-        "* 비밀번호를 입력하세요.";
     }
   } else if (n == "chkpwd") {
     var pwd = document.getElementById("formJoin02").value;
@@ -306,16 +213,6 @@ function checkGender() {
   document.getElementById("gendercheck").style.display = "none";
 }
 
-// 위 input 칸을 빈 상태로 다음 input 칸을 눌렀을 때 다시 위칸 아이디로 포인트 옮기고 안내문구 나오는 함수
-$("#formJoin02").on("keyup", function () {
-  if ($("#formJoin01").val() === "") {
-    document.getElementById("pwdcheck").style.display = "inline";
-    document.getElementById("pwdcheck").innerHTML =
-      "* 아이디를 먼저 입력하세요.";
-    $("#formJoin02").val("");
-  }
-});
-
 // 비밀번호 유효성 검사/ 안전도 구현
 $("#formJoin02").on("keyup", function () {
   checkPassword($("#formJoin02").val(), $("#formJoin01").val());
@@ -401,66 +298,6 @@ function checkPassword(password, id) {
   return isValid;
 }
 
-// 아이디 중복 검사
-let timerId; // 변수를 선언하여 타이머의 ID를 저장합니다.
-
-$("#formJoin01").on("keyup", function () {
-  // 입력창에 키 입력이 일어나면 타이머를 재설정합니다.
-  clearTimeout(timerId);
-  timerId = setTimeout(function () {
-    idcheck($("#formJoin01").val());
-  }, 150);
-});
-
-$("#formJoin01").on("blur", function () {
-  // 입력창에서 포커스가 벗어나면 타이머를 취소하고 즉시 idcheck 함수를 호출합니다.
-  clearTimeout(timerId);
-  idcheck($("#formJoin01").val());
-});
-
-function idcheck(id) {
-  $.ajax({
-    type: "GET",
-    url: "join_idcheck.go",
-    data: { checkId: id },
-    success: function (response) {
-      if (parseInt(response) === 1) {
-        document.getElementById("idcheck").style.color = "red";
-        document.getElementById("idcheck").style.display = "inline";
-        document.getElementById("idcheck").innerHTML =
-          "* 이미 사용중인 아이디입니다.";
-      } else if (parseInt(response) === 0) {
-        document.getElementById("idcheck").style.color = "green";
-        document.getElementById("idcheck").style.display = "inline";
-        document.getElementById("idcheck").innerHTML =
-          "* 사용 가능한 아이디입니다.";
-      }
-
-      if (!/[a-zA-Z]/.test(id)) {
-        document.getElementById("idcheck").style.color = "red";
-        document.getElementById("idcheck").style.display = "inline";
-        document.getElementById("idcheck").innerHTML = "* 영문을 입력해주세요.";
-      }
-
-      if (/[^a-zA-Z0-9]/.test(id) || /[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(id)) {
-        document.getElementById("idcheck").style.color = "red";
-        document.getElementById("idcheck").style.display = "inline";
-        document.getElementById("idcheck").innerHTML =
-          "* 특수문자나 한글은 사용할 수 없습니다.";
-      }
-
-      if (id == "") {
-        document.getElementById("idcheck").style.color = "red";
-        document.getElementById("idcheck").style.display = "inline";
-        document.getElementById("idcheck").innerHTML = "* 아이디를 입력하세요.";
-      }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // 서버 응답 실패 시 처리할 내용
-    },
-  });
-}
-
 // 이메일 중복 검사
 let timerEmail; // 변수를 선언하여 타이머의 ID를 저장합니다.
 
@@ -484,11 +321,17 @@ function emailCheck(email) {
     url: "join_emailcheck.go",
     data: { checkEmail: email },
     success: function (response) {
+      
       if (parseInt(response) === 1) {
         document.getElementById("emailcheck").style.color = "red";
         document.getElementById("emailcheck").style.display = "inline";
         document.getElementById("emailcheck").innerHTML =
           "* 이미 사용중인 이메일입니다.";
+      } else if (parseInt(response) === 2) {
+        document.getElementById("emailcheck").style.color = "green";
+        document.getElementById("emailcheck").style.display = "inline";
+        document.getElementById("emailcheck").innerHTML =
+          "* 현재 사용중인 이메일입니다. 변경사항이 없습니다.";
       }
 
       if (email == "") {
@@ -504,3 +347,246 @@ function emailCheck(email) {
   });
 }
 
+// 전화번호 인증
+function sendPhone() {
+  var memberName = document.getElementById("formJoin04").value;
+  var memberPhone = document.getElementById("formJoin05").value;
+
+  // 이름과 휴대폰 번호가 비어있는지 확인
+  if (memberName === "") {
+    f.memberName.focus();
+    return;
+  } else if (memberPhone === "") {
+    alert("휴대폰 번호를 입력해주세요.");
+    return;
+  }
+
+  // 휴대폰 번호의 길이 확인
+  if (memberPhone.length !== 11) {
+    alert("휴대폰 번호는 11자리여야 합니다.");
+    return;
+  }
+
+  // 이름에 특수문자 또는 숫자가 포함되어 있는지 확인
+  var nameRegex = /[!@#$%^&*(),.?":{}|<>0-9]/;
+  if (nameRegex.test(memberName)) {
+    alert("이름에 특수문자 또는 숫자를 포함할 수 없습니다.");
+    return;
+  }
+
+  // 휴대폰 번호가 "010"으로 시작하는지 확인
+  if (!memberPhone.startsWith("010")) {
+    alert("휴대폰 번호는 '010'으로 시작해야 합니다.");
+    return;
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "send.go",
+    data: { memberPhone: memberPhone },
+    success: function (response) {
+      if (response == 1) {
+        alert("인증번호가 발송되었습니다.");
+        insertVerificationCodeInput();
+      } else {
+        alert("인증번호 발송이 실패하였습니다.");
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      alert("인증번호 발송이 실패하였습니다.");
+    },
+  });
+}
+
+function insertVerificationCodeInput() {
+  var div = document.createElement("div");
+  div.classList.add("form_cont");
+
+  var innerHTML = `
+    <div class="input_btn_box ckeckOk">
+      <input type="text" name="OkNo" class="form_ip" id="OkNo" placeholder="인증번호를 입력해주세요." maxlength="6">
+      <button type="button" class="btn_ip btn_light_gray" onclick="phonecheck()">
+        <span>확인</span>
+      </button>
+    </div>
+    <span id="OkNocheck" class="validcheck" style="display: none;"></span>
+  `;
+
+  div.innerHTML = innerHTML;
+
+  var existingDiv = document.querySelector(".phonecheck");
+  existingDiv.parentNode.insertBefore(div, existingDiv.nextSibling);
+}
+
+function deleteVerificationCodeInput() {
+  var div = document.querySelector(".ckeckOk");
+  if (div) {
+    div.parentNode.removeChild(div);
+  }
+}
+
+
+function phonecheck() {
+  var okNo = document.getElementById("OkNo").value;
+
+  // 인증번호 칸이 비어있는지 확인
+  if (okNo === "") {
+    alert("인증번호를 입력해주세요.");
+    return;
+  }
+
+  // 인증번호가 6자리가 되지 않는지 확인
+  if (okNo.length !== 6) {
+    alert("인증번호는 6자리입니다.");
+    return;
+  }
+
+  // 인증번호가 숫자로만 구성되어 있는지 확인
+  if (!/^[0-9]+$/.test(okNo)) {
+    alert("인증번호는 숫자로만 입력해주세요.");
+    return;
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "snsJoin_phone_check.go",
+    data: { okNo: okNo },
+    success: function (response) {
+      if (response == 1) {
+        document.getElementById("phonecheck").style.color = "green";
+        document.getElementById("phonecheck").style.display = "inline";
+        document.getElementById("phonecheck").innerHTML =
+          "* 인증이 완료되었습니다.";
+
+        deleteVerificationCodeInput();
+
+      } else {
+        document.getElementById("OkNocheck").style.color = "red";
+        document.getElementById("OkNocheck").style.display = "inline";
+        document.getElementById("OkNocheck").innerHTML = "* 인증번호가 맞지 않습니다.";
+        
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      alert("인증번호 체크에 실패했습니다.");
+
+    },
+  });
+}
+// 전화번호 인증 end
+
+// 이메일 인증
+function sendEmail() {
+  var memberEmail = document.getElementById("formJoin06").value;
+
+  emailButton.disabled = true; // 버튼 비활성화
+
+  // 이름과 휴대폰 번호가 비어있는지 확인
+  if (memberEmail === "") {
+    alert("이메일을 입력해주세요.");
+    f.memberEmail.focus();
+    emailButton.disabled = false; // 버튼 활성화
+    return;
+  }
+
+  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(memberEmail)) {
+    document.getElementById("emailcheck").style.display = "inline";
+    document.getElementById("emailcheck").innerHTML =
+      "* 이메일 양식이 맞지 않습니다.";
+    emailButton.disabled = false; // 버튼 활성화
+  } else {
+    document.getElementById("emailcheck").style.display = "none";
+    document.getElementById("emailcheck").innerHTML = "";
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "email_send.go",
+    data: { memberEmail: memberEmail },
+    success: function (response) {
+      if (response == 1) {
+        alert("이메일로 인증코드가 발송되었습니다. 메일함을 확인 해 주세요.");
+        emailinsertVerificationCodeInput();
+        setTimeout(function () {
+          emailButton.disabled = false; // 10초 후 버튼 활성화
+        }, 10000); // 10초 동안 대기
+      } else {
+        alert("이메일 인증코드 발송이 실패하였습니다.");
+        emailButton.disabled = false; // 버튼 활성화
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      alert("이메일 인증코드 발송이 실패하였습니다.");
+      emailButton.disabled = false; // 버튼 활성화
+    },
+  });
+}
+
+function emailinsertVerificationCodeInput() {
+  var div = document.createElement("div");
+  div.classList.add("form_cont");
+
+  var innerHTML = `
+    <div class="input_btn_box emailckeckOk">
+      <input type="text" name="emailOkCode" class="form_ip" id="emailOkCode" placeholder="인증코드를 입력해주세요." maxlength="6">
+      <button type="button" class="btn_ip btn_light_gray" onclick="emailcheck()">
+        <span>확인</span>
+      </button>
+    </div>
+    <span id="emailOkCodecheck" class="validcheck" style="display: none;"></span>
+  `;
+
+  div.innerHTML = innerHTML;
+
+  var existingDiv = document.querySelector(".emailcheck");
+  existingDiv.parentNode.insertBefore(div, existingDiv.nextSibling);
+}
+
+function emaildeleteVerificationCodeInput() {
+  var div = document.querySelector(".emailckeckOk");
+  if (div) {
+    div.parentNode.removeChild(div);
+  }
+}
+
+function emailcheck() {
+  var emailOkCode = document.getElementById("emailOkCode").value;
+
+  // 인증번호 칸이 비어있는지 확인
+  if (emailOkCode === "") {
+    alert("인증코드를 입력해주세요.");
+    return;
+  }
+
+  // 인증번호가 6자리가 되지 않는지 확인
+  if (emailOkCode.length !== 6) {
+    alert("인증코드는 6자리입니다.");
+    return;
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "member_modify_email_check.go",
+    data: { emailOkCode: emailOkCode },
+    success: function (response) {
+
+      if (response == 1) {
+        document.getElementById("emailcheck").style.color = "green";
+        document.getElementById("emailcheck").style.display = "inline";
+        document.getElementById("emailcheck").innerHTML =
+          "* 인증이 완료되었습니다.";
+
+        emaildeleteVerificationCodeInput();
+      } else {
+        document.getElementById("emailOkCodecheck").style.color = "red";
+        document.getElementById("emailOkCodecheck").style.display = "inline";
+        document.getElementById("emailOkCodecheck").innerHTML =
+          "* 인증코드가 맞지 않습니다.";
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      alert("인증코드 체크에 실패했습니다.");
+    },
+  });
+}
+// 이메일 인증 end

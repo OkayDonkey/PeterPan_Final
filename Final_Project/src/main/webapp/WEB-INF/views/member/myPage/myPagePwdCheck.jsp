@@ -11,11 +11,126 @@
 <link rel="stylesheet" href="resources/css/member/login.css" />
 <link rel="stylesheet" href="resources/css/member/join.css" />
 <link rel="stylesheet" href="resources/css/member/id_pwd_search.css" />
+<link rel="stylesheet" href="resources/css/member/memberInfoModify.css" />
 </head>
 <body>
-	<div class="wrapper member_login" id="main">
-		<main class="container_wrapper" style="margin-top: 15px;">
-        	<section class="contents_wrap login">
+	<div class="wrapper member_join member_info" id="main">
+		<header class="header_wrapper">
+			<div class="header_inner">
+				<div class="logo_box">
+					<a class="logo_link">
+						<img src="resources/css/images/logo/peterpan_logo.png" height="90px" width="180px">
+					</a>
+				</div>
+				<div class="member_gnb_wrap">
+					<div class="btn_wrap">
+						<a href="<%=request.getContextPath() %>/logout.go" class="btn_xxs btn_pill btn_lighten_gray">
+				            <span style="font-size: 12px;" class="text">로그아웃</span>
+				            <span class="ico_arw"></span>
+				        </a>
+					</div>
+					<ul class="member_gnb_list">
+						<li class="member_gnb_item active">
+			                <a href="<%=request.getContextPath() %>/member_info_midify_pwdcheck.go" class="member_gnb_link">회원정보 관리</a>
+			            </li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		
+		<main class="container_wrapper" style="margin-bottom: 140px;">
+			<section class="breadcrumb_wrap">
+			    <div class="breadcrumb_inner" style="margin-bottom: 75px;">
+			        <ol class="breadcrumb_list">
+			        
+			            <!--홈 메뉴 (고정) -->
+			            <li class="breadcrumb_item"><a class="home_link" href="<%=request.getContextPath() %>/">home</a></li>
+			            <li class="breadcrumb_item no_sub"><a class="btn_sub_depth" href="<%=request.getContextPath() %>/myPage.go">마이</a></li>
+			            
+			            <!-- 0차 메뉴 (고정) -->
+			            <li class="breadcrumb_item">
+			                <a class="btn_sub_depth" href="<%=request.getContextPath() %>/member_info_midify_pwdcheck.go">
+			                    	회원정보
+			                </a>
+			                <div class="sub_depth_grid">
+			                    <div class="sub_depth_box">
+			                        <ul class="sub_depth_list">
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://order.kyobobook.co.kr/myroom/member/order-list">
+			                                    	쇼핑내역
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://my.kyobobook.co.kr/library">
+			                                   	 라이브러리
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://my.kyobobook.co.kr/activity/community">
+			                                   	 활동내역
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list">
+			                                   	 혜택/포인트
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://my.kyobobook.co.kr/consult">
+			                                    	문의내역
+			                                </a>
+			                            </li>
+			                            <li class="depth_item active">
+			                                <a class="depth_link" href="https://order.kyobobook.co.kr/myroom/member/address">
+			                                    	회원정보
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://my.kyobobook.co.kr/notice">
+			                                   	 알림센터
+			                                </a>
+			                            </li>
+			                        </ul>
+			                    </div>
+			                </div>
+			            </li>
+			            
+			            
+			            <li class="breadcrumb_item">
+			                <a class="btn_sub_depth" href="#">
+			                   	 회원정보 관리
+			                </a>
+			                <div class="sub_depth_grid">
+			                    <div class="sub_depth_box">
+			                        
+			                        <ul class="sub_depth_list">
+			                            <li class="depth_item active">
+			                                <a class="depth_link" href="https://mmbr.kyobobook.co.kr/member-info">
+			                                   	 회원정보 관리
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://mmbr.kyobobook.co.kr/member-info/card">
+			                                    	교보북클럽 카드 관리
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://mmbr.kyobobook.co.kr/member-info/benefit">
+			                                   	 나의 회원등급 혜택
+			                                </a>
+			                            </li>
+			                            <li class="depth_item">
+			                                <a class="depth_link" href="https://mmbr.kyobobook.co.kr/benefit">
+			                                    	회원 혜택
+			                                </a>
+			                            </li>
+			                        </ul>
+			                    </div>
+			                </div>
+			            </li>
+			        </ol>
+			    </div>
+        	<section class="contents_wrap login" style="width: 400px;">
 		        <div class="ico_info_wrap" style="margin-bottom: 16px;">
 		            <div class="ico_img_box">
 		                <span class="ico_member_restore"></span>
@@ -57,6 +172,7 @@
 					  </div>
 					</div>
 			</section>
+		</section>
       </main>
       <footer class="footer_wrapper">
 		<div class="footer_inner">

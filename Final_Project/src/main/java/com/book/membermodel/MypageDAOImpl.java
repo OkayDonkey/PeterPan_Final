@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.book.model.BookDTO;
+import com.book.model.MemberDTO;
 
 @Repository
 public class MypageDAOImpl implements MypageDAO{
@@ -17,6 +18,11 @@ public class MypageDAOImpl implements MypageDAO{
 	@Override
 	public List<BookDTO> getRecommendbookRandom() {
 		return this.sqlSession.selectList("RecommendbookRandom");
+	}
+
+	@Override
+	public int memberInfoModify(MemberDTO dto) {
+		return this.sqlSession.update("memberInfoModify", dto);
 	}
 
 }
