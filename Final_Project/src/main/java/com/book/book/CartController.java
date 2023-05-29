@@ -17,10 +17,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.bookmodel.CartDAO;
 import com.book.model.BookDTO;
 import com.book.model.CartDTO;
+import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.github.scribejava.core.model.Response;
 
@@ -114,6 +116,32 @@ public class CartController {
 			 
 	}
 	
+	@ResponseBody
+	@RequestMapping("cartEaMinus.go")
+	public String minusCartEa(HttpSession session, CartDTO cDto, HttpServletResponse response) {
+		
+		int check = this.Cdao.cartMinusEa(cDto);
+		
+		return String.valueOf(check);
+	}
+	
+	@ResponseBody
+	@RequestMapping("cartEaPlus.go")
+	public String plusCartEa(HttpSession session, CartDTO cDto, HttpServletResponse response) {
+		
+		int check = this.Cdao.cartPlusEa(cDto)	;
+		
+		return String.valueOf(check);
+	}
+	
+	@ResponseBody
+	@RequestMapping("cartTotalCostCheck.go")
+	public String checkCartEa(HttpSession session, CartDTO cDto, HttpServletResponse response) {
+		
+		int check = this.Cdao.cartTotalCost(cDto)	;
+		
+		return String.valueOf(check);
+	}
 	
 	@RequestMapping("buy.go")
 	public String buyList(Model model,HttpSession session){
@@ -121,10 +149,13 @@ public class CartController {
 		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
 
 		List<CartDTO> list = this.Cdao.getcartList(sessiondto.getMemberId());
+		System.out.println("장바구니 정보:"+list);
 		
-		System.out.println(list);
+		List<CouponDTO> couponList = this.Cdao.getCouponList(sessiondto.getMemberId());
+		System.out.println("쿠폰 정보"+couponList);
 	
 		model.addAttribute("cList",list );		
+		model.addAttribute("coupon", couponList );		
 		
 		return "cart/Buy";
 	}

@@ -18,6 +18,7 @@
 <c:set var="session" value="${session }" /> 
 <c:set var="list" value="${cList }" />
 <c:set var ="cartTotalPrice" value="0" />
+<input type="hidden" id="memberId" value="${session.memberId }">
 
 
 <jsp:include page="../top/top.jsp" /> 
@@ -28,7 +29,7 @@
 	<div class="row justify-content-sm-between" style=" padding:10px;" ><!-- Flex Row 컨테이너 -->
 		<div  class="detail_info_main mb-5"><!-- 메인 좌측 컨테이너 -->
 
-			<h3 class="mb-4">장바구니(${list.size()})</h3>
+			<h3 class="mb-4">주문결제(${list.size()})</h3>
 			<div>
 				<div class="border-y-bold py-3"><!-- top -->
 					피터팬 도서 장바구니
@@ -103,10 +104,15 @@
 		</div><!-- 메인 좌측 컨테이너 -->
 		
 		<div class="detail_info_side"><!-- 메인 우측 컨테이너 -->
+		<div class="flex-align-items-center Fixed">
+			<span class="greenCircle">1</span><span class="ml-2 mr-3 bold-font">장바구니</span>
+			<span class="grayCircle">2</span><span class="ml-2 mr-3">주문/결제</span>
+			<span class="grayCircle">3</span><span class="ml-2">주문완료</span>
+		</div>
 			<div class="borderRoundGray my-4 Fixed p-4" style="color:black !important;  border-color: lightgray;">
 				<div>
-					<div class="mb-3"><b><span class="text-left">상품금액</span><span class="float-right">
-							<fmt:formatNumber>${ cartTotalPrice}</fmt:formatNumber>원</span></b></div>
+					<div class="mb-3"><b><span class="text-left" >상품금액</span><span class="float-right" id="cartTotalPrice1">
+							<fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원</span></b></div>
 					<div class="pb-3 mb-3 border_bottom_gray"><span class="text-left">배송비</span>
 					<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" 
 					onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')">
@@ -142,13 +148,56 @@
 	</div>
 </div>
 <!-- 팝업 End-->					
-			
+	<!-- 팝업 -->		
+			<div id="popupPoint" hidden 
+					style="position: absolute; background-color: white; border: 1px solid gray;
+							width:350px; border-radius: 0.5em; margin-top:75px; padding:20px; right: 0px;
+							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); ">
+				<div style="border-bottom: 1px solid #eaeaea;">
+					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">기본적립</p>
+					<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">
+						<span>5% 적립</span> 
+						<span style="float: right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span> 
+					</p>
+				</div>
+					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin: 10px 0 6px 0; color:#2c2c2c"> 
+						<span>추가적립</span> 
+					</p>
+				<div >
+					<ul style="padding-left: 20px;">
+						<li>
+						<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">5만원 이상 구매 시 추가</span> 
+						<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; color:#595959; float:right;">2,000P</span>
+						</li>
+						<li>
+							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">3만원 이상 구매 시, 등급별 2~4% 추가</span> 
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span>
+						</li>
+						<li>
+							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">리뷰 작성 시, e교환권 추가 최대 </span> 
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; color:#595959;  float:right;">300원</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 팝업 End-->
 				</div>
 				<div class="mb-3"><b><span class="text-left">결제 예정 금액</span>
-				<span class="float-right"><fmt:formatNumber>${ cartTotalPrice}</fmt:formatNumber>원
+				<span class="float-right" id="cartTotalPrice2"><fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
 				</span></b></div>
-				<div class="mb-3"><span class="text-left">적립예정 포인트</span><span class="float-right">
-				<fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span>
+				<div class="mb-3"><span class="text-left">적립예정 포인트</span>
+					<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
+					
+					<c:if test="${totalprice > 50000 }">			
+					<span class="float-right" id="pointDisplay">
+						<fmt:formatNumber>${( totalprice * 0.05 ) + 2000 }</fmt:formatNumber>P
+					</span>
+					</c:if>	
+					<c:if test="${totalprice <= 50000 }">			
+					<span class="float-right" id="pointDisplay">
+						<fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P
+					</span>
+					</c:if>	
 				</div>
 				<form method="post" action="buy.go">
 					<input type="submit" value="주문하기(${list.size()})"  class="buyTextBoxBlue flex_center_center" 
@@ -163,6 +212,8 @@
 <jsp:include page="../top/footer.jsp" /> 
 <script>
 	
+	var memberId = document.getElementById("memberId").value;
+	var ajaxCheck = 0;
 
 function costPlusCalculator(bookNo, bookCost, bookEA) {
 	  console.log("책번호: " + bookNo + ", 책가격: " + bookCost + ", 책수량: " + bookEA);
@@ -175,7 +226,27 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 	  
 	  displayNo.innerText = newQuantity;
 	  
-	  updateTotalCost(bookNo, bookCost, newQuantity);
+	  //Ajax로 수량 업데이트 시키기
+	       $.ajax({
+			   type: "POST",
+			   url: "cartEaPlus.go",
+			   data: {
+			     bookNo: bookNo,
+			     memberId : memberId,
+			     cartCount : newQuantity,
+			   },
+			   success: function (result) {
+			     console.log("Ajax반환 성공 데이터:" + result);
+			     ajaxCheck = result;
+			
+			     updateTotalCost(bookNo, bookCost, newQuantity);
+			     
+			   },
+			   error: function (request, status, error) {
+			     console.log(status + " : " + error); // 오류 발생시 콘솔에 출력
+			   }
+			 });
+	  
 	  
 	  console.log("변경된 책의 수량 및 변수값: " + displayNo.innerText);
 	}
@@ -192,7 +263,28 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 	  if (newQuantity >= 1) {
 	    displayNo.innerText = newQuantity;
 	    
-	    updateTotalCost(bookNo, bookCost, newQuantity);
+	    //Ajax로 수량 업데이트 시키기
+	    
+	     $.ajax({
+			   type: "POST",
+			   url: "cartEaMinus.go",
+			   data: {
+			     bookNo: bookNo,
+			     memberId : memberId,
+			     cartCount : newQuantity,
+			   },
+			   success: function (result) {
+			     console.log("Ajax반환 성공 데이터:" + result);
+			    
+			     ajaxCheck = result;
+		
+			     updateTotalCost(bookNo, bookCost, newQuantity);
+			   },
+			   error: function (request, status, error) {
+			     console.log(status + " : " + error); // 오류 발생시 콘솔에 출력
+			   }
+			 });
+	    
 	  }
 	  
 	  console.log("변경된 책의 수량 및 변수값: " + displayNo.innerText);
@@ -201,9 +293,47 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 	function updateTotalCost(bookNo, bookCost, bookQuantity) {
 	  var totalPrice = (bookCost - ( bookCost * 0.1 )) * bookQuantity;
 	  var totalCostDisplay = document.getElementById("totalCostDisplay" + bookNo);
+	  var totalCostDisplay1 = document.getElementById("cartTotalPrice1");
+	  var totalCostDisplay2 = document.getElementById("cartTotalPrice2");
+	  var pointDisplay = document.getElementById("pointDisplay");
+	  
 	  totalCostDisplay.innerText = totalPrice.toLocaleString() + "원";
+
 	  
 	  console.log("변경된 책의 총액: " +  totalCostDisplay.innerText);
+	  
+	  $.ajax({
+		   type: "POST",
+		   url: "cartTotalCostCheck.go",
+		   data: {
+		     bookNo: bookNo,
+		     memberId : memberId,
+		   },
+		   success: function (result) {
+		     console.log("Ajax반환 성공 데이터:" + result);
+		     if (result > 0) {
+		    	 if(ajaxCheck > 0){
+		    		 
+		    		 result = result - (result * 0.1 );
+		    		 
+		    		 totalCostDisplay1.innerText = Number(result).toLocaleString() + "원";
+		    		 totalCostDisplay2.innerText = Number(result).toLocaleString() + "원";
+
+					  pointDisplay.innerText = (result * 0.05 ).toLocaleString() + "원";
+					  
+					  ajaxCheck = 0;
+		    	 }else{
+		    		 console.log("ajax반환값 오류 : "+ ajaxCheck);
+		    	 }
+		    	 
+		     } else {
+		    	 console.log("컨트롤러 통신 오류발생");
+		     }
+		   },
+		   error: function (request, status, error) {
+		     console.log(status + " : " + error); // 오류 발생시 콘솔에 출력
+		   }
+		 });
 	  
 	}
 

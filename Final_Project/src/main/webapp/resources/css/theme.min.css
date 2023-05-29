@@ -352,8 +352,8 @@ button {
 }
 
 button:focus {
-	outline: 1px dotted;
-	outline: 5px auto -webkit-focus-ring-color
+	outline: none;
+	outline: none;
 }
 
 input,
@@ -3040,6 +3040,32 @@ textarea.form-control.is-invalid {
 		-webkit-box-shadow 0.2s ease-in-out
 }
 
+.btn-white {
+	display: inline-block;
+	font-weight: 600;
+	color: #404040;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	padding: .5rem 1.125rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: 0;
+	-webkit-transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+	transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
+		border-color 0.25s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+	transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
+		border-color 0.25s ease-in-out, box-shadow 0.2s ease-in-out;
+	transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
+		border-color 0.25s ease-in-out, box-shadow 0.2s ease-in-out,
+		-webkit-box-shadow 0.2s ease-in-out
+}
+
 @media (prefers-reduced-motion : reduce) {
 	.btn {
 		-webkit-transition: none;
@@ -5375,6 +5401,22 @@ input[type="button"].btn-block {
 	border: 1px solid rgba(0, 0, 0, 0.085)
 }
 
+.card1 {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: none;
+}
+
 .card>hr {
 	margin-right: 0;
 	margin-left: 0
@@ -5413,6 +5455,14 @@ input[type="button"].btn-block {
 	margin-bottom: 0;
 	background-color: rgba(0, 0, 0, 0.03);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.085)
+}
+
+.card-header1 {
+	padding: .75rem 1.25rem;
+	margin-bottom: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 0.4em;
 }
 
 .card-header+.list-group .list-group-item:first-child {
@@ -16880,6 +16930,12 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	padding: 10px;
 }
 
+.borderRoundBGray	{
+	border-radius: 0.5em;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
 .borderRoundGray_bg	{
 	background-color:#f7f7f7;
 	border-radius: 1em;
@@ -17370,6 +17426,12 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     justify-content: center;
 }
 
+.flex_center	{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .bold	{
 	font-weight: 600;
 }
@@ -17425,12 +17487,196 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	flex-direction: column;
 }
 
+.flex-align-items-center	{
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+        margin-top: -20px;
+}
+
 .strikeNum	{
 	text-decoration: line-through;
 	color: gray;
 	font-size: 13px;
 }
-	
+
+.greenCircle	{
+	border-radius: 50%;
+	background-color: #4dac27;
+	width: 20px;
+	height:20px;
+    display: inline-block;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grayCircle	{
+	border-radius: 50%;
+	background-color: #D5D5D5;
+	width: 20px;
+	height:20px;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deliverInfo_left	{
+	width: 210px;
+	height: 125px;
+	color: black;
+	font-size: 1.1em;
+	font-weight: 800;
+	padding:20px 40px;
+}
+
+.deliverInfo_right	{
+	width: 74%;
+	height: 125px;
+	padding:20px 40px;
+	color: #2b1dd6;
+	font-size: 0.9em;
+	font-weight: 800;
+}
+
+.borderRoundBGray.mt-2.flex_center	{
+	color: #000000;
+}
+
+.borderRoundBGray.mt-2.flex_center:hover	{
+	background-color: #eaeaea;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+	cursor: pointer;    
+}
+
+.btn.btn-link.float-right.collapsed:active {
+	background-color: black;
+}
+
+.btn-white.btn-link.float-right.collapse {
+	    transform: rotate(180deg);
+}
+
+.btn-white.btn-link.float-right.collapsed {
+	    transform: rotate(180deg);
+}
+
+.formGrayBox	input	{
+	border: 1px solid #ccc;
+	height: 43px;
+	border-radius: 0.4em;
+	width: 350px;
+	float: right;
+}
+
+.formGrayBox	{
+	margin-top: 10px;
+}
+
+.couponBox	{
+	height: 74px;
+		
+}
+
+.flex-space-between	{
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
+
+.payBox	{
+	width: 160px;
+	height: 60px;
+	border: 1px solid #ccc;
+	border-radius: 0.4em;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.payBox:hover	{
+	width: 160px;
+	height: 60px;
+	border: 1px solid #ccc;
+	border-radius: 0.4em;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: #eaeaea;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+    cursor: pointer;
+}
+
+.payBox:active	{
+	width: 160px;
+	height: 60px;
+	border: 2px solid #5055b1;
+	border-radius: 0.4em;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: #eaeaea;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+
+.payBoxWrap	{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 10px;
+	justify-content: center;
+}
+
+.roundBgGray	{
+	background-color: #eaeaea;
+	border: none;
+	border-radius: 0.4em;
+	color: black;
+	margin-top: 20px;
+}
+
+.card-header2	{
+	padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payBoxActive	{
+	width: 160px;
+	height: 60px;
+	border: 2px solid #5055b1;
+	border-radius: 0.4em;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: #eaeaea;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+
 }
 
 	/*# sourceMappingURL=theme.min.css.map */

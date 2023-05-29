@@ -40,4 +40,21 @@
 		<![CDATA[update bookCart set cartNo= cartNo-1 where cartNo > #{cartNo} ]]>
 
 	</update>
+	
+	<update id="minusCartEa" parameterType="cartDto">
+		update bookCart set cartCount = cartCount - 1 where bookNo = #{bookNo} and memberId = #{memberId} limit 1
+	</update>
+	
+	<update id="plusCartEa" parameterType="cartDto">
+		update bookCart set cartCount = cartCount + 1 where bookNo = #{bookNo} and memberId = #{memberId} limit 1
+	</update>
+	
+	<select id="calCartTotalCost" parameterType="cartDto" resultType="int">
+		SELECT SUM(b.bookPrice * bc.cartCount) AS totalAmount FROM book AS b
+		JOIN bookCart AS bc ON b.bookNo = bc.bookNo WHERE bc.memberId = #{memberId}
+	</select>
+	
+	<select id="couponList" parameterType="String" resultType="couponDto">
+		select * from coupon where memberId = #{value}
+	</select>
 </mapper>
