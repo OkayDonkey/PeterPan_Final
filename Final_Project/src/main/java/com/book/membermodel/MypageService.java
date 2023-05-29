@@ -15,4 +15,6 @@ public interface MypageService {
 
 	int memberInfoModify(MemberDTO dto);
 
+	int memberdelete(MemberDTO dto);
+
 }

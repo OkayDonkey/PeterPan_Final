@@ -11,4 +11,6 @@ public interface MypageDAO {
 
 	int memberInfoModify(MemberDTO dto);
 
+	int memberdelete(MemberDTO dto);
+
 }

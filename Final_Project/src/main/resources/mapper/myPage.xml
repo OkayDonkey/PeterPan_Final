@@ -27,11 +27,9 @@
 	    addrDetail = #{addrDetail}
 	  	WHERE memberId = #{memberId}
 	</update>
-
-
-
-
-
-
-  
+	
+	<delete id="memberdelete" parameterType="memberdto">
+		delete from member where memberId = #{memberId}
+	</delete>
+	
   </mapper>

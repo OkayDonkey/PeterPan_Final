@@ -58,5 +58,10 @@ public class MypageServiceImpl implements MypageService{
 		return this.dao.memberInfoModify(dto);
 	}
 
+	@Override
+	public int memberdelete(MemberDTO dto) {
+		return this.dao.memberdelete(dto);
+	}
+
 	
 }

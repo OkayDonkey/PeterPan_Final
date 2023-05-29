@@ -146,5 +146,37 @@ public class MypageController {
 		}
 		
 	}
+	
+	@RequestMapping("member_withdrawal.go")
+	public String memberWirhdrawal() {
+		
+		return "member/myPage/memberWithdrawal";
+	}
+	
+	@RequestMapping("member_delete.go")
+	public void memberDelete(HttpSession session, MemberDTO dto, HttpServletResponse response) throws Exception {
+		
+		dto = (MemberDTO) session.getAttribute("session");
+		
+		int check = this.service.memberdelete(dto);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		if(check > 0) {
+			session.removeAttribute("session");
+			out.println("<script>");
+	        out.println("alert('회원탈퇴가 완료되었습니다.')");
+	        out.println("location.href='/main/';");
+	        out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('회원탈퇴를 실패하였습니다.')");
+	        out.println("history.back()");
+	        out.println("</script>");
+		}
+		
+	}
 
 }

@@ -25,4 +25,9 @@ public class MypageDAOImpl implements MypageDAO{
 		return this.sqlSession.update("memberInfoModify", dto);
 	}
 
+	@Override
+	public int memberdelete(MemberDTO dto) {
+		return this.sqlSession.delete("memberdelete", dto);
+	}
+
 }

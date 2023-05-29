@@ -338,13 +338,28 @@
 						<script type="text/javascript" src="resources/js/member/findAddr.js"></script>
 						<!-- 회원정보 수정 유효성 검사 js -->
 						<script type="text/javascript" src="resources/js/member/memberModify.js"></script>
+						
+						<ul class="bul_list">
+						    <li class="bul_item_dot font_size_xxs">
+						        <span style="font-size: 5px;">●</span> 본인인증 및 성인인증 시 해외거주로 인해 인증이 불가한 경우 해당 안내를 통해 접수해 주시기 바랍니다.
+						        <a href="#" class="btn_xxs btn_line_gray fc_black">
+						            <span class="text" style="font-size: 12px; font-weight: 600;">해외거주 본인/성인인증 접수 신청</span><span class="ico_arw"></span>
+						        </a>
+						    </li>
+						    <li class="bul_item_dot font_size_xxs">
+						       <span style="font-size: 5px;">●</span> 회원탈퇴 후 동일 아이디로 재가입이 불가합니다.
+						        <a href="<%=request.getContextPath() %>/member_withdrawal.go" class="btn_xxs btn_line_gray fc_black">
+						            <span class="text" style="font-size: 12px; font-weight: 600;">회원탈퇴</span><span class="ico_arw"></span>
+						        </a>
+						    </li>
+						</ul>
 									
 						<div class="join_form_wrap">
 							<div class="login_btn_wrap" style="display: flex; justify-content: space-between;">
 								<button form="join_form" type="button" id="cancelBtn" class="login_button" style="width: 49%;">
 									<span class="text">취소</span>
 								</button>
-								<button form="join_form" type="submit" id="submitBtn" class="login_button" style="width: 49%;">
+								<button form="join_form" type="submit" id="submitBtn" class="login_button" style="width: 49%; border-color: #5055b1; background-color: #5055b1;">
 									<span class="text">확인</span>
 								</button>
 							</div>
