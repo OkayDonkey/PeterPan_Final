@@ -6,8 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
 import com.book.model.MemberDTO;
+import com.book.model.PurchaseDTO;
 
 @Repository
 public class MypageDAOImpl implements MypageDAO{
@@ -28,6 +30,16 @@ public class MypageDAOImpl implements MypageDAO{
 	@Override
 	public int memberdelete(MemberDTO dto) {
 		return this.sqlSession.delete("memberdelete", dto);
+	}
+
+	@Override
+	public List<PurchaseDTO> purchasList(String memberId) {
+		return this.sqlSession.selectList("purchasList", memberId);
+	}
+
+	@Override
+	public List<BoardDTO> qnaList(int memberNo) {
+		return this.sqlSession.selectList("qnaList", memberNo);
 	}
 
 }

@@ -134,7 +134,7 @@
 				</a>
 				<ul class="snb_list">
 					<li class="snb_item" data-id="29">
-						<a class="snb_link" href="https://my.kyobobook.co.kr/library" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '라이브러리_메인', '');">
+						<a class="snb_link" href="<%=request.getContextPath() %>/qnaList.go" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '라이브러리_메인', '');">
 							1:1 문의
 						</a>
 					</li>

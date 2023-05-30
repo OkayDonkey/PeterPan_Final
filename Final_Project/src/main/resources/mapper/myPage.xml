@@ -32,4 +32,12 @@
 		delete from member where memberId = #{memberId}
 	</delete>
 	
+	<select id="purchasList" parameterType="String" resultType="purchaseDto">
+		select * from purchase p join book b on p.bookNo = b.bookNO where p.memberId = #{memberId} order by purchaseNo
+	</select>
+	
+	<select id="qnaList" parameterType="int" resultType="boarddto">
+		select * from board where boardArea = 'QNA' and memberNo = #{memberNo}
+	</select>
+	
   </mapper>

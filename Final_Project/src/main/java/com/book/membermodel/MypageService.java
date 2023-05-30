@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
 import com.book.model.MemberDTO;
+import com.book.model.PurchaseDTO;
 
 public interface MypageService {
 
@@ -16,5 +18,9 @@ public interface MypageService {
 	int memberInfoModify(MemberDTO dto);
 
 	int memberdelete(MemberDTO dto);
+
+	List<PurchaseDTO> purchaseList(String memberId);
+
+	List<BoardDTO> qnaList(int memberId);
 
 }

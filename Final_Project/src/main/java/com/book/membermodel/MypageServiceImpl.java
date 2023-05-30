@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 import com.book.member.MailHandler;
 import com.book.member.Signature;
 import com.book.member.TempKey;
+import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
 import com.book.model.MemberDTO;
+import com.book.model.PurchaseDTO;
 
 @Service
 public class MypageServiceImpl implements MypageService{
@@ -61,6 +63,16 @@ public class MypageServiceImpl implements MypageService{
 	@Override
 	public int memberdelete(MemberDTO dto) {
 		return this.dao.memberdelete(dto);
+	}
+
+	@Override
+	public List<PurchaseDTO> purchaseList(String memberId) {
+		return this.dao.purchasList(memberId);
+	}
+
+	@Override
+	public List<BoardDTO> qnaList(int memberNo) {
+		return this.dao.qnaList(memberNo);
 	}
 
 	

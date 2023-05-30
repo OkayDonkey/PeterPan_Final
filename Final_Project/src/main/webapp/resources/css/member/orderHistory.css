@@ -144,13 +144,13 @@ ol, ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    display: -webkit-flex;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
     -webkit-box-align: start;
     -moz-box-align: start;
     -ms-flex-align: start;
+    justify-content: space-between;
     -webkit-align-items: flex-start;
     align-items: flex-start;
     -webkit-box-orient: horizontal;
@@ -1074,6 +1074,11 @@ a.btn_ip .ico_reset_lg, button.btn_ip .ico_reset_lg {
     flex-direction: row;
     border-bottom: 1px solid #eaeaea;
     box-sizing: border-box;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_order_info .right_area, .tbl_prod_wrap.type_notify .tbl_order_info .right_area {
+    margin-left: auto;
+    font-size: 0;
 }
 
 .tbl_prod_wrap.type_myroom .tbl_order_info .order_date, .tbl_prod_wrap.type_notify .tbl_order_info .order_date {

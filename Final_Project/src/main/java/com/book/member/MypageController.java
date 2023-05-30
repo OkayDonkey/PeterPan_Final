@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.membermodel.LoginService;
 import com.book.membermodel.MypageService;
+import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
 import com.book.model.MemberDTO;
+import com.book.model.PurchaseDTO;
 
 @Controller
 public class MypageController {
@@ -180,9 +182,27 @@ public class MypageController {
 	}
 	
 	@RequestMapping("orderHistory.go")
-	public String orderHistory() {
+	public String orderHistory(Model model, HttpSession session) {
+		
+		MemberDTO dto = (MemberDTO) session.getAttribute("session");
+		
+		List<PurchaseDTO> list = this.service.purchaseList(dto.getMemberId());
+		
+		model.addAttribute("List", list);
 		
 		return "member/myPage/orderHistory";
+	}
+	
+	@RequestMapping("qnaList.go")
+	public String qnaList(Model model, HttpSession session) {
+		
+		MemberDTO dto = (MemberDTO) session.getAttribute("session");
+		
+		List<BoardDTO> list = this.service.qnaList(dto.getMemberNo());
+		
+		model.addAttribute("List", list);
+		
+		return "member/myPage/qnaList";
 	}
 
 }
