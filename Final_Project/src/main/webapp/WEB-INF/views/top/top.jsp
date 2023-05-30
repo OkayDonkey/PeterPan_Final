@@ -1,22 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+
+<%-- <c:set var="path" value="${pageContext.request.contextPath}"/> --%>
+
 <!DOCTYPE html>
 <html>
-<link rel="icon" type="image/png" sizes="16x16" href="/resources/img/hatLogo1.png" />
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css"
+	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- 부트스트랩 JS -->
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>
-
-
-	
-	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- 부트스트랩 CSS -->
 <link rel="stylesheet" media="screen" id="main-styles"
@@ -315,7 +320,7 @@ margin-left: 5px;
 				</div>
 				<div class="my_info">
 					
-					<a href="#">
+					<a href="<%=request.getContextPath() %>/myPage.go">
 					<img src="resources\css\s_img\us23.png">
 					</a>
 
@@ -367,3 +372,5 @@ margin-left: 5px;
 		<div style="margin:200px; ">
 		
 		</div>
+		
+		

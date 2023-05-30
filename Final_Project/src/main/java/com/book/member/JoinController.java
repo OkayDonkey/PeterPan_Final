@@ -151,8 +151,15 @@ public class JoinController {
 	
 	@ResponseBody
 	@RequestMapping("join_emailcheck.go")
-	public int joinEmailCheck(@RequestParam("checkEmail") String email) {
+	public int joinEmailCheck(@RequestParam("checkEmail") String email, HttpSession session) {
 	    int checkEmail = this.dao.checkEmail(email);
+	    
+	    MemberDTO dto = (MemberDTO) session.getAttribute("session");
+	    
+	    if(email.equals(dto.getMemberEmail())) {
+	    	return 2;
+	    }
+	    
 	    if (checkEmail != 0) {
 	        return 1;
 	    } else {

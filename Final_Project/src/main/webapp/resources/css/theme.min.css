@@ -356,6 +356,7 @@ button:focus {
 	outline: none;
 }
 
+
 input,
 button,
 select,
@@ -5417,6 +5418,22 @@ input[type="button"].btn-block {
 	border: none;
 }
 
+.card_info {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.085);
+}
+
 .card>hr {
 	margin-right: 0;
 	margin-left: 0
@@ -5450,12 +5467,21 @@ input[type="button"].btn-block {
 	margin-left: 1.25rem
 }
 
-.card-header {
+/* .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
 	background-color: rgba(0, 0, 0, 0.03);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.085)
 }
+ */
+.card-header {
+	padding: .75rem 1.25rem;
+	margin-bottom: 0;
+	background-color: white;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.085)
+}
+
+
 
 .card-header1 {
 	padding: .75rem 1.25rem;

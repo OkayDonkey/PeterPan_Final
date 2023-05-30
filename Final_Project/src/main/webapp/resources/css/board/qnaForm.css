@@ -1,0 +1,325 @@
+@charset "UTF-8";
+
+.customer_wrap {
+    display: flex;
+    flex-direction: column;
+    width: 970px;
+}
+
+.graybg option:hover {
+	background-color: black !important;
+	padding: 10px;
+}
+
+.customer_wrap  h1 {
+	font-size: 1.6em;
+	margin-top: 2px;
+}
+
+.title_wrap.title_size_lg {
+	padding-bottom: 30px;
+	border-bottom: 1px solid #000;
+	width: 100%;
+}
+
+.tbl_row_wrap {
+    display: block;
+    padding: 18px 0;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+.tbl_row_wrap .tbl_row tbody th.has_ip {
+    padding-top: 20px;
+}
+
+.tbl_row_wrap .tbl_row tbody th {
+    padding: 12px 10px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #000;
+    font-weight: 500;
+    vertical-align: top;
+}
+
+.tbl_row_wrap .tbl_row tbody td {
+    padding: 12px 10px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #767676;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+.form_sel .ui-selectmenu-button .ui-selectmenu-text {
+    font-size: 14px;
+    line-height: 42px;
+    letter-spacing: -0.01em;
+    color: #000;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.form_sel select {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    padding: 0 14px;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-out, border-radius 0.2s ease-out;
+    outline: none;
+    width: 177%;
+}
+
+.form_ip {
+    display: inline-block;
+    width: 177% !important;
+    height: 44px;
+    padding: 0 14px 2px;
+    color: #000;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.byte_check_wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 14px;
+    transition: background 0.2s ease-out, border-color 0.2s ease-out;
+    box-sizing: border-box;
+    width: 177%;
+}
+
+.form_textarea {
+    height: 150px;
+    padding: 12px 14px;
+    color: #000;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: background 0.2s ease-out, border-color 0.2s ease-out;
+    outline: 0;
+    overflow-y: auto;
+    resize: none;
+}
+
+.btn_wrap.page_bottom {
+    margin-top: 40px;
+}
+
+.btn_wrap {
+    display: block;
+    font-size: 0;
+    text-align: center;
+}
+
+a.btn_light_gray, button.btn_light_gray {
+    color: #fff;
+    background: #767676;
+    border: 2px solid #767676;
+}
+
+button.btn_lg {
+	min-width: 200px;
+    height: 50px;
+    padding: 0 23px 1px;
+    border-radius: 6px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    background-color: #5055b1;
+    border: #5055b1;
+    color: white;
+}
+
+button.btn_lg:hover {
+	color: #fff;
+    background: #2c307c;
+    border-color: #2c307c;
+}
+	
+a.btn_lg {
+	min-width: 200px;
+    height: 50px;
+    padding: 13px 85px 13px 85px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+a.btn_lg:hover {
+	background-color: #595959;
+	color: white;
+}
+
+.btn_wrap .btn_lg + .btn_lg {
+    margin-left: 10px;
+}
+
+.info_text_box.size_lg {
+    padding: 24px;
+}
+
+.info_text_box {
+    display: block;
+    padding: 18px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+
+.title_wrap > p {
+	font-size: 14px;
+    font-weight: 700;	
+}
+
+.bul_list > li {
+	font-size: 13px;
+    line-height: 19px;
+}
+
+.bul_list > li::marker {
+	color: #999;
+}
+
+/* 첨부파일 */
+/* .file_list, .bul_list{
+	list-style-type: none;	
+}
+
+.file_list .file_item {
+    position: relative;
+    display: inline-block;
+}
+ */
+/* .file_list .file_item .btn_box {
+    position: relative;
+    display: inline-block;
+    width: 94px;
+    height: 94px;
+    border: 1px dashed #e5e5e5;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    border-radius: 6px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.file_list .file_item .btn_box input[type=file] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.file_list .file_item .btn_box label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0 !important;
+    background-size: 16px 16px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_attached_add@2x.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    font: 0/0 Arial;
+}
+
+.file_list .file_item:not(.attached) .btn_remove_img {
+    display: none;
+}
+button[class^=btn_], a[class^=btn_] {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.file_list .file_item.attached .attach_img_box .attach_img_view {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    font-size: 0 !important;
+    left: 0;
+    top: 0;
+}
+
+.file_list .file_item.attached .attach_img_box .btn_remove_img {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-size: 8px 8px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_attached_remove@2x.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0 6px;
+    font-size: 0 !important;
+    pointer-events: auto;
+    right: 0;
+    top: 0;
+}
+ */
+
+.bul_item_asterisk {
+	color: #767676;
+	margin-top: 5px;
+}
+
+.byte_check_wrap w_full {
+	width: 177%;	
+}
+
+/* 문의접수 모달창 */
+
+
+
+
+
+
+
+
+

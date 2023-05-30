@@ -1,0 +1,364 @@
+@charset "UTF-8";
+
+.wrapper {
+    position: relative;
+    min-width: 1440px;
+    overflow: hidden;
+    min-height: 100vh;
+    padding-top: 0px;
+}
+
+.wrapper.member_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.wrapper .header_wrapper {
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+    z-index: 1000;
+}
+
+.wrapper.member_info .header_wrapper {
+    width: 100%;
+    height: 112px;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+.wrapper .header_wrapper .header_inner {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper.member_info .header_wrapper .header_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 100%;
+}
+
+.wrapper.member_info .header_wrapper .logo_box {
+    display: inline-block;
+    width: 171px;
+    height: 74px;
+    margin: 15px 0;
+    vertical-align: top;
+}
+
+.wrapper.member_info .header_wrapper .logo_box .logo_link {
+    display: block;
+    height: 100%;
+}
+
+.wrapper.member_info .header_wrapper .logo_box .logo_link img {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap {
+    margin-left: auto;
+    padding-top: 8px;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .btn_wrap {
+    text-align: right;
+    border: none;
+    height: 36px;
+}
+
+a.btn_xxs, button.btn_xxs {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 24px;
+    padding: 1px 5px 1px;
+    border-radius: 4px;
+    letter-spacing: -0.01em;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+a.btn_lighten_gray, button.btn_lighten_gray {
+    color: #000;
+    background: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+a.btn_xxs.btn_pill, button.btn_xxs.btn_pill {
+    width: auto;
+    border-radius: 24px;
+    padding-right: 10px;
+    padding-left: 12px;
+}
+
+a.btn_xxs .ico_arw, button.btn_xxs .ico_arw {
+    width: 6px;
+    height: 6px;
+    margin-left: 2px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/arw_info_more@2x.png) center no-repeat;
+    background-size: 6px 6px;
+}
+
+a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
+    margin-right: 0;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .member_gnb_list {
+    margin-top: 18px;
+    font-size: 0;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .member_gnb_list .member_gnb_item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .member_gnb_list .member_gnb_item .member_gnb_link {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #595959;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .member_gnb_list .member_gnb_item.active .member_gnb_link {
+    font-weight: 700;
+    color: #000;
+    text-decoration-line: none;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .member_gnb_list .member_gnb_item:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -26px;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+}
+
+.wrapper.member_info .header_wrapper .member_gnb_wrap .member_gnb_list .member_gnb_item.active:after {
+    background-color: #000;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap {
+    position: relative;
+    padding-top: 20px;
+    z-index: 102;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list {
+    font-size: 0;
+    padding-inline-start: 0;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:first-child {
+    margin-right: 10px;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .home_link {
+    display: block;
+    width: 14px;
+    height: 19px;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    background-size: 14px 13px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_home@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .btn_sub_depth {
+    position: relative;
+    padding-bottom: 8px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:nth-child(n+3) {
+    position: relative;
+    padding-left: 20px;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:nth-child(n+3):before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    display: block;
+    width: 4px;
+    height: 8px;
+    background-size: 4px 8px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_divide@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .btn_sub_depth:after {
+    content: "";
+    display: inline-block;
+    margin: 1px 0 0 3px;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_more@2x.png);
+    vertical-align: top;
+    transition: background-image 0.23s;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid {
+    position: absolute;
+    top: 27px;
+    left: 0;
+    display: none;
+    width: 175px;
+    padding: 15px 0;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid .sub_depth_box {
+    position: relative;
+    width: 173px;
+    min-width: 173px;
+    padding: 0 12px 0 15px;
+    box-sizing: border-box;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid .sub_depth_box .sub_depth_list .depth_item .depth_link {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid .sub_depth_box .sub_depth_list .depth_item.active .depth_link {
+    color: #000;
+    font-weight: 500;
+}
+
+[class^=bul_item_].font_size_xxs {
+    font-size: 12.3px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.bul_item_dot {
+    padding-left: 0px;
+}
+
+.bul_item_dot:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #999;
+}
+
+[class^=bul_item_] .btn_xxs {
+    margin: -2px 0 0 10px;
+    text-decoration: none;
+}
+
+a.btn_line_gray, button.btn_line_gray {
+    color: #000;
+    background: #fff;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.bul_list {
+    padding-inline-start: 0px;
+    list-style: none;
+}
