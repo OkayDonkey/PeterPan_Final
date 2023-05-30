@@ -2,7 +2,6 @@ package com.book.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.security.SecureRandom;
@@ -123,7 +122,7 @@ public class JoinController {
 	}
 	
 	@RequestMapping("general_join_ok.go")
-	public String getneralJoinOk(MemberDTO dto, HttpSession session, HttpServletResponse response) throws Exception {
+	public String getneralJoinOk(MemberDTO dto, HttpSession session) throws Exception {
 		
 		session.removeAttribute("memberName");
 		session.removeAttribute("memberPhone");
@@ -152,8 +151,15 @@ public class JoinController {
 	
 	@ResponseBody
 	@RequestMapping("join_emailcheck.go")
-	public int joinEmailCheck(@RequestParam("checkEmail") String email) {
+	public int joinEmailCheck(@RequestParam("checkEmail") String email, HttpSession session) {
 	    int checkEmail = this.dao.checkEmail(email);
+	    
+	    MemberDTO dto = (MemberDTO) session.getAttribute("session");
+	    
+	    if(email.equals(dto.getMemberEmail())) {
+	    	return 2;
+	    }
+	    
 	    if (checkEmail != 0) {
 	        return 1;
 	    } else {

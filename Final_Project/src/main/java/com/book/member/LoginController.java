@@ -153,7 +153,7 @@ public class LoginController {
 			model.addAttribute("SNSNickname", nickname);
 			model.addAttribute("SNSEmail", email);
 			
-			return "member/join/kakao_join_form.jsp";
+			return "member/join/kakao_join_form";
 		}
 		
     }
@@ -302,6 +302,105 @@ public class LoginController {
 	public String idPwdSearch() {
 		
 		return "member/idPwdSearch";
+	}
+	
+	@RequestMapping("phone_search_getId.go")
+	@ResponseBody
+	public String phoneSearchGetId(MemberDTO dto, HttpServletResponse response, HttpSession session) throws Exception {
+		
+		int check = loginService.phoneSearchGetId(dto);
+		
+		String phoneNo = dto.getMemberPhone();
+		
+		if(check > 0) {
+			session.setAttribute("memberPhone", phoneNo);
+			
+			return "1";
+		} else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("email_search_getId.go")
+	@ResponseBody
+	public String emailSearchGetId(MemberDTO dto, HttpServletResponse response, HttpSession session) throws Exception {
+		
+		int check = loginService.emailSearchGetId(dto);
+		
+		dto = loginService.getmemberonelist(dto.getMemberEmail());
+		
+		String phoneNo = dto.getMemberPhone();
+		
+		if(check > 0) {
+			session.setAttribute("memberPhone", phoneNo);
+			
+			return "1";
+		} else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("phone_search_getPwd.go")
+	@ResponseBody
+	public String phoneSearchGetPwd(MemberDTO dto, HttpSession session) throws Exception {
+		
+		int check = loginService.phoneSearchGetPwd(dto);
+		
+		if(check > 0) {
+			session.setAttribute("pwdMemberCheckdto", dto);
+			return "1";
+		} else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("email_search_getPwd.go")
+	@ResponseBody
+	public String emailSearchGetPwd(MemberDTO dto, HttpServletResponse response, HttpSession session) throws Exception {
+		
+		int check = loginService.emailSearchGetPwd(dto);
+		
+		dto = loginService.getmemberonelist(dto.getMemberEmail());
+		
+		if(check > 0) {
+			session.setAttribute("pwdMemberCheckdto", dto);
+			
+			return "1";
+		} else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("pwd_reset.go")
+	public String pwdReset() {
+		
+		return "member/password_reset";
+	}
+	
+	@RequestMapping("pwd_reset_ok.go")
+	public String pwdResetOk(MemberDTO dto, HttpSession session, Model model, HttpServletResponse response) throws Exception {
+		
+		MemberDTO cdto = (MemberDTO) session.getAttribute("pwdMemberCheckdto");
+		
+		cdto = loginService.getmemberonelistbyId(cdto.getMemberId());
+		
+		String salt = BCrypt.gensalt();
+		
+		String hashedPwd = BCrypt.hashpw(dto.getMemberPwd(), salt);
+		
+		cdto.setMemberPwd(hashedPwd);
+		
+		this.loginService.pwdReset(cdto);
+		
+		session.removeAttribute("pwdMemberCheckdto");
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		String errorMessage = "비밀번호가 변경되었습니다. 변경된 비밀번호로 로그인 해 주세요.";
+		
+        model.addAttribute("errorMessage", errorMessage);
+		
+		return "member/login";
 	}
 	
 }

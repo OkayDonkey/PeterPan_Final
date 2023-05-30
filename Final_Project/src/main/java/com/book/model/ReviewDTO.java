@@ -16,5 +16,6 @@ public class ReviewDTO {
 	private String reviewFile;
 	private String reviewRegdate;
 	private String memberId;
+	private boolean recommend;
 
 }

@@ -17,6 +17,9 @@
   	<typeAlias type="com.book.model.NewRelBookDTO" alias="newRelBookDto"/>		
   	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		
   	<typeAlias type="com.book.model.PageDTO" alias="pageDto"/>		
+  	<typeAlias type="com.book.model.LikeDTO" alias="likeDto"/>		
+  	<typeAlias type="com.book.model.CouponDTO" alias="couponDto"/>		
+  	<typeAlias type="com.book.model.PurchaseDTO" alias="purchaseDto"/>		
 	
 	
 	
@@ -33,15 +36,14 @@
 	
 	<typeAlias type="com.book.membermodel.LoginDAO" alias="logindao" />
   	<typeAlias type="com.book.membermodel.JoinDAO" alias="joindao" />
+  	<typeAlias type="com.book.membermodel.MypageDAO" alias="mypagedao"/>
 	<!-- member End-->
 	
 	<!-- board -->
   	<typeAlias type="com.book.model.BoardDTO" alias="boarddto"/>
-
   	<typeAlias type="com.book.boardmodel.BoardDAO" alias="boarddao"/>
 	<!-- board End-->
-  	
-  
+	
   </typeAliases>
   
 </configuration>

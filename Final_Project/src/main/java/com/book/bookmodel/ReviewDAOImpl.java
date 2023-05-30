@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.book.model.LikeDTO;
 import com.book.model.ReviewDTO;
 
 @Repository
@@ -20,9 +21,15 @@ public class ReviewDAOImpl implements ReviewDAO{
 		return this.sqlSession.insert("insertView", dto);
 	}
 	
-@Override
+	@Override
 	public List<ReviewDTO> loadReview(int bookNo) {
 		 
-		return this.sqlSession.selectList("loadReview");
+		return this.sqlSession.selectList("loadIdReview",bookNo);
+	}
+	
+	@Override
+	public int insertLike(LikeDTO likeDto) {
+		 
+		return this.sqlSession.insert("insertLike", likeDto);
 	}
 }

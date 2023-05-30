@@ -20,19 +20,23 @@
   			select * from book where bookNo = #{bookNo}
   		</select>
   		<select id="reviewCont" parameterType="int" resultType="reviewDto">
-  			SELECT r.*, m.memberId
+  			SELECT r.*, m.memberId, CASE WHEN r.recommend IS NOT NULL THEN true ELSE false END AS recommend
 			FROM review r
 			JOIN member m ON r.memberNo = m.memberNo
-			WHERE r.bookNo = #{bookNo}
+			WHERE r.bookNo = #{bookNo};
   		</select>
   		<select id="percentLike" parameterType="int" resultType="reviewPerDto">
   			SELECT
-			    (SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) AS like_count,
-			    (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) AS review_count,
-			    CONVERT((SELECT COUNT(*) FROM fianlB.like WHERE bookNo = #{bookNo}) / (SELECT COUNT(*) FROM fianlB.review WHERE bookNo = #{bookNo}) * 100, UNSIGNED) AS like_percentage;
+    (SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo} AND recommend = true) AS like_count,
+    (SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo}) AS review_count,
+    CONVERT((SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo} AND recommend = true) / (SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo}) * 100, UNSIGNED) AS like_percentage;
+
 		</select>
 		<select id="newRelBook" resultType="newRelBookDto">
-			SELECT * FROM book ORDER BY bookRelDate DESC LIMIT 10
+			SELECT * FROM book ORDER BY bookRelDate DESC LIMIT 10 
+		</select>
+		<select id="sameGenre" parameterType="int" resultType="bookDto">
+			SELECT * FROM book WHERE bookGenre = (SELECT bookGenre FROM book WHERE bookNo = #{bookNo}) ORDER BY RAND() LIMIT 10
 		</select>
   		
 	</mapper>

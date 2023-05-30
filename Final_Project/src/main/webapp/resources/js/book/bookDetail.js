@@ -1,4 +1,5 @@
 var activePopup = null; // 활성화된 팝업을 저장하는 변수
+var checkedLike = false;
 
 function togglePopup(popupId, imgId, defaultImgSrc, activeImgSrc) {
   var popupElement = document.getElementById(popupId);
@@ -135,3 +136,92 @@ function reviewPopup() {
 }
 
 
+function insertReview(){
+
+	  var memberNo = document.getElementById("memberNo").value;
+  	  var memberId = document.getElementById("memberId").value;
+  	  var bookNo = document.getElementById("bookNo").value;
+  	  var reviewTitle = document.getElementById("reviewTitle").value;
+  	  var reviewCont = document.getElementById("reviewCont").value;
+  	  var like = document.getElementById("checkBox").value;
+		  	  
+	console.log("insertReview  Ajax호출");
+	console.log("회원번호:"+memberNo);
+	console.log("회원아이디:"+memberId);
+	console.log("책번호:"+bookNo);
+	console.log("리뷰소제목:"+reviewTitle);
+	console.log("리뷰내용:"+reviewCont);
+	
+	$.ajax({
+  type: 'POST',
+  url: 'insertReview.go',
+  dataType: "json",
+  data: {
+    bookNo: bookNo,
+    memberId: memberId,
+    memberNo: memberNo,
+    reviewTitle: reviewTitle,
+    reviewCont: reviewCont,
+    recommend: checkedLike,
+  },
+ success: function (data) {
+  console.log("AJAX호출 성공");
+  console.log("데이터 송신완료 값:");
+  console.log(data);
+
+  var card_Elem_id = document.querySelector('#reviewInnerAjax');
+  var num = document.querySelector('#totalReviewNum');
+
+  card_Elem_id.innerHTML = ''; // 기존 내용 지우기
+
+  if (data.length > 0) {
+    data.forEach(function (obj) {
+      card_Elem_id.innerHTML += `
+        <div class="reviewBlock">
+          <div class="container">
+            <p>
+              <span class="reviewBuyerBox">구매자</span>
+              <span class="smallTextGray mr-1">${obj.memberId}</span>
+              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
+              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
+            </p>
+          </div>
+          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
+        </div>
+      `;
+    });
+
+    num.innerText = parseInt(num.innerText) + 1;
+  }
+
+  reviewPopup();    // 팝업 닫아주기
+},
+
+  error: function (request, status, error) {
+    console.log(error); // 오류 발생시 콘솔에 출력
+  }
+});
+
+}
+
+
+	function checkLike(defaultImgSrc, activeImgSrc) {
+	
+    var imgElement = document.getElementById("LikePng");
+    var checkBox = document.getElementById("checkBox");
+    var currentSrc = imgElement.getAttribute("src");
+
+    if (currentSrc === defaultImgSrc) {
+        // 이미지 소스를 변경할 이미지로 변경
+        imgElement.setAttribute("src", activeImgSrc);
+        checkBox.value = true;
+        checkedLike = true;
+        console.log("추천 체크됨");
+    } else {
+        // 이미지 소스를 기본 이미지로 변경
+        imgElement.setAttribute("src", defaultImgSrc);
+        checkBox.value = false;
+        checkedLike = false;
+        console.log("추천 체크해제됨");
+    }
+}

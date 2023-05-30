@@ -37,4 +37,40 @@ public class LoginDAOImpl implements LoginDAO{
 	public MemberDTO SNSLogin(String email) {
 		return sqlSession.selectOne("snsLogin", email);
 	}
+
+	@Override
+	public int phoneSearchGetId(MemberDTO dto) {
+		return sqlSession.selectOne("phoneSearchgetIdCheck", dto);
+	}
+
+	@Override
+	public int emailSearchGetId(MemberDTO dto) {
+		return sqlSession.selectOne("emailSearchgetIdCheck", dto);
+	}
+
+	@Override
+	public MemberDTO getmemberonelist(String memberEmail) {
+		return sqlSession.selectOne("getmemberonelistbyemail", memberEmail);
+	}
+
+	@Override
+	public int phoneSearchGetPwd(MemberDTO dto) {
+		return sqlSession.selectOne("phoneSearchGetPwdCheck", dto);
+	}
+	
+	@Override
+	public int emailSearchGetPwd(MemberDTO dto) {
+		return sqlSession.selectOne("emailSearchGetPwdCheck", dto);
+	}
+
+	@Override
+	public MemberDTO getmemberonelistbyId(String memberId) {
+		return sqlSession.selectOne("getmemberonelistbyId", memberId);
+	}
+
+	@Override
+	public void pwdReset(MemberDTO dto) {
+		sqlSession.update("pwdReset", dto);
+	}
+
 }

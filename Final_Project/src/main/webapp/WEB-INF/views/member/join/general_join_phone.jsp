@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>피터팬/휴대폰 인증</title>
+<link rel="stylesheet" href="resources/css/member/memberMain.css" />
 <link rel="stylesheet" href="resources/css/member/passPhone.css" />
 </head>
 <body>

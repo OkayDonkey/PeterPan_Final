@@ -1,0 +1,2081 @@
+@charset "UTF-8";
+
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, button, textarea, p, blockquote, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+input, button {
+    border: 0;
+    border-radius: 0;
+    background: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.wrapper {
+    position: relative;
+    min-width: 1440px;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+.wrapper .container_wrapper.my_home {
+    position: relative;
+}
+
+.wrapper .container_wrapper {
+    min-height: calc(100vh - 80px);
+}
+
+.wrapper .container_wrapper.my_home:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 354px;
+    background-size: cover;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/bg_myroom_main@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap {
+    position: relative;
+    padding-top: 20px;
+    z-index: 102;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list {
+    font-size: 0;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:first-child {
+    margin-right: 10px;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .home_link {
+    display: block;
+    width: 14px;
+    height: 19px;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    background-size: 14px 13px;
+    background-image: url(../images/common/ink/ico_breadcrumb_home@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap.type_white .breadcrumb_list .breadcrumb_item .home_link {
+    background-size: 14px 13px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_home_white@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: top;
+}
+
+a[disabled], a[aria-disabled=true], a.disabled, button[disabled], button[aria-disabled=true], button.disabled {
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: none !important;
+}
+
+button[class^=btn_], a[class^=btn_] {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .btn_sub_depth {
+    position: relative;
+    padding-bottom: 8px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+    font-weight: 500;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap.type_white .breadcrumb_list .breadcrumb_item .btn_sub_depth {
+    color: #fff;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap ~ .contents_wrap {
+    padding-top: 20px;
+    
+}
+
+.wrapper .container_wrapper.my_home .contents_wrap.aside {
+    position: relative;
+}
+
+.wrapper .container_wrapper .contents_wrap .contents_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .contents_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.wrapper .container_wrapper.my_home .contents_wrap.aside .aside_wrap {
+    width: 180px;
+    padding-right: 36px;
+}
+
+.badge_grade_friends {
+    border: 1px solid #33b052;
+    background-color: #33b052;
+}
+
+.my_profile_area {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    padding: 24px;
+    border-radius: 16px;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area {
+    margin-bottom: 74px;
+    padding: 0;
+    background: none;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_thumb_box {
+    width: 70px;
+    height: 70px;
+}
+
+.profile_thumb_box .thumb_box {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+}
+
+.profile_thumb_box.no_img .thumb_box {
+    border: 1px solid #eaeaea;
+    background-size: cover;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_no_profile@2x.png);
+    box-sizing: border-box;
+}
+
+.my_profile_area .profile_thumb_box.no_img .thumb_box {
+    border: none;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    font: 0/0 Arial;
+}
+
+.profile_thumb_box .btn_setting:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -12px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_profile_setting@2x.png);
+}
+
+.my_profile_area .profile_name_box {
+    position: relative;
+    height: 52px;
+    margin-top: 10px;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_name_box {
+    height: 56px;
+    display: flex;
+}
+
+.my_profile_area .profile_name_box .name {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_name_box .name {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.badge_lg {
+    min-height: 24px;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+}
+
+.my_profile_area .profile_name_box .badge {
+    white-space: nowrap;
+}
+
+[class^=badge_] {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top;
+}
+
+.badge_lg.badge_pill {
+    padding: 3px 10px 0;
+    border-radius: 22px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_name_box .badge_lg {
+    margin-top: 2px;
+}
+
+.badge_grade_friends .text {
+    color: #fff;
+}
+
+[class^=badge_] .text {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.badge_lg.badge_pill {
+    padding: 3px 10px 0;
+    border-radius: 22px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_name_box .badge_lg {
+    margin-top: 2px;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_info_list {
+    padding: 17px 20px 19px;
+    margin-top: 12px;
+    border-radius: 12px;
+    background-color: rgba(56, 59, 124, 0.2);
+    display: flex;
+}
+
+.my_profile_area .profile_info_list .info_item ~ .info_item:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    margin: 10px 15px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    opacity: 0.1;
+    vertical-align: top;
+}
+
+.my_profile_area .profile_info_list .info_item {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_info_list .info_item {
+    width: calc(50% - 16px);
+}
+
+.my_profile_area .profile_info_list .info_link {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.my_profile_area .profile_info_list .info_link .title {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_info_list .info_item .title {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.my_profile_area .profile_info_list .info_link .val {
+    display: block;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_info_list .info_item .val {
+    font-size: 18px;
+}
+
+.wrapper .container_wrapper.my_home .my_profile_area .profile_info_list .info_item ~ .info_item {
+    width: calc(50% + 16px);
+    display: flex;
+}
+
+.my_profile_area .profile_info_list .info_item ~ .info_item:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    margin: 10px 15px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    opacity: 0.1;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .aside_wrap .snb_wrap .snb_list .snb_item .snb_link {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: black;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .aside_wrap .snb_wrap .snb_list .snb_item .snb_link:hover {
+    text-decoration: underline;
+}
+.wrapper .container_wrapper .contents_wrap.aside .aside_wrap .snb_wrap .snb_list .snb_item .snb_link.depth_title {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .aside_wrap .snb_wrap .snb_list .snb_item ~ .snb_item {
+    margin-top: 8px;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .aside_wrap .snb_wrap .snb_list.category > .snb_item ~ .snb_item {
+    margin-top: 24px;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .section_wrap {
+    width: calc(100% - 216px);
+}
+
+.switch_toggle_wrap .switch_toggle_header {
+    margin-bottom: 16px;
+    font-size: 0;
+}
+
+.switch_toggle_wrap .switch_toggle_header .switch_toggle_box {
+    display: inline-block;
+    height: 37px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    font-size: 0;
+    vertical-align: top;
+}
+
+.switch_toggle_wrap .switch_toggle_header .switch_toggle_box .btn_switch {
+    display: inline-block;
+    height: 100%;
+    padding: 0 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: #fff;
+    opacity: 0.6;
+    vertical-align: top;
+}
+
+.switch_toggle_wrap .switch_toggle_header .switch_toggle_box .btn_switch ~ .btn_switch {
+    margin-left: -8px;
+}
+
+.switch_toggle_wrap .switch_toggle_header .switch_toggle_box .btn_switch.active {
+    opacity: 1;
+    background-color: #4dac27;
+}
+
+.switch_toggle_wrap .switch_toggle_header .category_tag_list {
+    display: inline-block;
+    padding-top: 8px;
+    vertical-align: top;
+}
+
+.switch_toggle_wrap .switch_toggle_header .switch_toggle_box ~ .category_tag_list {
+    margin-left: 30px;
+}
+
+.category_tag_list .category_item {
+    display: inline-block;
+    margin-right: 30px;
+    vertical-align: top;
+}
+
+.category_tag_list .category_item .btn_category {
+    position: relative;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    color: #767676;
+    transition: color 0.23s, font-weight 0.23s;
+}
+
+.category_tag_list .category_item.active .btn_category {
+    overflow: visible;
+    font-weight: 700;
+    color: #474c98;
+}
+
+.category_tag_list.type_white .category_item .btn_category {
+    color: #fff;
+    opacity: 0.5;
+}
+
+.category_tag_list.type_white .category_item.active .btn_category {
+    opacity: 1;
+}
+
+.category_tag_list .category_item .btn_category:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    border-radius: 100%;
+    transform: translateX(-50%);
+    transition: background-color 0.23s;
+}
+
+.category_tag_list .category_item.active .btn_category:before {
+    background-color: #4dac27;
+}
+
+.no_data {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 180px 0;
+}
+
+.wrapper .container_wrapper.my_home .switch_toggle_wrap .switch_toggle_content .no_data {
+    margin-top: -6px;
+    padding: 0 0 101px 0;
+}
+
+.no_data .no_data_desc {
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+
+.wrapper .container_wrapper.my_home .switch_toggle_wrap .switch_toggle_content .no_data .no_data_desc {
+    color: #fff;
+}
+
+.no_data .no_data_desc:before {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 12px;
+    background: url(	https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png) 0% 0% no-repeat;
+    background-size: 36px 36px;
+}
+
+.btn_wrap {
+    display: block;
+    font-size: 0;
+    text-align: center;
+}
+
+.no_data .btn_wrap {
+    margin-top: 30px;
+    width: 250px;
+}
+
+.wrapper .container_wrapper.my_home .switch_toggle_wrap .switch_toggle_content .no_data .btn_wrap {
+    margin-top: 20px;
+}
+
+a.btn_sm, button.btn_sm {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 38px;
+    padding: 0 13px 1px;
+    border-radius: 6px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+a.btn_white, button.btn_white {
+    color: #000;
+    border: 1px solid #fff;
+    background: #fff;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+a.btn_sm.btn_pill, button.btn_sm.btn_pill {
+    border-radius: 38px;
+}
+
+.wrapper .container_wrapper.my_home .switch_toggle_wrap .switch_toggle_content .no_data .btn_wrap .btn_sm {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: none;
+}
+
+.wrapper .container_wrapper.my_home .switch_toggle_wrap .switch_toggle_content .no_data .btn_wrap .btn_sm .text {
+    color: #fff;
+}
+
+.wrapper .container_wrapper.my_home .custom_swiper_wrap {
+    position: relative;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.wrapper .container_wrapper.my_home .prod_blur_list {
+    font-size: 0;
+}
+
+.wrapper .container_wrapper.my_home .custom_swiper_wrap .swiper-slide {
+    width: auto;
+    height: auto;
+}
+
+.wrapper .container_wrapper.my_home .prod_blur_list .prod_blur_item {
+    display: inline-block;
+    margin-right: 25px;
+    vertical-align: top;
+}
+
+.prod_blur_wrap {
+    overflow: hidden;
+    position: relative;
+    width: 311px;
+    min-height: 243px;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.blur_img_box {
+    position: relative;
+    overflow: hidden;
+}
+
+.prod_blur_wrap .blur_img_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.prod_blur_wrap .blur_img_box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.blur_img_box img {
+    position: absolute;
+    width: 160%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prod_blur_wrap .blur_img_box img {
+    top: -50px;
+    transform: translate(-50%, 0);
+}
+
+.prod_blur_wrap .prod_blur_inner {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: stretch;
+    height: 243px;
+    padding: 0 40px;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.prod_area.horizontal {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.wrapper .container_wrapper.my_home .prod_blur_list .prod_blur_item .prod_area {
+    width: 100%;
+}
+
+.prod_area.horizontal .prod_thumb_box.size_sm {
+    width: 84px;
+}
+
+.prod_area .prod_thumb_box .img_box {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
+}
+
+.prod_blur_wrap .prod_blur_inner .prod_area .prod_thumb_box .img_box {
+    border: none;
+}
+
+img, fieldset {
+    border: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.prod_area .prod_thumb_box .img_box img {
+    width: 100%;
+    max-height: calc((100% - 2px) * 1.618 - 10px);
+}
+
+prod_area.horizontal .prod_thumb_box.size_sm .img_box img {
+    max-height: calc((84px - 2px) * 1.618 - 10px);
+}
+
+.prod_area.horizontal .prod_info_box {
+    overflow: hidden;
+    margin-left: 16px;
+}
+
+.prod_area .prod_info_box .prod_name {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 46px;
+    line-height: 23px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: -o-ellipsis-lastline;
+    white-space: normal;
+    word-break: break-all;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: black;
+}
+
+.prod_blur_wrap .prod_blur_inner .prod_area .prod_info_box .prod_name {
+    max-height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+.prod_area .prod_info_box .prod_price {
+    display: block;
+    margin-top: 12px;
+    font-size: 0;
+}
+
+.prod_area .prod_info_box .prod_price .percent {
+    display: inline-block;
+    margin-right: 3px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #4dac27;
+    vertical-align: top;
+}
+
+.prod_blur_wrap .prod_blur_inner .prod_area .prod_info_box .prod_price .percent, .prod_blur_wrap .prod_blur_inner .prod_area .prod_info_box .prod_price .price {
+    color: #fff;
+}
+
+.prod_blur_wrap .prod_blur_inner .prod_area .prod_info_box .prod_price .percent {
+    margin-right: 7px;
+}
+
+.prod_area .prod_info_box .prod_price .price {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: top;
+}
+
+.prod_blur_wrap .prod_blur_inner .prod_area .prod_info_box .prod_price .price {
+    margin-left: 0;
+}
+
+.prod_area .prod_info_box .prod_price .price .val, .prod_area .prod_info_box .prod_price .price .unit {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+}
+
+.prod_area .prod_info_box .prod_price .price .val {
+    font-weight: 700;
+}
+
+.prod_area .prod_info_box .prod_price .price .val, .prod_area .prod_info_box .prod_price .price .unit {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap {
+    margin-top: 50px;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box {
+    position: relative;
+    flex: 1;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box.coupon:before {
+    background-size: 40px 40px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_my_benefit_coupon@2x.png);
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box .benefit_link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 142px;
+    padding: 23px;
+    border-radius: 16px;
+    border: 1px solid #eaeaea;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box .benefit_title {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    text-align: right;
+    color: black;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box .benefit_val {
+    margin-top: auto;
+    font-size: 0;
+    color: #595959;
+    text-align: right;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box .benefit_val .val {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box .benefit_val .unit {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box ~ .benefit_ico_box {
+    margin-left: 10px;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box.point:before {
+    background-size: 40px 40px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_my_benefit_point@2x.png
+);
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box.e_voucher:before {
+    background-size: 40px 40px;
+    background-image: url(	https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_my_benefit_voucher@2x.png);
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_ico_group .benefit_ico_box.e_cash:before {
+    background-size: 40px 40px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_my_benefit_cash@2x.png
+);
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding: 19px 0;
+    margin-top: 10px;
+    border-radius: 16px;
+    border: 1px solid #eaeaea;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box {
+    position: relative;
+    padding-left: 24px;
+    flex: 1;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box:first-child {
+    padding-left: 23px;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box .benefit_link {
+    display: block;
+    height: calc(100% - 24px);
+    margin-right: 24px;
+}
+
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box .benefit_title {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: black;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box .benefit_val {
+    margin-top: 4px;
+    font-size: 0;
+    color: #595959;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box .benefit_val .val {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box .benefit_val .unit {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+}
+
+.wrapper .container_wrapper.my_home .benefit_info_wrap .benefit_sub_group .benefit_sub_box ~ .benefit_sub_box:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 46px;
+    background-color: #eaeaea;
+}
+
+.title_wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.title_wrap.title_size_md {
+    padding-bottom: 20px;
+}
+
+.contents_wrap.aside .title_wrap.title_size_md ~ .title_size_md, .contents_wrap.aside .title_wrap.title_size_lg ~ .title_size_md {
+    margin-top: 70px;
+}
+
+.title_wrap .title_heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.title_wrap.title_size_md .title_heading {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.title_wrap .right_area {
+    margin-left: auto;
+    flex-shrink: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.btn_more_view {
+    color: #595959;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-align: left;
+}
+
+button[class^=btn_], a[class^=btn_] {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+button[class^=btn_] .text, a[class^=btn_] .text {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.btn_more_view [class^=ico_] {
+    height: 18px;
+    margin-left: 4px;
+}
+
+.btn_more_view .ico_arw {
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    margin-top: 5px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_more_view@2x.png) center no-repeat;
+    background-size: 5px 9px;
+    vertical-align: top;
+}
+
+button[class^=btn_] [class^=ico_], a[class^=btn_] [class^=ico_] {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper.my_home .my_library_list {
+    font-size: 0;
+}
+
+.wrapper .container_wrapper.my_home .my_library_list .my_library_item {
+    display: inline-block;
+    width: calc((100% - 50px) / 3);
+    margin-right: 25px;
+    vertical-align: top;
+}
+
+.my_library_box {
+    position: relative;
+}
+
+.my_library_box.empty {
+    width: 100%;
+}
+
+.my_library_box .my_library_box_inner {
+    position: relative;
+    height: 214px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.my_library_box.empty .my_library_box_inner {
+    background-size: cover;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/bg_library_empty@2x.png);
+}
+
+.my_library_box .my_library_box_inner .my_library_link {
+    display: block;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.my_library_box .my_library_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.my_library_box.empty .my_library_box_inner .my_library_info {
+    margin-left: 0;
+}
+
+.my_library_box .my_library_info .my_library_title {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: #fff;
+}
+
+.my_library_box.empty .my_library_box_inner .my_library_desc {
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+.my_library_box .my_library_info .my_library_thumb_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.my_library_box .my_library_info .my_library_thumb_list .thumb {
+    position: relative;
+    z-index: 0;
+    margin-left: -9px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.my_library_box .my_library_info .my_library_thumb_list .thumb.add {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    border: solid 1px #d5d5d5;
+    background-color: #fff;
+}
+
+.my_library_box .my_library_info .my_library_thumb_list .thumb:first-child {
+    margin-left: 0;
+}
+.my_library_box .my_library_info .my_library_thumb_list .thumb.add .text {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #4dac27;
+}
+
+.wrapper .container_wrapper.my_home .my_library_list .my_library_item {
+    display: inline-block;
+    width: calc((100% - 50px) / 3);
+    margin-right: 25px;
+    vertical-align: top;
+}
+
+.my_library_box {
+    position: relative;
+}
+
+.my_library_box .my_library_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.my_library_box .my_library_bg img {
+    position: absolute;
+    width: 160%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.my_library_box .my_library_box_inner {
+    position: relative;
+    height: 214px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.my_library_box .my_library_box_inner .my_library_link {
+    display: block;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.my_library_box .my_library_img_box {
+    width: 84px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.my_library_box .my_library_img_box .img_box {
+    display: block;
+}
+
+.my_library_box .my_library_img_box .img_box img {
+    width: 100%;
+    max-height: 125.912px;
+}
+
+.my_library_box .my_library_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.my_library_box .my_library_info .my_library_title {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: #fff;
+}
+
+.my_library_box .my_library_info .my_library_thumb_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.wrapper .container_wrapper.my_home .my_library_list .my_library_item:last-child {
+    margin-right: 0;
+}
+
+.no_data_line {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+.wrapper .container_wrapper.my_home .my_library_list .my_library_item .no_data_line {
+    height: 214px;
+    padding: 0 20px;
+}
+
+.no_data_line .no_data_desc {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: #767676;
+    text-align: center;
+}
+
+.no_data_line .btn_add_cont {
+    margin-top: 16px;
+}
+
+.no_data_line .btn_add_cont .ico_add_cont {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_add_cont@2x.png);
+}
+
+.no_data_line .btn_add_cont .text {
+    margin-left: 6px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    color: #595959;
+}
+
+.my_activity_wrap {
+    margin-top: 50px;
+    font-size: 0;
+}
+
+.my_activity_wrap .continue_view_box {
+    display: inline-block;
+    width: 311px;
+    vertical-align: top;
+}
+
+.title_wrap.title_size_md {
+    padding-bottom: 20px;
+}
+
+.title_wrap.title_size_md .title_heading {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item {
+    position: relative;
+    height: 311px;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap {
+    position: relative;
+    height: 100%;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap.no_data {
+    display: block;
+    padding: 24px 40px 24px;
+    box-sizing: border-box;
+    background: #f7f7f7;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap.no_data .no_data_desc {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-align: center;
+    color: #000;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap.no_data .no_data_sdesc {
+    width: 100%;
+    margin: 3px 0 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+    text-align: center;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.swiper-slide {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+}
+
+prod_area.horizontal {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap.no_data .prod_area {
+    align-items: flex-start;
+}
+
+.prod_area.horizontal .prod_thumb_box.size_sm {
+    width: 84px;
+}
+
+.prod_area .prod_thumb_box .prod_link {
+    display: block;
+    height: 100%;
+}
+
+.prod_area.horizontal .prod_info_box {
+    overflow: hidden;
+    margin-left: 16px;
+}
+
+.prod_area.horizontal .prod_info_box.size_xs {
+    margin-left: 10px;
+}
+
+.prod_area .prod_info_box .prod_info {
+    display: block;
+    height: 100%;
+    font-size: 0;
+}
+
+.prod_area .prod_info_box .prod_author, .prod_area .prod_info_box .prod_author a, .prod_area .prod_info_box .prod_last_update, .prod_area .prod_info_box .prod_last_update a, .prod_area .prod_info_box .popular_prod_name, .prod_area .prod_info_box .popular_prod_name a {
+    color: #595959;
+}
+
+.prod_area .prod_info_box.size_xs .prod_author, .prod_area .prod_info_box.size_xs .prod_last_update, .prod_area .prod_info_box.size_xs .popular_prod_name {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 36px;
+    line-height: 18px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: -o-ellipsis-lastline;
+    white-space: normal;
+    word-break: break-all;
+}
+
+a.btn_xs, button.btn_xs {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 30px;
+    padding: 0 9px 1px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+}
+
+a.btn_line_gray, button.btn_line_gray {
+    color: #000;
+    background: #fff;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+a.btn_xs.btn_pill, button.btn_xs.btn_pill {
+    width: auto;
+    padding-left: 11px;
+    padding-right: 12px;
+    border-radius: 30px;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap.no_data .prod_area .prod_info_box .btn_xs {
+    margin-top: 11px;
+}
+
+button[class^=btn_] [class^=ico_], a[class^=btn_] [class^=ico_] {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+a.btn_xs [class^=ico_], button.btn_xs [class^=ico_] {
+    height: 18px;
+    margin-right: 3px;
+}
+
+a.btn_xs .ico_list_plus, button.btn_xs .ico_list_plus {
+    width: 8px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_plus_list@2x.png) center no-repeat;
+    background-size: 8px 8px;
+}
+
+.swiper-container .swiper-notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1000;
+}
+
+.swiper_control_box {
+    text-align: center;
+    font-size: 0;
+}
+
+.my_activity_wrap .continue_view_box .continue_view_list .continue_view_item .continue_prod_wrap.no_data .continue_prod_swiper .swiper_control_box {
+    margin-top: 21px;
+}
+
+.swiper_control_box .swiper-button-prev, .swiper_control_box .swiper-button-next {
+    display: inline-block;
+    position: static;
+    width: 16px;
+    height: 16px;
+    margin-top: 0;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 6px 10px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_swiper_list@2x.png);
+    vertical-align: top;
+}
+
+.swiper_control_box .swiper-button-prev.swiper-button-disabled, .swiper_control_box .swiper-button-next.swiper-button-disabled {
+    opacity: 0.3;
+}
+
+.swiper_control_box .swiper-pagination {
+    display: inline-block;
+    position: static;
+    min-width: auto;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    vertical-align: top;
+    z-index: 2;
+}
+
+.swiper_control_box .swiper-pagination.swiper-pagination-fraction {
+    bottom: 0;
+    height: 16px;
+    line-height: 16px;
+    padding: 0 2px;
+    border-radius: 0;
+    background: none;
+}
+
+.swiper_control_box .swiper-pagination.swiper-pagination-fraction .swiper-pagination-current, .swiper_control_box .swiper-pagination.swiper-pagination-fraction .swiper-pagination-total {
+    color: #767676;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    line-height: 16px;
+}
+
+.swiper_control_box .swiper-pagination.swiper-pagination-fraction .swiper-pagination-current {
+    color: #000;
+    font-weight: 600;
+}
+
+.swiper-pagination.swiper-pagination-fraction .swiper-pagination-current, .swiper-pagination.swiper-pagination-fraction .swiper-pagination-total {
+    display: inline-block;
+    color: #ccc;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    line-height: 29px;
+    vertical-align: top;
+}
+
+.swiper_control_box .swiper-pagination.swiper-pagination-fraction .swiper-pagination-current, .swiper_control_box .swiper-pagination.swiper-pagination-fraction .swiper-pagination-total {
+    color: #767676;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    line-height: 16px;
+}
+
+.swiper-pagination.swiper-pagination-fraction .swiper-pagination-total:before {
+    content: "-";
+    display: inline-block;
+    margin: 0 4px 0 3px;
+    color: #ccc;
+}
+
+.swiper_control_box .swiper-pagination.swiper-pagination-fraction .swiper-pagination-total:before {
+    margin: 0 3px;
+    color: #767676;
+}
+
+.swiper_control_box .swiper-button-prev, .swiper_control_box .swiper-button-next {
+    display: inline-block;
+    position: static;
+    width: 16px;
+    height: 16px;
+    margin-top: 0;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 6px 10px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_swiper_list@2x.png);
+    vertical-align: top;
+}
+
+.my_activity_wrap .activity_more_box {
+    display: inline-block;
+    width: calc(100% - 311px - 25px);
+    margin-left: 25px;
+    vertical-align: top;
+}
+
+.my_activity_wrap .activity_more_box .my_quick_link_box .no_data_line {
+    height: 150px;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .sam_info_box, .my_activity_wrap .activity_more_box .sam_voucher_wrap .induce_box {
+    flex: 1;
+    padding: 22px 24px 24px 20px;
+    border-radius: 16px;
+    height: 150px;
+    box-sizing: border-box;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .sam_info_box {
+    background-color: rgba(6, 187, 192, 0.07);
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .induce_box {
+    margin-left: 10px;
+    background-color: rgba(80, 85, 177, 0.07);
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .sam_info_link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .sam_info_box .info_desc, .my_activity_wrap .activity_more_box .sam_voucher_wrap .induce_box .info_desc {
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    color: #000;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .sam_logo {
+    display: inline-block;
+    width: 44px;
+    height: 13px;
+    margin-top: 4px;
+    vertical-align: top;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .sam_logo img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.btn_more_view.size_sm {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .btn_more_view {
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.btn_more_view.size_sm .ico_arw {
+    margin-top: 4px;
+}
+
+.fw_bold {
+    font-weight: 700 !important;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .induce_box .count_val {
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .induce_box .count_val .val {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #000;
+}
+
+.my_activity_wrap .activity_more_box .sam_voucher_wrap .induce_box .count_val .unit {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+}
+
+.contents_wrap.aside .title_wrap.title_size_md ~ .title_size_md, .contents_wrap.aside .title_wrap.title_size_lg ~ .title_size_md {
+    margin-top: 70px;
+}
+
+.title_wrap .title_heading {
+    display: inline-block;
+    position: relative;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}

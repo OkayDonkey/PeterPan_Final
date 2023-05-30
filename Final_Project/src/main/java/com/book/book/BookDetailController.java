@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.book.bookmodel.BookDAO;
 import com.book.model.BookDTO;
 import com.book.model.DibsDTO;
+import com.book.model.LikeDTO;
 import com.book.model.NewRelBookDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;
@@ -42,6 +43,9 @@ public class BookDetailController {
 	    
 	    List<NewRelBookDTO> newRel = (List<NewRelBookDTO>) this.dao.getNewRelBook();
 	    System.out.println("신작 정보:"+newRel);
+
+	    List<BookDTO> sameGenre = (List<BookDTO>) this.dao.getSameGenre(bookNo);
+	    System.out.println("장르같은 책 정보:"+sameGenre);
 	    
 	    System.out.println();
 	    
@@ -59,6 +63,7 @@ public class BookDetailController {
 	    model.addAttribute("Cont", cont);
 	    model.addAttribute("PercentR", RPDto);
 	    model.addAttribute("NewRelBook", newRel);
+	    model.addAttribute("SameGenre", sameGenre);
 
 	    return "bookDetail/bookDetail";
 	}

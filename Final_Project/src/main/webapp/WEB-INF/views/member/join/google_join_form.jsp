@@ -12,6 +12,7 @@
 <!-- 다음 주소 가져오는 api -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <!-- 다음 주소 가져오는 api end -->
+<link rel="stylesheet" href="resources/css/member/memberMain.css" />
 <link rel="stylesheet" href="resources/css/member/login.css" />
 <link rel="stylesheet" href="resources/css/member/join.css" />
 </head>

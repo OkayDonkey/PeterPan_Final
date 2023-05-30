@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="mypagedao">
+  
+  	<select id="RecommendbookRandom" resultType="bookDto">
+  		SELECT * FROM book ORDER BY RAND() LIMIT 3;
+  	</select>
+  	
+  	<update id="memberInfoModify" parameterType="memberdto">
+	  UPDATE member SET memberPwd = 
+	    <choose>
+		  <when test="#{memberPwd} != null and memberPwd != ''">
+		    #{memberPwd},
+		  </when>
+		  <otherwise>
+		    memberPwd,
+		  </otherwise>
+		</choose>
+	    memberPhone = #{memberPhone},
+	    memberEmail = #{memberEmail},
+	    addrPost = #{addrPost},
+	    addrMain = #{addrMain},
+	    addrDetail = #{addrDetail}
+	  	WHERE memberId = #{memberId}
+	</update>
+	
+	<delete id="memberdelete" parameterType="memberdto">
+		delete from member where memberId = #{memberId}
+	</delete>
+	
+  </mapper>

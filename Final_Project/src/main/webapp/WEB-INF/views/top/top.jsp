@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+
+<%-- <c:set var="path" value="${pageContext.request.contextPath}"/> --%>
+
 <!DOCTYPE html>
 <html>
-<link rel="icon" type="image/png" sizes="16x16" href="/resources/img/hatLogo1.png" />
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css"
+	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- 부트스트랩 JS -->
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>
@@ -24,7 +34,6 @@
 	
 	
 <style>
-
 
 @font-face {
     font-family: 'SUIT-Light';
@@ -334,19 +343,57 @@ width: 60px;
 				</div>
 				<div class="my_info">
 					
-					<a href="#">
-						<img src="resources\css\s_img\us23.png">
+					<a href="<%=request.getContextPath() %>/myPage.go">
+					<img src="resources\css\s_img\us23.png">
 					</a>
-					
-					
-					<a href="cartList.go" style="margin-left: 30px">
-						<img src="resources\css\s_img\cart_b.png">
+
+				<c:choose>
+					<c:when test="${empty session.memberId }">
+						<div onclick="needLogin();">
+							<img src="resources\css\s_img\cart_b.png">
+						</div>
+					</c:when>
+					<c:when test="${!empty session.memberId }">
+						<a href="cartList.go">
+							<img src="resources\css\s_img\cart_b.png">
+						</a>
+					</c:when>
+				</c:choose>
+				<!-- 	<a href="cartList.go">
+					<img src="resources\css\s_img\cart_b.png">
 					</a>
-				</div>
+				</div> -->
 
 		</div>
 		
+		
+<div id="needLoginPopup"  class="needLoginPopup"	hidden>
+	<div class="LoginPopupBox">
+		<p>로그인 후 이용가능합니다.</p>
+		<p style="margin-bottom: 40px; font-weight: 100;">로그인 페이지로 이동하시겠습니까?</p>
+		<div class="row">
+			<div class="RoundBox1" onclick="needLogin();">취소</div>
+			<div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+		</div>
+	</div>
+</div>
+			
+		
+		<script type="text/javascript">
+		  function needLogin() {
+			    var popupElement = document.getElementById("needLoginPopup");
+
+			    // 팝업 토글
+			    if (popupElement.hidden === false) {
+			      popupElement.hidden = true;
+			    } else {
+			      popupElement.hidden = false;
+			    }
+			  }
+		</script>
 	</header>
 		<div style="margin:200px; ">
 		
 		</div>
+		
+		

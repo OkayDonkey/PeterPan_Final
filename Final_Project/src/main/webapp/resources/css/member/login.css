@@ -108,7 +108,7 @@
 .p_content {
 	font-size: 13px;
     line-height: 19px;
-    letter-spacing: -0.1em;
+    letter-spacing: -1px;
 	text-align: center;
     margin-top: 16px;
     color: #767676;
@@ -131,7 +131,7 @@
 	display: flex;
     align-items: center;
     text-decoration: none;
-    color: #474c98;;
+    color: #474c98;
     justify-content: center;
     font-size: 16px;
     line-height: 24px;
