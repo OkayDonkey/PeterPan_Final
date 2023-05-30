@@ -13,16 +13,16 @@
 	
 	    <choose>
 	        <when test="marketingOk != null and marketingOk.length == 3">
-	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'all')
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'all', 0)
 	        </when>
 	        <when test="marketingOk != null and ('all' in marketingOk and 'sms' in marketingOk)">
-	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'sms')
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'sms', 0)
 	        </when>
 	        <when test="marketingOk != null and ('all' in marketingOk and 'email' in marketingOk)">
-	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'email')
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'email', 0)
 	        </when>
 	        <when test="marketingOk == null">
-	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'no')
+	            insert into member values(#{memberNo} + 1, #{memberId}, #{memberPwd}, #{memberName}, #{memberPhone}, #{addrPost}, #{addrMain}, #{addrDetail}, #{memberEmail}, #{memberBirth}, #{memberGender}, '1', null, #{mailKey}, 0, 'no', 0)
 	        </when>
 	    </choose>
 	</insert>
