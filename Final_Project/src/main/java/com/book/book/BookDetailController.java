@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.book.bookmodel.BookDAO;
 import com.book.model.BookDTO;
 import com.book.model.DibsDTO;
+import com.book.model.LikeDTO;
 import com.book.model.NewRelBookDTO;
 import com.book.model.ReviewDTO;
 import com.book.model.ReviewPercentDTO;

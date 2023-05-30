@@ -1,4 +1,5 @@
 var activePopup = null; // 활성화된 팝업을 저장하는 변수
+var checkedLike = false;
 
 function togglePopup(popupId, imgId, defaultImgSrc, activeImgSrc) {
   var popupElement = document.getElementById(popupId);
@@ -142,6 +143,7 @@ function insertReview(){
   	  var bookNo = document.getElementById("bookNo").value;
   	  var reviewTitle = document.getElementById("reviewTitle").value;
   	  var reviewCont = document.getElementById("reviewCont").value;
+  	  var like = document.getElementById("checkBox").value;
 		  	  
 	console.log("insertReview  Ajax호출");
 	console.log("회원번호:"+memberNo);
@@ -160,6 +162,7 @@ function insertReview(){
     memberNo: memberNo,
     reviewTitle: reviewTitle,
     reviewCont: reviewCont,
+    recommend: checkedLike,
   },
  success: function (data) {
   console.log("AJAX호출 성공");
@@ -199,4 +202,26 @@ function insertReview(){
   }
 });
 
-  }
+}
+
+
+	function checkLike(defaultImgSrc, activeImgSrc) {
+	
+    var imgElement = document.getElementById("LikePng");
+    var checkBox = document.getElementById("checkBox");
+    var currentSrc = imgElement.getAttribute("src");
+
+    if (currentSrc === defaultImgSrc) {
+        // 이미지 소스를 변경할 이미지로 변경
+        imgElement.setAttribute("src", activeImgSrc);
+        checkBox.value = true;
+        checkedLike = true;
+        console.log("추천 체크됨");
+    } else {
+        // 이미지 소스를 기본 이미지로 변경
+        imgElement.setAttribute("src", defaultImgSrc);
+        checkBox.value = false;
+        checkedLike = false;
+        console.log("추천 체크해제됨");
+    }
+}
