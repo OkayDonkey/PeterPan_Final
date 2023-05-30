@@ -32,7 +32,7 @@
 	
 	<delete id="delete" parameterType="cartDto">
 	
-	delete from bookCart where cartNo=${cartNo}
+	delete from fianlB.bookCart where cartNo=${cartNo}
 	
 	</delete>
 	
@@ -55,6 +55,18 @@
 	</select>
 	
 	<select id="couponList" parameterType="String" resultType="couponDto">
-		select * from coupon where memberId = #{value}
+		select * from fianlB.coupon where memberId = #{value}
 	</select>
+	
+	<delete id="deleteCoupon" parameterType="int">
+		delete from fianlB.coupon where couponNo=${value}
+	</delete>
+	
+	<delete id="deleteCart" parameterType="String">
+		delete from fianlB.bookCart where memberId = '${value}'
+	</delete>
+	
+	<insert id="insertPurchase" parameterType="purchaseDto" >
+		insert into fianlB.purchase values ( #{purchaseNo},#{memberId} ,#{bookNo} ,#{bookEA} )
+	</insert>
 </mapper>

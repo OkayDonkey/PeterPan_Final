@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.book.model.CartDTO;
 import com.book.model.CouponDTO;
+import com.book.model.PurchaseDTO;
 
 
 @Repository
@@ -82,5 +83,23 @@ public class CartDAOImpl implements CartDAO{
 	public List<CouponDTO> getCouponList(String string) {
  
 		return this.SqlSession.selectList("couponList", string);
+	}
+	
+	@Override
+	public int deleteCoupon(int couponNo) {
+		 
+		return this.SqlSession.delete("deleteCoupon", couponNo);
+	}
+	
+	@Override
+	public int deleteMemCart(String memId) {
+		 
+		return this.SqlSession.delete("deleteCart", memId);
+	}
+	
+	@Override
+	public int insertPurchase(PurchaseDTO dto) {
+		 
+		return this.SqlSession.insert("insertPurchase", dto);
 	}
 }

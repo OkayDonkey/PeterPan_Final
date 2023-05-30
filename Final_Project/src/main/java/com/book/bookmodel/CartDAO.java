@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.book.model.CartDTO;
 import com.book.model.CouponDTO;
+import com.book.model.PurchaseDTO;
 
 public interface CartDAO {
 	
@@ -26,5 +27,11 @@ public interface CartDAO {
 	int cartTotalCost(CartDTO dto);
 	
 	List<CouponDTO> getCouponList(String string);
+	
+	int deleteMemCart (String memId);
+
+	int deleteCoupon(int couponNo);
+
+	int insertPurchase(PurchaseDTO dto);
 	
 }

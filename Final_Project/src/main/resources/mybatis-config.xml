@@ -18,6 +18,7 @@
   	<typeAlias type="com.book.model.ReviewDTO" alias="reviewDto"/>		
   	<typeAlias type="com.book.model.LikeDTO" alias="likeDto"/>		
   	<typeAlias type="com.book.model.CouponDTO" alias="couponDto"/>		
+  	<typeAlias type="com.book.model.PurchaseDTO" alias="purchaseDto"/>		
 	
 	<typeAlias type="com.book.bookmodel.CartDAO" alias="cartDao"/>
   	<typeAlias type="com.book.bookmodel.BookDAO" alias="bookDao"/>

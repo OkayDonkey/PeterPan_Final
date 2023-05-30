@@ -83,6 +83,13 @@
 					</div>
 				</c:if>
 				</c:forEach>
+				<c:if test="${empty list }">
+					<div class="flex_center_center p-5 mt-5">
+					<img width="40" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png">
+					<br>
+					<b> 장바구니에 담은 상품이 없습니다 </b>
+					</div>
+				</c:if>
 				</div>
 				
 			</div>
@@ -200,8 +207,14 @@
 					</c:if>	
 				</div>
 				<form method="post" action="buy.go">
-					<input type="submit" value="주문하기(${list.size()})"  class="buyTextBoxBlue flex_center_center" 
+					<c:if test="${empty list }">
+					<input type="reset" value="주문하기(${list.size()})"  class="buyTextBoxBlue flex_center_center" 
 					style="font-weight: 500; font-size: 1.1em; width: 100%;">
+					</c:if>
+					<c:if test="${!empty list }">
+					<input type="submit" value="주문하기(${list.size()})"  class="buyTextBoxBlue flex_center_center" 
+					style="font-weight: 500; font-size: 1.1em; width: 100%;" >
+					</c:if>
 				</form>
 			</div>
 		</div><!-- 메인 우측 컨테이너 -->

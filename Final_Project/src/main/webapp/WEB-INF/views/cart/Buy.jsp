@@ -209,8 +209,8 @@
 			
 		</div><!-- 메인 좌측 컨테이너 -->
 		
-		
-		<div class="detail_info_side"><!-- 메인 우측 컨테이너 -->
+		<!-- 메인 우측 컨테이너 -->
+		<div class="detail_info_side">
 		<div class="flex-align-items-center Fixed">
 			<span class="grayCircle">1</span><span class="ml-2 mr-3">장바구니</span>
 			<span class="greenCircle">2</span><span class="ml-2 mr-3 bold-font">주문/결제</span>
@@ -220,7 +220,7 @@
 				<div>
 					<div class="mb-3"><b><span class="text-left" >상품금액</span><span class="float-right" id="cartTotalPrice1">
 							<fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원</span></b></div>
-					<div class="pb-3 mb-3 border_bottom_gray"><span class="text-left">배송비</span>
+					<div class="pb-4 mb-2 border_bottom_gray"><span class="text-left">배송비</span>
 						<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" 
 						onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')">
 						<span class="float-right">
@@ -289,11 +289,13 @@
 				</div>
 			</div>
 			<!-- 팝업 End-->
+			
 				</div>
+				<div id="pointDisplay" class="mb-3" style="font-weight: 500; color:#5055b1;" hidden></div><br>
 				<div class="mb-3"><b><span class="text-left">결제 예정 금액</span>
 				<span class="float-right" id="cartTotalPrice2"><fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
 				</span></b></div>
-				<div class="mb-3"><span class="text-left">적립예정 포인트</span>
+				<div class="mb-3"><span class="float-left">적립예정 포인트</span>
 					<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
 					
 					<c:if test="${totalprice > 50000 }">			
@@ -308,7 +310,7 @@
 					</c:if>	
 				</div>
 					<button type="submit"  class="buyTextBoxBlue flex_center_center" 
-					style="font-weight: 500; font-size: 1.1em; width: 100%;"onclick="requestPay()">주문하기(${list.size()})</button>
+					style="font-weight: 500; font-size: 1.1em; width: 100%;"onclick="requestPay()">주문/결제(${list.size()})</button>
 				
 			<div class="mt-3">
 			<div id="accordion Fixed">
@@ -342,6 +344,12 @@
 
 <input type="hidden" value="${cartTotalPrice - (cartTotalPrice * 0.1 ) }" id="orderTotalCost"> 
 <input type="hidden" value="${cartTotalPrice - (cartTotalPrice * 0.1 ) }" id="originalTotalCost"> 
+<input type="hidden" value="${session.memberName }" id="memName"> 
+<input type="hidden" value="${session.memberEmail }" id="memEmail"> 
+<input type="hidden" value="${session.memberPhone }" id="memTel"> 
+<input type="hidden" value="${session.addrMain }" id="memAddr"> 
+<input type="hidden" value="${session.addrPost }" id="memPost"> 
+<input type="hidden"  id="useCouponNo"> 
 
  
 <br><br><br><br><br><br><br><br>

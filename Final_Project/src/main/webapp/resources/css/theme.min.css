@@ -17676,6 +17676,16 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
 
+.123123	{
+	content:"";
+	background-image: url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_payment_skpay@2x.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 40px;
+	height: 50px;
+	width: 100px;
+	
+}
 
 }
 

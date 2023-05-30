@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.http.HttpResponse;
 import java.nio.channels.SeekableByteChannel;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import javax.mail.Session;
 import javax.servlet.ServletResponse;
@@ -17,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.bookmodel.CartDAO;
@@ -24,6 +29,7 @@ import com.book.model.BookDTO;
 import com.book.model.CartDTO;
 import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
+import com.book.model.PurchaseDTO;
 import com.github.scribejava.core.model.Response;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
@@ -159,5 +165,61 @@ public class CartController {
 		
 		return "cart/Buy";
 	}
+	
+	@RequestMapping("buySuccess.go")
+	public String buySuccess(Model model,PurchaseDTO pdto ,HttpSession session, @RequestParam("couponNo") int couponNo) {
+		
+		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
+		
+		String memberId =sessiondto.getMemberId(); 
+		System.out.println(memberId);
+		
+		List<CartDTO> list = this.Cdao.getcartList(memberId);
+		
+		String PurchaseLabel = generateRandomNumber();
+		
+		
+		for (int i = 0; i < list.size(); i++) {
+			
+			PurchaseDTO dto = new PurchaseDTO();
+			
+			dto.setMemberId(memberId);
+			dto.setPurchaseNo(PurchaseLabel);
+			dto.setBookNo(list.get(i).getBookNo());
+			dto.setBookEA(list.get(i).getCartCount());
+			
+			System.out.println("구매정보 "+dto);
+			
+			this.Cdao.insertPurchase(dto);
+			
+		}
+		
+		this.Cdao.deleteMemCart(memberId);
+		this.Cdao.deleteCoupon(couponNo);
+		
+		return "cart/successBuy";
+		
+	}
+
+	
+	    public static String generateRandomNumber() {
+	        // 현재 날짜와 시간 정보 가져오기
+	        LocalDateTime now = LocalDateTime.now();
+
+	        // 형식 지정을 위한 DateTimeFormatter 생성
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
+	        // 현재 날짜와 시간 정보를 형식에 맞게 포맷팅
+	        String formattedDateTime = now.format(formatter);
+
+	        // 4자리 랜덤 번호 생성
+	        Random random = new Random();
+	        int randomNumber = random.nextInt(9000) + 1000; // 1000부터 9999까지의 난수 생성
+
+	        // 현재 날짜와 시간 정보에 4자리 랜덤 번호를 붙여서 반환
+	        String result = formattedDateTime + randomNumber;
+	        return result;
+	    }
+	
 	
 }
