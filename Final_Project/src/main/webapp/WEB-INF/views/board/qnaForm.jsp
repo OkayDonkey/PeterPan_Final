@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,16 +23,16 @@
 
 			<!-- 문의 접수 내용 -->
 			<div class="customer_wrap">
-			<form method="post"  action="<%=request.getContextPath() %>/board_qna_ok.go">
+			<form enctype="multipart/form-data" method="post"  action="<%=request.getContextPath() %>/board_qna_ok.go">
+			<%-- <form enctype="multipart/form-data" method="post" action="<%=request.getContextPath() %>/upload_ok.do"> --%>
 				<div class="title_wrap title_size_lg">
-					<p class="title_heading">1:1문의 접수</p>
+					<h1 class="title_heading">1:1문의 접수</h1>
 				</div>
-
 				<!-- tbl_row_wrap -->
 				<div class="tbl_row_wrap" id="inquiryForm" data-kbbfn="form-group"
 					data-kbbfn-depend="submodule.CsInquiryModule">
 				
-					<table class="tbl_row">
+					<table class="tbl_row" >
 						<colgroup>
 							<col style="width: 160px;">
 							<col>
@@ -39,9 +40,8 @@
 	
 						<tbody>
 							<tr>
-								<th scope="row" class="has_ip"><label for="InquiryQuestList-button">문의유형</label> <span
-									class="required"> <span class="hidden">필수입력</span>
-								</span></th>
+								<th scope="row" class="has_ip" ><label for="InquiryQuestList-button">문의유형 <span style="color: #3C9A17;">*</span></label> <span
+									class="required"></span></th>
 								<td>
 									<!-- form_wrap -->
 									<div class="form_wrap">
@@ -54,12 +54,12 @@
 												<!-- valid_check -->
 												<div class="valid_check w_full">
 													<div class="form_sel_multi">
-														<div class="form_sel" style="width: 397px;">
+														<div class="form_sel" >
 															
 															<input type="hidden" value="QNA" name="boardArea">
 															<input type="hidden" value="${session.memberNo }" name="memberNo">
 															
-															<select name="boardCategory" data-kbbfn-field="" id="InquiryQuestList" title="문의유형 분류" >
+															<select name="boardCategory" data-kbbfn-field="" id="InquiryQuestList" title="문의유형 분류" class="graybg" >
 															<option value="-1" selected="selected">문의 유형을 선택해 주세요.</option>
 																<option value="000">배송/수령예정일안내</option>
 																<option value="001">회원</option>
@@ -79,57 +79,6 @@
 																aria-labelledby="ui-id-20" aria-disabled="false">
 																<span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span>
 																<span class="ui-selectmenu-text"></span></span>
-														</div>
-														<div class="form_sel" style="display: none; width: 397px;">
-															<select data-kbbfn-field="" id="InquiryStoreList" title="매장관련 상세 분류" style="display: none;">
-																<option value="-1" selected="selected">매장을 선택해 주세요.</option>
-																<option value="016">광화문점</option>
-																<option value="017">강남점</option>
-																<option value="018">부산점</option>
-																<option value="019">대구점</option>
-																<option value="020">대전점</option>
-																<option value="022">부천점</option>
-																<option value="024">인천점</option>
-																<option value="026">잠실점</option>
-																<option value="027">창원점</option>
-																<option value="029">분당점</option>
-																<option value="030">목동점</option>
-																<option value="031">천안점</option>
-																<option value="032">센텀시티점</option>
-																<option value="033">영등포점</option>
-																<option value="034">울산점</option>
-																<option value="035">일산점</option>
-																<option value="036">합정점</option>
-																<option value="037">평촌점</option>
-																<option value="038">판교점</option>
-																<option value="039">광교월드스퀘어센터</option>
-																<option value="040">칠곡센터</option>
-																<option value="041">광주상무센터</option>
-																<option value="042">수유바로드림센터</option>
-																<option value="043">전주바로드림센터</option>
-																<option value="044">동대문바로드림센터</option>
-																<option value="045">송도바로드림센터</option>
-																<option value="047">은평바로드림센터</option>
-																<option value="048">청량리바로드림센터</option>
-																<option value="049">가든파이브바로드림센터</option>
-																<option value="050">해운대센터</option>
-																<option value="051">세종바로드림센터</option>
-																<option value="052">디큐브바로드림센터</option>
-																<option value="053">경성대.부경대점</option>
-																<option value="054">이화여대점</option>
-																<option value="055">서울대점</option>
-																<option value="056">포항공대점</option>
-																<option value="057">전북대점</option>
-																<option value="063">광교점</option>
-																<option value="090">천호점</option>
-																<option value="091">건대바로드림센터</option></select><span tabindex="0"
-																id="InquiryStoreList-button" role="combobox"
-																aria-expanded="false" aria-autocomplete="list"
-																aria-owns="InquiryStoreList-menu" aria-haspopup="true"
-																title="매장관련 상세 분류"
-																class="ui-selectmenu-button ui-selectmenu-button-closed ui-corner-all ui-button ui-widget"><span
-																class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span><span
-																class="ui-selectmenu-text">매장을 선택해 주세요.</span></span>
 														</div>
 													</div>
 													<span class="valid_desc"></span>
@@ -212,9 +161,8 @@
 								</td>
 							</tr>
 							<tr>
-								<th scope="row" class="has_ip"><label for="InquiryTitle">내용</label>
-									<span class="required"> <span class="hidden">필수입력</span>
-								</span></th>
+								<th scope="row" class="has_ip"><label for="InquiryTitle">내용 <span style="color: #3C9A17;">*</span></label>
+									<span class="required"></span></th>
 								<td>
 									<div class="form_col_group w_full">
 										<div class="col_box">
@@ -228,7 +176,7 @@
 										<div class="col_box">
 											<div class="valid_check">
 												<!-- byte_check_wrap -->
-												<div class="byte_check_wrap w_full">
+												<div class="byte_check_wrap w_full" style="width: 177%;">
 													<textarea name="boardContent" data-kbbfn-field="" id="InquiryContent"
 														class="form_textarea" title="문의 내용 입력"
 														placeholder="빠른 답변을 위해 10자 이상의 문의 내용을 입력해 주세요."
@@ -244,28 +192,56 @@
 									</div>
 								</td>
 							</tr>
-
+							
 							<tr id="InquiryFileForm">
 
-								<th scope="row"><span>사진첨부 </span><span>0</span><span
-									class="fc_gray">/3</span></th>
-								<td><p class="info_text font_size_xxs">빠른 답변을 위해 이미지를
-										첨부해 주세요.</p>
+								<th scope="row">
+									<span>사진첨부 </span>
+									<span>0</span>
+									<span class="fc_gray">/3</span>
+								</th>
+								
+								<td><p class="info_text font_size_xxs">빠른 답변을 위해 이미지를 첨부해 주세요.</p>
 									<ul class="file_list">
-										<li class="list_item"><span class="file_item"><span
-												class="btn_box"><input name="boardFile"
-													id="23834088-4cd1-4dff-abdd-8a8da4a3830f" type="file"><label
-													for="23834088-4cd1-4dff-abdd-8a8da4a3830f"><span
-														class="hidden">첨부파일 추가</span></label><span class="attach_img_box"><span
-														class="attach_img_view"></span>
-													<button class="btn_remove_img" type="button">
-															<span class="hidden">첨부파일 삭제</span>
-														</button></span></span></span></li>
+										<li class="list_item">
+											<span class="file_item">
+												<span class="btn_box">
+													<input name="boardFile"  id="23834088-4cd1-4dff-abdd-8a8da4a3830f"  type="file">
+														<label for="23834088-4cd1-4dff-abdd-8a8da4a3830f">
+															<span class="hidden">첨부파일 추가</span></label>
+																<span class="attach_img_box">
+																<span class="attach_img_view"></span>
+																	<button class="btn_remove_img" type="button">
+																		<span class="hidden">첨부파일 삭제</span></button></span></span></span></li></ul>
+									<!-- 	<table border="1" cellspacing="0" width="400">
+											<tr>
+											    <th>첨부파일_1</th>
+											    <td>
+											      <input type="file" name="file1">
+											      <button type="button" class="delete-button">삭제</button>
+											    </td>
+											  </tr>
+											  <tr>
+											    <th>첨부파일_2</th>
+											    <td>
+											      <input type="file" name="file2">
+											      <button type="button" class="delete-button">삭제</button>
+											    </td>
+											  </tr>
+											  <tr>
+											    <th>첨부파일_3</th>
+											    <td>
+											      <input type="file" name="file3">
+											      <button type="button" class="delete-button">삭제</button>
+											    </td>
+											  </tr>
+										</table>					 -->			
+																		
+																		
+									<ul class="bul_list" >
+										<li class="bul_item_asterisk font_size_xxs" >* JPG, PNG, GIF 파일만 최대 3장 업로드 가능합니다.</li>
 									</ul>
-									<ul class="bul_list">
-										<li class="bul_item_asterisk font_size_xxs">JPG, PNG, GIF
-											파일만 최대 3장 업로드 가능합니다.</li>
-									</ul></td>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -283,20 +259,19 @@
 						</colgroup>
 						<tbody>
 							<tr>
-								<th scope="row" class="has_ip"><label
-									for="InquiryPhoneNumber">연락처</label> <span class="required"><span
-										class="hidden">필수입력</span></span></th>
+								<th scope="row" class="has_ip">
+									<label for="InquiryPhoneNumber">연락처 <span style="color: #3C9A17;">*</span></label></th>
 								<td>
 									<!-- form_wrap -->
 									<div class="form_wrap">
-										<!-- form_box -->
+										<!-- form_box --> 
 										<div class="form_box">
 											<!-- form_cont -->
 												<!-- valid_check -->
 												<div class="valid_check">
 													<input data-kbbfn-form="inquiryForm" data-kbbfn-field="" id="InquiryPhoneNumber" required="" type="tel"
 														class="form_ip" placeholder="-없이 입력해 주세요." title="연락처 입력"
-														maxlength="30" value="${session.memberPhone }">
+														maxlength="30" value="${session.memberPhone }" >
 													<!-- 수정 220422 placeholder 추가, title 수정-->
 													<span class="valid_desc"></span>
 											</div>
@@ -326,18 +301,61 @@
 				<!-- //tbl_row_wrap -->
 
 				<div class="btn_wrap page_bottom">
-					<a href="https://www.kyobobook.co.kr/"
-						class="btn_light_gray btn_lg"> <span class="text">취소</span>
+					<a href="#" class="btn_light_gray btn_lg">
+						<span class="text">취소</span>
 					</a>
-					<button data-kbbfn-form="inquiryForm" data-kbbfn-submit=""
-						type="submit" class="btn_primary btn_lg">
-						<span class="text">문의접수</span>
-					</button>
+					<!-- <button data-kbbfn-form="inquiryForm" data-kbbfn-submit="" type="submit" class="btn_primary btn_lg"> -->
+						<!-- <span class="text">문의접수</span> -->
+						<c:choose>
+						   <c:when test="${empty session.memberId }">
+						      <div class="RoundBox_l_white" onclick="insertLogin();">문의접수</div>
+						   </c:when>
+						   <c:when test="${!empty session.memberId }">
+						      <div class="RoundBox_l_white" onclick="cart_1()">문의접수</div>
+						   </c:when>
+						</c:choose>
+						
+						
+						<div id="insertPopup"  class="insertPopup"   hidden>
+						   <div class="insertPopupBox">
+						      <p>문의가 정상적으로 접수되었습니다.</p>
+							  <p>빠른 시간 내에 답변드리겠습니다.</p>
+						         <div class="RoundBox1" onclick="insertLogin();">취소</div>
+						         <div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+						      </div>
+						   </div>
+						</div>
+					<!-- </button> -->
 				</div>
-				</form>
+				
+				
+			
+				
+				<script type="text/javascript">
+					/* 접수 할 때 모달창   */ 
+					function insertLogin() {
+					var popupElement = document.getElementById("insertPopup");
+					
+					// 팝업 토글
+					if (popupElement.hidden === false) {
+					 popupElement.hidden = true;
+					} else {
+					 popupElement.hidden = false;
+					}
+					} 
+				</script>
+					
+					
+									
+				
+				
+				
+				
+				
+				<!-- </form> -->	
 
 
-				<div class="info_text_box size_lg">
+				<div class="info_text_box size_lg" style="margin-top: 60px;">
 					<div class="title_wrap title_size_xs">
 						<p class="title_heading">문의내용 답변 안내</p>
 					</div>
@@ -356,22 +374,25 @@
 						<li class="bul_item_dot font_size_xxs">
 							<span class="fw_bold">신학기(3월, 9월), 코로나로 인해 문의량이 급증하여 답변이 지연될 수 있습니다.</span></li>
 					</ul>
+					
+					</form>
 				</div>
-
 			</div>
-
-
-
-
-
-
-
-
-		</div>
 	</div>
-
+	
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
-
+	
+	<script type="text/javascript">
+		var deleteButtons = document.getElementsByClassName('delete-button');
+		  
+		  for (var i = 0; i < deleteButtons.length; i++) {
+		    deleteButtons[i].addEventListener('click', function() {
+		      var fileInput = this.previousElementSibling;
+		      fileInput.value = ''; // 첨부파일 필드의 값을 초기화하여 파일을 제거
+		    });
+		  }
+	</script>
+	
 </body>
 </html>

@@ -50,7 +50,7 @@
 						<div class="custumer">
 							<div class="custmer_de" style="margin-bottom: 16px;">
 								<img src="resources/img/icons-tel.png" width="20px"> <a
-									href="#" class="tel_list"><span>고객센터 이용안내</span></a>
+									href="<%=request.getContextPath() %>/boardArs.go" class="tel_list"><span>고객센터 이용안내</span></a>
 							</div>
 							<div class="tel" style="margin-bottom: 10px;">
 								<a href="tel:1544-1990">1544-900</a> <span class="unit">(유료)</span>
@@ -62,13 +62,13 @@
 
 						<div class="snb_service_box">
 							<div style="margin-bottom: 16px;">
-								<a href="#" class="snb_ars">보이는 ARS</a>
+								<a href="<%=request.getContextPath() %>/boardArs.go" class="snb_ars">보이는 ARS</a>
 							</div>
 							<p class="desc">
 								앱스토어에서 <span class="fw_medium">'보이는 ARS'</span><br> 앱 설치 후 이용
 							</p>
 							<div class="tel_text_box">
-								<a href="#"> <span class="tel_text">전화상담서비스 안내도</span> <img
+								<a href="<%=request.getContextPath() %>/boardArs.go"> <span class="tel_text">전화상담서비스 안내도</span> <img
 									src="resources/img/icons-tel-text.png" width="10px">
 								</a>
 							</div>
@@ -79,7 +79,6 @@
 			
 			
 <script type="text/javascript">
-	
 	const menu = document.querySelectorAll("snb_list_box li");
 	for(let i = 0; i < menu.length; i++){
 		menu[i].addEventListener("click", act);
@@ -90,8 +89,6 @@
 			this.setAttribute("class", "active");
 		}
 	}
-
-	
 </script>
 
 </body>

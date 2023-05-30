@@ -95,7 +95,7 @@
 						<p class="desc">
 							평일 09:00~18:00 <br> (주말 및 공휴일 휴무)
 						</p>
-						<a href="#"><span class="tel_text_1">전화상담서비스 안내도
+						<a href="<%=request.getContextPath() %>/boardArs.go"><span class="tel_text_1">전화상담서비스 안내도
 						<img src="resources/img/icons-tel-text.png" width="10px">
 						</span>
 						</a>
