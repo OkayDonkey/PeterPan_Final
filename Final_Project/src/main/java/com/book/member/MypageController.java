@@ -178,5 +178,11 @@ public class MypageController {
 		}
 		
 	}
+	
+	@RequestMapping("orderHistory.go")
+	public String orderHistory() {
+		
+		return "member/myPage/orderHistory";
+	}
 
 }

@@ -1,0 +1,1748 @@
+@charset "UTF-8";
+
+.wrapper .container_wrapper {
+    min-height: calc(100vh - 80px);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap {
+    position: relative;
+    padding-top: 20px;
+    z-index: 102;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list {
+    font-size: 0;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:first-child {
+    margin-right: 10px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .home_link {
+    display: block;
+    width: 14px;
+    height: 19px;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    background-size: 14px 13px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_home@2x.png);
+}
+
+button[class^=btn_], a[class^=btn_] {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .btn_sub_depth {
+    position: relative;
+    padding-bottom: 8px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+    font-weight: 600;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:nth-child(n+3) {
+    position: relative;
+    padding-left: 20px;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item:nth-child(n+3):before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    display: block;
+    width: 4px;
+    height: 8px;
+    background-size: 4px 8px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_divide@2x.png);
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .btn_sub_depth:after {
+    content: "";
+    display: inline-block;
+    margin: 1px 0 0 3px;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_breadcrumb_more@2x.png);
+    vertical-align: top;
+    transition: background-image 0.23s;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid {
+    position: absolute;
+    top: 27px;
+    left: 0;
+    display: none;
+    width: 175px;
+    padding: 15px 0;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid .sub_depth_box {
+    position: relative;
+    width: 173px;
+    min-width: 173px;
+    padding: 0 12px 0 15px;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid .sub_depth_box .sub_depth_list .depth_item .depth_link {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap .breadcrumb_inner .breadcrumb_list .breadcrumb_item .sub_depth_grid .sub_depth_box .sub_depth_list .depth_item.active .depth_link {
+    color: #000;
+    font-weight: 500;
+}
+
+.wrapper .container_wrapper .breadcrumb_wrap ~ .contents_wrap {
+    padding-top: 42px;
+}
+
+.wrapper .container_wrapper .contents_wrap .contents_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .contents_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .aside_wrap {
+    width: 170px;
+}
+
+.my_profile_area {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    padding: 24px;
+    border-radius: 16px;
+}
+
+.my_profile_area:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80, 85, 177, 0.8);
+    z-index: 1;
+}
+
+.my_profile_area .blur_img_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.my_profile_area .blur_img_box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.my_profile_area .profile_inner {
+    position: relative;
+    z-index: 2;
+}
+
+.my_profile_area .profile_thumb_box {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.profile_thumb_box .btn_setting {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.profile_thumb_box .thumb_box {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+}
+
+.profile_thumb_box.no_img .thumb_box {
+    border: 1px solid #eaeaea;
+    background-size: cover;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_no_profile@2x.png);
+    box-sizing: border-box;
+}
+
+.my_profile_area .profile_thumb_box.no_img .thumb_box {
+    border: none;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    font: 0/0 Arial;
+}
+
+.profile_thumb_box .btn_setting:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -12px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_profile_setting@2x.png);
+}
+
+.my_profile_area .profile_name_box {
+    position: relative;
+    height: 52px;
+    margin-top: 10px;
+}
+
+.container_wrapper:not(.my_home) .my_profile_area .profile_name_box {
+    height: auto;
+    min-height: 52px;
+}
+
+.my_profile_area .profile_name_box .name {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.my_profile_area .profile_name_box .badge {
+    white-space: nowrap;
+}
+
+[class^=badge_] {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top;
+}
+
+.badge_primary_speech .text {
+    color: #fff;
+}
+
+.badge_lg.badge_pill {
+    padding: 3px 10px 0;
+    border-radius: 22px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+[class^=badge_] .text {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.badge_lg.badge_pill {
+    padding: 3px 10px 0;
+    border-radius: 22px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.my_profile_area .profile_info_list {
+    margin-top: 7px;
+    font-size: 0;
+}
+
+.my_profile_area .profile_info_list .info_item {
+    display: inline-block;
+    vertical-align: top;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.my_profile_area .profile_info_list .info_link {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.my_profile_area .profile_info_list .info_link .title {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.my_profile_area .profile_info_list .info_link .val {
+    display: block;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+.my_profile_area .profile_info_list .info_item {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.my_profile_area .profile_info_list .info_item ~ .info_item:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    margin: 10px 15px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    opacity: 0.1;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .contents_wrap.aside .section_wrap {
+    width: calc(100% - 216px);
+}
+
+.title_wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.title_wrap.title_size_md.has_btn {
+    min-height: 38px;
+    padding-bottom: 16px;
+}
+
+.title_wrap .title_heading {
+    display: inline-block;
+    position: relative;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.title_wrap .title_heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.title_wrap.title_size_md .title_heading {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.prod_filter_wrap .filter_area .filter_header .right_area {
+    margin-bottom: 0;
+}
+
+.prod_filter_wrap .filter_area .filter_header .btn_close_filter {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+}
+
+.prod_filter_wrap .filter_area .filter_header .btn_close_filter .ico_filter_close {
+    position: relative;
+    z-index: 3;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_dialog_close@2x.png);
+}
+
+.prod_filter_wrap .filter_area .filter_contents {
+    margin-top: 24px;
+}
+
+.info_text_box {
+    display: block;
+    padding: 18px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+
+.prod_filter_wrap .filter_area .filter_contents .info_text_box {
+    margin-bottom: 20px;
+}
+
+.bul_item_dot {
+    padding-left: 9px;
+}
+
+[class^=bul_item_].font_size_xxs {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.form_wrap .form_box .form_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form_wrap.type_lg .form_box .form_title.has_btn {
+    min-height: 30px;
+}
+
+.form_label {
+    display: inline-block;
+    color: #000;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    cursor: default;
+}
+
+.form_wrap.type_lg .form_box .form_title .form_label {
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+}
+
+.form_wrap .form_box .form_cont {
+    margin-top: 8px;
+    color: #595959;
+}
+
+.form_wrap.type_lg .form_box .form_title.has_btn + .form_cont {
+    margin-top: 8px;
+}
+
+input, button, select, textarea {
+    vertical-align: middle;
+}
+
+
+
+.date_picker_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.form_wrap .form_box .form_cont .date_picker_box {
+    width: 100%;
+}
+
+.date_picker_box .form_sel {
+    flex-shrink: 0;
+    width: 126px;
+}
+
+.form_wrap .form_box .form_cont .date_picker_box .form_sel {
+    width: 126px;
+}
+
+input, button, select, textarea {
+    vertical-align: middle;
+}
+
+.ui-button {
+    padding: 0.4em 1em;
+    display: inline-block;
+    line-height: normal;
+    margin-right: 0.1em;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+}
+
+.ui-button, .ui-button:active, .ui-button:hover, .ui-button:link, .ui-button:visited {
+    text-decoration: none;
+}
+
+.ui-selectmenu-button.ui-button {
+    text-align: left;
+    white-space: nowrap;
+    width: 14em;
+}
+
+.form_sel .ui-selectmenu-button {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    padding: 0 14px;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-out, border-radius 0.2s ease-out;
+    outline: none;
+}
+
+.form_wrap .form_box .form_cont .form_sel .ui-selectmenu-button {
+    width: 100%;
+}
+
+.ui-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -0.25em;
+    position: relative;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.ui-selectmenu-icon.ui-icon {
+    float: right;
+    margin-top: 0;
+}
+
+.form_sel .ui-selectmenu-button .ui-selectmenu-icon {
+    position: absolute;
+    right: 14px;
+    top: 17px;
+    width: 9px;
+    height: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 9px 8px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/arw_select@2x.png);
+    transform: rotate(0);
+    transition: transform 0.2s ease-out;
+}
+
+.ui-selectmenu-text {
+    display: block;
+    margin-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form_sel .ui-selectmenu-button .ui-selectmenu-text {
+    font-size: 14px;
+    line-height: 42px;
+    letter-spacing: -0.01em;
+    color: #000;
+}
+
+.form_sort_search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.form_sort_search .form_sel {
+    flex: 0 1 130px;
+}
+
+.form_ip {
+    display: inline-block;
+    width: 100%;
+    height: 44px;
+    padding: 0 14px 2px;
+    color: #000;
+    font-size: 14px;
+    line-height: 42px;
+    letter-spacing: -0.01em;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-out;
+    outline: none;
+}
+
+.prod_filter_wrap .filter_area .filter_bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+a.btn_ip, button.btn_ip {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    min-width: 86px;
+    height: 44px;
+    padding: 0 19px 1px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+}
+
+.prod_filter_wrap .filter_area .filter_bottom .btn_ip {
+    min-width: 140px;
+}
+
+button[class^=btn_] [class^=ico_], a[class^=btn_] [class^=ico_] {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+a.btn_ip [class^=ico_], button.btn_ip [class^=ico_] {
+    height: 20px;
+    margin-right: 5px;
+}
+
+a.btn_primary, button.btn_primary, a.btn_line_primary.active, button.btn_line_primary.active {
+    color: #fff;
+    background: #5055b1;
+    border: 1px solid #5055b1;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+a.btn_ip .ico_reset_lg, button.btn_ip .ico_reset_lg {
+    width: 13px;
+    margin-top: 1px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_reset_lg@2x.png) center no-repeat;
+    background-size: 13px 13px;
+}
+
+.title_wrap .right_area [class^=btn_]:not(.btn_xs, [class^=btn_sns_share]) ~ [class^=btn_]:not(.btn_xs) {
+    margin-left: 6px;
+}
+
+
+
+.form_sort_search .form_ip, .form_sort_search .ip_group_box {
+    flex: 1;
+    margin-left: 6px;
+}
+
+.date_box {
+    position: relative;
+}
+
+.date_picker_box .date_box {
+    flex: 1;
+}
+
+.date_picker_box .form_sel + .date_box {
+    margin-left: 6px;
+}
+
+.date_box .ui_date {
+    display: inline-block;
+    width: 100%;
+    height: 44px;
+    padding: 0 42px 2px 14px;
+    color: #000;
+    font-size: 14px;
+    line-height: 42px;
+    letter-spacing: -0.01em;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-out;
+    outline: none;
+}
+
+.date_box .ui_date[disabled], .date_box .ui_date[aria-disabled], .date_box .ui_date[readonly] {
+    color: #767676;
+    background-color: #f7f7f7;
+    pointer-events: none;
+    cursor: default;
+}
+
+.date_box .ui-datepicker-trigger {
+    position: absolute;
+    right: 14px;
+    top: 12px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.date_picker_box .gap {
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 15px;
+    color: #000;
+    line-height: 42px;
+    vertical-align: top;
+    text-align: center;
+    padding-bottom: 2px;
+}
+
+.form_wrap.type_lg .form_box ~ .form_box {
+    margin-top: 24px;
+}
+
+
+
+.title_wrap .right_area {
+    margin-left: auto;
+    flex-shrink: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+[class^=bul_item_] {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: #595959;
+    font-weight: 400;
+    text-align: left;
+}
+
+.bul_item_asterisk {
+    color: #767676;
+    padding-left: 8px;
+}
+
+[class^=bul_item_].font_size_xxs {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.bul_item_asterisk:before {
+    content: "*";
+    color: #474c98;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.title_wrap .right_area .bul_item_asterisk + .prod_filter_wrap {
+    margin-left: 20px;
+}
+
+.order_history_group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 20px 0;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.order_history_group .order_history_box {
+    display: block;
+    position: relative;
+    flex: 1 0;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.order_history_group .order_history_box.type_title {
+    width: 203px;
+    flex: 0 auto;
+}
+
+.order_history_group .order_history_box .history_val {
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    color: #000;
+    font-weight: 700;
+}
+
+.order_history_group .order_history_box.type_title .history_val {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+}
+
+.order_history_group .order_history_box .history_desc {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.order_history_group .order_history_box.type_title .history_desc {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+}
+
+.btn_info_popup {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.btn_info_popup [class^=ico_] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    transition: background 0.2s ease-out;
+    box-sizing: border-box;
+}
+
+.order_history_group .order_history_box {
+    display: block;
+    position: relative;
+    flex: 1 0;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.order_history_group .order_history_box ~ .order_history_box:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 44px;
+    background-color: #eaeaea;
+    transform: translateY(-50%);
+}
+
+.order_history_group .order_history_box .btn_filter_history {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+}
+
+.order_history_group .order_history_box .history_val {
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    color: #000;
+    font-weight: 700;
+}
+
+.tbl_prod_wrap.type_myroom, .tbl_prod_wrap.type_notify {
+    border-top: 1px solid #000;
+}
+
+.order_history_group + .tbl_prod_wrap {
+    margin-top: 30px;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_order_info, .tbl_prod_wrap.type_notify .tbl_order_info {
+    height: 63px;
+    padding: 0 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_order_info .order_date, .tbl_prod_wrap.type_notify .tbl_order_info .order_date {
+    padding-top: 1px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.btn_more_view {
+    color: #595959;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-align: left;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_order_info .btn_more_view, .tbl_prod_wrap.type_notify .tbl_order_info .btn_more_view {
+    margin-left: 10px;
+}
+
+.btn_delete_text {
+    color: #767676;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+.btn_delete_text.size_xxs {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.btn_delete_text [class^=ico_] {
+    height: 18px;
+    margin-right: 4px;
+}
+
+.btn_delete_text .ico_delete {
+    width: 13px;
+    height: 15px;
+    margin-top: 1px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_delete@2x.png) 0% 0% no-repeat;
+    background-size: 13px 15px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 0;
+}
+
+.tbl_prod_wrap .tbl_prod {
+    width: 100%;
+    table-layout: fixed;
+    border-top: 1px solid #000;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod, .tbl_prod_wrap.type_notify .tbl_prod {
+    border: none;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod_inner .tbl_prod, .tbl_prod_wrap.type_notify .tbl_prod_inner .tbl_prod {
+    border-bottom: 1px solid #eaeaea;
+}
+
+address, caption, cite, code, dfn, em, var {
+    font-style: normal;
+}
+
+legend, caption {
+    visibility: hidden;
+    overflow: hidden;
+    line-height: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    text-indent: -99999px;
+    font-size: 0;
+}
+
+.prod_area.horizontal {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.tbl_prod_wrap .tbl_prod thead.hidden {
+    position: relative;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td.prod, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td.prod {
+    vertical-align: middle;
+}
+
+.prod_area.horizontal .prod_thumb_box {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 100px;
+}
+
+.prod_area.horizontal .prod_thumb_box.size_sm {
+    width: 84px;
+}
+
+.prod_area .prod_thumb_box .prod_link {
+    display: block;
+    height: 100%;
+}
+
+.prod_area .prod_thumb_box .img_box {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
+}
+
+.prod_area.horizontal .prod_thumb_box.size_sm .img_box img {
+    max-height: calc((84px - 2px) * 1.618 - 10px);
+}
+
+.prod_area.horizontal .prod_info_box {
+    overflow: hidden;
+    margin-left: 16px;
+}
+
+.prod_area.horizontal .prod_info_box.size_sm {
+    margin-left: 12px;
+}
+
+.prod_area .prod_info_box .prod_info {
+    display: block;
+    height: 100%;
+    font-size: 0;
+}
+
+.prod_area .prod_info_box .prod_name {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 46px;
+    line-height: 23px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: -o-ellipsis-lastline;
+    white-space: normal;
+    word-break: break-all;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+.prod_area .prod_info_box.size_sm .prod_name {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+}
+
+.prod_area .prod_info_box.size_sm .prod_name:not(.ellipsis_single) {
+    max-height: calc(22px * 2);
+}
+
+.prod_area .prod_info_box .prod_option_list {
+    margin-top: 12px;
+    font-size: 0;
+}
+
+.prod_area .prod_info_box .prod_option_list .option_item {
+    display: inline;
+    vertical-align: top;
+}
+
+.prod_area .prod_info_box .prod_option_list .option_item .text, .prod_area .prod_info_box .prod_option_list .option_item .val {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #595959;
+}
+
+.tbl_prod_wrap .tbl_prod tbody td {
+    position: relative;
+    padding: 24px;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.tbl_prod_wrap .tbl_prod tbody td ~ td {
+    border-left: 1px solid #eaeaea;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td {
+    padding: 24px 10px;
+    border-bottom: none;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td ~ td, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td ~ td {
+    border-left: none;
+}
+
+.tbl_prod_wrap .tbl_prod tbody td .price {
+    font-size: 0;
+}
+
+.tbl_prod_wrap .tbl_prod tbody td .price .val {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.tbl_prod_wrap .tbl_prod tbody td .price .unit {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .delivery_info, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .delivery_info {
+    text-align: center;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .delivery_info .delivery_state, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .delivery_info .delivery_state {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #5055b1;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .delivery_info .delivery_state.green, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .delivery_info .delivery_state.green {
+    color: #4dac27;
+}
+
+.tbl_prod_wrap .tbl_prod tbody td .delivery_info .delivery_desc {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .delivery_info .delivery_desc, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .delivery_info .delivery_desc {
+    margin-top: 5px;
+    word-break: keep-all;
+}
+
+.btn_wrap {
+    display: block;
+    font-size: 0;
+    text-align: center;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .delivery_info .btn_wrap.auto, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .delivery_info .btn_wrap.auto {
+    margin-top: 10px;
+}
+
+a.btn_xxs, button.btn_xxs {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 24px;
+    padding: 1px 5px 1px;
+    border-radius: 4px;
+    letter-spacing: -0.01em;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+a.btn_line_gray, button.btn_line_gray {
+    color: #000;
+    background: #fff;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+a.btn_xxs .ico_arw, button.btn_xxs .ico_arw {
+    width: 6px;
+    height: 6px;
+    margin-left: 2px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/arw_info_more@2x.png) center no-repeat;
+    background-size: 6px 6px;
+}
+
+.prod_filter_wrap .filter_area {
+    display: none;
+    position: absolute;
+    top: 54px;
+    right: 0;
+    width: 510px;
+    border: 1px solid #000;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 20px 29px 29px;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.prod_filter_wrap .filter_area .filter_header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+
+.prod_filter_wrap .filter_area .filter_header .filter_title {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+
+
+a.btn_xxs [class^=ico_]:last-child, button.btn_xxs [class^=ico_]:last-child {
+    margin-right: 0;
+}
+
+a.btn_sm, button.btn_sm {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 38px;
+    padding: 0 13px 1px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+a.btn_line_primary, button.btn_line_primary {
+    color: #474c98;
+    border: 1px solid #5055b1;
+    background: #fff;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.btn_wrap.full [class^=btn_] {
+    width: 100%;
+    min-width: auto;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .btn_wrap.full .btn_sm, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .btn_wrap.full .btn_sm {
+    position: relative;
+    padding: 0 10px 1px;
+}
+
+.badge_sm {
+    min-height: 20px;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+}
+
+.badge_sm.badge_pill {
+    padding: 3px 7px 0;
+    border-radius: 20px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.badge_primary_speech {
+    position: relative;
+    border: 1px solid #5055b1;
+    background-color: #5055b1;
+}
+
+.tbl_prod_wrap.type_myroom .tbl_prod tbody tr td .btn_wrap.full .btn_sm .badge_primary_speech, .tbl_prod_wrap.type_notify .tbl_prod tbody tr td .btn_wrap.full .btn_sm .badge_primary_speech {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.badge_primary_speech:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 13px;
+    display: block;
+    width: 6px;
+    height: 4px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/bg_bubble_speech_primary_pill@2x.png) 0% 0% no-repeat;
+    background-size: 6px 4px;
+}
+
+.btn_wrap.full [class^=btn_] + [class^=btn_] {
+    margin: 6px 0 0;
+}
+
+
+
+.wrapper .container_wrapper .pagination, .dialog_wrapper .pagination {
+    display: block;
+    text-align: center;
+    font-size: 0;
+    margin-top: 30px;
+}
+
+.wrapper .container_wrapper .pagination .btn_page, .dialog_wrapper .pagination .btn_page {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .pagination .btn_page.prev, .dialog_wrapper .pagination .btn_page.prev {
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png) center no-repeat;
+    background-size: 24px 24px;
+}
+
+a[disabled] *, a[aria-disabled=true] *, a.disabled *, button[disabled] *, button[aria-disabled=true] *, button.disabled * {
+    text-decoration: none !important;
+}
+
+.wrapper .container_wrapper .pagination .page_num, .dialog_wrapper .pagination .page_num {
+    display: inline-block;
+    margin: 0 8px;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.wrapper .container_wrapper .pagination .page_num .btn_page_num, .wrapper .container_wrapper .pagination .page_num .text_ellipsis, .dialog_wrapper .pagination .page_num .btn_page_num, .dialog_wrapper .pagination .page_num .text_ellipsis {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.wrapper .container_wrapper .pagination .page_num .btn_page_num, .dialog_wrapper .pagination .page_num .btn_page_num {
+    min-width: 24px;
+    height: 24px;
+    padding: 5px 4px 6px 4px;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font-family: "Roboto", sans-serif;
+    color: #767676;
+    border-radius: 12px;
+    background-color: transparent;
+    transform: color 0.2s ease-out, font-weight 0.2s ease-out, background 0.2s ease-out;
+}
+
+.wrapper .container_wrapper .pagination .page_num .btn_page_num.active, .dialog_wrapper .pagination .page_num .btn_page_num.active {
+    color: #fff;
+    font-weight: 700;
+    background-color: #767676;
+}
+
+.wrapper .container_wrapper .pagination .page_num .text_ellipsis, .dialog_wrapper .pagination .page_num .text_ellipsis {
+    width: 10px;
+    height: 2px;
+    margin: 11px 8px 0;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_ellipsis@2x.png) 0% 0% no-repeat;
+    background-size: 10px 2px;
+}
+
+.wrapper .container_wrapper .pagination .page_num .btn_page_num ~ .btn_page_num, .dialog_wrapper .pagination .page_num .btn_page_num ~ .btn_page_num {
+    margin-left: 8px;
+}
+
+.wrapper .container_wrapper .pagination .btn_page.next, .dialog_wrapper .pagination .btn_page.next {
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png) center no-repeat;
+    background-size: 24px 24px;
+}
+
+.no_data {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 180px 0;
+}
+
+.no_data.has_black_line {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.no_data .no_data_desc {
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+
+.info_text_box {
+    display: block;
+    padding: 18px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+
+.info_text_box.size_lg {
+    padding: 24px;
+}
+
+[class^=bul_item_] {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: #595959;
+    font-weight: 400;
+    text-align: left;
+}
+
+.bul_item_dot {
+    padding-left: 9px;
+}
+
+[class^=bul_item_].font_size_xxs {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.bul_item_dot:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #999;
+}
+
+[class^=bul_item_].font_size_xxs + .font_size_xxs {
+    margin-top: 6px;
+}
+
+.info_text_box + .info_text_box {
+    margin-top: 30px;
+}
+
+.bul_item_dot:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #999;
+}
+
+.bul_item_dot .bul_item_dash {
+    margin-top: 6px;
+}
+
+.bul_item_dash.font_size_xxs {
+    padding-left: 6px;
+}
+
+.bul_item_dash:before {
+    content: "-";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: none;
+}
+
+[class^=bul_item_].font_size_xxs + .font_size_xxs {
+    margin-top: 6px;
+}
+
+.bul_item_dash.font_size_xxs {
+    padding-left: 6px;
+}

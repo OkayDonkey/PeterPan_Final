@@ -16,7 +16,7 @@
 				</a>
 				<ul class="snb_list">
 					<li class="snb_item" data-id="8">
-						<a class="snb_link" href="https://order.kyobobook.co.kr/myroom/member/order-list" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '쇼핑내역_주문/배송목록', '');">
+						<a class="snb_link" href="<%=request.getContextPath() %>/orderHistory.go" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '쇼핑내역_주문/배송목록', '');">
 							주문/배송목록
 						</a>
 					</li>
