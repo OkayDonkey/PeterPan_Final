@@ -43,14 +43,14 @@
 								새로운 배송지 입력
 							</div>
 							<div class="flex_column my-3 ml-2" id="addrHidden" hidden>
-							<p class="p-0 m-0 ">입력한 새로운 배송지</p>
-								<div class="formGrayBox"><span>우편번호</span>
+							<p class="p-0 m-0 mb-1" style="color: black;">입력한 새로운 배송지<span class="small" style="color:black; margin-left: 55px;">새로 입력한 주소로 배송됩니다.</span></p>
+								<div class="formGrayBox"><span style="color: black;">우편번호</span>
 									<input type="text" id="post" name="addrPost" class="form_ip" placeholder="우편번호" readonly>
 								</div>
-								<div class="formGrayBox"><span>도로명주소</span>
+								<div class="formGrayBox"><span style="color: black;">도로명주소</span>
 									<input name="addrMain" class="form_ip" id="addr" type="text" placeholder="주소" readonly>
 								</div>
-								<div class="formGrayBox"><span>상세주소</span>
+								<div class="formGrayBox"><span style="color: black;">상세주소</span>
 									<input name="addrDetail" class="form_ip" id="detailAddr" type="text" placeholder="상세 주소를 입력해주세요."  maxlength="50" >
 								</div>
 							</div>
@@ -120,8 +120,22 @@
 		
 		<!-- 쿠폰 아코디언 -->
 			<c:if test="${empty cp }">
-				<b><span>할인쿠폰</span><span class="ml-5">사용가능한 쿠폰이 없습니다.</span></b>
+				<div id="accordion">
+				  <div class="card1 mb-4">
+				    <div class="card-header1" id="headingOne">
+				      <p class="mb-0 my-3">
+				        <b><span class="ml-2">
+				        	할인쿠폰 <span class="ml-5">사용가능한 쿠폰이 없습니다.</span> </span></b>
+				        <button class="btn-white btn-link float-right" data-toggle="collapse"  style="margin-top: -10px;"
+				        data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+				          <img src="resources/img/arrow-down.png" width="15px" height="15px">
+				        </button>
+				      </p>
+				    </div>
+			  </div>
+			</div><!-- 쿠폰 아코디언 끝-->
 			</c:if>
+			
 			<c:if test="${!empty cp }">
 				<div id="accordion">
 				  <div class="card1 mb-4">
@@ -147,26 +161,26 @@
 							<div class="flex-space-between px-4 py-2" style="width: 800px;">
 									<span><b>${coupon.couponNo }</b></span>
 									<c:if test="${coupon.couponSale == 1000 }">
-										<div class="text-left" style="font-size: 1em;  font-weight: 700;  ">
+										<div class="text-center" style="font-size: 1em;  font-weight: 700;  width:60%;">
 											피터팬 회원가입 증정 할인 쿠폰
 										</div>
 									</c:if>
 									<c:if test="${coupon.couponSale == 2000 }">
-										<div class="text-left" style="font-size: 1em;  font-weight: 700;  ">
+										<div class="text-center" style="font-size: 1em;  font-weight: 700; width:60%; ">
 											피터팬 회원가입 증정 할인 쿠폰
 										</div>
 									</c:if>
 									<c:if test="${coupon.couponSale == 3000 }">
-										<div class="text-left" style="font-size: 1em;  font-weight: 700;  ">
+										<div class="text-center" style="font-size: 1em;  font-weight: 700; width:60%; ">
 											피터팬 회원가입 증정 할인 쿠폰
 										</div>
 									</c:if>
 									<c:if test="${coupon.couponSale > 100000 }">
-										<div class="text-left" style="font-size: 1em;  font-weight: 700;  ">
+										<div class="text-center" style="font-size: 1em;  font-weight: 700; width:60%;">
 											특가 무적 쿠폰
 										</div>
 									</c:if>
-									<div class="float-right" style="font-size: 1em;  font-weight: 700;  ">
+									<div class="float-right" style="font-size: 1em;  font-weight: 700; ">
 										<fmt:formatNumber>${ coupon.couponSale}</fmt:formatNumber>원
 									</div>
 									<div id="costBtn_${coupon.couponNo}">
@@ -175,7 +189,7 @@
 									<div id="costCancelBtn_${coupon.couponNo}" hidden>
 									    <button class="RoundBox_l" onclick="couponCostCancel(${coupon.couponSale}, ${coupon.couponNo});">사용취소</button>
 									</div>
-
+									 
 							</div>
 							</div>
 						</div>
@@ -259,7 +273,7 @@
 	<!-- 팝업 -->		
 			<div id="popupPoint" hidden 
 					style="position: absolute; background-color: white; border: 1px solid gray;
-							width:350px; border-radius: 0.5em; margin-top:75px; padding:20px; right: 0px;
+							width:350px; border-radius: 0.5em; margin-top:100px; padding:20px; right: 0px;
 							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);  z-index: 3000;">
 				<div style="border-bottom: 1px solid #eaeaea;">
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">기본적립</p>

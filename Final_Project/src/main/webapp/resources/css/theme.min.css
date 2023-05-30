@@ -17595,7 +17595,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 .formGrayBox	input	{
 	border: 1px solid #ccc;
-	height: 43px;
+	height: 35px;
 	border-radius: 0.4em;
 	width: 350px;
 	float: right;
