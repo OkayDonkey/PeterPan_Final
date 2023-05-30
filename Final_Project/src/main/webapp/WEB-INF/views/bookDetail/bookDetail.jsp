@@ -71,16 +71,16 @@ response.setDateHeader("Expires", 0); // Proxies
 				</div>
 			</c:when>
 		</c:choose>
-		<%--
-		 <div class="RoundBox_m" id="dibs" onclick="toggleLike('${session.getMemberNo()}', ${book.bookNo});">
-  			<img id="heartIcon" src="resources/img/heart.png" width="23px;">
-		</div>
-		 --%>
 
-		<div class="RoundBox_l_white" onclick="cart_1()">
-			 <%-- <a href="<%=request.getContextPath()%>/cart.go?bookNo=${book.bookNo}&memberId=${session.memberId}" id="modalOpen"> --%>
-				장바구니
-		</div>
+			<c:choose>
+				<c:when test="${empty session.memberId }">
+					<div class="RoundBox_l_white" onclick="needLogin();">장바구니</div>
+				</c:when>
+				<c:when test="${!empty session.memberId }">
+					<div class="RoundBox_l_white" onclick="cart_1()">장바구니</div>
+				</c:when>
+			</c:choose>
+
 		<div class="RoundBox_l">바로구매</div>
 	</div>
 </div>
@@ -192,27 +192,27 @@ response.setDateHeader("Expires", 0); // Proxies
 				</ol>
 				<div class="carousel-inner"  >
 					<div class="carousel-item active" style="height: 500px; ">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookCover }"
 							alt="${book.bookName}" />
 					</div>
 					<c:if test="${!empty book.bookImg1}">
 					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg1 }"
 							alt="${book.bookName}" />
 					</div>
 					</c:if>
 					<c:if test="${!empty book.bookImg2}">
 					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg2 }"
 							alt="${book.bookName}" />
 					</div>
 					</c:if>
 					<c:if test="${!empty book.bookImg3}">
 					<div class="carousel-item" style="height: 500px;">
-						<img style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.12); transform: translate(0%, 2%); height: 480px;"
+						<img style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 7%); transform: translate(0%, 2%); height: 480px;"
 							src="${book.bookImg3 }"
 							alt="${book.bookName}" />
 					</div>
@@ -294,8 +294,8 @@ response.setDateHeader("Expires", 0); // Proxies
 				<div style="border-bottom :1px solid #eaeaea; height: auto; font-size: 1em;  font-weight: 600; " class="text-left">
 					<br>
 						<span>배송안내</span>
-						<span style="font-size: 13px; margin-left: 53px;">도서 포함 15,000원 이상 무료배송 </span>
-						<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')">
+						<div class="float-right"><span style="font-size: 13px; margin-left: 53px;">도서 포함 15,000원 이상 무료배송 </span>
+						<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')"></div>
 						<p style="text-align: right;">${twoDaysLater} 도착 예정</p>
 				</div>
 				<!-- 팝업 -->
@@ -368,7 +368,7 @@ response.setDateHeader("Expires", 0); // Proxies
 	            <ul class="tabs" >
 	                <li class="tab_item"><a href="#book_detail_info_event" ><span class="tab_text">이벤트</span></a></li>
 	                <li class="tab_item"><a href="#book_detail_info_img" ><span class="tab_text">상품정보</span></a></li>
-	                <li class="tab_item"><a href="#" ><span class="tab_text">리뷰(${reviewCount})</span></a></li>
+	                <li class="tab_item"><a href="#totalReviewNum" ><span class="tab_text">리뷰(${reviewCount})</span></a></li>
 	                <li class="tab_item" ><a href="#" ><span class="tab_text">교환/반품/품절</span></a></li>
 	            </ul>
        		</div>
@@ -404,8 +404,10 @@ response.setDateHeader("Expires", 0); // Proxies
        				<h3>책 소개</h3>
        				<br>
        				<h5>이 책이 속한 분야</h5>
+       		
        				<h6>${book.bookCategory }<span style="margin:0 15px;">></span>${book.bookGenre }</h6>
        				<br><br>
+       						<div id="totalReviewNum" ></div>
        				<p>${book.bookCont }</p>
        			</section>
        			<!-- 하단 리뷰영역 -->
@@ -433,6 +435,12 @@ response.setDateHeader("Expires", 0); // Proxies
        				</div>
        				
 					<div class="reviewBoxBottom" id="reviewInnerAjax">
+					<c:if test="${empty reviewList }">
+						<div class="flex_center_center p-5">
+							<img class="mb-2" width="36px" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png">
+							<p class="flex_center_center">이 상품의 첫 리뷰어가 되어주세요.</p>
+						</div>
+					</c:if>
 							<c:forEach  items="${reviewList }" var="rView">
 								<div class="reviewBlock">
 									<div class="container">
@@ -441,6 +449,12 @@ response.setDateHeader("Expires", 0); // Proxies
 											<span class="smallTextGray mr-1">${rView.memberId }</span>
 											<span class="smallTextGray mr-1">${rView.reviewRegdate }</span>
 											<span class="smallTextGray mr-1">${rView.reviewTitle }</span>
+											<c:if test="${rView.recommend == true }">
+												<span class="recommend_img"></span>
+											</c:if>
+											<c:if test="${rView.recommend == false }">
+												<span class="notRecommend_img"></span>
+											</c:if>
 										</p>
 									</div>
 									<div class="container"><p class="TextGray">${rView.reviewCont }</p></div>
@@ -563,44 +577,48 @@ response.setDateHeader("Expires", 0); // Proxies
 				4. 실패시 오류메세지 출력하기 ( 다시 시도해주세요 )
 		 -->
  		<div class="reviewWritePop mt-3">
- 		<div>
-			<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
-			<input type="hidden" id="memberNo" name="memberNo" value="${session.memberNo }">
-			<div><p>리뷰작성<span class="xIcon"></span></p></div>
-			<!-- 책정보 -->
-			<div class="borderRoundGray">
-					<div class="row ailgn-content-center pl-4">
-						<div class="px-2 my-2">
-							<img width="120" alt="${ book.bookCover}" src="${ book.bookCover}">
-						</div>
-						<div class="px-2 my-2" style="width: 150px;">
-							<div class="text-left mt-4 mb-2" style="font-weight: 800; font-size: 1.1em; ">${ book.bookName}</div>
-							<div style=" font-size: 0.95em; font-weight: 400; "
-								class="text-left mb-2">${ book.bookWriter}</div>
-							<div class="text-left mb-2" style="font-size: 1em; font-weight: 800; ">
-								<span style="color: #4dac27; font-size: 1em;">10%</span>
-								<fmt:formatNumber>${ book.bookPrice}</fmt:formatNumber>
-								원
+		 		<div>
+					<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
+					<input type="hidden" id="memberNo" name="memberNo" value="${session.memberNo }">
+					<div><p>리뷰작성<span class="xIcon"></span></p></div>
+					<!-- 책정보 -->
+					<div class="borderRoundGray">
+							<div class="row ailgn-content-center pl-4">
+								<div class="px-2 my-2">
+									<img width="120" alt="${ book.bookCover}" src="${ book.bookCover}">
+								</div>
+								<div class="px-2 my-2" style="width: 150px;">
+									<div class="text-left mt-4 mb-2" style="font-weight: 800; font-size: 1.1em; ">${ book.bookName}</div>
+									<div style=" font-size: 0.95em; font-weight: 400; "
+										class="text-left mb-2">${ book.bookWriter}</div>
+									<div class="text-left mb-2" style="font-size: 1em; font-weight: 800; ">
+										<span style="color: #4dac27; font-size: 1em;">10%</span>
+										<fmt:formatNumber>${ book.bookPrice}</fmt:formatNumber>
+										원
+									</div>
+								</div>
+							<div class="likeCheckBox" id="likeCheckBox" onclick="checkLike( 'resources/img/Bad.png' , 'resources/img/Good.png' )">
+								<img id="LikePng" width="80px" src="resources/img/Bad.png">
+								<input id="checkBox" name="likeCheck" type="radio" value="false" hidden>
 							</div>
-						</div>
+							</div>
 					</div>
-			</div>
-			<!-- 책정보 -->
-			<div class="mt-4"><p class="mb-2">리뷰작성<span style="color:#3c9a17; ">*</span></p></div>
-			<div class="borderRoundGray">
-				<input type="text" id="reviewTitle" class="reviewWriterTitleInput" 
-				placeholder="소제목을 입력해주세요.">
-			</div>
-			<div class="borderRoundGray mt-2">
-				<input type="text" id="reviewCont" class="reviewWriterInput" 
-				placeholder="내용을 10자 이상 입력해주세요. ">
-			</div>
-			
-				<div class="row justify-content-center mt-4">
-					<div class="RoundBox1" onclick="reviewPopup();">취소</div>
-					<div class="RoundBox2" onclick="insertReview();">등록</div>
+					<!-- 책정보 -->
+					<div class="mt-4"><p class="mb-2">리뷰작성<span style="color:#3c9a17; ">*</span></p></div>
+					<div class="borderRoundGray">
+						<input type="text" id="reviewTitle" class="reviewWriterTitleInput" 
+						placeholder="소제목을 입력해주세요.">
+					</div>
+					<div class="borderRoundGray mt-2">
+						<input type="text" id="reviewCont" class="reviewWriterInput" 
+						placeholder="내용을 10자 이상 입력해주세요. ">
+					</div>
+					
+						<div class="row justify-content-center mt-4">
+							<div class="RoundBox1" onclick="reviewPopup();">취소</div>
+							<div class="RoundBox2" onclick="insertReview();">등록</div>
+						</div>
 				</div>
-		</div>
 		</div>
 	</div>
 		<!-- 리뷰작성 팝업 End-->
@@ -666,8 +684,6 @@ response.setDateHeader("Expires", 0); // Proxies
 
 	function cart_1(){
 	  // cartPrice와 cartQuantity를 미리 할당
-	
-	  
 	  location.href = 'cart.go?bookNo=' + bookNo + '&memberId=' + memberId + '&totalPrice=' + cartPrice + '&cartCount=' + cartQuantity;
 	}
 

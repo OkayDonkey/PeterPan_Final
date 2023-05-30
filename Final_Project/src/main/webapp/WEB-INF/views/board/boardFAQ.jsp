@@ -87,8 +87,4 @@
 	<jsp:include page="./../top/footer.jsp" />
 
 </body>
-
-<!-- JavaScript -->
-
-
 </html>

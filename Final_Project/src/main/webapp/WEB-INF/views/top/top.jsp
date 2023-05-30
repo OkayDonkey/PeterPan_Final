@@ -165,7 +165,7 @@ margin-left: 5px;
 								<div class="dropdown-column">
 									<div
 										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-4 mb-3"
-										style="background-image: url(img/megamenu/cat_bg02.jpg)">
+										>
 										<h3 class="h5 text-white text-shadow my-3">국내</h3>
 									</div>
 									<div class="widget widget-links">
@@ -194,8 +194,7 @@ margin-left: 5px;
 
 								<div class="dropdown-column">
 									<div
-										class="bg-position-center bg-	no-repeat bg-size-cover text-center px-3 py-4 mb-3"
-										style="background-image: url(img/megamenu/cat_bg01.jpg)">
+										class="bg-position-center bg-	no-repeat bg-size-cover text-center px-3 py-4 mb-3">
 										<h3 class="h5 text-white text-shadow my-3">일본</h3>
 									</div>
 									<div class="widget widget-links">
@@ -218,8 +217,7 @@ margin-left: 5px;
 								</div>
 								<div class="dropdown-column">
 									<div
-										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-4 mb-3"
-										style="background-image: url(img/megamenu/cat_bg03.jpg)">
+										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-4 mb-3">
 										<h3 class="h5 text-white text-shadow my-3">서양</h3>
 									</div>
 									<div class="widget widget-links">
@@ -325,15 +323,51 @@ margin-left: 5px;
 					<a href="<%=request.getContextPath() %>/myPage.go">
 					<img src="resources\css\s_img\us23.png">
 					</a>
-					
-					
-					<a href="cartList.go">
+
+				<c:choose>
+					<c:when test="${empty session.memberId }">
+						<div onclick="needLogin();">
+							<img src="resources\css\s_img\cart_b.png">
+						</div>
+					</c:when>
+					<c:when test="${!empty session.memberId }">
+						<a href="cartList.go">
+							<img src="resources\css\s_img\cart_b.png">
+						</a>
+					</c:when>
+				</c:choose>
+				<!-- 	<a href="cartList.go">
 					<img src="resources\css\s_img\cart_b.png">
 					</a>
-				</div>
+				</div> -->
 
 		</div>
 		
+		
+<div id="needLoginPopup"  class="needLoginPopup"	hidden>
+	<div class="LoginPopupBox">
+		<p>로그인 후 이용가능합니다.</p>
+		<p style="margin-bottom: 40px; font-weight: 100;">로그인 페이지로 이동하시겠습니까?</p>
+		<div class="row">
+			<div class="RoundBox1" onclick="needLogin();">취소</div>
+			<div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+		</div>
+	</div>
+</div>
+			
+		
+		<script type="text/javascript">
+		  function needLogin() {
+			    var popupElement = document.getElementById("needLoginPopup");
+
+			    // 팝업 토글
+			    if (popupElement.hidden === false) {
+			      popupElement.hidden = true;
+			    } else {
+			      popupElement.hidden = false;
+			    }
+			  }
+		</script>
 	</header>
 		<div style="margin:200px; ">
 		
