@@ -19,4 +19,8 @@ public interface MypageDAO {
 
 	List<BoardDTO> qnaList(int memberNo);
 
+	List<BoardDTO> noAnswerqnaList(int memberNo);
+
+	List<BoardDTO> answerOkqnaList(int memberNo);
+
 }

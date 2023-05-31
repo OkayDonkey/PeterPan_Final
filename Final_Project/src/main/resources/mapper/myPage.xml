@@ -36,8 +36,17 @@
 		select * from purchase p join book b on p.bookNo = b.bookNO where p.memberId = #{memberId} order by purchaseNo
 	</select>
 	
-	<select id="qnaList" parameterType="int" resultType="boarddto">
-		select * from board where boardArea = 'QNA' and memberNo = #{memberNo}
+	<select id="totalqnaList" parameterType="int" resultType="boarddto">
+	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' AND memberNo = #{memberNo} ORDER BY boardRegdate DESC
 	</select>
+	
+	<select id="qnaListnoanswer" parameterType="int" resultType="boarddto">
+	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NULL ORDER BY boardRegdate DESC
+	</select>
+	
+	<select id="qnaListanswerok" parameterType="int" resultType="boarddto">
+	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NOT NULL ORDER BY boardRegdate DESC
+	</select>
+
 	
   </mapper>

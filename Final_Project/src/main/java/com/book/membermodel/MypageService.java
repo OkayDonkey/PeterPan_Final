@@ -23,4 +23,8 @@ public interface MypageService {
 
 	List<BoardDTO> qnaList(int memberId);
 
+	List<BoardDTO> noAnswerqnaList(int memberNo);
+
+	List<BoardDTO> answerOkqnaList(int memberNo);
+
 }

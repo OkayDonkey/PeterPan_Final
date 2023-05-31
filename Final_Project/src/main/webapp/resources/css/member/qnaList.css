@@ -492,6 +492,12 @@ a.btn_sm .ico_comment_white, button.btn_sm .ico_comment_white {
     flex-direction: row;
 }
 
+.badge_lighten_gray {
+    color: #595959;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+}
+
 [class^=badge_] {
     display: inline-block;
     box-sizing: border-box;
@@ -797,4 +803,99 @@ a.btn_sm .ico_comment_white, button.btn_sm .ico_comment_white {
     background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_comment_white_h14@2x.png
 ) left center;
     background-size: 14px 14px;
+}
+
+.fold_box_wrap.type_inquiry .reply_content {
+    position: relative;
+    padding: 24px 24px 24px 40px;
+    border-radius: 10px;
+    background-color: rgba(80, 85, 177, 0.06);
+}
+
+.fold_box_wrap.type_inquiry .reply_content:before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: 28px;
+    width: 8px;
+    height: 9px;
+    background: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/arw_reply@2x.png) 0% 0% no-repeat;
+    background-size: 8px 9px;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_area {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: #000;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_area p {
+    margin-top: 10px;
+    line-height: 22px;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_area p:first-child {
+    margin-top: 0;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_footer .info_group {
+    vertical-align: top;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_footer .info_group .info_item {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_footer .info_group .info_item {
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+}
+
+.fold_box_wrap.type_inquiry .reply_content .reply_content_footer .info_group .info_item .text {
+    color: #595959;
 }

@@ -39,7 +39,17 @@ public class MypageDAOImpl implements MypageDAO{
 
 	@Override
 	public List<BoardDTO> qnaList(int memberNo) {
-		return this.sqlSession.selectList("qnaList", memberNo);
+		return this.sqlSession.selectList("totalqnaList", memberNo);
+	}
+
+	@Override
+	public List<BoardDTO> noAnswerqnaList(int memberNo) {
+		return this.sqlSession.selectList("qnaListnoanswer", memberNo);
+	}
+
+	@Override
+	public List<BoardDTO> answerOkqnaList(int memberNo) {
+		return this.sqlSession.selectList("qnaListanswerok", memberNo);
 	}
 
 }

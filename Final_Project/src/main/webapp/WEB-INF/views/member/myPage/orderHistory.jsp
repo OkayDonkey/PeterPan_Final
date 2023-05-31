@@ -298,6 +298,7 @@
 			                    </button>
 			                </span>
 			            </div>
+			            <c:set var="list" value="${List}" />
 			            <!-- //주문내역 타이틀 영역 -->
 			            <div class="order_history_box">
 			                <button type="button" class="btn_filter_history">
@@ -313,7 +314,7 @@
 			            </div>
 			            <div class="order_history_box">
 			                <button type="button" class="btn_filter_history">
-			                    <span class="history_val">1</span>
+			                    <span class="history_val">${list.size() }</span>
 			                    <span class="history_desc">배송완료</span>
 			                </button>
 			            </div>
@@ -334,7 +335,6 @@
 			        <!-- 주문 목록 있는 경우 -->
 			        <div class="tbl_prod_wrap type_myroom">
 					    <!-- repeat -->
-					    <c:set var="list" value="${List}" />
 						<c:if test="${!empty list}">
 						    <c:forEach items="${list}" var="dto" varStatus="status">
 						        <c:if test="${status.index == 0 || dto.purchaseNo ne list[status.index - 1].purchaseNo}">
@@ -380,14 +380,14 @@
 						                        <td class="prod">
 						                            <div class="prod_area horizontal">
 						                                <div class="prod_thumb_box size_sm">
-						                                    <a href="javascript:void(0);" class="prod_link">
+						                                    <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}" class="prod_link">
 						                                        <span class="img_box">
 						                                            <img src="${dto.bookCover}" alt="뉴턴의 아틀리에">
 						                                        </span>
 						                                    </a>
 						                                </div>
 						                                <div class="prod_info_box size_sm">
-						                                    <a href="javascript:void(0);" class="prod_info">
+						                                    <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}" class="prod_info">
 						                                        <span class="prod_name">${dto.bookName}</span>
 						                                    </a>
 						                                    <ul class="prod_option_list">
@@ -399,8 +399,8 @@
 						                            </div>
 						                        </td>
 						                        <td>
-						                            <c:set var="discountedPrice" value="${dto.bookPrice * 0.9}" />
-						                            <fmt:formatNumber value="${discountedPrice}" pattern="#,##0.00" var="formattedPrice" />
+						                            <c:set var="discountedPrice" value="${dto.bookPrice * dto.bookEA * 0.9}" />
+						                            <fmt:formatNumber value="${discountedPrice}" pattern="#,##0" var="formattedPrice" />
 						                            <span class="price">
 						                                <span class="val">${formattedPrice}</span>
 						                                <span class="unit">원</span>
@@ -408,7 +408,7 @@
 						                        </td>
 						                        <td>
 						                            <div class="delivery_info">
-						                                <span class="delivery_state green">보기</span>
+						                                <span class="delivery_state green">배송완료</span>
 						                                <p class="delivery_desc">
 						                                    <span>2023.05.30</span>
 						                                </p>

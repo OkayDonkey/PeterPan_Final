@@ -75,5 +75,15 @@ public class MypageServiceImpl implements MypageService{
 		return this.dao.qnaList(memberNo);
 	}
 
+	@Override
+	public List<BoardDTO> noAnswerqnaList(int memberNo) {
+		return this.dao.noAnswerqnaList(memberNo);
+	}
+
+	@Override
+	public List<BoardDTO> answerOkqnaList(int memberNo) {
+		return this.dao.answerOkqnaList(memberNo);
+	}
+
 	
 }

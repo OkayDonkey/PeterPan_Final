@@ -73,10 +73,10 @@
 						<div id="MyNoticeArea" class="switch_toggle_wrap switch_my">
         					<div class="switch_toggle_header" data-active="recommend">
             					<div class="switch_toggle_box">
-								    <button type="button" class="btn_switch" data-switch-tg="#myCustomAlarm" onclick="try{ga360.GA_Event('click_마이룸_PC', '나의맞춤', '', '설정_알림', '')}catch(error){console.log(error)};">
+								    <button type="button" class="btn_switch" data-switch-tg="#myCustomAlarm" onclick="">
 								        <span class="text">알림</span>
 								    </button>
-								    <button type="button" class="btn_switch active" data-switch-tg="#myCustomRecommend" onclick="try{ga360.GA_Event('click_마이룸_PC', '나의맞춤', '', '설정_추천', '')}catch(error){console.log(error)};">
+								    <button type="button" class="btn_switch active" data-switch-tg="#myCustomRecommend" onclick="">
 								        <span class="text">추천</span>
 								    </button>
 								</div>

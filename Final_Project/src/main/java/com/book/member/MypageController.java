@@ -1,6 +1,5 @@
 package com.book.member;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -198,9 +197,15 @@ public class MypageController {
 		
 		MemberDTO dto = (MemberDTO) session.getAttribute("session");
 		
-		List<BoardDTO> list = this.service.qnaList(dto.getMemberNo());
+		List<BoardDTO> totalList = this.service.qnaList(dto.getMemberNo());
 		
-		model.addAttribute("List", list);
+		List<BoardDTO> noAnswerList = this.service.noAnswerqnaList(dto.getMemberNo());
+		
+		List<BoardDTO> answerOkList = this.service.answerOkqnaList(dto.getMemberNo());
+		
+		model.addAttribute("TotalList", totalList).
+			  addAttribute("noAnswerList", noAnswerList).
+			  addAttribute("answerOkList", answerOkList);
 		
 		return "member/myPage/qnaList";
 	}

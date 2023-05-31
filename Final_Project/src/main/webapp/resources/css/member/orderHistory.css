@@ -1268,6 +1268,7 @@ legend, caption {
 .prod_area .prod_info_box .prod_option_list {
     margin-top: 12px;
     font-size: 0;
+    display: flex;
 }
 
 .prod_area .prod_info_box .prod_option_list .option_item {

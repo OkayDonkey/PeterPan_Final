@@ -116,42 +116,47 @@
 						<jsp:include page="myPageSidebar.jsp" />
 					</div>
 				</aside>
-				<c:set var="list" value="${List }" />
+				<c:set var="totallist" value="${TotalList }" />
+				<c:set var="noanswerlist" value="${noAnswerList }" />
+				<c:set var="answeroklist" value="${answerOkList }" />
 				<section id="contents" class="section_wrap">
 					<h1 class="hidden">마이 메인</h1>
 					<div class="title_wrap title_size_md">
 					    <p class="title_heading">1:1문의</p>
 					</div>
-					<div class="tab_wrap type_line" data-type-btn="">
+					<div class="tab_wrap type_line">
 					    <div class="tab_list_wrap">
 					        <ul id="FilterList" class="tabs">
-						        <li class="tab_item ui-state-active" data-value="">
-						        	<button class="tab_link">
-						        		<span class="tab_text">
-						        			<span>전체</span>
-						        			<span class="count">(${list.size() })</span>
-						        		</span>
-						        	</button>
-						        </li>
-						        <li class="tab_item tab_disabled" data-value="003">
-						        	<button class="tab_link">
-						        		<span class="tab_text">
-						        			<span>처리중</span>
-						        			<span class="count">(${list.size() })</span>
-						        		</span>
-						        	</button>
-						        </li>
-						        <li class="tab_item tab_disabled" data-value="002">
-						        	<button class="tab_link">
-						        		<span class="tab_text">
-						        			<span>답변완료</span>
-						        			<span class="count">(0)</span>
-						        		</span>
-						        	</button>
-						        </li>
+					            <li class="tab_item ui-state-active">
+					                <button class="tab_link" id="all">
+					                    <span class="tab_text">
+					                        <span>전체</span>
+					                        <span class="count">(${totallist.size() })</span>
+					                    </span>
+					                </button>
+					            </li>
+					            <li class="tab_item">
+					                <button class="tab_link" id="noanswer">
+					                    <span class="tab_text">
+					                        <span>처리중</span>
+					                        <span class="count">(${noanswerlist.size() })</span>
+					                    </span>
+					                </button>
+					            </li>
+					            <li class="tab_item">
+					                <button class="tab_link" id="answerok">
+					                    <span class="tab_text">
+					                        <span>답변완료</span>
+					                        <span class="count">(${answeroklist.size() })</span>
+					                    </span>
+					                </button>
+					            </li>
 					        </ul>
 					    </div>
 					</div>
+					
+					<script type="text/javascript" src="resources/js/member/qnaListTab.js"></script>
+					
 					<div class="list_result_wrap" style="align-items: baseline;">
 					    <div class="right_area">
 						    <a class="btn_sm btn_primary" href="">
@@ -160,61 +165,244 @@
 						    </a>
 						</div>
 					</div>
-					<c:if test="${!empty list }" >
-					<c:forEach items="${list }" var="dto">
-						<div id="ListWrap" class="fold_box_wrap type_inquiry">
-						    <ul class="fold_box_list" style="">
-						    	<li class="fold_box expanded" data-id="3220845">
-						    		<div class="fold_box_header">
-						    			<div class="inquiry_info">
-						    				<span class="badge_sm badge_pill badge_primary">
-						    					<span class="text">준비중</span>
-						    				</span>
-						    				<span class="gap">
-						    					<span class="hidden">/</span>
-						    				</span>
-						    				<span class="category">
-						    					<span class="category_item">${dto.boardCategory }</span>
-						    				</span>
-						    			</div>
-						    			<div class="inquiry_title">
-						    				<div class="faq_q">
-						    					<span class="faq_circle" aria-hidden="true">Q</span>
-						    					<span class="hidden">질문</span>
-						    				</div>
-						    				<span class="title">${dto.boardTitle }</span>
-						    				<span class="right_area">
-						    					<span class="date">${dto.boardRegdate }</span>
-						    				</span>
-						    			</div>
-						    			<button class="btn_fold" type="button">
-						    				<span class="hidden">컨텐츠 열기</span>
-						    			</button>
-						    		</div>
-						    		<div class="fold_box_contents">
-						    			<div class="inquiry_content">
-						    				<div class="inquiry_content_area">
-						    					<p>${dto.boardContent }</p>
-						    					<ul class="img_list"></ul>
-						    				</div>
-						    				<div class="inquiry_content_footer">
-						    					<div class="func_group">
-						    						<button class="btn_text_link" type="button">
-						    							<span class="text">수정</span>
-						    						</button>
-						    						<span class="gap"></span>
-						    						<button class="btn_text_link" type="button">
-						    							<span class="text">삭제</span>
-						    						</button>
-						    					</div>
-						    				</div>
-						    			</div>
-						    		</div>
-						    	</li>
-						    </ul>
-						</div>
-					</c:forEach>
-					</c:if>
+					
+					<!-- '전체' 탭이 눌렸을 떄 -->
+					<div id="total" class="tab_content">
+						<c:if test="${!empty totallist }" >
+						<c:forEach items="${totallist }" var="dto">
+							<div id="ListWrap" class="fold_box_wrap type_inquiry">
+							    <ul class="fold_box_list" style="">
+							    	<li class="fold_box expanded" data-id="3220845">
+							    		<div class="fold_box_header">
+							    			<div class="inquiry_info">
+							    				<span class="badge_lighten_gray badge_sm badge_pill badge_primary">
+							    					<span class="text">
+							    						<c:if test="${empty dto.content }">
+							    						 	처리중
+							    						</c:if>
+							    						<c:if test="${!empty dto.content }">
+							    						 	답변완료
+							    						</c:if>
+							    					</span>
+							    				</span>
+							    				<span class="gap">
+							    					<span class="hidden">/</span>
+							    				</span>
+							    				<span class="category">
+							    					<span class="category_item">${dto.boardCategory }</span>
+							    				</span>
+							    			</div>
+							    			<div class="inquiry_title">
+							    				<div class="faq_q">
+							    					<span class="faq_circle" aria-hidden="true">Q</span>
+							    					<span class="hidden">질문</span>
+							    				</div>
+							    				<span class="title">${dto.boardTitle }</span>
+							    				<span class="right_area">
+							    					<span class="date">${dto.boardRegdate }</span>
+							    				</span>
+							    			</div>
+							    			<button class="btn_fold" type="button">
+							    				<span class="hidden">컨텐츠 열기</span>
+							    			</button>
+							    		</div>
+							    		<div class="fold_box_contents">
+							    			<div class="inquiry_content">
+							    				<div class="inquiry_content_area">
+							    					<p>${dto.boardContent }</p>
+							    					<ul class="img_list"></ul>
+							    				</div>
+							    				<div class="inquiry_content_footer">
+							    					<div class="func_group">
+							    						<button class="btn_text_link" type="button">
+							    							<span class="text">수정</span>
+							    						</button>
+							    						<span class="gap"></span>
+							    						<button class="btn_text_link" type="button">
+							    							<span class="text">삭제</span>
+							    						</button>
+							    					</div>
+							    				</div>
+							    			</div>
+							    		</div>
+							    		<c:if test="${!empty dto.content }">
+							    			<div class="reply_content">
+								    			<div class="reply_content_area">
+								    				${dto.content }
+								    			</div>
+								    			<div class="reply_content_footer">
+									    			<div class="info_group">
+									    				<span class="info_item">
+									    					<span class="text">${dto.regdate }</span>
+									    				</span>
+									    			</div>
+								    			</div>
+								    		</div>
+							    		</c:if>
+							    	</li>
+							    </ul>
+							</div>
+						</c:forEach>
+						</c:if>
+					</div>
+					<!-- '처리중' 탭이 눌렸을 떄 -->
+					<div id="progress" class="tab_content" style="display: none;">
+						<c:if test="${!empty noanswerlist }" >
+						<c:forEach items="${noanswerlist }" var="dto">
+							<div id="ListWrap" class="fold_box_wrap type_inquiry">
+							    <ul class="fold_box_list" style="">
+							    	<li class="fold_box expanded" data-id="3220845">
+							    		<div class="fold_box_header">
+							    			<div class="inquiry_info">
+							    				<span class="badge_lighten_gray badge_sm badge_pill badge_primary">
+							    					<span class="text">
+							    						<c:if test="${empty dto.content }">
+							    						 	처리중
+							    						</c:if>
+							    						<c:if test="${!empty dto.content }">
+							    						 	답변완료
+							    						</c:if>
+							    					</span>
+							    				</span>
+							    				<span class="gap">
+							    					<span class="hidden">/</span>
+							    				</span>
+							    				<span class="category">
+							    					<span class="category_item">${dto.boardCategory }</span>
+							    				</span>
+							    			</div>
+							    			<div class="inquiry_title">
+							    				<div class="faq_q">
+							    					<span class="faq_circle" aria-hidden="true">Q</span>
+							    					<span class="hidden">질문</span>
+							    				</div>
+							    				<span class="title">${dto.boardTitle }</span>
+							    				<span class="right_area">
+							    					<span class="date">${dto.boardRegdate }</span>
+							    				</span>
+							    			</div>
+							    			<button class="btn_fold" type="button">
+							    				<span class="hidden">컨텐츠 열기</span>
+							    			</button>
+							    		</div>
+							    		<div class="fold_box_contents">
+							    			<div class="inquiry_content">
+							    				<div class="inquiry_content_area">
+							    					<p>${dto.boardContent }</p>
+							    					<ul class="img_list"></ul>
+							    				</div>
+							    				<div class="inquiry_content_footer">
+							    					<div class="func_group">
+							    						<button class="btn_text_link" type="button">
+							    							<span class="text">수정</span>
+							    						</button>
+							    						<span class="gap"></span>
+							    						<button class="btn_text_link" type="button">
+							    							<span class="text">삭제</span>
+							    						</button>
+							    					</div>
+							    				</div>
+							    			</div>
+							    		</div>
+							    		<c:if test="${!empty dto.content }">
+							    			<div class="reply_content">
+								    			<div class="reply_content_area">
+								    				${dto.content }
+								    			</div>
+								    			<div class="reply_content_footer">
+									    			<div class="info_group">
+									    				<span class="info_item">
+									    					<span class="text">${dto.regdate }</span>
+									    				</span>
+									    			</div>
+								    			</div>
+								    		</div>
+							    		</c:if>
+							    	</li>
+							    </ul>
+							</div>
+						</c:forEach>
+						</c:if>
+					</div>
+					<!-- '답변완료' 탭이 눌렸을 떄 -->
+					<div id="answercomplete" class="tab_content" style="display: none;">
+						<c:if test="${!empty answeroklist }" >
+						<c:forEach items="${answeroklist }" var="dto">
+							<div id="ListWrap" class="fold_box_wrap type_inquiry">
+							    <ul class="fold_box_list" style="">
+							    	<li class="fold_box expanded" data-id="3220845">
+							    		<div class="fold_box_header">
+							    			<div class="inquiry_info">
+							    				<span class="badge_lighten_gray badge_sm badge_pill badge_primary">
+							    					<span class="text">
+							    						<c:if test="${empty dto.content }">
+							    						 	처리중
+							    						</c:if>
+							    						<c:if test="${!empty dto.content }">
+							    						 	답변완료
+							    						</c:if>
+							    					</span>
+							    				</span>
+							    				<span class="gap">
+							    					<span class="hidden">/</span>
+							    				</span>
+							    				<span class="category">
+							    					<span class="category_item">${dto.boardCategory }</span>
+							    				</span>
+							    			</div>
+							    			<div class="inquiry_title">
+							    				<div class="faq_q">
+							    					<span class="faq_circle" aria-hidden="true">Q</span>
+							    					<span class="hidden">질문</span>
+							    				</div>
+							    				<span class="title">${dto.boardTitle }</span>
+							    				<span class="right_area">
+							    					<span class="date">${dto.boardRegdate }</span>
+							    				</span>
+							    			</div>
+							    			<button class="btn_fold" type="button">
+							    				<span class="hidden">컨텐츠 열기</span>
+							    			</button>
+							    		</div>
+							    		<div class="fold_box_contents">
+							    			<div class="inquiry_content">
+							    				<div class="inquiry_content_area">
+							    					<p>${dto.boardContent }</p>
+							    					<ul class="img_list"></ul>
+							    				</div>
+							    				<div class="inquiry_content_footer">
+							    					<div class="func_group">
+							    						<button class="btn_text_link" type="button">
+							    							<span class="text">수정</span>
+							    						</button>
+							    						<span class="gap"></span>
+							    						<button class="btn_text_link" type="button">
+							    							<span class="text">삭제</span>
+							    						</button>
+							    					</div>
+							    				</div>
+							    			</div>
+							    		</div>
+							    		<c:if test="${!empty dto.content }">
+							    			<div class="reply_content">
+								    			<div class="reply_content_area">
+								    				${dto.content }
+								    			</div>
+								    			<div class="reply_content_footer">
+									    			<div class="info_group">
+									    				<span class="info_item">
+									    					<span class="text">${dto.regdate }</span>
+									    				</span>
+									    			</div>
+								    			</div>
+								    		</div>
+							    		</c:if>
+							    	</li>
+							    </ul>
+							</div>
+						</c:forEach>
+						</c:if>
+					</div>
 				</section>
 			</div>
 		</section>
