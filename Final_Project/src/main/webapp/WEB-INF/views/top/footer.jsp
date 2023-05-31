@@ -5,6 +5,7 @@
 <style>
 
 .footer {
+ clear: both;
   background-color: #f8f8f8;
   text-align: center;
   bottom: 0;

@@ -209,101 +209,6 @@ a.btn_lg:hover {
 	color: #999;
 }
 
-/* 첨부파일 */
-/* .file_list, .bul_list{
-	list-style-type: none;	
-}
-
-.file_list .file_item {
-    position: relative;
-    display: inline-block;
-}
- */
-/* .file_list .file_item .btn_box {
-    position: relative;
-    display: inline-block;
-    width: 94px;
-    height: 94px;
-    border: 1px dashed #e5e5e5;
-    background-color: #f7f7f7;
-    cursor: pointer;
-    border-radius: 6px;
-    vertical-align: top;
-    box-sizing: border-box;
-}
-
-.file_list .file_item .btn_box input[type=file] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-.file_list .file_item .btn_box label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 0 !important;
-    background-size: 16px 16px;
-    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_attached_add@2x.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.hidden {
-    position: absolute;
-    visibility: hidden;
-    overflow: hidden;
-    height: 0;
-    line-height: 0;
-    width: 0;
-    margin: 0;
-    padding: 0;
-    font: 0/0 Arial;
-}
-
-.file_list .file_item:not(.attached) .btn_remove_img {
-    display: none;
-}
-button[class^=btn_], a[class^=btn_] {
-    display: inline-block;
-    box-sizing: border-box;
-    vertical-align: top;
-}
-
-.file_list .file_item.attached .attach_img_box .attach_img_view {
-    position: absolute;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    font-size: 0 !important;
-    left: 0;
-    top: 0;
-}
-
-.file_list .file_item.attached .attach_img_box .btn_remove_img {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    background-size: 8px 8px;
-    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_attached_remove@2x.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 0 6px;
-    font-size: 0 !important;
-    pointer-events: auto;
-    right: 0;
-    top: 0;
-}
- */
-
 .bul_item_asterisk {
 	color: #767676;
 	margin-top: 5px;
@@ -313,13 +218,61 @@ button[class^=btn_], a[class^=btn_] {
 	width: 177%;	
 }
 
-/* 문의접수 모달창 */
+/* 취소 - 문의접수 */
+.RoundBox_insert_white{
+    min-width: 200px;
+    height: 50px;
+    padding: 13px 72px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    background-color: #5055b1;
+    margin-left: 20px;
+    color: white;
+    border-radius: 6px;
+}    
 
+.btn_wrap_de {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
 
+/* 문의접수 모달창*/
+.insertPopupBox {
+    text-align: center;
+    z-index: 2300;
+    width: 340px;
+    height: 222px;
+    background-color: white;
+    padding: 45px 28px;
+    border-radius: 12px;
+}
 
+.insertPopup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #0000007d;
+	border-radius: 5px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
 
+.insertBox_btn {
+	display: flex;
+}
 
-
-
-
-
+.first_write {
+	font-weight: 900;
+    color: black;
+    font-size: 16px;
+}

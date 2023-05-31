@@ -28,7 +28,7 @@ function requestPay() {
 		      pay_method: "card",
 		      merchant_uid: "PTP20180131-0000011",   // 주문번호
 		      name: "피터팬 도서 구매",
-		      amount: 100,                         // 숫자 타입
+		      amount: integerCost,                         // 숫자 타입
 		      buyer_email: email,
 		      buyer_name: name,
 		      buyer_tel: phone,

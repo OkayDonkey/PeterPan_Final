@@ -300,20 +300,15 @@
 				</div>
 				<!-- //tbl_row_wrap -->
 
-				<div class="btn_wrap page_bottom">
+			<!-- 	<div class="btn_wrap page_bottom">
 					<a href="#" class="btn_light_gray btn_lg">
 						<span class="text">취소</span>
 					</a>
-					<!-- <button data-kbbfn-form="inquiryForm" data-kbbfn-submit="" type="submit" class="btn_primary btn_lg"> -->
-						<!-- <span class="text">문의접수</span> -->
-						<c:choose>
-						   <c:when test="${empty session.memberId }">
-						      <div class="RoundBox_l_white" onclick="insertLogin();">문의접수</div>
-						   </c:when>
-						   <c:when test="${!empty session.memberId }">
-						      <div class="RoundBox_l_white" onclick="cart_1()">문의접수</div>
-						   </c:when>
-						</c:choose>
+					<button data-kbbfn-form="inquiryForm" data-kbbfn-submit="" type= "submit"class="btn_primary btn_lg"> 
+						 <span class="text">문의접수</span>
+				</button>
+						      <div class="RoundBox_l_white" onclick="openModal();">문의접수</div>
+						      <div class="RoundBox_l_white" onclick="location.href='mypage_go.go'">문의접수</div>
 						
 						
 						<div id="insertPopup"  class="insertPopup"   hidden>
@@ -321,40 +316,25 @@
 						      <p>문의가 정상적으로 접수되었습니다.</p>
 							  <p>빠른 시간 내에 답변드리겠습니다.</p>
 						         <div class="RoundBox1" onclick="insertLogin();">취소</div>
-						         <div class="RoundBox2" onclick="location.href='login.go'">확인</div>
+						         <div class="RoundBox2" onclick="location.href='mypage_go.go'">확인</div>
 						      </div>
 						   </div>
 						</div>
-					<!-- </button> -->
+				 -->
+				
+				<div class="btn_wrap page_bottom" id="insert_btn">
+					<div class="btn_wrap_de">
+						<a href="#" class="btn_light_gray btn_lg">
+							<span class="text">취소</span>
+						</a>
+						<div class="RoundBox_insert_white" onclick="openModal()">
+							<span>문의접수</span>
+						</div>
+					</div>	
 				</div>
-				
-				
-			
-				
-				<script type="text/javascript">
-					/* 접수 할 때 모달창   */ 
-					function insertLogin() {
-					var popupElement = document.getElementById("insertPopup");
 					
-					// 팝업 토글
-					if (popupElement.hidden === false) {
-					 popupElement.hidden = true;
-					} else {
-					 popupElement.hidden = false;
-					}
-					} 
-				</script>
-					
-					
-									
-				
-				
-				
-				
-				
 				<!-- </form> -->	
-
-
+				
 				<div class="info_text_box size_lg" style="margin-top: 60px;">
 					<div class="title_wrap title_size_xs">
 						<p class="title_heading">문의내용 답변 안내</p>
@@ -375,9 +355,22 @@
 							<span class="fw_bold">신학기(3월, 9월), 코로나로 인해 문의량이 급증하여 답변이 지연될 수 있습니다.</span></li>
 					</ul>
 					
-					</form>
 				</div>
+			</form>
 			</div>
+		</div>
+	</div>
+	
+	
+	<div id="insertPopup" class="insertPopup"  hidden>
+		<div class="insertPopupBox">
+			<p class="first_write">문의가 정상적으로 접수되었습니다.</p>
+			<p>빠른 시간 내에 답변드리겠습니다.</p>
+			<div class="insertBox_btn" style="display: flex;">
+				<div class="RoundBox1" onclick="closeModal()"><span>취소</span></div>
+				<div class="RoundBox2"  onclick="location.href='mypage_go.go'"><span>확인</span></div>
+			</div>
+		</div>
 	</div>
 	
 	<!-- footer -->
@@ -392,6 +385,14 @@
 		      fileInput.value = ''; // 첨부파일 필드의 값을 초기화하여 파일을 제거
 		    });
 		  }
+		  
+		function openModal() {
+			document.getElementById("insertPopup").removeAttribute("hidden");
+		}
+
+		function closeModal() {
+			document.getElementById("insertPopup").setAttribute("hidden", true);
+		}
 	</script>
 	
 </body>
