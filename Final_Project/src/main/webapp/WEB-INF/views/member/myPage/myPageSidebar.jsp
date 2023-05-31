@@ -16,7 +16,7 @@
 				</a>
 				<ul class="snb_list">
 					<li class="snb_item" data-id="8">
-						<a class="snb_link" href="https://order.kyobobook.co.kr/myroom/member/order-list" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '쇼핑내역_주문/배송목록', '');">
+						<a class="snb_link" href="<%=request.getContextPath() %>/orderHistory.go" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '쇼핑내역_주문/배송목록', '');">
 							주문/배송목록
 						</a>
 					</li>
@@ -134,7 +134,7 @@
 				</a>
 				<ul class="snb_list">
 					<li class="snb_item" data-id="29">
-						<a class="snb_link" href="https://my.kyobobook.co.kr/library" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '라이브러리_메인', '');">
+						<a class="snb_link" href="<%=request.getContextPath() %>/qnaList.go" onclick="ga360.GA_Event('click_마이룸_PC', 'SNB', '', '라이브러리_메인', '');">
 							1:1 문의
 						</a>
 					</li>

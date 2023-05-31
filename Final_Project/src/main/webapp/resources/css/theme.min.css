@@ -17702,15 +17702,181 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
 
-.123123	{
-	content:"";
-	background-image: url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_payment_skpay@2x.png");
+.floatingWrap{
+	
+	position: fixed;
+    display: block;
+    width: 70px;
+    height: 150px;
+    right: 40px;
+    bottom: 120px;
+    z-index: 101;
+    background-color: transparent; 
+    padding: 10px;
+}
+
+.floating-img-wrap	{
+	border-radius: 50%;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	margin-bottom: 10px;
+	opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+	z-index: 100;
+	background-image: url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_view_history@2x.png");
+	background-size: 50px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 40px;
+	cursor: pointer;
+}
+
+.floating-img-wrap img	{
+	border-radius: 50%;
+	border: 1px solid black;
+	width: 50px;
 	height: 50px;
-	width: 100px;
-	
+	margin-bottom: 10px;
+	 opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+	z-index: 190;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pageUp-wrap	{
+	border-radius: 50%;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4px;
+    cursor: pointer;
+    color: 878787;
+    font-size: 15px;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.pageUp-wrap.show {
+    opacity: 1;
+    transform: translateY(0);
+ }
+ 
+ .pageUp-wrap.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.pageUp-wrap:hover	{
+	border-radius: 50%;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4px;
+    cursor: pointer;
+    color: 878787;
+    font-size: 15px;
+    background-color: #eaeaea;
+    
+}
+
+
+.floating-number-wrap	{
+    display: flex;
+    font-size: small;
+    color: white;
+    background-color: #5055b1;
+    border: none;
+    height: 18px;
+    float: right;
+    width: 18px;
+    border-radius: 1em;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.upIco		{
+	background-image: url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/arw_go_top@2x.png");
+	background-repeat: no-repeat;
+	background-size: 9px 5px;
+	background-position: center;
+	display: block;
+	width: 9px;
+	height: 5px;
+}
+
+.sideBarBlackWrap	{
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0000007d;
+    top:0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+.sideBarWrap	{
+	width: 460px !important;
+    height: calc(100% - 70px) !important;
+    max-height: none;
+    margin: 0 0 0 auto;
+    padding: 40px !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    max-height: 750px;
+    border: none;
+    color: #000;
+    background-color: white;
+    border-radius: 1.5em;
+}
+
+.ico_dialog_close {
+	cursor:pointer;
+    position: relative;
+    z-index: 3;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-image: url("https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_dialog_close@2x.png");
+}
+
+.greenText	{
+	color:#3c9a17;
+	font-weight: 500;
+	font-size: 1em;
 }
 
 }
