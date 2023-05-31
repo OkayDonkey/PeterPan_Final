@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,29 +24,31 @@
 			<!-- 창마다 바뀜 -->
 			<div class="main" style="width: 900px;">
 				<div class="main_heading">
-					<span class="main_heading_1">무엇을 도와드릴까요?</span> <br> <span
-						class="main_heading_2">피터팬 고객센터</span><span class="main_heading_1">입니다.</span>
+					<span class="main_heading_1">무엇을 도와드릴까요?</span><br>
+					<span class="main_heading_2">피터팬 고객센터</span>
+					<span class="main_heading_1">입니다.</span>
 			</div>
 				
-				<!-- 검색창 -->
 				<div>
 					<div>
 						<h2 class="title_heading">자주 묻는 질문</h2>
 					</div>
 		
+				<!-- 검색창 -->
+				<form method="post" action="<%=request.getContextPath()%>/board_search.go?boardArea=FAQ">
 					<div class="input_text_box">
 						<div class="input_btn_box">
 							<div class="form_ip_search">
-								<input type="search" class="form_ip" title="자주 묻는 질문"
-									placeholder="질문을 검색해 보세요.">
+								<input type="search"  name="keyword" class="form_ip"  title="자주 묻는 질문" placeholder="질문을 검색해 보세요.">
 							</div>
 							<div class="form_btn">
-								<button type="button" class="btn">
+								<button type="submit" class="btn">
 									<span class="text">검색</span>
 								</button>
 							</div>
 						</div>
 					</div>
+				</form>
 					
 					<div class="asked_category_list">
 						<ul>
@@ -75,10 +78,10 @@
 				</div>
 				<div class="customer_wrap">
 					<div class="boxbg">
-						<a href="#" class="inquiry"><span class="ico_inquiry01"></span>
+						<a href="<%=request.getContextPath() %>/boardQna.go" class="inquiry"><span class="ico_inquiry01"></span>
 							<p class="name">1:1 문의 접수</p>
 						</a> 
-						<a href="#" class="inquiry" style="border-left: 1px solid #eaeaea;"> 
+						<a href="<%=request.getContextPath() %>/myPage.go" class="inquiry" style="border-left: 1px solid #eaeaea;"> 
 							<span class="ico_inquiry02"></span>
 							<p class="name">1:1 문의 내역</p>
 						</a>
@@ -103,19 +106,19 @@
 				</div>
 				<!-- end. customer_wrap -->
 
-				<div class="notice_wrap">
+ 				<div class="notice_wrap">
 					<div class="notice_head">
 						<h2 class="title_heading">공지사항</h2>
-						<div class="notice_heading">
-							<a> 
-								<span class="notice_head_more">더보기</span> 
-								<span class="notice_head_icon">
-									<img src="resources/img/icons-tel-text.png" width="13px">
-								</span>
-							</a>
-						</div>
+							<div class="notice_heading">
+								<a href="<%=request.getContextPath() %>/board_notice.go"> 
+									<span class="notice_head_more">더보기</span> 
+									<span class="notice_head_icon">
+										<img src="resources/img/icons-tel-text.png" width="13px">
+									</span>
+								</a>
+							</div>
 					</div>
-
+					
 					<table class="tbl_col_line">
 						<colgroup>
 							<col style="width: 125px;">

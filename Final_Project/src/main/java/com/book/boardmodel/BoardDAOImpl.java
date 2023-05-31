@@ -1,6 +1,7 @@
 package com.book.boardmodel;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -34,6 +35,11 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public int insertQna(BoardDTO dto) {
 		return this.sqlSession.insert("add", dto);
+	}
+
+	@Override
+	public List<BoardDTO> searchList(Map<String, String> map) {
+		return this.sqlSession.selectList("searchList", map);
 	}
 
 }

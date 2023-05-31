@@ -34,23 +34,22 @@
 								</div>
 							</li>
 								
-							<li class="snb_list" style="margin-bottom: 16px;"><a
-								href="<%=request.getContextPath() %>/boardQna.go">1:1 문의</a>
+ 							<li class="snb_list" style="margin-bottom: 16px;">
+								<a href="<%=request.getContextPath() %>/boardQna.go">1:1 문의</a>
 								<div>
 									<ul class="snb_list_box">
 										<li class="snb_item"><a href="<%=request.getContextPath() %>/boardQna.go">1:1 문의 접수</a></li>
-										<li class="snb_item"><a href="#">1:1 문의 내역</a></li>
+										<li class="snb_item"><a href="<%=request.getContextPath() %>/myPage.go">1:1 문의 내역</a></li>
 									</ul>
 								</div></li>
 
-							<li class="snb_list"><a href="#">공지사항</a></li>
-
+							<li class="snb_list"><a href="<%=request.getContextPath() %>/board_noticeOk.go">공지사항</a></li>
 						</div>
 
 						<div class="custumer">
 							<div class="custmer_de" style="margin-bottom: 16px;">
-								<img src="resources/img/icons-tel.png" width="20px"> <a
-									href="<%=request.getContextPath() %>/boardArs.go" class="tel_list"><span>고객센터 이용안내</span></a>
+								<img src="resources/img/icons-tel.png" width="20px"> 
+									<a href="<%=request.getContextPath() %>/boardArs.go" class="tel_list"><span>고객센터 이용안내</span></a>
 							</div>
 							<div class="tel" style="margin-bottom: 10px;">
 								<a href="tel:1544-1990">1544-900</a> <span class="unit">(유료)</span>
