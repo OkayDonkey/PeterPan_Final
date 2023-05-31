@@ -8,6 +8,7 @@ import com.book.model.PageDTO;
 
 public interface plusListDAO {
 
+	//전체 수량 새기
 	int getListCount();
 
 
@@ -25,5 +26,16 @@ public interface plusListDAO {
 
 
 	List<BookDTO> genList(PageDTO dto);
+
+	//베스트 리스트 뽑기
+	List<BookDTO> getbestList(PageDTO dto);
+	
+	int BestCount();
+
+
+	List<BookDTO> newbook(PageDTO pdto);
+
+
+	int newCount();
 
 }

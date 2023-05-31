@@ -59,5 +59,25 @@ public class plusListDAOImpl implements plusListDAO{
 	public List<BookDTO> genList(PageDTO dto) {
 	return this.sqlSession.selectList("gen",dto);
 	}
+
+	@Override
+	public List<BookDTO> getbestList(PageDTO dto) {
+	return this.sqlSession.selectList("bestList",dto);
+	}
+	@Override
+	public int BestCount() {
+		return this.sqlSession.selectOne("bestL");	
+	}
+	
+	
+	@Override
+	public List<BookDTO> newbook(PageDTO pdto) {
+	return this.sqlSession.selectList("new",pdto);
+	}
+	@Override
+	public int newCount() {
+	return this.sqlSession.selectOne("newL");
+	}
+	
 	
 }

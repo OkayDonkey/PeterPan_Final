@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<!-- 폰트 어썸 cdm -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  />
+  <!--  폰트 어썸 cdm end  -->
 
 <style>
 
@@ -21,7 +26,6 @@
   width: 50%;
 }
 
-
 /* Location information */
 .footer_box > div:not(.footer_Rbox) span {
   display: block;
@@ -32,9 +36,17 @@
 /* Right-aligned content */
 .footer_Rbox {
   text-align: left;
-  margin-top: 200px;
-  margin-left: 650;
+    margin-top: 100px;
+    margin-left: 550px;
 }
+
+.fa-instagram{
+   background: linear-gradient(45deg, #FFDE83, #FFB241, #FF732C, #FF5834, #FF3138, #F91966, #D72188, #8828C8, #473DE9, #2A4EFB);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
 
 .link_box img {
   max-width: 30px;
@@ -45,8 +57,10 @@
   	font-size: 13px;
 	color: #666;
 }
-
-
+.fontA{
+	font-size: 50px;
+    margin-bottom: 30px;
+}
 .footer_wrap {
    display: flex;
    flex-direction: row;
@@ -134,17 +148,34 @@ text-decoration: none;
          </div>
          
          <div class="footer_Rbox">
-         <span class="footer_Rbox_span">
-	        [인증범위]KH학원
-         </span>
-         <BR>
-         <span class="footer_Rbox_span"1>
-			[유효기간] 2023.01.13 ~ 2023.06.15
-         </span>
+			<div class="fontA">
+	         	<a href="https://www.instagram.com/kyobobook_online/">
+		         	<i class="fa fa-instagram" aria-hidden="true" style=""></i>
+	         	</a>
+	         	<a href="https://www.youtube.com/c/kbooknews?reload=9">
+	         		<i class="fa fa-youtube-play" aria-hidden="true" style="color:red;"></i>
+	         	</a>
+	         	<a href="https://www.facebook.com/kyobobookonline?orderClick=rwk">
+	         		<i class="fa fa-facebook-square" aria-hidden="true" style="color:312ffe;"></i>
+	         	</a>
+			</div>
+
+	        
+	         <span class="footer_Rbox_span">
+		        [인증범위]KH학원
+	         </span>
+	         <BR>
+	         <span class="footer_Rbox_span">
+				[유효기간] 2023.01.13 ~ 2023.06.15
+	         </span>
          
          </div>
       </div>
    </footer>
+
+
+
+
 
 </body>
 </html>

@@ -8,6 +8,7 @@ import java.util.Locale.Category;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -203,11 +204,77 @@ public class plusListController {
 		
 		
 		model.addAttribute("searchPageList",searchList)
-			.addAttribute("Paging", dto);
+			 .addAttribute("Paging", dto)
+			 .addAttribute("stotal", totalRecord);
 		
 		
 		return "plusList/book_search_list";				
 		}
 	
+		@RequestMapping("bestListbook.go")
+		public String bestList(Model model,HttpServletRequest request) {
+			// 페이징 처리 작업
+			int page;    // 현재 페이지 변수
+			
+			if(request.getParameter("page") != null) {
+				page = 
+					Integer.parseInt(request.getParameter("page"));
+			}else {
+				// 처음으로 "게시물 전체 목록" 태그를 클릭한 경우
+				page = 1;
+			}
+			
+			// DB 상의 전체 게시물의 수를 확인하는 메서드 호출
+			totalRecord = this.dao.BestCount ();
+			
+			System.out.println(totalRecord);
+				PageDTO pdto = 
+						new PageDTO(page, rowsize, totalRecord);
+			System.out.println(pdto);
+				
+			// 페이지에 해당하는 게시물을 가져오는 메서드 호출
+			List<BookDTO> list = this.dao.getbestList(pdto);
+			
+			System.out.println("kr list >>>>" + list);
+			
+			model.addAttribute("List", list).
+			      addAttribute("Paging", pdto)
+			      .addAttribute("total", totalRecord);
+			
+			return "plusList/bestList";	
+		}
+		
+		@RequestMapping("newbook.go")
+		public String newbook(Model model,HttpServletRequest request) {
+			// 페이징 처리 작업
+						int page;    // 현재 페이지 변수
+						
+						if(request.getParameter("page") != null) {
+							page = 
+								Integer.parseInt(request.getParameter("page"));
+						}else {
+							// 처음으로 "게시물 전체 목록" 태그를 클릭한 경우
+							page = 1;
+						}
+						
+						// DB 상의 전체 게시물의 수를 확인하는 메서드 호출
+						totalRecord = this.dao.newCount();
+						
+						System.out.println(totalRecord);
+							PageDTO pdto = 
+									new PageDTO(page, rowsize, totalRecord);
+						System.out.println(pdto);
+							
+						// 페이지에 해당하는 게시물을 가져오는 메서드 호출
+						List<BookDTO> list = this.dao.newbook(pdto);
+						
+						System.out.println("kr list >>>>" + list);
+						
+						model.addAttribute("List", list).
+						      addAttribute("Paging", pdto)
+							  .addAttribute("totalR", totalRecord);
+						
+						return "plusList/newList";	
+					}
 	}
  

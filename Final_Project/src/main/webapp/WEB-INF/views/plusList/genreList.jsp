@@ -27,12 +27,13 @@
 		
 			<div class="cate_kind">
 				<!-- 좌측 카테고리바 -->
+				<h2>${category }</h2> 
 				<h2>${genre }(${totalnum })</h2> 
 				<br>
 				<br>
 				<div id="nav">
 				 <ul class="menu">
-				  <li><a href ="<%=request.getContextPath()%>/tolist.go?bookCategory=국내도서 ">국내서적</a>
+				  <li><a href ="#">국내서적</a>
 				   <ul class="sub">
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=문학">문학</a></li>
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=취미">취미</a></li>
@@ -42,7 +43,7 @@
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=자기개발">자기개발</a></li>
 				   </ul>
 				  </li>
-				  <li><a href ="<%=request.getContextPath()%>/tolist.go?bookCategory=일본도서 ">일본서적</a>
+				  <li><a href ="# ">일본서적</a>
 				   <ul class="sub">
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=문학">문학</a></li>
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=공포/호러">공포/호러</a></li>
@@ -50,7 +51,7 @@
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=자기개발">자기개발</a></li>
 				   </ul>
 				  </li>
-				  <li><a href ="<%=request.getContextPath()%>/tolist.go?bookCategory=해외도서 ">해외서적</a>
+				  <li><a href ="#">해외서적</a>
 				   <ul class="sub">
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=해외도서 &bookGenre=문학">문학</a></li>
 				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=해외도서 &bookGenre=공포/호러">공포/호러</a></li>

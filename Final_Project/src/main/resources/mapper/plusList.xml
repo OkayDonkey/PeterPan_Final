@@ -41,7 +41,7 @@ SELECT * FROM (
  ]]>
   </select>
 
-  
+
   <!-- 장르, 카테고리 카운트 쿼리문   -->
   <select id="genre" parameterType="map" resultType="int">
 	select count(*) from book where bookCategory=#{Category} and bookGenre=#{Genre}
@@ -97,5 +97,55 @@ SELECT * FROM (
     where rnum >= #{startNo} and rnum <= #{endNo};
    ]]>
 </select>
+
+
+<!-- 베스트 탭 나열 -->
+	<select id="bestL" resultType="int" >
+SELECT count(*)
+	FROM book
+	WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)	
+	</select>
+	
+	
+	<select id="bestList" parameterType="pageDto" resultType="bookDto">
+SELECT *
+FROM (
+    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookLike DESC) AS rnum
+    FROM (
+        SELECT *
+        FROM book
+        WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+    ) AS b
+) AS sub
+				<![CDATA[
+    where sub.rnum >= #{startNo} and sub.rnum <= #{endNo};
+   ]]>
+	</select>
+	
+	
+	
+	<!-- 시간 탭 나열 -->
+		<select id="newL" resultType="int" >
+		SELECT count(*)
+		FROM book
+		WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)	
+		</select>
+	
+	
+	<select id="new" parameterType="pageDto" resultType="bookDto">
+		 SELECT *
+		FROM (
+		    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum
+		    FROM (
+		        SELECT *
+		        FROM book
+		        WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+		    ) AS b
+		) AS sub
+				<![CDATA[
+    where sub.rnum >= #{startNo} and sub.rnum <= #{endNo};
+   ]]>
+  </select>
+
 
   </mapper>

@@ -30,8 +30,8 @@
 	href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles"
 	href="resources/css/vendor.min.css" />
-	
-	
+
+<link rel="stylesheet" href="resources/css/top/top.css" >
 	
 <style>
 
@@ -102,11 +102,6 @@ width: 60px;
 }
 </style>
 
-	<script type="text/javascript">
-	$(document).ready(funtion(){
-		$("#keyboard .keywordlist").hide();
-	});
-	</script>
 
 <body>
 
@@ -146,22 +141,23 @@ width: 60px;
 					<form method="post"
 						action="<%=request.getContextPath()%>/total_main_search.go">
 						<!--서치 링크-->
-						<div class="flex-grow-1 my-1 order-sm-2" id="keyboard" style="border: 1px solid black; border-radius: 40px;width:500px;padding-top: 10px;height: 50px;">
+						<div class="flex-grow-1 my-1 order-sm-2" id="keyboard">
 							<div class="input-group flex-nowrap keywordlist">
 								<div class="input-group-prepend" style="align-content: center;">
 									
 									<!-- 서치 옵션 -->
-									<select name="field">
-										<option value="title">제목</option>
-										<option value="writer">작가</option>
-										<option value="genre">장르</option>
+								
+									<select name="field" style="height:47px; border-top-left-radius: 15px;border-bottom-right-radius: 15px;width: 100px;border: none;text-align: center;">
+										<option value="title" class="opitem">제목</option>
+										<option value="writer"class="opitem">작가</option>
+										<option value="genre"class="opitem">장르</option>
 									</select>
-									
+ 									
 									<!-- 서치 옵션 end -->
 									<input name="keyword"
-											style="width:400px;height: 30px;border: none;margin-left:20px;">
+											style="width:400px;height: 30px;border: none;margin-left:1px;margin-top: 10px;">
 									<input type="image" src="resources\css\s_img\ser_img.png" alt="제출버튼" 
-										style="border-top-left-radius: 20px;border-bottom-right-radius: 20px; bg-coloer:white;width:34px;height:33px;">
+										style="border-bottom-right-radius: 20px; bg-coloer:white;width:34px;height:30px;margin-top: 10px;">
 								</div>
 							</div>
 						</div>
@@ -314,9 +310,11 @@ width: 60px;
 					<%
 						}
 					%>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" style="padding: 1em;"
-						href="LoadRestaurantList.do"><i class="mr-1"></i>몰까요~</a></li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" style="padding: 1em;"
+						href="bestListbook.go"><i class="mr-1"></i>베스트</a></li>
+						
+				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" style="padding: 1em;"
+						href="newbook.go"><i class="mr-1"></i>신작</a></li>
 				</ul>
 			</div>
 				<div class ="login" style="right: 10PX;">
@@ -333,7 +331,7 @@ width: 60px;
 						
 						<c:set var="session" value="${session }" />
 						<c:if test="${session.memberId == null }">
-						    <input type="button" value="로그인" onclick="location.href='login.go'">
+							    <input type="button" value="로그인" onclick="location.href='login.go'">
 						</c:if>
 						
 						<c:if test="${session.memberId != null }">
@@ -344,12 +342,12 @@ width: 60px;
 				<div class="my_info">
 					
 					<a href="<%=request.getContextPath() %>/myPage.go">
-					<img src="resources\css\s_img\us23.png">
+						<img src="resources\css\s_img\us23.png">
 					</a>
 
 				<c:choose>
 					<c:when test="${empty session.memberId }">
-						<div onclick="needLogin();">
+						<div onclick="needLogin();" style="margin-left: 15px;">
 							<img src="resources\css\s_img\cart_b.png">
 						</div>
 					</c:when>
@@ -390,6 +388,9 @@ width: 60px;
 			      popupElement.hidden = false;
 			    }
 			  }
+		  
+		  
+		  
 		</script>
 	</header>
 		<div style="margin:200px; ">

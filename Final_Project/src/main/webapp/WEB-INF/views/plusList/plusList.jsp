@@ -22,7 +22,7 @@
 		
 			<div class="cate_kind">
 				<!-- 좌측 카테고리바 -->
-				<h2>${category }(${totalnum })</h2> 
+				<h2>${bookCategory }(${totalnum })</h2> 
 				<br>
 				<br>
 				<div id="nav">
