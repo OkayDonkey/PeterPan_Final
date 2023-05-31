@@ -104,7 +104,7 @@ width: 60px;
 
 
 <body>
-
+<div id="HOME" ></div>
 <%-- 
 
  	<c:if test="${sessionScope.Id == null }">
@@ -393,7 +393,7 @@ width: 60px;
 		  
 		</script>
 	</header>
-		<div style="margin:200px; ">
+		<div style="margin-bottom:200px; ">
 		
 		</div>
 		

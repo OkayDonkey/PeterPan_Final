@@ -14,4 +14,9 @@ public class PurchaseDTO {
 	private int bookNo;
 	private int bookEA;
 	
+	// 구매내역 보기 위한 정보
+	private String bookName;
+	private String bookPrice;
+	private String bookCover;
+	
 }

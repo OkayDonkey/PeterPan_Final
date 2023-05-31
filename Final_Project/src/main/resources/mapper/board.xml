@@ -26,5 +26,12 @@
 		INSERT INTO board (boardNO, memberNo, boardArea, boardCategory, boardTitle, boardContent, boardFile, boardRegdate, boardHit)
 		VALUES (#{boardNO}+1, #{memberNo}, #{boardArea}, #{boardCategory}, #{boardTitle}, #{boardContent}, #{boardFile}, NOW(), 0)
 	</insert>
+	
+	<select id="searchList" parameterType="map" resultType="boarddto">
+		SELECT * FROM board WHERE (boardArea = #{boardArea}) AND (boardTitle LIKE CONCAT('%', #{keyword}, '%') OR boardContent LIKE CONCAT('%', #{keyword}, '%')) ORDER BY boardNO DESC
+	</select>
+	
+	
+	
   
   </mapper>

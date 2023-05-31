@@ -19,6 +19,7 @@
 <body>
 
 	<jsp:include page="./top/top.jsp" /> 
+	<jsp:include page="top/floating.jsp" />
 			<!-- 슬라이드부 start -->
 			<div class="slide_div_wrap" >
 				<div class="slide_div">
@@ -52,7 +53,7 @@
 						<c:set var="list" value="${List }" />
 						<c:forEach items="${list }" var="dto" varStatus="status">
 							<c:if test="${status.index < 5 }">
-								<div class="new_book">
+								<div class="new_book" onclick="RecentlyViewedBook('${dto.bookName}', '${dto.bookCover}', '${dto.bookWriter}', '${dto.bookPrice}');">
 									<table>
 										<thead>
 											<tr>
@@ -104,7 +105,7 @@
 						<c:set var="bestlist" value="${bestList}" />
 						<c:forEach items="${bestlist}" var="B_dto" varStatus="status">
 							<c:if test="${status.index < 10}">
-								<div class="best_book">
+								<div class="best_book"  onclick="RecentlyViewedBook('${B_dto.bookName}', '${B_dto.bookCover}', '${B_dto.bookWriter}', '${B_dto.bookPrice}');">
 									<div class="best_rank">
 										<span>${status.index + 1}</span>
 									</div>							

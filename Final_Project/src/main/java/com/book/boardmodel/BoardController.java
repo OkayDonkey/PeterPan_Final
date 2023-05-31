@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.book.model.BoardDTO;
+import com.book.model.MemberDTO;
 
 @Controller
 public class BoardController {
@@ -63,31 +65,30 @@ public class BoardController {
 	}
 
 	@RequestMapping("boardQna.go")
-	public String boardQna() {
-		return "board/qnaForm";
-	}
-	
-	@RequestMapping("board_qna_ok.go")
-	public void qnaOk(BoardDTO dto, HttpServletResponse response) throws IOException {
+	public void boardQna(HttpSession session, HttpServletResponse response) throws Exception {
 		
-		int check = this.dao.insertQna(dto);
+		MemberDTO memberdto = (MemberDTO) session.getAttribute("session");
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter out = response.getWriter();
 		
-		if(check > 0) {
+		if(memberdto != null) {
 			out.println("<script>");
-			out.println("alert('접수 성공!!!')");
-			out.println("location.href='boardQna.go'");
+			out.println("location.href='boardQna_go.go'");
 			out.println("</script>");
 		}else {
 			out.println("<script>");
-			out.println("alert('접수 실패')");
-			out.println("history.back()");
+			out.println("alert('로그인 후 가능합니다.')");
+			out.println("location.href='login.go'");
 			out.println("</script>");
 		}
+	}
+	
+	@RequestMapping("boardQna_go.go")
+	public String boardQnaGo() {
 		
+		return "board/qnaForm";
 	}
 	
 	@RequestMapping("boardArs.go")
@@ -103,17 +104,30 @@ public class BoardController {
 		return "board/qnaForm";
 	}
 	
-	@RequestMapping("upload_ok.do")
-	public String uploadOk(Model model, MultipartHttpServletRequest mRequest) {
-	
-		if(this.upload.fileUpload(mRequest) ) {
-			model.addAttribute("result", "파일 업로드 성공");
-			}else {
-				model.addAttribute("result", "파일 업로드 실패");
-		}
-		return "board/boardPage";
+	@RequestMapping("board_search.go")
+	public String boardSearch(@RequestParam("keyword") String keyword, @RequestParam("boardArea") String boardArea, Model model) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("keyword", keyword);
+		map.put("boardArea", boardArea);
+		
+		System.out.println("map >>> " + map);
+
+		List<BoardDTO> searchList = this.dao.searchList(map);
+		
+		System.out.println("searchList >>> " + searchList);
+		
+		model.addAttribute("searchList", searchList);
+		
+		return "board/boardSearch";
+		
 	}
 	
+	@RequestMapping("board_notice.go")
+	public String boardNotice() {
+		return "board/boardNotice";
+	}
 
 
 }

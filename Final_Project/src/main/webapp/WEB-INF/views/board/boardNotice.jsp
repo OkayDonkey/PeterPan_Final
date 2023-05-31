@@ -37,7 +37,7 @@
 					<h2 class="title_heading">질문 검색</h2>
 				</div>
 				<!-- 검색창 -->
-				<form method="post" action="<%=request.getContextPath()%>/board_search.go?boardArea=FAQ">
+				<form method="post" action="<%=request.getContextPath()%>/board_noticeOk.go">
 					<div class="input_text_box">
 						<div class="input_btn_box">
 							<div class="form_ip_search">
@@ -75,17 +75,14 @@
 			</div>
 			
 				<!-- 아코디언 형식 리스트 -->	
-				<div id="title_category">
-					<p class="category_title"></p>
-				</div>
-				<div id="accordion"></div>	
-				
-				<!-- 아코디언 형식 리스트 js -->	
-				<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
+				<div id="title_category"></div>
+			
+			
 			
 			</div>
 		</div>
 	</div>
+	
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
 

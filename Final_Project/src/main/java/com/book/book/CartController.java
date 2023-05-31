@@ -174,8 +174,10 @@ public class CartController {
 		String memberId =sessiondto.getMemberId(); 
 		System.out.println(memberId);
 		
+		// 장바구니 목록 불러오기
 		List<CartDTO> list = this.Cdao.getcartList(memberId);
 		
+		// 현재 날짜 / 분 까지의 데이터와 4자리의 랜덤번호를 지정받아 구매영수번호를 만든다.
 		String PurchaseLabel = generateRandomNumber();
 		
 		
@@ -190,12 +192,17 @@ public class CartController {
 			
 			System.out.println("구매정보 "+dto);
 			
+			// 장바구니 목록의 크기만큼 insert문을 실행해준다.
 			this.Cdao.insertPurchase(dto);
 			
 		}
 		
+		// 해당 유저의 장바구니 내역과 사용한 쿠폰을 삭제처리한다.
 		this.Cdao.deleteMemCart(memberId);
 		this.Cdao.deleteCoupon(couponNo);
+		
+		
+		
 		
 		return "cart/successBuy";
 		
@@ -207,7 +214,7 @@ public class CartController {
 	        LocalDateTime now = LocalDateTime.now();
 
 	        // 형식 지정을 위한 DateTimeFormatter 생성
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
 
 	        // 현재 날짜와 시간 정보를 형식에 맞게 포맷팅
 	        String formattedDateTime = now.format(formatter);

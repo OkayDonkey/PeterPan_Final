@@ -1,6 +1,5 @@
 package com.book.member;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -18,8 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.membermodel.LoginService;
 import com.book.membermodel.MypageService;
+import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
 import com.book.model.MemberDTO;
+import com.book.model.PurchaseDTO;
 
 @Controller
 public class MypageController {
@@ -177,6 +178,36 @@ public class MypageController {
 	        out.println("</script>");
 		}
 		
+	}
+	
+	@RequestMapping("orderHistory.go")
+	public String orderHistory(Model model, HttpSession session) {
+		
+		MemberDTO dto = (MemberDTO) session.getAttribute("session");
+		
+		List<PurchaseDTO> list = this.service.purchaseList(dto.getMemberId());
+		
+		model.addAttribute("List", list);
+		
+		return "member/myPage/orderHistory";
+	}
+	
+	@RequestMapping("qnaList.go")
+	public String qnaList(Model model, HttpSession session) {
+		
+		MemberDTO dto = (MemberDTO) session.getAttribute("session");
+		
+		List<BoardDTO> totalList = this.service.qnaList(dto.getMemberNo());
+		
+		List<BoardDTO> noAnswerList = this.service.noAnswerqnaList(dto.getMemberNo());
+		
+		List<BoardDTO> answerOkList = this.service.answerOkqnaList(dto.getMemberNo());
+		
+		model.addAttribute("TotalList", totalList).
+			  addAttribute("noAnswerList", noAnswerList).
+			  addAttribute("answerOkList", answerOkList);
+		
+		return "member/myPage/qnaList";
 	}
 
 }
