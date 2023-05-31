@@ -1,0 +1,128 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="resources/css/totalList/totalList.css">
+
+
+</head>
+<body>
+<jsp:include page="../top/top.jsp" /> 
+
+	<div class="list_container">
+	     <c:set var="list" value="${List }" />
+	     <c:set var="paging" value="${Paging }" />
+		
+		<div class="table_cont">
+		
+			<div class="cate_kind">
+				<!-- 좌측 카테고리바 -->
+				<h2>${category }(${totalnum })</h2> 
+				<br>
+				<br>
+				<div id="nav">
+				 <ul class="menu">
+				  <li><a href="#">국내서적</a>
+				   <ul class="sub">
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=문학">문학</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=취미">취미</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=역사">역사</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=외국어">외국어</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=참고서">참고서</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=국내도서 &bookGenre=자기개발">자기개발</a></li>
+				   </ul>
+				  </li>
+				  <li><a href="#">일본서적</a>
+				   <ul class="sub">
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=문학">문학</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=공포/호러">공포/호러</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=취미">취미</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=자기개발">자기개발</a></li>
+				   </ul>
+				  </li>
+				  <li><a href="#">해외서적</a>
+				   <ul class="sub">
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=해외도서 &bookGenre=문학">문학</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=해외도서 &bookGenre=공포/호러">공포/호러</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=해외도서 &bookGenre=취미">취미</a></li>
+				    <li><a href ="<%=request.getContextPath()%>/genreList.go?bookCategory=해외도서 &bookGenre=자기개발">자기개발</a></li>
+				   </ul>
+				  </li>
+				 </ul>
+				</div>
+				
+				<!-- 좌측 바 end -->
+			</div>
+		
+			<table class="table_list">
+				<c:forEach var="dto" items="${list }">
+					<tr>
+						<th>
+							<a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}">			
+								<img class ="table_img" src="${dto.bookCover }">
+							</a> 
+						</th>
+							<td style="text-align: left;">
+								<a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}">
+									<span class="bookname">${dto.bookName }</span>
+									<br>
+									<span class="bookwri">${dto.bookWriter }</span>
+								</a> 
+							</td>
+							<td>
+									<span class="bookpri">${dto.bookPrice } 원</span>
+							</td>
+						<td>
+							<input type="button" value="장바구니" onclick ="location.href='cart.go'" class="inputA">
+							<br>
+							<input type="button" value="바로구매" onclick ="location.href='cart.go'"class="inputB">
+						</td>
+					</tr>
+				</c:forEach>
+			</table>	      
+	
+		</div>
+	 	   <%-- 페이징 처리 출력 부분 --%>
+	 	 <div class="pagingout">
+	   <c:if test="${paging.page > paging.block }">
+	      <a href="tolist.go?page=1&bookCategory=${bookCategory }">[처음으로]</a>
+	      <a href="tolist.go?page=${paging.startBlock - 1 }&bookCategory=${bookCategory }">◀</a>
+	   </c:if>
+	   
+	   <c:forEach begin="${paging.startBlock }"
+	   				end="${paging.endBlock }" var="i">
+	   
+	      <c:if test="${i == paging.page }">
+	         <b><a href="tolist.go?page=${i }&bookCategory=${bookCategory }">[${i }]</a></b>
+	      </c:if>
+	      
+	      <c:if test="${i != paging.page }">
+	         <a href="tolist.go?page=${i }&bookCategory=${bookCategory }">[${i }]</a>
+	      </c:if>
+	      
+	   </c:forEach>
+	   
+	   <c:if test="${paging.endBlock < paging.allPage }">
+	      <a href="tolist.go?page=${paging.endBlock + 1 }&bookCategory=${bookCategory }">▶</a>
+	      <a href="tolist.go?page=${paging.allPage }&bookCategory=${bookCategory }">[마지막으로]</a>
+	   </c:if>
+	   </div>
+	</div>
+	   	<jsp:include page="../top/footer.jsp" />
+	   
+	     <!-- 좌측 토글 버튼-->
+	   <script type="text/javascript">
+	$(document).ready(function(){
+		$("#nav ul.sub").hide();
+		$("#nav ul.menu li").click(function(){
+			$("ul",this).slideToggle("fast");
+		});
+	});
+</script>
+</body>
+</html>

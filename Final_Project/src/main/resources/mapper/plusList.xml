@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="pluslistDao">
+  
+  <select id="count" resultType="int">
+  select count(*) from book
+  </select>
+  
+  <select id="cate" parameterType="String" resultType="int">
+  	select count(*) from book where bookCategory=#{category}
+  </select>
+  
+  
+  
+  <select id="List" parameterType="pageDto" resultType="bookDto">
+ <![CDATA[
+SELECT * FROM (
+    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = '한국도서')
+    AS sub
+		WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
+    		
+
+ ]]>
+
+  </select>
+  
+  
+  
+  
+  <select id="tolist" parameterType="pageDto" resultType="bookDto">
+ <![CDATA[
+SELECT * FROM (
+    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = #{Category}) AS sub
+		WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
+ ]]>
+  </select>
+
+  
+  <!-- 장르, 카테고리 카운트 쿼리문   -->
+  <select id="genre" parameterType="map" resultType="int">
+	select count(*) from book where bookCategory=#{Category} and bookGenre=#{Genre}
+  </select>
+  
+  
+	  <select id="gen" parameterType="pageDto" resultType="bookDto">
+			SELECT * FROM (
+			    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = #{Category} AND bookGenre=#{Genre}) AS sub
+	  	 <![CDATA[
+					WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
+			 ]]>
+	  </select>
+  
+  
+  
+  
+<select id="search" parameterType="map" resultType="int">
+    select count(*) from book
+    
+    <if test="field == 'title'">
+        where bookName like concat('%', #{keyword} ,'%')
+    </if>
+    <if test="field == 'writer'">
+        where bookWriter like concat('%', #{keyword}, '%')
+    </if>
+    <if test="field == 'genre'">
+        where bookGenre like concat('%', #{keyword}, '%')
+    </if>
+    
+</select>
+    
+    
+    
+    
+	<select id="searchOk" parameterType="pageDto" resultType="bookDto">
+    select * from (
+        select b.*, row_number() over(order by bookNo desc) as rnum
+        from book b
+        <choose>
+            <when test="field=='title'">
+                where bookName like concat('%', #{keyword}, '%')
+            </when>
+            <when test="field=='genre'">
+                where bookGenre like concat('%', #{keyword}, '%')
+            </when>
+            <when test="field=='writer'">
+                where bookWriter like concat('%', #{keyword}, '%')
+            </when>
+        </choose>
+    ) as sub
+   <![CDATA[
+    where rnum >= #{startNo} and rnum <= #{endNo};
+   ]]>
+</select>
+
+  </mapper>
