@@ -102,7 +102,7 @@ margin-left: 5px;
 </style>
 
 <body>
-
+<div id="HOME" ></div>
 <%-- 
 
  	<c:if test="${sessionScope.Id == null }">
@@ -369,7 +369,7 @@ margin-left: 5px;
 			  }
 		</script>
 	</header>
-		<div style="margin:200px; ">
+		<div style="margin-bottom:200px; ">
 		
 		</div>
 		

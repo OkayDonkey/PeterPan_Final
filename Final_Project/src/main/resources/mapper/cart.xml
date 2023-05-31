@@ -55,7 +55,9 @@
 	</select>
 	
 	<select id="couponList" parameterType="String" resultType="couponDto">
-		select * from fianlB.coupon where memberId = #{value}
+		SELECT (@sequence := @sequence + 1) AS couponNo, couponSale, memberId
+		FROM fianlB.coupon, (SELECT @sequence := 0) AS init	WHERE memberId = #{value} 
+		ORDER BY couponNo;
 	</select>
 	
 	<delete id="deleteCoupon" parameterType="int">

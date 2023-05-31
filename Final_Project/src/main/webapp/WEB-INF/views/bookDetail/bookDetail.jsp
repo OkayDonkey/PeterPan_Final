@@ -98,14 +98,16 @@ response.setDateHeader("Expires", 0); // Proxies
 <!-- 구매 하단 호버 바 End-->
 
 <!-- 		Incloud Top Area		 -->
+
 		<jsp:include page="../top/top.jsp" />
 
+		<jsp:include page="../top/floating.jsp" />
 		
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
-
+		
 <div>
 	<ul class="cateBar" >
-		<li><a class="homeIcon" href="<%=request.getContextPath()%>/"></a></li>
+		<li><a class="homeIcon" href="<%=request.getContextPath()%>/" ></a></li>
 		<li><a href="#">${book.bookCategory }
 		<img style="width:18px; vertical-align: sub;" id="categoryIco1" src="resources/img/pointIco.png" onclick="resetActivePopup(),togglePopup('catePopup1', 'categoryIco1', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">&nbsp;/
 		</a></li>
