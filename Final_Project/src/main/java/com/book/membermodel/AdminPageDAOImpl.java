@@ -31,4 +31,14 @@ public class AdminPageDAOImpl implements AdminPageDAO{
 		return this.sqlSession.selectList("qnaList");
 	}
 
+	@Override
+	public int blockMember(MemberDTO dto) {
+		return this.sqlSession.update("blockMember", dto);
+	}
+
+	@Override
+	public int unblockMember(MemberDTO dto) {
+		return this.sqlSession.update("unblockMember", dto);
+	}
+
 }

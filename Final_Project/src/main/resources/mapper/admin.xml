@@ -7,7 +7,7 @@
   <mapper namespace="admindao">
   	
   	<select id="memberList" resultType="memberdto">
-  		select * from member where memberTier= 1 order by memberNo desc
+  		select * from member where memberTier = 1 or memberTier = 999  order by memberNo desc
   	</select>
   	
   	<select id="bookList" resultType="bookDto">
@@ -17,5 +17,13 @@
   	<select id="qnaList" resultType="boarddto">
   		SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' ORDER BY boardRegdate DESC
   	</select>
+  	
+  	<update id="blockMember" parameterType="memberdto">
+  		update member set memberTier = 999 where memberId = #{memberId} and memberName = #{memberName}
+  	</update>
+  	
+  	<update id="unblockMember" parameterType="memberdto">
+  		update member set memberTier = 1 where memberId = #{memberId} and memberName = #{memberName}
+  	</update>
   	
   </mapper>

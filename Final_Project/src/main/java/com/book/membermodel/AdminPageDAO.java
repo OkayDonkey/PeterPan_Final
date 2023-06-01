@@ -14,4 +14,8 @@ public interface AdminPageDAO {
 
 	List<BoardDTO> qnaList();
 
+	int blockMember(MemberDTO dto);
+
+	int unblockMember(MemberDTO dto);
+
 }

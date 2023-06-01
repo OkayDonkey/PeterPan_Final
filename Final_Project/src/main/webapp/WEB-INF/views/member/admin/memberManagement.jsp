@@ -70,44 +70,53 @@
 								    <p class="title_heading">회원관리</p>
 								</div>
 								<c:if test="${!empty mList }">
-								<c:forEach items="${mList }" var="mdto">
-									<div class="order_history_group">
-							            <div class="order_history_box" style="flex: 0.1 0;">
+								<c:forEach items="${mList}" var="mdto">
+								  <div class="order_history_group">
+								    <div class="order_history_box" style="flex: 0.1 0;">
+								      <button type="button" class="btn_filter_history">
+								        <span class="history_desc">${mdto.memberNo}</span>
+								      </button>
+								    </div>
+								    <div class="order_history_box" style="flex: 0.6 0;">
+								      <button type="button" class="btn_filter_history">
+								        <span class="history_desc" id="memberId">${mdto.memberId}</span>
+								      </button>
+								    </div>
+								    <div class="order_history_box" style="flex: 0.4 0;">
+								      <button type="button" class="btn_filter_history">
+								        <span class="history_desc" id="memberName">${mdto.memberName}</span>
+								      </button>
+								    </div>
+								    <div class="order_history_box" style="flex: 0.8 0;">
+								      <button type="button" class="btn_filter_history">
+								        <span class="history_desc">${mdto.memberPhone}</span>
+								      </button>
+								    </div>
+								    <div class="order_history_box" style="flex: 1.3 0;">
+								      <button type="button" class="btn_filter_history">
+								        <span class="history_desc">${mdto.memberEmail}</span>
+								      </button>
+								    </div>
+								    <div class="order_history_box" style="flex: 1.3 0;">
+								      <button type="button" class="btn_filter_history">
+								        <span class="history_desc">${mdto.addrMain} ${mdto.addrDetail}</span>
+								      </button>
+								    </div>
+								    <c:if test="${mdto.memberTier == 1 }">
+									    <div class="order_history_box" style="flex: 0.4 0;">
 							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${mdto.memberNo}</span>
+							                    <span class="history_desc" onclick="blockMembershipModal('${mdto.memberId}', '${mdto.memberName}')" style="text-align: center;"> 커뮤니티 <br>차단</span>
 							                </button>
 							            </div>
-							            <div class="order_history_box" style="flex: 0.6 0;">
+						            </c:if>
+						            <c:if test="${mdto.memberTier == 999 }">
+									    <div class="order_history_box" style="flex: 0.4 0;">
 							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${mdto.memberId}</span>
+							                    <span class="history_desc" onclick="unblockMembershipModal('${mdto.memberId}', '${mdto.memberName}')" style="text-align: center; color: red;"> 커뮤니티 <br>차단해제</span>
 							                </button>
 							            </div>
-							            <div class="order_history_box" style="flex: 0.4 0;">
-							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${mdto.memberName}</span>
-							                </button>
-							            </div>
-							            <div class="order_history_box" style="flex: 0.8 0;">
-							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${mdto.memberPhone}</span>
-							                </button>
-							            </div>
-							            <div class="order_history_box" style="flex: 1.3 0;">
-							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${mdto.memberEmail}</span>
-							                </button>
-							            </div>
-							            <div class="order_history_box" style="flex: 1.3 0;">
-							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${mdto.addrMain} ${mdto.addrDetail}</span>
-							                </button>
-							            </div>
-							            <div class="order_history_box" style="flex: 0.3 0;">
-							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">차단</span>
-							                </button>
-							            </div>
-							        </div>
+						            </c:if>
+								  </div>
 								</c:forEach>
 								</c:if>
 							</div>
@@ -117,6 +126,18 @@
 			</section>
 		</main>
 	</div>
+	
+	<div id="insertPopup" class="insertPopup"  hidden>
+      <div class="insertPopupBox">
+         <p class="first_write" style="margin-top: 14px;">해당 회원을 차단하시겠습니까?</p>
+         <div class="insertBox_btn"  style="display: flex; margin-top: 40px;">
+            <div class="RoundBox1"  onclick="closeModal()"><span>취소</span></div>
+            <div class="RoundBox2"><span class="allBlock">차단</span></div>
+         </div>
+      </div>
+   </div>
+	
+	<script type="text/javascript" src="resources/js/member/memberManagement.js"></script>
 	
 	<jsp:include page="../../top/footer.jsp" />
 

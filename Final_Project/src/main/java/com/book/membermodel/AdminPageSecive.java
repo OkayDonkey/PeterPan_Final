@@ -14,4 +14,8 @@ public interface AdminPageSecive {
 
 	List<BoardDTO> qnaList();
 
+	int blockMember(MemberDTO dto);
+
+	int unblockMember(MemberDTO dto);
+
 }

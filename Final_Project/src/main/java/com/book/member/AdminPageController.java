@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.membermodel.AdminPageSecive;
 import com.book.model.BoardDTO;
@@ -87,6 +88,32 @@ public class AdminPageController {
 		model.addAttribute("qnaList", qnalist);
 		
 		return "member/admin/qnaManagement";
+	}
+	
+	@RequestMapping("block_membership.go")
+	@ResponseBody
+	public String blockMembership(MemberDTO dto) {
+		
+		int check = this.service.blockMember(dto);
+		
+		if(check == 1) {
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("unblock_membership.go")
+	@ResponseBody
+	public String unblockMembership(MemberDTO dto) {
+		
+		int check = this.service.unblockMember(dto);
+		
+		if(check == 1) {
+			return "1";
+		}else {
+			return "0";
+		}
 	}
 
 }
