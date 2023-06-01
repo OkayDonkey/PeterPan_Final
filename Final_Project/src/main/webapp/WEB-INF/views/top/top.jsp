@@ -9,7 +9,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>피터팬</title>
 </head>
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -298,18 +298,6 @@ width: 60px;
 						</div>
 						</li>
 
-					<%
-						if (session.getAttribute("id") != null) {
-					%>
-
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle"
-						href="<%=request.getContextPath()%>/member_profile.do"><i
-							class="mr-1"></i>마이페이지</a></li>
-
-					<%
-						}
-					%>
 					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" style="padding: 1em;"
 						href="bestListbook.go"><i class="mr-1"></i>베스트</a></li>
 						
@@ -321,14 +309,6 @@ width: 60px;
 
 						<a href="$">회원가입</a>					
 					
-					<%--  	<c:if test="${sessionScope.Id == null }">
-							<input type="button" value="로그인" onclick="location.href='login.go'">
-						</c:if>
-				
-						<c:if test="${sessionScope.Id != null }">
-							<input type="button" value="로그아웃" onclick="location.href='logout.go'">
-						</c:if> --%>
-						
 						<c:set var="session" value="${session }" />
 						<c:if test="${session.memberId == null }">
 							    <input type="button" value="로그인" onclick="location.href='login.go'">
@@ -341,9 +321,18 @@ width: 60px;
 				</div>
 				<div class="my_info">
 					
-					<a href="<%=request.getContextPath() %>/myPage.go">
-						<img src="resources\css\s_img\us23.png">
-					</a>
+					<c:if test="${session.memberTier == 1 || empty session.memberTier }">
+						<a href="<%=request.getContextPath() %>/myPage.go">
+							<img src="resources\css\s_img\us23.png">
+						</a>
+					</c:if>
+					
+					<c:if test="${session.memberTier == 2 }">
+						<a href="<%=request.getContextPath() %>/adminPage.go">
+							<img src="resources\css\images\logo\managerIcon.png">
+						</a>
+					</c:if>
+					
 
 				<c:choose>
 					<c:when test="${empty session.memberId }">
