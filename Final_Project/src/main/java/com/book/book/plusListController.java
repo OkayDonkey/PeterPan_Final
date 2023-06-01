@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.book.bookmodel.plusListDAO;
 import com.book.model.BookDTO;
+import com.book.model.CartDTO;
 import com.book.model.PageDTO;
 
 @Controller
@@ -212,7 +213,7 @@ public class plusListController {
 		}
 	
 		@RequestMapping("bestListbook.go")
-		public String bestList(Model model,HttpServletRequest request) {
+		public String bestList(Model model,HttpServletRequest request,CartDTO cdto,BookDTO bdto) {
 			// 페이징 처리 작업
 			int page;    // 현재 페이지 변수
 			
@@ -235,11 +236,15 @@ public class plusListController {
 			// 페이지에 해당하는 게시물을 가져오는 메서드 호출
 			List<BookDTO> list = this.dao.getbestList(pdto);
 			
+			cdto.setCartCount(bdto.getBookNo());
+			
+			
 			System.out.println("kr list >>>>" + list);
 			
-			model.addAttribute("List", list).
-			      addAttribute("Paging", pdto)
-			      .addAttribute("total", totalRecord);
+			model.addAttribute("List", list)
+			      .addAttribute("Paging", pdto)
+			      .addAttribute("total", totalRecord)
+			      .addAttribute("cartC", cdto.getCartCount());
 			
 			return "plusList/bestList";	
 		}

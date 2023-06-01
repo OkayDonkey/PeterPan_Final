@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- 폰트 어썸 cdm -->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-  />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
   <!--  폰트 어썸 cdm end  -->
 
 <style>
@@ -103,7 +101,6 @@ text-decoration: none;
  
 </style>
 
-
    <footer class="footer">
       <div class="footer_wrap">
       
@@ -116,13 +113,13 @@ text-decoration: none;
          <div class="footer_box2">
          
             <span>
-            	<a href="#">약관 </a>  
+       	    	<a href="terms.go" target="_blank">약관</a>
             </span>
             <span>
-	            <a href="#">정보방식 </a>  
+	            <a href="protect.go"target="_blank">정보방식 </a>  
             </span>
             <span>
-	            <a href="#">청년보호 정책 </a>   
+	            <a href="kid.go"target="_blank">청년보호 정책 </a>   
             </span>
             <span>
 	            <a href='tel:010-0000-0000'>전화번호 </a>   
@@ -172,8 +169,6 @@ text-decoration: none;
          </div>
       </div>
    </footer>
-
-
 
 
 

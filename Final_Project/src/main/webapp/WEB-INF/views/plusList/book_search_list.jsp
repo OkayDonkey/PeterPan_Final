@@ -21,7 +21,6 @@
 			<div class="table_cont">
 				<div class="cate_kind">
 				<!-- 좌측 카테고리바 -->
-				<h4>검색 결과 (${stotal })</h4> 
 				<br>
 				<br>
 				<div id="nav">
@@ -57,7 +56,11 @@
 				
 				<!-- 좌측 바 end -->
 			</div>
-
+				<div class="Bcountg">
+					<span>전체</span> 
+					<span style="color: green;">(${stotal })</span>
+					<span>건</span> 
+				</div>
 	<table class="table_list">
 	     <c:if test="${!empty list }">
 			<c:forEach var="dto" items="${list }">
@@ -78,9 +81,33 @@
 							<span class="bookpri">${dto.bookPrice } 원</span>
 					</td>
 					<td>
-						<input type="button" value="장바구니" onclick ="location.href='cart.go'" class="inputA">
-						<br>
-						<input type="button" value="바로구매" onclick ="location.href='cart.go'" class="inputB">
+						
+							<!-- 장바구니 버튼 -->
+							<c:if test="${empty session.memberId}">
+							    <!-- 세션의 memberId가 비어있을 때 실행되는 부분 -->
+							        <input type="button" value="장바구니" onclick="needLogin();" class="inputA">							
+							    <br>	
+							    	
+							</c:if>
+							
+							<c:if test="${!empty session.memberId}">
+							    <!-- 세션의 memberId가 비어있지 않을 때 실행되는 부분 -->
+							    <input type="button" value="장바구니" onclick="cartGo(${dto.bookNo}, '${session.memberId}',${dto.bookPrice }, 1);" class="inputA">
+							    
+							    <br>
+							</c:if>
+
+
+							<!-- 구매 버튼 -->
+							<c:if test="${empty session.memberId}">
+							    <!-- 세션의 memberId가 비어있을 때 실행되는 부분 -->
+							        <input type="button" value="바로구매" onclick="needLogin();" class="inputB">						    	
+							</c:if>
+							
+							<c:if test="${!empty session.memberId}">
+							    <!-- 세션의 memberId가 비어있지 않을 때 실행되는 부분 -->
+							    <input type="button" value="바로구매" onclick="buyGo(${dto.bookNo}, '${session.memberId}',${dto.bookPrice }, 1);" class="inputB"> 
+							</c:if>
 					</td>
 					
 				</tr>
@@ -136,5 +163,19 @@
 		
 	});
 </script>
+
+	<script>
+    function cartGo(bookNo, memberId,bookPrice,cartCount) {
+        // bookNo와 memberId를 활용한 원하는 동작 수행
+        // 예: 링크로 페이지 이동
+        window.location.href = 'cart.go?bookNo=' + bookNo + '&memberId=' + memberId+'&bookPrice'+bookPrice + '&cartCount=' + cartCount;
+    }
+    function buyGo(bookNo, memberId,bookPrice,cartCount) {
+        // bookNo와 memberId를 활용한 원하는 동작 수행
+        // 예: 링크로 페이지 이동
+        window.location.href = 'buy.go?bookNo=' + bookNo + '&memberId=' + memberId+'&bookPrice'+bookPrice + '&cartCount=' + cartCount;
+    }
+</script>
+
 </body>
 </html>

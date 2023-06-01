@@ -46,7 +46,7 @@
 	
 				<div class="new_books">
 					<div class="books_plus">
-						<span>신간</span> <a href="#"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px; ">더보기</a>
+						<span>신간</span> <a href="newbook.go"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px; ">더보기</a>
 					</div>
 	
 					<div class="new_book_wrap">
@@ -98,7 +98,7 @@
 	
 				<div class="best_books">
 					<div class="books_plus">
-						<span>베스트 작품</span> <a href="#"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px;">더보기</a>
+						<span>베스트 작품</span> <a href="bestListbook.go"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px;">더보기</a>
 					</div>
 					
 					<div class="best_book_wrap">
