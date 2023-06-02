@@ -13,6 +13,9 @@ public class PurchaseDTO {
 	private String memberId;
 	private int bookNo;
 	private int bookEA;
+	private int usedCouponCost;
+	private int usedPoint;
+	private int paymentCost;
 	
 	// 구매내역 보기 위한 정보
 	private String bookName;

@@ -80,8 +80,15 @@ response.setDateHeader("Expires", 0); // Proxies
 					<div class="RoundBox_l_white" onclick="cart_1()">장바구니</div>
 				</c:when>
 			</c:choose>
-
-		<div class="RoundBox_l">바로구매</div>
+			
+			<c:choose>
+				<c:when test="${empty session.memberId }">
+					<div class="RoundBox_l_white" onclick="needLogin();">바로구매</div>
+				</c:when>
+				<c:when test="${!empty session.memberId }">
+					<div class="RoundBox_l" onclick="directBuy()">바로구매</div>
+				</c:when>
+			</c:choose>
 	</div>
 </div>
 
@@ -687,6 +694,11 @@ response.setDateHeader("Expires", 0); // Proxies
 	function cart_1(){
 	  // cartPrice와 cartQuantity를 미리 할당
 	  location.href = 'cart.go?bookNo=' + bookNo + '&memberId=' + memberId + '&totalPrice=' + cartPrice + '&cartCount=' + cartQuantity;
+	}
+	
+	function directBuy(){
+	  // cartPrice와 cartQuantity를 미리 할당
+	  location.href = 'directBuy.go?bookNo=' + bookNo + '&memberId=' + memberId + '&totalPrice=' + cartPrice + '&cartCount=' + cartQuantity;
 	}
 
 </script>

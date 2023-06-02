@@ -123,7 +123,7 @@ width: 60px;
 			<!-- navbar brand-->
 			<div style="width:200px; margin-left: 30px;">
 				<a	href="<%=request.getContextPath()%>/"> 
-					<img src="resources/css/s_img/logo.png" style=" width: 150px; height: 150px;display: inline-block;" />
+					<img src="resources/img/peterPanLogo.png" style=" width: 150px;  display: inline-block;" />
 				</a>
 			</div>
 			<!-- navbar collapse area-->
