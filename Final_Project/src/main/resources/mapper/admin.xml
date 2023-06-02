@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="admindao">
+  	
+  	<select id="memberList" resultType="memberdto">
+  		select * from member where memberTier = 1 or memberTier = 999  order by memberNo desc
+  	</select>
+  	
+  	<select id="bookList" resultType="bookDto">
+  		select * from book order by bookNO desc
+  	</select>
+  	
+  	<select id="qnaList" resultType="boarddto">
+  		SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' ORDER BY boardRegdate DESC
+  	</select>
+  	
+  	<update id="blockMember" parameterType="memberdto">
+  		update member set memberTier = 999 where memberId = #{memberId} and memberName = #{memberName}
+  	</update>
+  	
+  	<update id="unblockMember" parameterType="memberdto">
+  		update member set memberTier = 1 where memberId = #{memberId} and memberName = #{memberName}
+  	</update>
+  	
+  </mapper>

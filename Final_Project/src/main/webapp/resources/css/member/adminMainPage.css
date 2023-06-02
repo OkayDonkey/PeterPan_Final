@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+.title_wrap.title_size_md.has_btn {
+  display: block;
+}
+
+.order_history_group {
+  padding: 10px 0px;
+}
+
+.order_history_group ~ .order_history_group {
+  margin-top: 5px;
+}
+
+.pluscontents {
+  display: flex; 
+  justify-content: flex-end;
+  font-size: 13px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.memberwrap ~ .bookrwrap {
+  margin-top: 40px;
+}
+
+.bookrwrap ~ .qnarwrap {
+  margin-top: 40px;
+}
+
+.order_history_group .order_history_box {
+  display: flex;
+  vertical-align: middle;
+}
+
+.title_wrap.title_size_md {
+  padding-bottom: 0px;
+}
+
+.insertPopupBox {
+    text-align: center;
+    z-index: 2300;
+    width: 340px;
+    height: 222px;
+    background-color: white;
+    padding: 45px 28px;
+    border-radius: 12px;
+}
+
+.insertPopup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: #0000007d;
+   border-radius: 5px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   height: 100%;
+   z-index: 2000;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+}
+
+.insertBox_btn {
+   display: flex;
+}
+
+.first_write {
+   font-weight: 900;
+    color: black;
+    font-size: 16px;
+}
+
+.allBlock {
+    width: 135px;
+    height: 44px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .RoundBox1 {
+    cursor: pointer;
+  }
