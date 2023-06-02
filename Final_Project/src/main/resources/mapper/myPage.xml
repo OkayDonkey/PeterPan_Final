@@ -36,6 +36,10 @@
 		select * from purchase p join book b on p.bookNo = b.bookNO where p.memberId = #{memberId} order by purchaseNo
 	</select>
 	
+	<select id="purchaseNoList" parameterType="String" resultType="purchaseDto">
+		select * from purchase p join book b on p.bookNo = b.bookNO where p.purchaseNo = #{value}
+	</select>
+	
 	<select id="totalqnaList" parameterType="int" resultType="boarddto">
 	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNO = q.boardNO WHERE boardArea = 'QNA' AND memberNo = #{memberNo} ORDER BY boardRegdate DESC
 	</select>

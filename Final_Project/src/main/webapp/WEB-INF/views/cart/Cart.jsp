@@ -164,7 +164,7 @@
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">기본적립</p>
 					<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">
 						<span>5% 적립</span> 
-						<span style="float: right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span> 
+						<span style="float: right;"><fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 }</fmt:formatNumber>P</span> 
 					</p>
 				</div>
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin: 10px 0 6px 0; color:#2c2c2c"> 
@@ -178,7 +178,7 @@
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">3만원 이상 구매 시, 등급별 2~4% 추가</span> 
-							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span>
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 }</fmt:formatNumber>P</span>
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">리뷰 작성 시, e교환권 추가 최대 </span> 
@@ -195,14 +195,14 @@
 				<div class="mb-3"><span class="text-left">적립예정 포인트</span>
 					<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
 					
-					<c:if test="${totalprice > 50000 }">			
+					<c:if test="${cartTotalPrice > 50000 }">			
 					<span class="float-right" id="pointDisplay">
-						<fmt:formatNumber>${( totalprice * 0.05 ) + 2000 }</fmt:formatNumber>P
+						<fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 + 2000 }</fmt:formatNumber>P
 					</span>
 					</c:if>	
-					<c:if test="${totalprice <= 50000 }">			
+					<c:if test="${cartTotalPrice <= 50000 }">			
 					<span class="float-right" id="pointDisplay">
-						<fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P
+						<fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 }</fmt:formatNumber>P
 					</span>
 					</c:if>	
 				</div>

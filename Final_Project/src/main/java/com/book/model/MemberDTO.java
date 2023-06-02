@@ -17,7 +17,7 @@ public class MemberDTO {
 	private String memberGender;
 	private String memberTier;
 	private String token;
-	private String point;
+	private int point;
 	
 	// 주소 관련
 	private String addrPost;
