@@ -160,17 +160,17 @@ public class AdminPageController {
 			List<MemberDTO> list = this.service.memberSearch(keyword);
 			model.addAttribute("List", list);
 			
-			return "member/admin/";
+			return "member/admin/memberManagementSearch";
 		} else if(manage.equals("book")) {
 			List<BookDTO> list = this.service.bookSearch(keyword);
 			model.addAttribute("List", list);
 			
-			return "member/admin/";
+			return "member/admin/bookManagementSearch";
 		} else {
 			List<BoardDTO> list = this.service.boardSearch(keyword);
 			model.addAttribute("List", list);
 			
-			return "member/admin/";
+			return "member/admin/qnaManagementSearch";
 		}
 		
 		

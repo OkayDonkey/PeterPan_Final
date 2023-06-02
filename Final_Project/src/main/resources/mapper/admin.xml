@@ -44,8 +44,27 @@
 	        OR memberId LIKE CONCAT('%', #{keyword}, '%')
 	        OR memberPhone LIKE CONCAT('%', #{keyword}, '%')
 	        OR memberEmail LIKE CONCAT('%', #{keyword}, '%')
-	    order
+	    order by memberNo DESC
 	</select>
 
+	<select id="bookSearch" parameterType="String" resultType="bookDto">
+		select * from book where 
+			   bookName LIKE CONCAT('%', #{keyword}, '%')
+			OR bookWriter LIKE CONCAT('%', #{keyword}, '%')
+			OR bookTrans LIKE CONCAT('%', #{keyword}, '%')
+		order by bookRelDate DESC
+	</select>
+	
+	<select id="boardSearch" parameterType="String" resultType="boarddto">
+		SELECT * FROM board b 
+			LEFT JOIN qna_answer q ON b.boardNO = q.boardNO 
+			LEFT JOIN member m ON b.memberNo = m.memberNo 
+		WHERE boardArea = 'QNA' AND q.boardNo IS NULL 
+			AND (m.memberName LIKE CONCAT('%', #{keyword}, '%') 
+				OR b.boardTitle LIKE CONCAT('%', #{keyword}, '%') 
+				OR b.boardContent LIKE CONCAT('%', #{keyword}, '%'))
+		ORDER BY boardRegdate DESC
+
+	</select>
   	
   </mapper>
