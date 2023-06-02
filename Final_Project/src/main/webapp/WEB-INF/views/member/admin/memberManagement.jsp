@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <title>피터팬/관리자/회원관리</title>
 <link rel="stylesheet" href="resources/css/member/mypage.css" />
 <link rel="stylesheet" href="resources/css/member/orderHistory.css" />
@@ -66,9 +67,25 @@
 					<section id="contents" class="section_wrap" style="margin-bottom: 85px;">
 						<div class="title_wrap title_size_md has_btn">
 							<div class="memberwrap">
+							<div class="top_wrap">
 								<div class="title_wrap title_size_md">
 								    <p class="title_heading">회원관리</p>
 								</div>
+								<div>
+									<form method="post" action="<%=request.getContextPath()%>/admin_search.go?manage=member">
+										<div class="input_text_box">
+											<div class="form_ip_search">
+												<input type="search" name="keyword" class="form_ip" placeholder="찾는 고객 정보 입력">
+											</div>
+											<div class="form_btn">
+												<button type="submit" class="search_btn">
+													<span class="text">검색</span>
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 								<c:if test="${!empty mList }">
 								<c:forEach items="${mList}" var="mdto">
 								  <div class="order_history_group">
@@ -126,18 +143,18 @@
 			</section>
 		</main>
 	</div>
-	
-	<div id="insertPopup" class="insertPopup"  hidden>
+
+	<div id="insertPopup" class="insertPopup" hidden>
       <div class="insertPopupBox">
-         <p class="first_write" style="margin-top: 14px;">해당 회원을 차단하시겠습니까?</p>
-         <div class="insertBox_btn"  style="display: flex; margin-top: 40px;">
-            <div class="RoundBox1"  onclick="closeModal()"><span>취소</span></div>
-            <div class="RoundBox2"><span class="allBlock">차단</span></div>
+         <p class="first_write" style="margin-top: 14px;"></p>
+         <div class="insertBox_btn" style="display: flex; margin-top: 40px;">
+            <div class="RoundBox1" onclick="closeModal()"><span>취소</span></div>
+            <div class="RoundBox2"><span class="allBlock"></span></div>
          </div>
       </div>
    </div>
 	
-	<script type="text/javascript" src="resources/js/member/memberManagement.js"></script>
+	<script type="text/javascript" src="resources/js/member/admin.js"></script>
 	
 	<jsp:include page="../../top/footer.jsp" />
 

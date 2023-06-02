@@ -25,11 +25,6 @@
 					1:1 문의 내역
 				</a>
 			</li>
-			<li class="snb_item" data-id="7">
-				<a class="snb_link depth_title" href="https://my.kyobobook.co.kr/library">
-					알림센터
-				</a>
-			</li>
 		</ul>
 	</div>
 

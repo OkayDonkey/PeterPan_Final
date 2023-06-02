@@ -7,15 +7,15 @@
   <mapper namespace="admindao">
   	
   	<select id="memberList" resultType="memberdto">
-  		select * from member where memberTier = 1 or memberTier = 999  order by memberNo desc
+  		select * from member where memberTier = 1 or memberTier = 999  order by memberNo DESC
   	</select>
   	
   	<select id="bookList" resultType="bookDto">
-  		select * from book order by bookNO desc
+  		select * from book order by bookNO DESC
   	</select>
   	
   	<select id="qnaList" resultType="boarddto">
-  		SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' ORDER BY boardRegdate DESC
+  		SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNO = q.boardNO LEFT JOIN member m ON b.memberNo = m.memberNo WHERE boardArea = 'QNA' AND q.boardNo IS NULL ORDER BY boardRegdate DESC
   	</select>
   	
   	<update id="blockMember" parameterType="memberdto">
@@ -25,5 +25,27 @@
   	<update id="unblockMember" parameterType="memberdto">
   		update member set memberTier = 1 where memberId = #{memberId} and memberName = #{memberName}
   	</update>
+  	
+  	<update id="outOfPrint" parameterType="bookDto">
+  		update book set bookWeekBest = 999 where bookNO = #{bookNo}
+  	</update>
+  	
+  	<update id="cancelOutOfPrint" parameterType="bookDto">
+  		update book set bookWeekBest = 0 where bookNO = #{bookNo}
+  	</update>
+  	
+  	<insert id="qnaAnswer" parameterType="boarddto">
+  		insert into qna_answer values(#{boardNO}, #{content}, now())
+  	</insert>
+  	
+  	<select id="memberSearch" parameterType="String" resultType="memberdto">
+	    SELECT * FROM member WHERE 
+	    	   memberName LIKE CONCAT('%', #{keyword}, '%')
+	        OR memberId LIKE CONCAT('%', #{keyword}, '%')
+	        OR memberPhone LIKE CONCAT('%', #{keyword}, '%')
+	        OR memberEmail LIKE CONCAT('%', #{keyword}, '%')
+	    order
+	</select>
+
   	
   </mapper>

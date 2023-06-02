@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.membermodel.AdminPageSecive;
@@ -115,5 +116,64 @@ public class AdminPageController {
 			return "0";
 		}
 	}
-
+	
+	@RequestMapping("out_of_print.go")
+	@ResponseBody
+	public String outOfPrint(BookDTO dto) {
+		int check = this.service.outOfPrint(dto);
+		
+		if(check == 1) {
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("cancel_out_of_print.go")
+	@ResponseBody
+	public String cancelOutOfPrint(BookDTO dto) {
+		int check = this.service.cancelOutOfPrint(dto);
+		
+		if(check == 1) {
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("qna_answer.go")
+	@ResponseBody
+	public String qnaAnswer(BoardDTO dto) {
+		int check = this.service.qnaAnswer(dto);
+		
+		if(check == 1) {
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+	
+	@RequestMapping("admin_search.go")
+	public String adminSearch(Model model, @RequestParam("manage") String manage, @RequestParam("keyword") String keyword) {
+		
+		if(manage.equals("member")) {
+			List<MemberDTO> list = this.service.memberSearch(keyword);
+			model.addAttribute("List", list);
+			
+			return "member/admin/";
+		} else if(manage.equals("book")) {
+			List<BookDTO> list = this.service.bookSearch(keyword);
+			model.addAttribute("List", list);
+			
+			return "member/admin/";
+		} else {
+			List<BoardDTO> list = this.service.boardSearch(keyword);
+			model.addAttribute("List", list);
+			
+			return "member/admin/";
+		}
+		
+		
+	}
+	
 }

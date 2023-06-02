@@ -41,4 +41,34 @@ public class AdminPageDAOImpl implements AdminPageDAO{
 		return this.sqlSession.update("unblockMember", dto);
 	}
 
+	@Override
+	public int outOfPrint(BookDTO dto) {
+		return this.sqlSession.update("outOfPrint", dto);
+	}
+
+	@Override
+	public int cancelOutOfPrint(BookDTO dto) {
+		return this.sqlSession.update("cancelOutOfPrint", dto);
+	}
+
+	@Override
+	public int qnaAnswer(BoardDTO dto) {
+		return this.sqlSession.insert("qnaAnswer", dto);
+	}
+
+	@Override
+	public List<MemberDTO> memberSearch(String keyword) {
+		return this.sqlSession.selectList("memberSearch", keyword);
+	}
+
+	@Override
+	public List<BookDTO> bookSearch(String keyword) {
+		return this.sqlSession.selectList("bookSearch", keyword);
+	}
+
+	@Override
+	public List<BoardDTO> boardSearch(String keyword) {
+		return this.sqlSession.selectList("boardSearch", keyword);
+	}
+
 }
