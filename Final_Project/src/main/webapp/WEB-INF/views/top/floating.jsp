@@ -28,9 +28,14 @@ html {
 				<div class="greenText"><b id="number-Display">0</b><span style="color:black">건</span></div>
 				<div class="float-right" style="color:black; cursor: pointer;" onclick="localStorage.clear(), displayReset()"><b>전체삭제</b></div>
 			</div>
-			  <div id="bookListContainer">
+			  <div id="bookListContainer" >
 			  <!-- 책 리스트를 표시할 공간 -->
-			  	최근 본 도서가 없습니다.
+			  	<div class='flex_center_center'>
+			  		<div>
+			  			<img width='50px;' src='https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png'>
+			  		</div>
+		  			<div class='mt-3'>최근 본 상품이 없습니다</div>
+		  		</div>
 			  </div> 
 		</div>
 	</div>
@@ -101,14 +106,28 @@ html {
 	    console.log(items);
 	    
 	}
-  		
+  	
+	// 목록 초기화 후 초기화 시키는 함수
    function displayReset() {
 		    var bookListContainer = document.getElementById("bookListContainer");
-		    bookListContainer.innerHTML = ""; // 이전에 표시된 목록을 초기화
+		    bookListContainer.innerHTML = "<div class='flex_center_center' style='margin-top: 75%; font-weight: 400;'><div><img width='50px;' src='https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png'></div><div class='mt-3'>최근 본 상품이 없습니다</div></div>"; // 이전에 표시된 목록을 초기화
+   	
+		    //숫자와 사진 초기화
+		    document.getElementById("number-Display").innerText = 0;
+			document.getElementById("number-Display1").innerText = 0;
+			selectBookImg.style.backgroundImage = "url('https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_view_history@2x.png')";
+			
    }  
 		  
    function displayRecentlyViewedBooks(recentlyViewedProducts) {
 	    var bookListContainer = document.getElementById("bookListContainer");
+	    
+	    if( recentlyViewedProducts == null ){
+	    	
+	    	bookListContainer.innerHTML = "<div class='flex_center_center' style='margin-top: 75%; font-weight: 400;'><div><img width='50px;' src='https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png'></div><div class='mt-3'>최근 본 상품이 없습니다</div></div>"; // 이전에 표시된 목록을 초기화
+	    
+	    } else	{
+	    	
 	    bookListContainer.innerHTML = ""; // 이전에 표시된 목록을 초기화
 	    bookListContainer.style.overflow = "auto";
 	    
@@ -179,6 +198,7 @@ html {
 	    	  bookItem.appendChild(bookInfoContainer);
 	    	  bookListContainer.appendChild(bookItem);
 	    	});
+	    }
 
 	}
 
