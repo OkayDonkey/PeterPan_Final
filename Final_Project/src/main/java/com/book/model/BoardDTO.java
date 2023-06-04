@@ -14,6 +14,7 @@ public class BoardDTO {
 	private String boardRegdate;
 	private int boardHit;
 	
+	
 	// qna 답변 관련
 	private String content;
 	private String regdate;

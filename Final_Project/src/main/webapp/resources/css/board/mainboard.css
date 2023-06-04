@@ -298,6 +298,14 @@ ul {
     color: #474c98;
 }
 
+.box_num:hover {
+	font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #474c98;
+}
+
 .notice_wrap {
 	margin-top: 40px;
 }
@@ -361,13 +369,13 @@ table {
 	font-size: 20px;
 	font-weight: 700;
 	padding-bottom: 20px;
-	border-bottom: 2px solid black;
+	/* border-bottom: 2px solid black; */
 	
 }
-
-.acodianCategoryTitle {
-	font-size: 15px;
-    font-weight: 600;
+.category_title_notice {
+	font-size: 20px;
+	font-weight: 700;
+	padding-bottom: 20px;
 }
 
 /* 
@@ -419,6 +427,14 @@ button .btn btn-link {
     font-size: 14px;
     font-weight: 500;
 }
+
+.notice_top th {
+	padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    color: #767676;
+}
+
 /* 
 .accordion>.card.:after {
 	width: 16px;
@@ -428,4 +444,75 @@ button .btn btn-link {
 }
 
  */
+
+/* 페이징 처리 부분 */
+.pagingout {
+	text-align: center;
+    margin-top: 33px;
+}
+
+.pagingout_num {
+	color: black; 
+}
+
+.pagingout_num:hover {
+	color: black; 
+}
+/* 
+.pagingout_num:after {
+	border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    background-color: #767676;
+    padding: 7px 12px;
+}
+ */
+.pagingout_btn_l {
+	width: 24px;
+}
+
+.pagingout_btn_r {
+	width: 24px;
+    margin-left: 10px;
+}
+
+/* noticeDetail */
+.detail_head b{
+	font-size: 24px;
+}
+
+.detail_mhead {
+    font-size: 14px;
+    color: #767676;
+    margin-top: 14px;
+    margin-bottom: 31px;
+}
+
+.detail_cont {
+	padding: 30px 20px 50px;
+    border-style: solid;
+    border-color: #eaeaea;
+    border-width: 1px 0;
+    height: 550px;
+}
+
+.detailBTN {
+	margin-top: 70px;
+    text-align: center;
+}
+
+#detailBTN {
+    background-color: #595959;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
 

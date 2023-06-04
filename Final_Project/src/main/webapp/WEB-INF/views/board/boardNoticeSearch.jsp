@@ -54,7 +54,7 @@
 					</div>
 					
 					
-					<c:set value="${noticeList}" var="List"/>		
+					<c:set value="${searchList}" var="List"/>		
 						
 						<div class="notice_titleOk">
 							
@@ -65,7 +65,7 @@
 							
 							<c:if test="${!empty List }">
 								<div id="title_category">
-									<p class="category_title" style="padding-top: 50px; padding-bottom: 10px;">검색결과 <span class="number" style="color: #3c9a17;">${count}</span>건</p>
+									<p class="category_title" style="padding-top: 50px; padding-bottom: 10px;">검색결과 <span class="number" style="color: #3c9a17;">${List.size()}</span>건</p>
 								</div></c:if>
 							
 							<c:if test="${session.memberTier == 2 }">
@@ -107,24 +107,24 @@
 			 	   <div class="pagingout">
 					 <c:if test="${paging.page > paging.block }">
 					      <%-- <a href="board_notice.go?page=1&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a> --%>
-					      <a href="board_notice.go?page=${paging.startBlock - 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTIE">
+					      <a href="board_search.go?page=${paging.startBlock - 1 }&keyword=&${paging.keyword}&boardArea=NOTIE">
 					      	<img class="pagingout_btn_l" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a>
 					   </c:if>
 					   
 					   <c:forEach begin="${paging.startBlock }" end="${paging.endBlock }" var="i">
 					   
 					      <c:if test="${i == paging.page }">
-					         <a style="margin-left: 12px" class="pagingout_num" href="board_notice.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTIE">${i }</a>
+					         <a style="margin-left: 12px" class="pagingout_num" href="board_search.go?page=${i }&keyword=&${paging.keyword}&boardArea=NOTIE">${i }</a>
 					      </c:if>
 					      
 					      <c:if test="${i != paging.page }">
-					         <a style="margin-left: 12px" class="pagingout_num" href="board_notice.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTIE">${i }</a>
+					         <a style="margin-left: 12px" class="pagingout_num" href="board_search.go?page=${i }&keyword=&${paging.keyword}&boardArea=NOTIE">${i }</a>
 					      </c:if>
 					      
 					   </c:forEach>
 					   
 					   <c:if test="${paging.endBlock < paging.allPage }">
-					      <a href="board_notice.go?page=${paging.endBlock + 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTIE">
+					      <a href="board_search.go?page=${paging.endBlock + 1 }&keyword=&${paging.keyword}&boardArea=NOTIE">
 					      	<img class="pagingout_btn_r" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"></a>
 					      <%-- <a href="board_notice.go?page=${paging.allPage }&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"> </a> --%>
 					   </c:if>
