@@ -115,9 +115,6 @@ public class BoardController {
 
            map.put("keyword", pdto.getKeyword());
            map.put("boardArea", pdto.getBoardArea());
-           System.out.println("keyword >>> " +  pdto.getKeyword());
-           System.out.println("boardArea >>> " +  pdto.getBoardArea());
-           
 
            List<BoardDTO> searchList = this.dao.searchList(map);
            System.out.println("searchList >>> " + searchList);
@@ -136,13 +133,9 @@ public class BoardController {
                 
                 int rowsize = 10;
                 
-                PageDTO p = new PageDTO(page, rowsize, pdto.getBoardArea(), totalCount, pdto.getKeyword());
-                System.out.println("p >>> " +  p);
-                System.out.println("keyword >>> " +  pdto.getKeyword());
-                System.out.println("boardArea >>> " +  pdto.getBoardArea());
-
-                List<BoardDTO> searchList = dao.noticeSearchList(p);
-                System.out.println("noticeList >>> " + searchList);
+                PageDTO p = new PageDTO(page, rowsize, totalCount);
+        		
+        		List<BoardDTO> searchList = dao.noticeList(p);
 
                 int totalEndNo = totalCount - ((page-1) * rowsize);
 
@@ -160,6 +153,8 @@ public class BoardController {
                 PageDTO p = new PageDTO(page, rowsize, pdto.getBoardArea(), totalCount, pdto.getKeyword());
                 System.out.println("keyword >>> " +  pdto.getKeyword());
                 System.out.println("boardArea >>> " +  pdto.getBoardArea());
+                
+                System.out.println("p >>" + p);
 
                 List<BoardDTO> searchList = dao.noticeSearchList(p);
                 System.out.println("searchList >>> " + searchList);
