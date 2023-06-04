@@ -38,6 +38,35 @@
   padding-bottom: 0px;
 }
 
+.form_ip {
+  width: 200px;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  border-radius: 0;
+}
+
+.top_wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.input_text_box {
+  display: flex;
+}
+
+.form_btn {
+    vertical-align: middle;
+    display: flex;
+    margin-left: 12px;
+    margin-right: 15px;
+    font-family: 'SUIT-Regular';
+}
+
+
+
+/* 회원, 책 관리 관련 모달 css */
 .insertPopupBox {
     text-align: center;
     z-index: 2300;
@@ -85,3 +114,79 @@
   .RoundBox1 {
     cursor: pointer;
   }
+
+  /* 회원, 책 관리 관련 모달 css end */
+
+  /* QNA 답변 모달 css */
+.qnaInsertPopupBox {
+    width: 550px;
+    padding: 30px;
+    color: black;
+    z-index: 2010;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1em;
+    position: fixed;
+    opacity: 1;
+}
+
+.qnaInsertPopup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: #0000007d;
+   border-radius: 5px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   height: 100%;
+   z-index: 2000;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+}
+
+.qnaInsertBox_btn {
+   display: flex;
+}
+
+.qna_first_write {
+   font-weight: 900;
+    color: black;
+    font-size: 16px;
+}
+
+.allBlock {
+    width: 135px;
+    height: 44px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .RoundBox1 {
+    cursor: pointer;
+  }
+
+.qnaInsertPopupBox	p	{
+	color: black;
+	z-index: 2002;
+}
+	
+.qnaAnswer {
+  width: 135px;
+  height: 44px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}	
+
+
+
+  /* QNA 답변 모달 css end */

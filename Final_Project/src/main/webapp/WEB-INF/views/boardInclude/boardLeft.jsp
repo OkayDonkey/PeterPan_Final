@@ -39,11 +39,11 @@
 								<div>
 									<ul class="snb_list_box">
 										<li class="snb_item"><a href="<%=request.getContextPath() %>/boardQna.go">1:1 문의 접수</a></li>
-										<li class="snb_item"><a href="<%=request.getContextPath() %>/myPage.go">1:1 문의 내역</a></li>
+										<li class="snb_item"><a href="<%=request.getContextPath() %>/qnaList.go">1:1 문의 내역</a></li>
 									</ul>
 								</div></li>
 
-							<li class="snb_list"><a href="<%=request.getContextPath() %>/board_noticeOk.go">공지사항</a></li>
+							<li class="snb_list"><a href="<%=request.getContextPath() %>/board_notice.go">공지사항</a></li>
 						</div>
 
 						<div class="custumer">

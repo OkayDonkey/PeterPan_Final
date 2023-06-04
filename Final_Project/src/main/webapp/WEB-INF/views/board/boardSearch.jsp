@@ -19,7 +19,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;">
-		<div class="row justify-content-sm-between" style="width: 1200px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
 	
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -76,12 +76,12 @@
 				<c:set value="${searchList }" var="List"/>
 				<c:if test="${empty List}">
 					<div id="title_category">
-						<p class="category_title">검색결과 <span class="number">0</span>건</p>
+						<p class="category_title">검색결과 <span class="number" style="color: #3c9a17;">0</span>건</p>
 					</div>
 				</c:if>	
 				<c:if test="${!empty List}">
 					<div id="title_category">
-						<p class="category_title">검색결과 <span  class="number">${List.size()}</span>건</p>
+						<p class="category_title">검색결과 <span style="color: #3c9a17;" class="number">${List.size()}</span>건</p>
 					</div>
 						 <div id="accordion">
 						<c:forEach items="${List }" var="dto">
@@ -102,21 +102,6 @@
 	</div>
 	
 	<script type="text/javascript" src="resources/js/board/searchboardFAQ.js"></script>
-	
-	
-	<!-- <div class="category_title">[bestTitle]</div>
-
-<div class="card">
-  <button class="card-header" id="[heading + dto.boardNO]" data-toggle="collapse" data-target="[collapse + dto.boardNO]" aria-expanded="true" aria-controls="[collapse + dto.boardNO]" style="outline: none; width: 100%;">
-    <span class="Q">Q</span>
-    <span class="acodianCategoryTitle">[dto.boardTitle]</span>
-  </button>
-  <div class="collapse" id="[collapse + dto.boardNO]" aria-labelledby="[heading + dto.boardNO]" data-parent="#accordion" style="padding: 0px 10px 30px 10px;">
-    <div class="card-body">[dto.boardContent]</div>
-  </div>
-</div> -->
-	
-	
 	
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />

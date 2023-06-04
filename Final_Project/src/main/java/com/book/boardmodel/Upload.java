@@ -83,7 +83,7 @@ public class Upload {
 		response.setContentType("text/html; charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
-
+		
 		if (check > 0) {
 			out.println("<script>");
 			out.println("alert('접수 성공')");

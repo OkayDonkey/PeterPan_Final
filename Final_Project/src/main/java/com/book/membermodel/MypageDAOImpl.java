@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
@@ -50,6 +51,11 @@ public class MypageDAOImpl implements MypageDAO{
 	@Override
 	public List<BoardDTO> answerOkqnaList(int memberNo) {
 		return this.sqlSession.selectList("qnaListanswerok", memberNo);
+	}
+
+	@Override
+	public List<CouponDTO> getcoupon(String memberId) {
+		return this.sqlSession.selectList("getcoupon", memberId);
 	}
 
 }

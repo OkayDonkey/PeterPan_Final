@@ -15,7 +15,7 @@
   	</select>
   	 
   	 <select id="getcategoryList" parameterType="String" resultType="boarddto">
-  	 	select * from board where boardCategory=#{category} order by boardNo desc
+  	 	select * from board where boardCategory=#{category} AND boardArea="FAQ" order by boardNo desc
   	 </select>
  	 
  	<insert id="add" parameterType="boarddto">
@@ -31,7 +31,38 @@
 		SELECT * FROM board WHERE (boardArea = #{boardArea}) AND (boardTitle LIKE CONCAT('%', #{keyword}, '%') OR boardContent LIKE CONCAT('%', #{keyword}, '%')) ORDER BY boardNO DESC
 	</select>
 	
+	<select id="noticeList" parameterType="pageDto" resultType="boarddto">
+		<![CDATA[
+			SELECT * FROM 
+			(SELECT b.*, ROW_NUMBER() OVER (ORDER BY boardNo DESC) AS rnum FROM board b WHERE boardArea = 'Notice')
+			    AS a
+					WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
+ 				]]>
+	</select>
 	
+	<select id="notice_count" resultType="int">
+		select count(*) from board where boardArea = 'Notice'
+	</select>
 	
-  
+	<select id="notice_keyword_count" resultType="int" parameterType="String">
+		select count(*) from board where boardArea = 'Notice' AND (boardTitle LIKE CONCAT('%', #{keyword}, '%') OR boardContent LIKE CONCAT('%', #{keyword}, '%'))
+	</select>
+	
+	<select id="detailAll" parameterType="int" resultType="boarddto">
+  		select * from board where boardNO = #{dno}
+  	</select>
+  	
+  	<select id="noticeSearchList" resultType="boarddto" parameterType="pageDto">
+  		<![CDATA[
+	  		SELECT * FROM
+			    (SELECT b.*, ROW_NUMBER() OVER (ORDER BY boardNo DESC) AS rnum 
+			    FROM board b 
+			    WHERE boardArea = #{boardArea} 
+			        AND (boardTitle LIKE CONCAT('%', #{keyword}, '%') OR boardContent LIKE CONCAT('%', #{keyword}, '%')) 
+			    ORDER BY boardNo DESC)
+			AS a
+			WHERE rnum >= #{startNo} AND rnum <= #{endNo}
+		]]>	
+  	</select>
+  	
   </mapper>

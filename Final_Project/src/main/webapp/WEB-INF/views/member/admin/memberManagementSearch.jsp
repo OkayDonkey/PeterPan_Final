@@ -60,9 +60,7 @@
 						</div>
 					</aside>
 					
-					<c:set var="mList" value="${memberList }" />
-					<c:set var="bList" value="${bookList }" />
-					<c:set var="qnaList" value="${qnaList }" />
+					<c:set var="mList" value="${List }" />
 					
 					<section id="contents" class="section_wrap" style="margin-bottom: 85px;">
 						<div class="title_wrap title_size_md has_btn">

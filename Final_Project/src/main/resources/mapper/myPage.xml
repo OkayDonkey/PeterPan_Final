@@ -41,16 +41,18 @@
 	</select>
 	
 	<select id="totalqnaList" parameterType="int" resultType="boarddto">
-	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' AND memberNo = #{memberNo} ORDER BY boardRegdate DESC
+	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNO = q.boardNO WHERE boardArea = 'QNA' AND memberNo = #{memberNo} ORDER BY boardRegdate DESC
 	</select>
 	
 	<select id="qnaListnoanswer" parameterType="int" resultType="boarddto">
-	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NULL ORDER BY boardRegdate DESC
+	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNO = q.boardNO WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NULL ORDER BY boardRegdate DESC
 	</select>
 	
 	<select id="qnaListanswerok" parameterType="int" resultType="boarddto">
-	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNo = q.boardNo WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NOT NULL ORDER BY boardRegdate DESC
+	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNO = q.boardNO WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NOT NULL ORDER BY boardRegdate DESC
 	</select>
 
-	
+	<select id="getcoupon" parameterType="String" resultType="couponDto">
+		select * from coupon where memberId = #{memberId}
+	</select>
   </mapper>

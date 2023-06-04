@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.PageDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO{
@@ -40,6 +41,31 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public List<BoardDTO> searchList(Map<String, String> map) {
 		return this.sqlSession.selectList("searchList", map);
+	}
+
+	@Override
+	public List<BoardDTO> noticeList(PageDTO p) {
+		return this.sqlSession.selectList("noticeList", p);
+	}
+
+	@Override
+	public int getNoticeCount() {
+		return this.sqlSession.selectOne("notice_count");
+	}
+
+	@Override
+	public BoardDTO noticeDetail(int dno) {
+		return this.sqlSession.selectOne("detailAll", dno);
+	}
+
+	@Override
+	public int KeywordCount(String keyword) {
+		return this.sqlSession.selectOne("notice_keyword_count", keyword);
+	}
+
+	@Override
+	public List<BoardDTO> noticeSearchList(PageDTO pdto) {
+		return this.sqlSession.selectList("noticeSearchList", pdto);
 	}
 
 }

@@ -21,7 +21,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;">
-		<div class="row justify-content-sm-between" style="width: 1200px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
 	
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />

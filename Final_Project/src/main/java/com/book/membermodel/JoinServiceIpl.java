@@ -46,6 +46,9 @@ public class JoinServiceIpl  implements JoinService{
         //회원가입
         joinDao.join(memberDto);
         joinDao.updateMailKey(memberDto);
+        joinDao.insertCoupon1000(memberDto);
+        joinDao.insertCoupon2000(memberDto);
+        joinDao.insertCoupon3000(memberDto);
 
         //회원가입 완료하면 인증을 위한 이메일 발송
         MailHandler sendMail = new MailHandler(mailSender);
