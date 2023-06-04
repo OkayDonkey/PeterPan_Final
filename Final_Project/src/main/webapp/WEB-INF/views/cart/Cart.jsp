@@ -128,7 +128,7 @@
 								0원
 							</c:if>
 							<c:if test="${ cartTotalPrice < 15000}">
-								4,000원
+								2,500원
 							</c:if>
 					</span></div>
 					

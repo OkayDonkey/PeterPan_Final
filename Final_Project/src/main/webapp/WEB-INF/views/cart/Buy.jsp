@@ -37,13 +37,15 @@
 						<div class="deliverInfo_right" id="deliverInfo_right">
 						<div class="pl-1">
 							<img width="10px" height="20px" class="mb-1" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_location_primary@2x.png" alt="배송지 아이콘">
-							기본배송지 / <span>${session.addrMain } ${session.addrDetail }</span></div>
+							기본배송지 / <span id="text_line">${session.addrMain } ${session.addrDetail }</span></div>
 							<div class="borderRoundBGray mt-2 flex_center" onclick="newAddr()">
 								<img width="15px" height="12px" style="border-radius: 0;" class="mr-1"src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_write_black_h18@2x.png" alt="배송지입력">
 								새로운 배송지 입력
 							</div>
 							<div class="flex_column my-3 ml-2" id="addrHidden" hidden>
-							<p class="p-0 m-0 mb-1" style="color: black;">입력한 새로운 배송지<span class="small" style="color:black; margin-left: 55px;">새로 입력한 주소로 배송됩니다.</span></p>
+							<p class="p-0 m-0 mb-1" style="color: black;">입력한 새로운 배송지
+								<input class="input_none" readonly placeholder=" 입력한 주소로 배송됩니다. " id="newAddrField"/>
+							</p>
 								<div class="formGrayBox"><span style="color: black;">우편번호</span>
 									<input type="text" id="post" name="addrPost" class="form_ip" placeholder="우편번호" readonly>
 								</div>
@@ -51,7 +53,7 @@
 									<input name="addrMain" class="form_ip" id="addr" type="text" placeholder="주소" readonly>
 								</div>
 								<div class="formGrayBox"><span style="color: black;">상세주소</span>
-									<input name="addrDetail" class="form_ip" id="detailAddr" type="text" placeholder="상세 주소를 입력해주세요."  maxlength="50" >
+									<input name="addrDetail" class="form_ip" id="detailAddr" type="text"  placeholder="상세 주소를 입력해주세요."  maxlength="50" onkeyup="NewAddr()">
 								</div>
 							</div>
 						</div>
@@ -380,6 +382,21 @@
 <br><br><br><br><br><br><br><br>
 <jsp:include page="../top/footer.jsp" /> 
 <script>
+	
+	function NewAddr() {
+		
+	  var addr = document.getElementById("addr").value;
+	  var post = document.getElementById("post").value;
+	  var enterInput = document.getElementById("detailAddr");
+	  var targetInput = document.getElementById("newAddrField");
+	  var oldAddr = document.getElementById("text_line");
+	  
+	  oldAddr.style.textDecoration = "line-through";
+	  targetInput.placeholder ="[" + post + "]"+ addr + enterInput.value;
+	}
+
+	
+	
 	
 	var memberId = document.getElementById("memberId").value;
 	var ajaxCheck = 0;

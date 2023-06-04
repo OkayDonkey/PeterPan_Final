@@ -176,6 +176,25 @@ function insertReview(){
 
   if (data.length > 0) {
     data.forEach(function (obj) {
+    
+    if(data.recommend === true){
+    	
+    	card_Elem_id.innerHTML += `
+        <div class="reviewBlock">
+          <div class="container">
+            <p>
+              <span class="reviewBuyerBox">구매자</span>
+              <span class="smallTextGray mr-1">${obj.memberId}</span>
+              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
+              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
+              <span class="recommend_img"></span>
+            </p>
+          </div>
+          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
+        </div>
+      `;
+    	
+    } else {
       card_Elem_id.innerHTML += `
         <div class="reviewBlock">
           <div class="container">
@@ -184,11 +203,13 @@ function insertReview(){
               <span class="smallTextGray mr-1">${obj.memberId}</span>
               <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
               <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
+              <span class="notRecommend_img"></span>
             </p>
           </div>
           <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
         </div>
       `;
+      }
     });
 
     num.innerText = parseInt(num.innerText) + 1;

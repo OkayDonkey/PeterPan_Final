@@ -17981,6 +17981,13 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	
 }
 
+.input_none	{
+	border: 0px;
+	color:black; 
+	margin-left: 55px;
+	width: 345px;
+}
+
 
 
 }
