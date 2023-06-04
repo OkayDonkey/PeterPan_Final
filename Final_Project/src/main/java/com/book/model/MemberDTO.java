@@ -26,7 +26,10 @@ public class MemberDTO {
 	
 	// 이메일 인증 관련
 	private String mailKey;
-	private int mailAuth;
+	private int mailAuth; 
+	
+	// 가입 시 쿠폰 등록 관련
+	private int couponNo;
 	
 	// 마케팅 동의
 	private String[] marketingOk;

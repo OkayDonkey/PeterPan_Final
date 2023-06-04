@@ -155,7 +155,7 @@
 								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '쿠폰', '');">
 								        <span class="benefit_title">쿠폰</span>
 								        <div class="benefit_val">
-								            <span class="val">0</span>
+								            <span class="val">${couponList.size() }</span>
 								            <span class="unit">장</span>
 								        </div>
 								    </a>

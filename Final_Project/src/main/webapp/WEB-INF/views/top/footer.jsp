@@ -4,170 +4,77 @@
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
   <!--  폰트 어썸 cdm end  -->
-
-<style>
-
-.footer {
- clear: both;
-  background-color: #f8f8f8;
-  text-align: center;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
-/* Horizontal line */
-.footer hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 20px auto;
-  width: 50%;
-}
-
-/* Location information */
-.footer_box > div:not(.footer_Rbox) span {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-/* Right-aligned content */
-.footer_Rbox {
-  text-align: left;
-    margin-top: 100px;
-    margin-left: 550px;
-}
-
-.fa-instagram{
-   background: linear-gradient(45deg, #FFDE83, #FFB241, #FF732C, #FF5834, #FF3138, #F91966, #D72188, #8828C8, #473DE9, #2A4EFB);
-   background-clip: text;
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-}
-
-
-.link_box img {
-  max-width: 30px;
-  top: 30px;
-}
-
-.footer_Rbox_span{
-  	font-size: 13px;
-	color: #666;
-}
-.fontA{
-	font-size: 50px;
-    margin-bottom: 30px;
-}
-.footer_wrap {
-   display: flex;
-   flex-direction: row;
-}
-
-.footer_box1 {
-   margin-top: 18px;
-   width: 300px;
-}
-.footer_box2 {
-font-size:20px;
-font-weight:bold;
-    margin-left: 50px;
-    margin-top: 100px;
-}
-.footer_box2 >.team{
-text-align:left;
-font-size: 15px;
-color: gray;
-}
-.footer_box2 a{
-color:gray;
-border-inline-end: 2px solid gray;
-text-decoration: none;
-
-}
-
-
-.footer_box2 span:last-of-type a[href^="tel:"] {
-  border-inline-end: none;
-}
-
-.footer_box3{
-	position: relative;
-	margin-top:200px;
-	margin-left:250px;
-	
-}
-
- 
-</style>
+  
+  <link rel="stylesheet" href="resources/css/top/footer.css" />
 
    <footer class="footer">
       <div class="footer_wrap">
-      
-         <div class="footer_box1">
-        	<a href="#">
-	 			<img src="resources/css/s_img/logo.png">
-			</a>
-         </div>
-
-         <div class="footer_box2">
-         
-            <span>
-       	    	<a href="terms.go" target="_blank">약관</a>
-            </span>
-            <span>
-	            <a href="protect.go"target="_blank">정보방식 </a>  
-            </span>
-            <span>
-	            <a href="kid.go"target="_blank">청년보호 정책 </a>   
-            </span>
-            <span>
-	            <a href='tel:010-0000-0000'>전화번호 </a>   
-            </span>
-            
-            <br>
-         
-            <div class="team">
-	            <span>
-	            	조장: 윤보감
-	            </span>
-	            <br>
-	            <span>
-	            	조원: 김동현 이상우 전지영
-	            </span>
-            </div>
-         </div>
-
-         
-         <div class="footer_box3">
-            <span>제작 : 2조</span>
-            <address>E-Mail : kh학원@gmail.com</address>
-         </div>
-         
-         <div class="footer_Rbox">
-			<div class="fontA">
-	         	<a href="https://www.instagram.com/kyobobook_online/">
-		         	<i class="fa fa-instagram" aria-hidden="true" style=""></i>
-	         	</a>
-	         	<a href="https://www.youtube.com/c/kbooknews?reload=9">
-	         		<i class="fa fa-youtube-play" aria-hidden="true" style="color:red;"></i>
-	         	</a>
-	         	<a href="https://www.facebook.com/kyobobookonline?orderClick=rwk">
-	         		<i class="fa fa-facebook-square" aria-hidden="true" style="color:312ffe;"></i>
-	         	</a>
-			</div>
-
-	        
-	         <span class="footer_Rbox_span">
-		        [인증범위]KH학원
-	         </span>
-	         <BR>
-	         <span class="footer_Rbox_span">
-				[유효기간] 2023.01.13 ~ 2023.06.15
-	         </span>
-         
+      	<div class="footer_body">
+      		<div class="footer_inner">
+      			<div class="footer_box1">
+		        	<a href="#">
+			 			<img src="resources/img/peterPanLogo.png" width="168px">
+					</a>
+					
+					<div class="fontA">
+			         	<a href="https://www.instagram.com/kyobobook_online/">
+				         	<i class="fa fa-instagram" aria-hidden="true" style="font-size: 35px;"></i>
+			         	</a>
+			         	<a href="https://www.youtube.com/c/kbooknews?reload=9">
+			         		<i class="fa fa-youtube-play" aria-hidden="true" style="color:red; font-size: 35px;"></i>
+			         	</a>
+			         	<a href="https://www.facebook.com/kyobobookonline?orderClick=rwk">
+			         		<i class="fa fa-facebook-square" aria-hidden="true" style="color:312ffe; font-size: 35px;"></i>
+			         	</a>
+					</div>
+		         </div>
+		
+		         <div class="footer_box2">
+		         	<div class="footer_box2_left">
+		         		<div class="footer_menu_box">
+		         			<ul class="footer_menu_list">
+				         		<li class="footer_menu_item"><a href="terms.go" target="_blank">회사 소개</a></li>
+				         		<li class="footer_menu_item"><a href="terms.go" target="_blank">이용 약관</a></li>
+				         		<li class="footer_menu_item"><a href="protect.go"target="_blank" style="color: black; text-decoration: underline;">개인정보처리방침</a></li>
+				         		<li class="footer_menu_item"><a href="kid.go"target="_blank">청년보호 정책 </a></li>
+				         		<li class="footer_menu_item"><a href='tel:010-0000-0000'>전화번호 </a></li>
+				         	</ul>
+		         		</div>
+		         		<div class="team">
+				            <span class="info_text"><b>조원: 윤보감 김동현 이상우 전지영</b></span>
+				            <span class="gap"></span>
+				            <span class="info_text">서울특별시 중구 남대문로 120</span>
+				            <span class="gap"></span>
+				            <span class="info_text">사업자등록번호 : 000-00-00000</span>
+				            <br>
+				            <span class="info_text call">대표전화 : 1544-0000(발신자 부담전화)</span>
+				            <span class="gap"></span>
+				            <span class="info_text">FAX : 0505-000-0000(지역번호 공통)</span>
+				            <span class="gap"></span>
+				            <span class="info_text">서울특별시 통신판매업신고번호 : 제000호</span>
+				            <a href="http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=1028111670" class="btn_footer_link" target="_blank">사업자정보확인</a>
+			            </div>
+			            <div class="copyright">
+						    <span>© PETERPAN CENTRE</span>
+						</div>
+		         	</div>
+		         	<div class="footer_box2_right">
+			            <div class="footer_service">
+			                <span class="service_text">LG U+ 구매안전서비스 </span>
+			                <a href="https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=ink0911" class="btn_footer_link" target="_blank">서비스 가입 확인</a>
+			                <p class="service_desc">고객님은 안전거래를 위해 현금 등으로 결제시 저희 쇼핑몰에서 가입한 <br> LG유플러스의 구매안전서비스를 이용하실 수
+			                    있습니다.</p>
+			            </div>
+			            <div class="footer_mark_isms">
+			                <a target="_blank" href="https://www.kyobobook.co.kr/pop_isms" class="mark_link">정보보호관리체계<br> ISMS 인증획득</a>
+			                <p class="mark_desc">[인증범위] 온라인 피터팬 서비스 운영<br>[유효기간] 2023.01.13 ~ 2023.06.15</p><!-- 수정 220422 날짜 양식 yyyy.mm.dd 로 수정 -->
+			            </div>
+			        </div>
+		         </div>
+         	</div>
          </div>
       </div>
+      
    </footer>
 
 

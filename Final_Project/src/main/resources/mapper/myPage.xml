@@ -52,5 +52,7 @@
 	    SELECT * FROM board b LEFT JOIN qna_answer q ON b.boardNO = q.boardNO WHERE boardArea = 'QNA' AND memberNo = #{memberNo} AND q.boardNo IS NOT NULL ORDER BY boardRegdate DESC
 	</select>
 
-	
+	<select id="getcoupon" parameterType="String" resultType="couponDto">
+		select * from coupon where memberId = #{memberId}
+	</select>
   </mapper>

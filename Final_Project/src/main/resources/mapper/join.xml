@@ -48,6 +48,35 @@
 	<select id="getmemberone" parameterType="String" resultType="memberdto">
 		select * from member where memberPhone = #{memberPhone}
 	</select>
+	
+	<insert id="insertCoupon1000" parameterType="memberdto">
+	    <selectKey resultType="int" keyProperty="couponNo" order="BEFORE">
+	        select count(couponNo) from coupon
+	    </selectKey>
+	    
+	        insert into coupon (couponNo, couponSale, memberId)
+	        values (#{couponNo} + 1, 1000, #{memberId})
+	    
+	</insert>
+	
+	<insert id="insertCoupon2000" parameterType="memberdto">
+	    <selectKey resultType="int" keyProperty="couponNo" order="BEFORE">
+	        select count(couponNo) from coupon
+	    </selectKey>
+	    
+	        insert into coupon (couponNo, couponSale, memberId)
+	        values (#{couponNo} + 1, 2000, #{memberId})
+	</insert>
+	
+	<insert id="insertCoupon3000" parameterType="memberdto">
+	    <selectKey resultType="int" keyProperty="couponNo" order="BEFORE">
+	        select count(couponNo) from coupon
+	    </selectKey>
+	    
+	        insert into coupon (couponNo, couponSale, memberId)
+	        values (#{couponNo} + 1, 3000, #{memberId})
+	</insert>
+
 </mapper>
 
 

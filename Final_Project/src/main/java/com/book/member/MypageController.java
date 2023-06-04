@@ -19,6 +19,7 @@ import com.book.membermodel.LoginService;
 import com.book.membermodel.MypageService;
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
@@ -57,6 +58,12 @@ public class MypageController {
 	
 	@RequestMapping("mypage_go.go")
 	public String myPageGo(Model model, HttpSession session) {
+		
+		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
+		
+		List<CouponDTO> couponList = this.service.getcoupon(sessiondto.getMemberId());
+		
+		model.addAttribute("couponList", couponList);
 		
 		return "member/myPage/myPageMain";
 	}
