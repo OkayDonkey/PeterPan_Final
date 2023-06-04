@@ -46,14 +46,14 @@
 	
 				<div class="new_books">
 					<div class="books_plus">
-						<span>신간</span> <a href="#"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px; ">더보기</a>
+						<span>신간</span> <a href="newbook.go"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px; ">더보기</a>
 					</div>
 	
 					<div class="new_book_wrap">
 						<c:set var="list" value="${List }" />
 						<c:forEach items="${list }" var="dto" varStatus="status">
 							<c:if test="${status.index < 5 }">
-								<div class="new_book" onclick="RecentlyViewedBook('${dto.bookName}', '${dto.bookCover}', '${dto.bookWriter}', '${dto.bookPrice}');">
+								<div class="new_book" onclick="RecentlyViewedBook('${dto.bookName}', '${dto.bookCover}', '${dto.bookWriter}', '${dto.bookPrice}', '${dto.bookNo}');">
 									<table>
 										<thead>
 											<tr>
@@ -98,14 +98,16 @@
 	
 				<div class="best_books">
 					<div class="books_plus">
-						<span>베스트 작품</span> <a href="#"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px;">더보기</a>
+						<span>베스트 작품</span> <a href="bestListbook.go"><img src="resources\css\s_img\plus.png" style="width:30px; height:30px;">더보기</a>
 					</div>
 					
 					<div class="best_book_wrap">
 						<c:set var="bestlist" value="${bestList}" />
 						<c:forEach items="${bestlist}" var="B_dto" varStatus="status">
 							<c:if test="${status.index < 10}">
-								<div class="best_book"  onclick="RecentlyViewedBook('${B_dto.bookName}', '${B_dto.bookCover}', '${B_dto.bookWriter}', '${B_dto.bookPrice}');">
+							<div class="best_book" 
+							onclick="RecentlyViewedBook('${B_dto.bookName}', '${B_dto.bookCover}', '${B_dto.bookWriter}', '${B_dto.bookPrice}' ,'${B_dto.bookNo }');">
+
 									<div class="best_rank">
 										<span>${status.index + 1}</span>
 									</div>							

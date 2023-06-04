@@ -48,4 +48,18 @@ public class HomeController {
 	public String footer() {
 		return "top/footer";
 }
+	
+	@RequestMapping("terms.go")
+	public String terms() {
+		return "top/terms";
+	}
+	@RequestMapping("protect.go")
+	public String pro() {
+		return "top/protect";
+	}
+	@RequestMapping("kid.go")
+	public String kid() {
+		return "top/kid";
+	}
+	
 }

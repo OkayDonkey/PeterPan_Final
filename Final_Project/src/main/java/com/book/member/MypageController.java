@@ -197,17 +197,23 @@ public class MypageController {
 		
 		MemberDTO dto = (MemberDTO) session.getAttribute("session");
 		
-		List<BoardDTO> totalList = this.service.qnaList(dto.getMemberNo());
-		
-		List<BoardDTO> noAnswerList = this.service.noAnswerqnaList(dto.getMemberNo());
-		
-		List<BoardDTO> answerOkList = this.service.answerOkqnaList(dto.getMemberNo());
-		
-		model.addAttribute("TotalList", totalList).
-			  addAttribute("noAnswerList", noAnswerList).
-			  addAttribute("answerOkList", answerOkList);
-		
-		return "member/myPage/qnaList";
+		if(dto == null) {
+			
+			return "member/login.go";
+			
+		} else {
+			List<BoardDTO> totalList = this.service.qnaList(dto.getMemberNo());
+			
+			List<BoardDTO> noAnswerList = this.service.noAnswerqnaList(dto.getMemberNo());
+			
+			List<BoardDTO> answerOkList = this.service.answerOkqnaList(dto.getMemberNo());
+			
+			model.addAttribute("TotalList", totalList).
+				  addAttribute("noAnswerList", noAnswerList).
+				  addAttribute("answerOkList", answerOkList);
+			
+			return "member/myPage/qnaList";
+		}
 	}
 
 }

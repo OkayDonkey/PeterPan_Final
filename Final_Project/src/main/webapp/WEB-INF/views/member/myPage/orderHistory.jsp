@@ -330,7 +330,7 @@
 			                    <span class="history_desc">교환/반품</span>
 			                </button>
 			            </div>
-			        </div>        
+			        </div>
 			        <!-- 주문 배송 내역 -->
 			        <!-- 주문 목록 있는 경우 -->
 			        <div class="tbl_prod_wrap type_myroom">

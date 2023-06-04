@@ -26,7 +26,7 @@ html {
 			</div>
 			<div class="row m-0 justify-content-between" style="width: 100%; font-size: 18px; ">
 				<div class="greenText"><b id="number-Display">0</b><span style="color:black">건</span></div>
-				<div class="float-right" style="color:black; cursor: pointer;" onclick="localStorage.clear(), displayReset()">전체삭제</div>
+				<div class="float-right" style="color:black; cursor: pointer;" onclick="localStorage.clear(), displayReset()"><b>전체삭제</b></div>
 			</div>
 			  <div id="bookListContainer">
 			  <!-- 책 리스트를 표시할 공간 -->
@@ -45,7 +45,8 @@ html {
   		// 이미지 요소 선택
   		var selectBookImg = document.querySelector(".floating-img-wrap");
   		
-  		// src 속성 변경
+   		// src 속성 변경
+   		// src 속성 변경
   		selectBookImg.style.backgroundImage = "url('" + recentlyViewedProducts[0].img + "')";
   		
 		document.getElementById("number-Display").innerText = numCount;
@@ -67,16 +68,16 @@ html {
         });
 		
 		  // 상품 클릭 시 최근 본 상품 정보를 localStorage에 저장
-   function RecentlyViewedBook(name, img, writer, price) {
-	    console.log("최근 본 책: " + name + ", 커버 경로: " + img + ", 글쓴이: " + writer + ", 가격: " + price);
-	
+   function RecentlyViewedBook(name, img, writer, price, no) {
+	   console.log("최근 본 책: " + name + ", 커버 경로: " + img + ", 글쓴이: " + writer + ", 가격: " + price  + ", 책번호: "+ no);
+		
 	    var product = {
+	    	no: no,
 	        name: name,
 	        price: price,
 	        img: img,
 	        writer: writer
 	    };
-	
 	    
 	
 	    if (!recentlyViewedProducts) {
@@ -85,7 +86,7 @@ html {
 	
 	    // 중복된 항목 제거
 	    recentlyViewedProducts = recentlyViewedProducts.filter(function(item) {
-	        return item.name !== name || item.img !== img || item.writer !== writer || item.price !== price;
+	    	 return item.name !== name || item.img !== img || item.writer !== writer || item.price !== price || item.no !== no;
 	    });
 	
 	    recentlyViewedProducts.unshift(product); // 배열 앞에 추가
@@ -112,51 +113,73 @@ html {
 	    bookListContainer.style.overflow = "auto";
 	    
 	    recentlyViewedProducts.forEach(function(product) {
-	        var bookItem = document.createElement("div");
-	        bookItem.classList.add("bookItem");
-	        bookItem.style.marginBottom = "30px";
-	        bookItem.style.marginTop = "20px";
-	        bookItem.style.width = "380px";
-	        bookItem.style.fontWeight = "600";
-	        bookItem.style.display = "flex";
-	        bookItem.style.flexDirection = "row";
-	        bookItem.style.alignItems = "center";
-	        
+	    	  var bookItem = document.createElement("div");
+	    	  bookItem.classList.add("bookItem");
+	    	  bookItem.style.marginBottom = "30px";
+	    	  bookItem.style.marginTop = "20px";
+	    	  bookItem.style.width = "380px";
+	    	  bookItem.style.fontWeight = "600";
+	    	  bookItem.style.display = "flex";
+	    	  bookItem.style.flexDirection = "row";
+	    	  bookItem.style.alignItems = "center";
+	    	  
+	    	  var bookImg = document.createElement("img");
+	    	  bookImg.src = product.img;
+	    	  bookImg.style.width = "80px";
+	    	  bookImg.style.height = "120px";
+	    	  bookImg.style.cursor = "pointer";
+	    	  bookImg.addEventListener("click", function() {
+	    	    location.href = "bookDetail.go?bookNo=" + product.no;
+	    	  });
+	    	  bookItem.appendChild(bookImg);
 
-	        var bookImg = document.createElement("img");
-	        bookImg.src = product.img;
-	        bookImg.style.width = "80px"; // 이미지 너비 설정
-	        bookImg.style.height = "120px"; // 이미지 높이 설정
-	        bookItem.appendChild(bookImg);
+	    	  var bookInfoContainer = document.createElement("div");
+	    	  bookInfoContainer.style.display = "flex";
+	    	  bookInfoContainer.style.flexDirection = "column";
+	    	  bookInfoContainer.style.marginLeft = "20px";
 
-	        var bookInfoContainer = document.createElement("div");
-	        bookInfoContainer.style.display = "flex";
-	        bookInfoContainer.style.flexDirection = "column";
-	        bookInfoContainer.style.marginLeft = "30px";
+	    	  var bookName = document.createElement("div");
+	    	  bookName.textContent = product.name;
+	    	  bookName.style.fontSize = "18px";
+	    	  bookName.style.marginBottom = "16px";
+	    	  bookName.style.cursor = "pointer";
+	    	  bookName.addEventListener("click", function() {
+	    	    location.href = "bookDetail.go?bookNo=" + product.no;
+	    	  });
+	    	  bookInfoContainer.appendChild(bookName);
 
-	        var bookName = document.createElement("div");
-	        bookName.textContent = product.name;
-	        bookName.style.fontSize = "18px"; // 글씨 크기 조절
-	        bookName.style.marginBottom = "16px"; // 글씨 크기 조절
-	        bookInfoContainer.appendChild(bookName);
+	    	  var bookWriter = document.createElement("div");
+	    	  bookWriter.textContent = product.writer;
+	    	  bookWriter.style.fontSize = "14px";
+	    	  bookWriter.style.marginBottom = "7px";
+	    	  bookInfoContainer.appendChild(bookWriter);
+	    	  
+	    	  var bookPrice = document.createElement("div");
+	    	  bookPrice.style.fontSize = "14px";
+	    	  bookPrice.style.display = "flex";
+	    	  bookPrice.style.alignItems = "center";
+	    	  bookInfoContainer.appendChild(bookPrice);
 
-	        var bookWriter = document.createElement("div");
-	        bookWriter.textContent = product.writer;
-	        bookWriter.style.fontSize = "14px"; // 글씨 크기 조절
-	        bookWriter.style.marginBottom  = "7px"; // 글씨 크기 조절
-	        bookInfoContainer.appendChild(bookWriter);
+	    	  var discount = document.createElement("span");
+	    	  discount.style.color = "#4dac27";
+	    	  discount.style.fontSize = "1em";
+	    	  discount.textContent = "10%  ";
+	    	  bookPrice.appendChild(discount);
 
-	        var bookPrice = document.createElement("div");
-	        bookPrice.textContent = product.price+" 원";
-	        bookPrice.style.fontSize = "14px"; // 글씨 크기 조절
-	        bookInfoContainer.appendChild(bookPrice);
+	    	  var price = parseInt(product.price);
+	    	  if (!isNaN(price)) {
+	    	    price = price.toLocaleString() + "원";
+	    	  } else {
+	    	    price = "가격 없음";
+	    	  }
+	    	  var priceElement = document.createElement("span");
+	    	  priceElement.textContent = price;
+	    	  bookPrice.appendChild(priceElement);
 
-	        bookItem.appendChild(bookInfoContainer);
+	    	  bookItem.appendChild(bookInfoContainer);
+	    	  bookListContainer.appendChild(bookItem);
+	    	});
 
-	        // 기타 스타일이나 이벤트 처리를 추가할 수 있습니다.
-
-	        bookListContainer.appendChild(bookItem);
-	    });
 	}
 
 

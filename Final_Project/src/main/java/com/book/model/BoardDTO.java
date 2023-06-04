@@ -18,4 +18,5 @@ public class BoardDTO {
 	// qna 답변 관련
 	private String content;
 	private String regdate;
+	private String memberName;
 }

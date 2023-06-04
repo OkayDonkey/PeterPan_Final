@@ -30,7 +30,7 @@
 	<div class="row justify-content-sm-between" style=" padding:10px;" ><!-- Flex Row 컨테이너 -->
 		<div  class="detail_info_main mb-5"><!-- 메인 좌측 컨테이너 -->
 
-			<h3 class="mb-4">장바구니(${list.size()})</h3>
+			<h3 class="mb-4">구매상품(${list.size()})</h3>
 				<div class="borderRoundBGray mb-4">
 					<div class="row">
 						<div class="deliverInfo_left" id="deliverInfo_left">배송지 정보</div>
@@ -154,54 +154,64 @@
 				      <div class="card-body borderRoundBGray p-3">
 				      
 			      	<div id="cartItems">
-					<c:forEach  items="${cp }" var="coupon" >
-					<c:if test="${!empty coupon }">
-						<div class="column" ><!-- bottom -->
-							<div class="row ailgn-content-center pl-4 " id="coupon${coupon.couponNo }">
-							<div class="flex-space-between px-4 py-2" style="width: 800px;">
-									<span><b>${coupon.couponNo }</b></span>
-									<c:if test="${coupon.couponSale == 1000 }">
-										<div class="text-center" style="font-size: 1em;  font-weight: 700;  width:60%;">
-											피터팬 회원가입 증정 할인 쿠폰
-										</div>
-									</c:if>
-									<c:if test="${coupon.couponSale == 2000 }">
-										<div class="text-center" style="font-size: 1em;  font-weight: 700; width:60%; ">
-											피터팬 회원가입 증정 할인 쿠폰
-										</div>
-									</c:if>
-									<c:if test="${coupon.couponSale == 3000 }">
-										<div class="text-center" style="font-size: 1em;  font-weight: 700; width:60%; ">
-											피터팬 회원가입 증정 할인 쿠폰
-										</div>
-									</c:if>
-									<c:if test="${coupon.couponSale > 100000 }">
-										<div class="text-center" style="font-size: 1em;  font-weight: 700; width:60%;">
-											특가 무적 쿠폰
-										</div>
-									</c:if>
-									<div class="float-right" style="font-size: 1em;  font-weight: 700; ">
-										<fmt:formatNumber>${ coupon.couponSale}</fmt:formatNumber>원
-									</div>
-									<div id="costBtn_${coupon.couponNo}">
-									    <button class="RoundBox_l" onclick="couponCostCal(${coupon.couponSale}, ${coupon.couponNo});">사용하기</button>
-									</div>
-									<div id="costCancelBtn_${coupon.couponNo}" hidden>
-									    <button class="RoundBox_l" onclick="couponCostCancel(${coupon.couponSale}, ${coupon.couponNo});">사용취소</button>
-									</div>
-									 
-							</div>
-							</div>
-						</div>
-					</c:if>
-					</c:forEach>
-					</div><!-- 반복구간 끝 -->
+  <c:forEach items="${cp}" var="coupon" varStatus="status">
+    <c:if test="${not empty coupon}">
+      <div class="column">
+        <div class="row align-content-center pl-4" id="coupon${coupon.couponNo}">
+          <div class="flex-space-between px-4 py-2" style="width: 800px;">
+            <span><b>${status.index + 1}</b></span> <!-- 순서대로 넘버링 -->
+            <c:if test="${coupon.couponSale == 1000}">
+              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+                피터팬 회원가입 증정 할인 쿠폰
+              </div>
+            </c:if>
+            <c:if test="${coupon.couponSale == 2000}">
+              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+                피터팬 회원가입 증정 할인 쿠폰
+              </div>
+            </c:if>
+            <c:if test="${coupon.couponSale == 3000}">
+              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+                피터팬 회원가입 증정 할인 쿠폰
+              </div>
+            </c:if>
+            <c:if test="${coupon.couponSale > 100000}">
+              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+                특가 무적 쿠폰
+              </div>
+            </c:if>
+            <div class="float-right" style="font-size: 1em; font-weight: 700;">
+              <fmt:formatNumber value="${coupon.couponSale}" type="currency" />원
+            </div>
+            <div id="costBtn_${coupon.couponNo}">
+              <button class="RoundBox_l" onclick="couponCostCal(${coupon.couponSale}, ${coupon.couponNo});">사용하기</button>
+            </div>
+            <div id="costCancelBtn_${coupon.couponNo}" hidden>
+              <button class="RoundBox_l" onclick="couponCostCancel(${coupon.couponSale}, ${coupon.couponNo});">사용취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </c:if>
+  </c:forEach>
+</div><!-- 반복구간 끝 -->
+
 			      </div>
 			    </div>
 			  </div>
 			</div><!-- 쿠폰 아코디언 끝-->
 						
 			</c:if><!-- 쿠폰이 있을 때 -->
+			
+			<div class="pointBox">
+				<div style="width: 130px;">보유 포인트</div>
+				<div style="width: 305px;"><span id="point-display">${session.point }</span>원</div>
+				<div style="width: 240px;">
+					<input type="text" placeholder="사용할 포인트를 입력해주세요" 
+					class="radius-inputBox" id="usePoint"><span class="ml-2">원</span>
+				</div>
+				<div  style="width: 80px;" class="ml-3 buyTextBoxBlue flex_center_center" onclick="pointCal()">적 용</div>
+			</div>
 			
 			<!-- 결제정보 -->
 			<div class="borderRoundBGray">
@@ -242,7 +252,7 @@
 									0원
 								</c:if>
 								<c:if test="${ cartTotalPrice < 15000}">
-									4,000원
+									2,500원
 								</c:if>
 						</span>
 					</div>
@@ -273,13 +283,13 @@
 	<!-- 팝업 -->		
 			<div id="popupPoint" hidden 
 					style="position: absolute; background-color: white; border: 1px solid gray;
-							width:350px; border-radius: 0.5em; margin-top:100px; padding:20px; right: 0px;
+							width:350px; border-radius: 0.5em; margin-top:120px; padding:20px; right: 0px;
 							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);  z-index: 3000;">
 				<div style="border-bottom: 1px solid #eaeaea;">
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">기본적립</p>
 					<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">
 						<span>5% 적립</span> 
-						<span style="float: right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span> 
+						<span style="float: right;"><fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 }</fmt:formatNumber>P</span> 
 					</p>
 				</div>
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin: 10px 0 6px 0; color:#2c2c2c"> 
@@ -293,7 +303,7 @@
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">3만원 이상 구매 시, 등급별 2~4% 추가</span> 
-							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span>
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 }</fmt:formatNumber>P</span>
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">리뷰 작성 시, e교환권 추가 최대 </span> 
@@ -306,20 +316,20 @@
 			
 				</div>
 				<div id="pointDisplay" class="mb-3" style="font-weight: 500; color:#5055b1;" hidden></div><br>
-				<div class="mb-3"><b><span class="text-left">결제 예정 금액</span>
+				<div class="mb-3 mt-3"><b><span class="text-left">결제 예정 금액</span>
 				<span class="float-right" id="cartTotalPrice2"><fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
 				</span></b></div>
 				<div class="mb-3"><span class="float-left">적립예정 포인트</span>
 					<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
 					
-					<c:if test="${totalprice > 50000 }">			
+					<c:if test="${cartTotalPrice > 50000 }">			
 					<span class="float-right" id="pointDisplay">
-						<fmt:formatNumber>${( totalprice * 0.05 ) + 2000 }</fmt:formatNumber>P
+						<fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 + 2000 }</fmt:formatNumber>P
 					</span>
 					</c:if>	
-					<c:if test="${totalprice <= 50000 }">			
+					<c:if test="${cartTotalPrice <= 50000 }">			
 					<span class="float-right" id="pointDisplay">
-						<fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P
+						<fmt:formatNumber>${(cartTotalPrice - (cartTotalPrice * 0.1 )) * 0.05 }</fmt:formatNumber>P
 					</span>
 					</c:if>	
 				</div>
@@ -363,6 +373,7 @@
 <input type="hidden" value="${session.memberPhone }" id="memTel"> 
 <input type="hidden" value="${session.addrMain }" id="memAddr"> 
 <input type="hidden" value="${session.addrPost }" id="memPost"> 
+<input type="hidden" value="${session.point}" id="memPoint"> 
 <input type="hidden"  id="useCouponNo"> 
 
  
@@ -447,7 +458,7 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 	  
 	  console.log("변경된 책의 수량 및 변수값: " + displayNo.innerText);
 	}
-
+	
 	function updateTotalCost(bookNo, bookCost, bookQuantity) {
 	  var totalPrice = (bookCost - ( bookCost * 0.1 )) * bookQuantity;
 	  var totalCostDisplay = document.getElementById("totalCostDisplay" + bookNo);
@@ -494,8 +505,9 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 		 });
 	  
 	}
-
-
+	
+	
+	
 </script>
   <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>

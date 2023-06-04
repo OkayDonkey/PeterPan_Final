@@ -4,6 +4,7 @@ IMP.init('imp12711251');
 function requestPay() {
 
 		var totalCost = document.getElementById("orderTotalCost").value;
+		var originCost = document.getElementById("originalTotalCost").value;
 		var integerCost = parseInt(totalCost, 10);
 		var name = document.getElementById("memName").value;
 		var email = document.getElementById("memEmail").value;
@@ -11,11 +12,30 @@ function requestPay() {
 		var addr = document.getElementById("memAddr").value;
 		var post = document.getElementById("memPost").value;
 		var pickedCouponNo = document.getElementById("useCouponNo").value;
+		var usePoint = document.getElementById("usePoint").value;
+		var addPoint = 0;
+		
+		if (originCost > 50000) {
+		  addPoint = Math.round((originCost * 0.05) + 2000);
+		} else {
+		  addPoint = Math.round(originCost * 0.05);
+		  integerCost += 2500;
+		}
+
+		
+		console.log("추가될 포인트:"+ addPoint);
+		console.log("선택된 쿠폰 번호"+pickedCouponNo);
 		
 		if (pickedCouponNo === null || pickedCouponNo === "") {
 		    pickedCouponNo = 0;
 		} else {
 		    pickedCouponNo = parseInt(pickedCouponNo);
+		}
+		
+		if (usePoint === null || usePoint === "") {
+		    usePoint = 0;
+		} else {
+		    usePoint = parseInt(usePoint);
 		}
 		
 		console.log("call pay");
@@ -36,7 +56,9 @@ function requestPay() {
 		      buyer_postcode: "01181"
 		    }, function (rsp) { // callback
 		     	console.log(rsp);
-		  		  location.href="buySuccess.go?couponNo="+pickedCouponNo;
+		  		  location.href="buySuccess.go?couponNo="
+		  		  +pickedCouponNo+"&usePoint="+usePoint+
+		  		  "&payMoney="+integerCost+"&addPoint="+addPoint;
 		    });
 		    
    		 } else {
@@ -74,3 +96,6 @@ function handleClick(event) {
 for (var i = 0; i < payBoxes.length; i++) {
     payBoxes[i].addEventListener("click", handleClick);
 }
+
+
+

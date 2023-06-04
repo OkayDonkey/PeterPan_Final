@@ -52,6 +52,15 @@
 		color: white;
 }
 
+.Bcountg{
+	font-size:15px;
+	font-weight: 600;
+	margin: 10px;
+	float:left; 
+	
+	
+}
+
 .cate_kind{
 	
 	float:left;
@@ -71,6 +80,9 @@
 	font-weight: 600;
 }
 
+#nav{
+	margin-top: 50px;
+}
 #nav ul{
 	text-align:left;
 	margin:0 auto; 
