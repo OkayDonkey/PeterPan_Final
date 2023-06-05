@@ -73,7 +73,9 @@ public class AlbumController {
 	}
 	
 	@RequestMapping("insertalbum.go")
-	public String upload() {
+	public String upload(Model model, BookDTO bookDTO, HttpServletRequest request, HttpSession session,AlbumDTO albumDTO) {
+		 albumInsert(model, bookDTO, request, session, albumDTO );  // 앨범 추가 로직 호출
+
 		return "album/albumUpload";
 	}
 	
@@ -85,7 +87,7 @@ public class AlbumController {
 		int page;    // 현재 페이지 변수
 		
 		if(request.getParameter("page") != null) {
-			page = 
+			page =  
 				Integer.parseInt(request.getParameter("page"));
 		}else {
 			// 처음으로 "게시물 전체 목록" 태그를 클릭한 경우
@@ -126,7 +128,7 @@ public class AlbumController {
 		}
 	
 	@RequestMapping("albumInsert.go")
-	public String albumInsert(Model model,BookDTO dto,HttpServletRequest request,HttpSession session,AlbumDTO adto) {
+	public void albumInsert(Model model,BookDTO dto,HttpServletRequest request,HttpSession session,AlbumDTO adto) {
 		
 		// 페이징 처리 작업
 		int page;    // 현재 페이지 변수
@@ -147,10 +149,12 @@ public class AlbumController {
 		
 		dto.setMemberId(mdto.getMemberId());
 		
+		this.dao.insertalbumCover(dto);
+		
 			PageDTO pdto = 
 					new PageDTO(page, rowsize, totalRecord);
-			
-			System.out.println(adto);
-			return "album/albumUpload";
+
+			 
+			return;
 	}
 }

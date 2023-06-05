@@ -14,6 +14,7 @@
 
 	<div class="container">
 		<h2>게시물 등록</h2>
+		<c:set value="${albumlist }" var="alist" />		
 		<form action="<%=request.getContextPath() %>/insertOk.go" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
@@ -26,6 +27,7 @@
 				<tr>
 					<th>
 					<input type="button" value="책 검색">
+					${bookDTO.bookCover }
 					
 					</th>
 					<td><input name="albumTitle"></td>

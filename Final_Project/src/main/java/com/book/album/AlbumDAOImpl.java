@@ -33,9 +33,5 @@ public class AlbumDAOImpl implements AlbumDAO{
 				
 	}
 	
-	@Override
-	public List<AlbumDTO> getalbum() {
-		return this.SqlSession.selectList("alist");
-	}
 
 }
