@@ -343,7 +343,7 @@
 						                <div class="tbl_myorder_inner">
 									        <div class="tbl_order_info">
 									            <span class="order_date">${dto.purchaseNo.substring(0, 4)}.${dto.purchaseNo.substring(4, 6)}.${dto.purchaseNo.substring(6, 8)}(${dto.purchaseNo })</span>
-									            <a href="" class="btn_more_view">
+									            <a href="<%=request.getContextPath() %>/order_history_detail.go?purchasNo=${dto.purchaseNo}" class="btn_more_view">
 									            	<span class="text">상세보기</span>
 									            	<span class="ico_arw"></span>
 									            </a>
