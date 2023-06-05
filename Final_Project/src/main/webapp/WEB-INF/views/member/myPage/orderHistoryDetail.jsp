@@ -190,22 +190,22 @@
 				           </c:if>
 				           	<h5 class="mt-5">배송정보</h5>
 				            <div class="DeliverTopBox1 row">
-								<div class="mr-5" ><b>기본정보</b></div>
+								<div class="mr-5 size14"><b>기본정보</b></div>
 								<div class="ml-5">
-									<div><b>${session.memberName }</b>  /  ${session.memberPhone }</div>
-									<div><b>[ ${session.addrPost } ]</b>  ${session.addrMain } ${session.addrDetail }</div>
+									<div class="size14"><b>${session.memberName }</b>  /  ${session.memberPhone }</div>
+									<div class="size14"><b>[ ${session.addrPost } ]</b>  ${session.addrMain } ${session.addrDetail }</div>
 								</div>
 							</div>    
 				           	
 				           <h5 class="mt-5">결제정보</h5>
 				            <div class="DeliverTopBox1 row" style="display: flex; justify-content: space-between;">
 								<div class="PayWrapBox mr-3" >
-									<div class="row-between"><div><b>주문금액</b></div> <div><b><fmt:formatNumber >${totalPrice}</fmt:formatNumber>원</b></div></div>
-									<div class="row-between"><div>상품금액</div> <div><fmt:formatNumber >${totalPrice}</fmt:formatNumber>원</div></div>
+									<div class="row-between"><div class="size14"><b>주문금액</b></div> <div><b><fmt:formatNumber >${totalPrice}</fmt:formatNumber>원</b></div></div>
+									<div class="row-between detail"><div>상품금액</div> <div><fmt:formatNumber >${totalPrice}</fmt:formatNumber>원</div></div>
 								</div>
 								<div  class="PayWrapBox ml-5 mr-3" >
-									<div class="row-between"><div><b>할인/포인트 금액</b></div> <div><b>-<fmt:formatNumber >${usedPoint }</fmt:formatNumber>원</b></div></div>
-									<div class="row-between"><div>쿠폰 할인액</div>
+									<div class="row-between"><div class="size14"><b>할인/포인트 금액</b></div> <div><b>-<fmt:formatNumber >${usedPoint }</fmt:formatNumber>원</b></div></div>
+									<div class="row-between detail"><div>쿠폰 할인액</div>
 									 	<c:if test="${cCost > 0}">
 										 	<div><fmt:formatNumber >${cCost}</fmt:formatNumber>원</div>
 										</c:if> 
@@ -215,15 +215,19 @@
 									 </div>
 								</div>
 								<div  class="PayWrapBox ml-5" >
-									<div class="row-between"><div><b>총 결제금액</b></div> <div><b><fmt:formatNumber >${pCost }</fmt:formatNumber>원</b></div></div>
-									<div class="row-between"><div>신용카드</div> <div><fmt:formatNumber >${pCost }</fmt:formatNumber>원</div></div>
+									<div class="row-between"><div class="size14"><b>총 결제금액</b></div> <div><b><fmt:formatNumber >${pCost }</fmt:formatNumber>원</b></div></div>
+									<div class="row-between detail"><div>신용카드</div> <div><fmt:formatNumber >${pCost }</fmt:formatNumber>원</div></div>
 								</div>
-							</div>    
+							</div>
+							<ul class="bul_list">
+					            <li class="bul_item_dot font_size_xxs fc_light_gray">적립금은 결제이후 예상적립금이 안내됩니다. 결제 사용금액과 적립시점에 따라 최종적립이 완료 되면 [적립완료]로 안내가 변경됩니다.</li>
+					            <li class="bul_item_dot font_size_xxs fc_light_gray">제휴포인트의 경우 적립완료 금액은 각 제휴사페이지에서 확인 가능합니다.</li>
+					        </ul>
 							
 							<h5 class="mt-5">적립정보</h5>
 				            <div class="DeliverTopBox1 row" style="display: flex; justify-content: space-between;">
 								<div class="PayWrapBox1 mr-3" >
-									<div class="row-between"><div><b>통합포인트 적립</b></div> 
+									<div class="row-between"><div class="size14"><b>통합포인트 적립</b></div> 
 										<c:if test="${totalPrice > 50000 }">
 										 	<div><b><fmt:formatNumber >${( totalPrice * 0.05 ) + 2000 }</fmt:formatNumber>원</b></div>
 										</c:if> 
@@ -233,11 +237,16 @@
 									</div>
 								</div>
 								<div  class="PayWrapBox1 ml-5 mr-3" >
-									<div class="row-between"><div><b>잔여 포인트</b></div> 			
+									<div class="row-between"><div class="size14"><b>잔여 포인트</b></div> 			
 										<div><b><fmt:formatNumber >${session.point }</fmt:formatNumber>원</b></div>
 									</div>
 								</div>
-							</div>    
+							</div>
+							<div class="btn_wrap page_bottom">
+					            <a href="<%=request.getContextPath() %>/orderHistory.go" class="btn_lg btn_primary">
+					            	<span class="text">주문/배송 목록</span>
+					            </a>
+					        </div> 
 						</div>			
 					</div><!-- 메인 좌측 컨테이너 -->
 			    </section>
