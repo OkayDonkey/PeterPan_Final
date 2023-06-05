@@ -7,10 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>피터팬</title>
+<link rel="stylesheet" href="resources/css/comunity/albumUpload.css" />
 </head>
 <body>
 
+	<jsp:include page="../top/top.jsp" />
 
 	<div class="container">
 		<h2>게시물 등록</h2>
@@ -28,6 +30,7 @@
 					<th>
 					<input type="button" value="책 검색">
 					${bookDTO.bookCover }
+					<input type="button" value="책 검색" onclick="bookSearchModal()">
 					
 					</th>
 					<td><input name="albumTitle"></td>
@@ -58,9 +61,9 @@
 		
 	</div>
 	
-	
 	<!-- 모달 검색 시작 -->
-	<div>
+	<div class="insertPopup" id="insertPopup" hidden>
+	  <div class="insertPopupBox">
 		<form method="post"	action="<%=request.getContextPath()%>/modal_search.go">
 				<!--서치 링크-->
 				<div class="flex-grow-1 my-1 order-sm-2" id="keyboard">
@@ -86,33 +89,42 @@
 					</div>
 				</div>
 			</form>
-			<c:set value="${List }" var="list"/>
-			<c:set value="${Paging }" var="page"/>
 			
-			<c:if test="${!empty list }">
-				<c:forEach var="dto" items="${list }">
-					<table>
-						<tr>
-							<th>
-								<img src="${dto.bookCover }" >
-							</th>
-							<td>
-							${dto.bookName }
-							</td>
-							
-							<td>
-								<input type="button" value="선택하기" onclick="<%=request.getContextPath()%>/albumInsert.go?bookNo=${bookNo}">
-							</td>
-						</tr>
-					
-					</table>
-				</c:forEach>
-			</c:if>
+			<div class="bookWrap">
+				<c:set value="${List }" var="list"/>
+				<c:set value="${Paging }" var="page"/>
+				
+				<c:if test="${!empty list }">
+					<c:forEach var="dto" items="${list }">
+						<table>
+							<tr>
+								<th>
+									<img src="${dto.bookCover }" width="55px">
+								</th>
+								<td>
+								${dto.bookName }
+								</td>
+								
+								<td>
+									<input type="button" value="선택하기" onclick="<%=request.getContextPath()%>/albumInsert.go?bookNo=${bookNo}">
+								</td>
+							</tr>
 						
+						</table>
+					</c:forEach>
+				</c:if>
+			</div>
+			<div class="qnaInsertBox_btn"  style="display: flex; margin-top: 40px;">
+            <div class="RoundBox1"  onclick="closeModal()"><span>취소</span></div>
+            <div class="RoundBox2"><span class="qnaAnswer">등록</span></div>
+         </div>
+		  </div>		
 		</div>
 		<!-- 모달 검색 끝 -->
+		
+		<script type="text/javascript" src="resources/js/comunity/albumUpload.js"></script>
 	
-	
+		<jsp:include page="../top/footer.jsp" />
 	
 	
 	<!-- -->
