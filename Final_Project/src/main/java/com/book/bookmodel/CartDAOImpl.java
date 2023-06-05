@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.book.model.CartDTO;
 import com.book.model.CouponDTO;
+import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
 
@@ -101,4 +102,25 @@ public class CartDAOImpl implements CartDAO{
 		 
 		return this.SqlSession.insert("insertPurchase", dto);
 	}
+	
+	@Override
+	public void updatePoint(MemberDTO dto) {
+		 
+		this.SqlSession.update("updatePoint", dto);
+	}
+	
+	@Override
+	public int getCouponPrice(int couponNo) {
+	 
+		return this.SqlSession.selectOne("getCouponPrice", couponNo);
+	}
+	
+	@Override
+	public List<PurchaseDTO> purchasList(String purchaseNo) {
+		 
+		return this.SqlSession.selectList("purchaseNoList", purchaseNo);
+	}
+	
+	
+	
 }

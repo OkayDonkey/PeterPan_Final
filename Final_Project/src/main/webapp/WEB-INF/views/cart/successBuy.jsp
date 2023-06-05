@@ -11,14 +11,31 @@
 	const path = "<%= request.getContextPath()%>/";
 </script> 
 <title>Insert title here</title>
-
-<link rel="stylesheet" type ="text/css" href ="resources/css/main/main.css">
+ <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
+<link rel="stylesheet" href="resources/css/member/mypage.css" />
+<link rel="stylesheet" href="resources/css/member/orderHistory.css" />
 </head>
 <body>
 <c:set var="session" value="${session }" /> 
-<c:set var="list" value="${cList }" />
+<c:set var="list" value="${pList }" />
 <c:set var="cp" value="${coupon}" />
 <c:set var ="cartTotalPrice" value="0" />
+<c:set var="totalPrice" value="0" />
+<c:forEach items="${list}" var="product">
+  <c:set var="totalPrice" value="${totalPrice + ( product.bookPrice - ( product.bookPrice * 0.1 ))}" />
+</c:forEach>
+<c:forEach items="${list}" var="dto" varStatus="status">
+  <c:if test="${status.index == 0 || dto.usedPoint ne list[status.index - 1].usedPoint}">
+  		<c:set value="${dto.usedPoint }" var="usedPoint" />
+  </c:if>
+  <c:if test="${status.index == 0 || dto.paymentCost ne list[status.index - 1].paymentCost}">
+  		<c:set value="${dto.paymentCost }" var="pCost" />
+  </c:if>
+  <c:if test="${status.index == 0 || dto.usedCouponCost ne list[status.index - 1].usedCouponCost}">
+  		<c:set value="${dto.usedCouponCost }" var="cCost" />
+  </c:if>
+</c:forEach>
+
 <input type="hidden" id="memberId" value="${session.memberId }">
 
 
@@ -29,54 +46,111 @@
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
 	<div class="row justify-content-sm-between" style=" padding:10px;" ><!-- Flex Row 컨테이너 -->
 		<div  class="detail_info_main mb-5"><!-- 메인 좌측 컨테이너 -->
-
-			<h3 class="mb-4">주문 상세정보</h3>
-				<div class="borderRoundBGray mb-4">
-					<div class="row">
-
-
-
+			<h3 class="mb-5">주문이 완료되었습니다</h3>
+			<h4 class="mb-4 ml-1">주문/배송 상세 조회</h4>
+			<div class="flex_column p-1">
+				<c:if test="${!empty list}">
+				    <c:forEach items="${list}" var="dto" varStatus="status">
+				        <c:if test="${status.index == 0 || dto.purchaseNo ne list[status.index - 1].purchaseNo}">
+						            <!-- Grouping logic -->
+						   <div class="purchaseNoBox">
+					           <div>
+					           		<span class="order_date">${dto.purchaseNo.substring(0, 4)}.${dto.purchaseNo.substring(4, 6)}.${dto.purchaseNo.substring(6, 8)} | 주문번호  ${dto.purchaseNo } </span>
+					           </div> 
+					       </div>
+						       <div class="DeliverTopBox">배송</div>    
+			           </c:if>
+				<div class="purchaseFlexWrap p-0 m-0 my-2">
+			           <div class="">
+				           <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}" class="prod_link">
+	                           <span class="CoverBox">
+	                               <img src="${dto.bookCover}" alt="${dto.bookName}">
+	                           </span>
+	                       </a>
+	                   </div>
+	                   
+			           <div class="bookNameWrap">
+			           		<div class="ml-4"><p><a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}" class="prod_link">${dto.bookName }</a></p></div>
+			           		<div class="ml-4 small"><b>수량 : ${dto.bookEA }</b></div>
+			           </div>		
+			           	
+					   <div class="bookPriceWrap">
+					   		<fmt:formatNumber value="${(dto.bookPrice - (dto.bookPrice * 0.1)) * dto.bookEA}" pattern="#,##0" var="formattedPrice" />
+                            <span class="price">
+                                <span class="val">${formattedPrice}</span>
+                                <span class="unit">원</span>
+                            </span>
+					   </div>			
+					   
+					   <div class="bookDeliverWrap">
+						   	<div class="blueText" style="color: #474c9f !important; font-weight: 800;">배송완료</div>
+						   	<div>${dto.purchaseNo.substring(0, 4)}.${dto.purchaseNo.substring(4, 6)}.${dto.purchaseNo.substring(6, 8)}</div>
+					   </div>	
+	           </div>
+	           			
+		           </c:forEach>
+	           </c:if>
+	           	<h4 class="mt-5">배송정보</h4>
+	            <div class="DeliverTopBox1 row">
+					<div class="mr-5" ><b>기본정보</b></div>
+					<div class="ml-5">
+						<div><b>${session.memberName }</b>  /  ${session.memberPhone }</div>
+						<div><b>[ ${session.addrPost } ]</b>  ${session.addrMain } ${session.addrDetail }</div>
 					</div>
-				      
-			      	<div id="cartItems">
-					<c:forEach  items="${list }" var="dto" >
-					<c:if test="${!empty list }">
-						<c:set var="totalprice" value="${dto.bookPrice * dto.cartCount}" /> <!-- total price 정의  -->
-						<c:set var ="cartTotalPrice" value="${cartTotalPrice + totalprice }" />
-						
-						
-						<div class="column border_bottom_gray"   id="cartItems"><!-- bottom -->
-							<div class="row ailgn-content-center pl-4 ">
-							<div class="row py-3 pl-3">
-								<div class="px-2 my-2">
-									<img width="100" alt="${ dto.bookCover}" src="${ dto.bookCover}"  style="border-radius: 0;">
-								</div>
-								<div class="px-2 my-2 bookCartWidth" style="width: 150px;">
-										<div class="text-left mb-2"  style="font-weight: 600; ">
-										<a style="color:black; " href="${path }bookDetail.go?bookNo=${ dto.bookNo}">${ dto.bookName}</a> 
-										</div>
-										<div class="text-left mb-2" style="font-size: 1em;  font-weight: 700;  ">
-										<span style="color: #4dac27; font-size: 0.9em; font-weight: 600;  ">10%</span>
-										<fmt:formatNumber>${ dto.bookPrice - ( dto.bookPrice * 0.1)}</fmt:formatNumber>원
-										<span class="strikeNum"><fmt:formatNumber>${ dto.bookPrice}</fmt:formatNumber>원</span>
-										</div>
-								</div>
-							</div>
-							<div class="flex_center_center" style="width: 120px;">
-									<div id="numberDisplay${ dto.bookNo}" style="font-size: 0.9em;">${ dto.cartCount}개</div>
-							</div>
-							<div class="flex_center_center float-right"  style="width: 100px;">
-								<span class="bold" id="totalCostDisplay${ dto.bookNo}">
-									<fmt:formatNumber> ${totalprice - ( totalprice * 0.1 ) } </fmt:formatNumber>원
-								</span>
-							</div>
-							</div>
+				</div>    
+	           	
+	           <h4 class="mt-5">결제정보</h4>
+	            <div class="DeliverTopBox1 row">
+					<div class="PayWrapBox mr-3" >
+						<div class="row-between"><div><b>주문금액</b></div> <div><b><fmt:formatNumber >${totalPrice}</fmt:formatNumber>원</b></div></div>
+						<div class="row-between"><div>상품금액</div> <div><fmt:formatNumber >${totalPrice}</fmt:formatNumber>원</div></div>
+					</div>
+					<div  class="PayWrapBox ml-5 mr-3" >
+						<div class="row-between"><div><b>할인/포인트 금액</b></div> <div><b>-<fmt:formatNumber >${usedPoint }</fmt:formatNumber>원</b></div></div>
+						<div class="row-between"><div>쿠폰 할인액</div>
+						 	<c:if test="${cCost > 0}">
+							 	<div><fmt:formatNumber >${cCost}</fmt:formatNumber>원</div>
+							</c:if> 
+							<c:if test="${cCost == 0 }">
+							 	<div><fmt:formatNumber >0</fmt:formatNumber>원</div>
+							</c:if>
+						 </div>
+					</div>
+					<div  class="PayWrapBox ml-5" >
+						<div class="row-between"><div><b>총 결제금액</b></div> <div><b><fmt:formatNumber >${pCost }</fmt:formatNumber>원</b></div></div>
+						<div class="row-between"><div>신용카드</div> <div><fmt:formatNumber >${pCost }</fmt:formatNumber>원</div></div>
+					</div>
+				</div>    
+				
+				<h4 class="mt-5">적립정보</h4>
+	            <div class="DeliverTopBox1 row">
+					<div class="PayWrapBox1 mr-3" >
+						<div class="row-between"><div><b>통합포인트 적립</b></div> 
+							<c:if test="${totalPrice > 50000 }">
+							 	<div><b><fmt:formatNumber >${( totalPrice * 0.05 ) + 2000 }</fmt:formatNumber>원</b></div>
+							</c:if> 
+							<c:if test="${totalPrice <= 50000 }">
+							 	<div><b><fmt:formatNumber >${ totalPrice * 0.05 }</fmt:formatNumber>원</b></div>
+							</c:if>
 						</div>
-					</c:if>
-					</c:forEach>
-				</div>
+					</div>
+					<div  class="PayWrapBox1 ml-5 mr-3" >
+						<div class="row-between"><div><b>잔여 포인트</b></div> 			
+							<div><b><fmt:formatNumber >${session.point }</fmt:formatNumber>원</b></div>
+						</div>
+					</div>
+				</div>    
+	           	
+	           	
+	           	
+			</div>			
 					
-				</div>
+			<br>		
+			<br>		
+			<br>		
+			<br>		
+			<br>		
+		
 				
 		</div><!-- 메인 좌측 컨테이너 -->
 		
@@ -84,25 +158,52 @@
 		<div class="detail_info_side">
 		<div class="flex-align-items-center Fixed">
 			<span class="grayCircle">1</span><span class="ml-2 mr-3">장바구니</span>
-			<span class="greenCircle">2</span><span class="ml-2 mr-3 bold-font">주문/결제</span>
-			<span class="grayCircle">3</span><span class="ml-2">주문완료</span>
+			<span class="grayCircle">2</span><span class="ml-2 mr-3">주문/결제</span>
+			<span class="greenCircle">3</span><span class="ml-2 bold-font">주문완료</span>
 		</div>
 			<div class="borderRoundGray my-4 Fixed p-4" style="color:black !important;  border-color: lightgray; background-color: white;">
+				<div class="flex_center_center my-5"><img width="80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Feedbin-Icon-check.svg/2560px-Feedbin-Icon-check.svg.png"></div>
+				
 				<div>
-					<div class="mb-3"><b><span class="text-left" >상품금액</span><span class="float-right" id="cartTotalPrice1">
-							<fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원</span></b></div>
-					<div class="pb-4 mb-2 border_bottom_gray"><span class="text-left">배송비</span>
+					<div class="mb-3 mt-2"><b><span class="text-left" >결제 금액</span></b><span class="float-right" id="cartTotalPrice1">
+							<fmt:formatNumber>${pCost }</fmt:formatNumber>원</span>
+					</div>
+					<div>
+						<div class="mb-3 mt-2" ><b><span class="text-left" >주문 수량</span></b><span class="float-right" id="cartTotalPrice1">
+							${ list.size() }개</span></div>
+					</div>
+					<div>
+						<div class="mb-3 mt-2"><b><span class="text-left" >적립 포인트</span></b>
+							<c:if test="${totalPrice > 50000 }">
+								<span class="float-right" id="cartTotalPrice1"> <fmt:formatNumber >${( totalPrice * 0.05 ) + 2000 }</fmt:formatNumber>원</span>
+							</c:if> 
+							<c:if test="${totalPrice <= 50000 }">
+								<span class="float-right" id="cartTotalPrice1"> <fmt:formatNumber >${ totalPrice * 0.05 }</fmt:formatNumber>원</span>
+							</c:if>
+						</div>
+					</div>
+					<div>
+						<div class="mb-3 mt-2"><b><span class="text-left" >잔여 포인트</span></b><span class="float-right" id="cartTotalPrice1">
+							<fmt:formatNumber >${session.point }</fmt:formatNumber>원</span></div>
+					</div>
+					<div>
+						<div class="mb-3 mt-2"><b><span class="text-left" >배송 주소</span></b><br>
+						<span class="float-left mt-2" id="cartTotalPrice1"> [${ session.addrPost }] ${session.addrMain } ${session.addrDetail } </span></div>
+					</div><br>
+					<div class="pb-4 mb-2 border_bottom_gray"><b><span class="text-left">배송비</span></b>
 						<img style="width:18px" id="drvInfoIco" src="resources/img/infoIco.png" 
 						onclick="togglePopup('popupDrvInfo', 'drvInfoIco', 'resources/img/infoIco.png', 'resources/img/infoIco_active.png')">
 						<span class="float-right">
-								<c:if test="${ cartTotalPrice > 15000}">
+								<c:if test="${ pCost  > 15000}">
 									0원
 								</c:if>
-								<c:if test="${ cartTotalPrice < 15000}">
-									4,000원
+								<c:if test="${ pCost  < 15000}">
+									2,500원
 								</c:if>
 						</span>
 					</div>
+					
+					
 					
 <!-- 팝업 -->
 	<div id="popupDrvInfo" hidden 
@@ -136,7 +237,7 @@
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">기본적립</p>
 					<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">
 						<span>5% 적립</span> 
-						<span style="float: right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span> 
+						<span style="float: right;"><fmt:formatNumber>${totalPrice * 0.05 }</fmt:formatNumber>P</span> 
 					</p>
 				</div>
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin: 10px 0 6px 0; color:#2c2c2c"> 
@@ -150,7 +251,7 @@
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">3만원 이상 구매 시, 등급별 2~4% 추가</span> 
-							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P</span>
+							<span style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em;  color:#595959;  float:right;"><fmt:formatNumber>${totalPrice * 0.05 }</fmt:formatNumber>P</span>
 						</li>
 						<li>
 							<span  style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">리뷰 작성 시, e교환권 추가 최대 </span> 
@@ -161,51 +262,10 @@
 			</div>
 			<!-- 팝업 End-->
 			
-				</div>
-				<div id="pointDisplay" class="mb-3" style="font-weight: 500; color:#5055b1;" hidden></div><br>
-				<div class="mb-3"><b><span class="text-left">결제 예정 금액</span>
-				<span class="float-right" id="cartTotalPrice2"><fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
-				</span></b></div>
-				<div class="mb-3"><span class="float-left">적립예정 포인트</span>
-					<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
-					
-					<c:if test="${totalprice > 50000 }">			
-					<span class="float-right" id="pointDisplay">
-						<fmt:formatNumber>${( totalprice * 0.05 ) + 2000 }</fmt:formatNumber>P
-					</span>
-					</c:if>	
-					<c:if test="${totalprice <= 50000 }">			
-					<span class="float-right" id="pointDisplay">
-						<fmt:formatNumber>${totalprice * 0.05 }</fmt:formatNumber>P
-					</span>
-					</c:if>	
-				</div>
+		</div>
 					<button type="submit"  class="buyTextBoxBlue flex_center_center" 
-					style="font-weight: 500; font-size: 1.1em; width: 100%;"onclick="requestPay()">주문/결제(${list.size()})</button>
+					style="font-weight: 500; font-size: 1.1em; width: 100%;"onclick="location.href='/main'">홈으로</button>
 				
-			<div class="mt-3">
-			<div id="accordion Fixed">
-				  <div class="card1">
-				    <div class="card-header2" id="headingOne">
-				       <div><b><span class="p-2 mt-2">
-					        주문 상품 정보 동의
-					        </span></b>
-				        </div> 
-				        <div>
-					        <button class="btn-white btn-link float-right" data-toggle="collapse"
-					        data-target="#collapse3" aria-expanded="true" aria-controls="collapseOne">
-					          <img src="resources/img/arrow-down.png" width="15px" height="15px">
-				        </button>
-				        </div>
-				    </div>
-				    <div id="collapse3" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-				      <div class="card-body roundBgGray small">
-			      	주문할 상품의 상품명, 가격, 배송정보 등을 최종 확인하였으며, 구매에 동의하십니까? (전자상거래법 제 8조 2항)
-			      </div>
-			    </div>
-			  </div>
-			</div><!-- 쿠폰 아코디언 끝-->
-			</div>
 			</div>
 			
 			

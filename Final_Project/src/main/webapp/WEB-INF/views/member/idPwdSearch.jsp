@@ -25,7 +25,7 @@
 			<div class="header_inner">
 				<div class="logo_box">
 					<a class="logo_link">
-						<img src="${path }/resources/css/images/logo/peterpan_logo.png" height="90px" width="180px">
+						<img src="${path }/resources/img/peterPanLogo.png" height="110px" width="180px">
 					</a>
 				</div>
 			</div>

@@ -55,8 +55,7 @@
 	</select>
 	
 	<select id="couponList" parameterType="String" resultType="couponDto">
-		SELECT (@sequence := @sequence + 1) AS couponNo, couponSale, memberId
-		FROM fianlB.coupon, (SELECT @sequence := 0) AS init	WHERE memberId = #{value} 
+		SELECT *	FROM fianlB.coupon WHERE memberId = #{value} 
 		ORDER BY couponNo;
 	</select>
 	
@@ -69,6 +68,19 @@
 	</delete>
 	
 	<insert id="insertPurchase" parameterType="purchaseDto" >
-		insert into fianlB.purchase values ( #{purchaseNo},#{memberId} ,#{bookNo} ,#{bookEA} )
+		insert into fianlB.purchase values 
+		( #{purchaseNo},#{memberId} ,#{bookNo} ,#{bookEA}, #{usedCouponCost}, 
+		#{usedPoint}, #{paymentCost})
 	</insert>
+	
+	<update id="updatePoint" parameterType="memberDto">
+		UPDATE fianlB.member SET point = #{point} WHERE memberId = '${memberId}'
+	</update>
+	
+	<select id="getCouponPrice" parameterType="int" resultType="int">
+		select couponSale from fianlB.coupon where couponNo = #{value}
+	</select>
+	
+	
+	
 </mapper>

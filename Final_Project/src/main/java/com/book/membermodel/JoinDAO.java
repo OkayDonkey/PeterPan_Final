@@ -21,5 +21,14 @@ public interface JoinDAO {
 
 	// 가입된 멤버의 모든 정보를 핸드폰 번호로 가져옴
 	MemberDTO getmemberonelist(String phone);
+
+	// 1000원 쿠폰
+	int insertCoupon1000(MemberDTO memberDto);
+	
+	// 2000원 쿠폰
+	int insertCoupon2000(MemberDTO memberDto);
+	
+	// 3000원 쿠폰
+	int insertCoupon3000(MemberDTO memberDto);
 	
 }

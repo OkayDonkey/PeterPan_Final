@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.bookmodel.CartDAO;
 import com.book.membermodel.LoginService;
 import com.book.membermodel.MypageService;
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
@@ -30,6 +32,9 @@ public class MypageController {
 	
 	@Autowired
 	private LoginService Loginservice;
+	
+	@Autowired
+	private CartDAO Cdao;
 	
 	@RequestMapping("myPage.go")
 	public void myPage(HttpSession session, MemberDTO dto, HttpServletResponse response, Model model) throws Exception {
@@ -57,6 +62,12 @@ public class MypageController {
 	
 	@RequestMapping("mypage_go.go")
 	public String myPageGo(Model model, HttpSession session) {
+		
+		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
+		
+		List<CouponDTO> couponList = this.service.getcoupon(sessiondto.getMemberId());
+		
+		model.addAttribute("couponList", couponList);
 		
 		return "member/myPage/myPageMain";
 	}
@@ -197,17 +208,33 @@ public class MypageController {
 		
 		MemberDTO dto = (MemberDTO) session.getAttribute("session");
 		
-		List<BoardDTO> totalList = this.service.qnaList(dto.getMemberNo());
+		if(dto == null) {
+			
+			return "member/login.go";
+			
+		} else {
+			List<BoardDTO> totalList = this.service.qnaList(dto.getMemberNo());
+			
+			List<BoardDTO> noAnswerList = this.service.noAnswerqnaList(dto.getMemberNo());
+			
+			List<BoardDTO> answerOkList = this.service.answerOkqnaList(dto.getMemberNo());
+			
+			model.addAttribute("TotalList", totalList).
+				  addAttribute("noAnswerList", noAnswerList).
+				  addAttribute("answerOkList", answerOkList);
+			
+			return "member/myPage/qnaList";
+		}
+	}
+	
+	@RequestMapping("order_history_detail.go")
+	public String orderHistoryDetail(Model model, @RequestParam("purchasNo") String purchasNo) {
 		
-		List<BoardDTO> noAnswerList = this.service.noAnswerqnaList(dto.getMemberNo());
+		List<PurchaseDTO> pList = this.Cdao.purchasList(purchasNo);
 		
-		List<BoardDTO> answerOkList = this.service.answerOkqnaList(dto.getMemberNo());
+		model.addAttribute("pList", pList);
 		
-		model.addAttribute("TotalList", totalList).
-			  addAttribute("noAnswerList", noAnswerList).
-			  addAttribute("answerOkList", answerOkList);
-		
-		return "member/myPage/qnaList";
+		return "member/myPage/orderHistoryDetail";
 	}
 
 }

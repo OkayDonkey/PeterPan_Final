@@ -14,4 +14,20 @@ public interface AdminPageSecive {
 
 	List<BoardDTO> qnaList();
 
+	int blockMember(MemberDTO dto);
+
+	int unblockMember(MemberDTO dto);
+
+	int outOfPrint(BookDTO dto);
+
+	int cancelOutOfPrint(BookDTO dto);
+
+	int qnaAnswer(BoardDTO dto);
+
+	List<MemberDTO> memberSearch(String keyword);
+
+	List<BookDTO> bookSearch(String keyword);
+
+	List<BoardDTO> boardSearch(String keyword);
+
 }

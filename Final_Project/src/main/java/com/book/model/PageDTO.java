@@ -25,6 +25,8 @@ public class PageDTO {
 	private int allPage;      // 전체 페이지 수
 	private int block = 5;    // 아래에 보여질 최대 페이지 수
 	
+	private String boardArea; // board 테이블
+	
 	
 	//검색 관련 멤버 선언
 	private String field;
@@ -74,6 +76,17 @@ public class PageDTO {
 		this(page,rowsize,totalRecord);   //위 3개짜리 인자생성자 호출 
 		
 		this.field = field;
+		
+		this.keyword = keyword;
+		
+	}  // 인자 생성자
+	
+	// board에 필요한 페이징 처리 인자 생성자(검색관련 인자 포함)
+	public PageDTO(int page, int rowsize, String boardArea, int totalRecord,String keyword) {
+		
+		this(page,rowsize,totalRecord);   //위 3개짜리 인자생성자 호출 
+		
+		this.boardArea = boardArea;
 		
 		this.keyword = keyword;
 		

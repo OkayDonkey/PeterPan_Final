@@ -17853,7 +17853,6 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     align-items: flex-start;
     flex-direction: column;
     position: relative;
-    max-height: 750px;
     border: none;
     color: #000;
     background-color: white;
@@ -17879,6 +17878,117 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	font-size: 1em;
 }
 
+.pointBox	{
+	display: flex;
+    margin-bottom: 25px;
+    padding: 20px 20px 20px 25px;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 0.4em;
+    color: black;
+    font-weight: 600;
 }
 
+.radius-inputBox	{
+	border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 0.4em;
+    background-color: white
+	
+}
+
+.CoverBox img	{
+	width: 90px;
+	height: 128px;
+	border-radius: 0;
+}
+
+.purchaseFlexWrap	{
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.bookNameWrap {
+	width: 400px;
+}
+
+.bookPriceWrap {
+	width: 200px;
+}
+
+.bookDeliverWrap	 {
+	width: 125px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;}
+
+}
+
+.blueText	{
+	color:#5055b1 !important;
+}
+
+.purchaseNoBox		{
+	width:100%;
+	border: #c0c0c0;
+	border-radius: 1em;
+	background-color: #f0eff3;
+	padding:20px;
+	font-weight: 700;
+	font-size: 1em;
+}
+
+.DeliverTopBox {
+	border-top: 2px solid #6c6c6c;
+	padding: 20px;
+	border-bottom: 2px solid #eaeaea;
+	font-size: large;
+	font-weight: 800;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.DeliverTopBox1 {
+	border-top: 2px solid #6c6c6c;
+	padding: 20px;
+	border-bottom: 2px solid #eaeaea;
+	font-size: large;
+	font-weight: 500;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+
+.PayWrapBox		{
+	width: 220px;
+}
+
+.PayWrapBox1		{
+	width: 350px;
+}
+
+.row-between	{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#bookListContainer	{
+	width: 100%;
+	
+}
+
+.input_none	{
+	border: 0px;
+	color:black; 
+	margin-left: 55px;
+	width: 345px;
+}
+
+
+
+}
 	/*# sourceMappingURL=theme.min.css.map */

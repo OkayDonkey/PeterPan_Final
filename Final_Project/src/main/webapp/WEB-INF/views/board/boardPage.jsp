@@ -15,7 +15,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
-	<div class="row justify-content-sm-between" style="width: 1200px;">
+	<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
 
 		<!-- 왼쪽 메뉴바 -->
 		<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -111,7 +111,7 @@
 						<h2 class="title_heading">공지사항</h2>
 							<div class="notice_heading">
 								<a href="<%=request.getContextPath() %>/board_notice.go"> 
-									<span class="notice_head_more">더보기</span> 
+									<span style="color: black;" class="notice_head_more">더보기</span> 
 									<span class="notice_head_icon">
 										<img src="resources/img/icons-tel-text.png" width="13px">
 									</span>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.book.model.CartDTO;
 import com.book.model.CouponDTO;
+import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
 public interface CartDAO {
@@ -33,5 +34,11 @@ public interface CartDAO {
 	int deleteCoupon(int couponNo);
 
 	int insertPurchase(PurchaseDTO dto);
+
+	void updatePoint(MemberDTO dto);
+	
+	int getCouponPrice(int couponNo);
+	
+	List<PurchaseDTO> purchasList(String purchaseNo);
 	
 }

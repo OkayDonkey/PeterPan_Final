@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
@@ -22,5 +23,7 @@ public interface MypageDAO {
 	List<BoardDTO> noAnswerqnaList(int memberNo);
 
 	List<BoardDTO> answerOkqnaList(int memberNo);
+
+	List<CouponDTO> getcoupon(String memberId);
 
 }

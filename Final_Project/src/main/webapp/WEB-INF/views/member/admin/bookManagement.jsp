@@ -64,8 +64,24 @@
 					<section id="contents" class="section_wrap" style="margin-bottom: 85px;">
 						<div class="title_wrap title_size_md has_btn">
 							<div class="memberwrap">
-								<div class="title_wrap title_size_md">
-								    <p class="title_heading">책 관리</p>
+								<div class="top_wrap">
+									<div class="title_wrap title_size_md">
+									    <p class="title_heading">책 관리</p>
+									</div>
+									<div>
+										<form method="post" action="<%=request.getContextPath()%>/admin_search.go?manage=book">
+											<div class="input_text_box">
+												<div class="form_ip_search">
+													<input type="search" name="keyword" class="form_ip" placeholder="찾는 책 정보 입력">
+												</div>
+												<div class="form_btn">
+													<button type="submit" class="search_btn">
+														<span class="text">검색</span>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
 								</div>
 								<c:if test="${!empty bList }">
 								<c:forEach items="${bList }" var="bdto">
@@ -77,12 +93,12 @@
 							            </div>
 							            <div class="order_history_box" style="flex: 0.8 0;">
 							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc"><img src="${bdto.bookCover}"></span>
+							                    <span class="history_desc"><img src="${bdto.bookCover}" onclick="location.href='<%=request.getContextPath() %>/bookDetail.go?bookNo=${bdto.bookNo}'"></span>
 							                </button>
 							            </div>
 							            <div class="order_history_box" style="flex: 1.8 0;">
 							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">${bdto.bookName}</span>
+							                    <span class="history_desc" onclick="location.href='<%=request.getContextPath() %>/bookDetail.go?bookNo=${bdto.bookNo}'">${bdto.bookName}</span>
 							                </button>
 							            </div>
 							            <div class="order_history_box" style="flex: 1.0 0;">
@@ -101,9 +117,16 @@
 							                </button>
 							            </div>
 							            <div class="order_history_box" style="flex: 0.3 0;">
-							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">삭제</span>
-							                </button>
+							            	<c:if test="${bdto.bookWeekBest != 999 }">
+								                <button type="button" class="btn_filter_history">
+								                    <span class="history_desc" onclick="outOfPrintModal('${bdto.bookNo}', '${bdto.bookName }')">절판 처리</span>
+								                </button>
+							            	</c:if>
+							            	<c:if test="${bdto.bookWeekBest == 999 }">
+								                <button type="button" class="btn_filter_history">
+								                    <span class="history_desc" style="color: red;" onclick="cancelOutOfPrintModal('${bdto.bookNo}', '${bdto.bookName }')">절판 취소</span>
+								                </button>
+							            	</c:if>
 							            </div>
 							        </div>
 								</c:forEach>
@@ -115,6 +138,18 @@
 			</section>
 		</main>
 	</div>
+	
+	<div id="insertPopup" class="insertPopup"  hidden>
+      <div class="insertPopupBox">
+         <p class="first_write" style="margin-top: 14px;"></p>
+         <div class="insertBox_btn"  style="display: flex; margin-top: 40px;">
+            <div class="RoundBox1"  onclick="closeModal()"><span>취소</span></div>
+            <div class="RoundBox2"><span class="allBlock"></span></div>
+         </div>
+      </div>
+   </div>
+	
+	<script type="text/javascript" src="resources/js/member/admin.js"></script>
 	
 	<jsp:include page="../../top/footer.jsp" />
 

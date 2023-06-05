@@ -30,4 +30,44 @@ public class AdminPageSeciveImpl implements AdminPageSecive{
 		return this.dao.qnaList();
 	}
 
+	@Override
+	public int blockMember(MemberDTO dto) {
+		return this.dao.blockMember(dto);
+	}
+
+	@Override
+	public int unblockMember(MemberDTO dto) {
+		return this.dao.unblockMember(dto);
+	}
+
+	@Override
+	public int outOfPrint(BookDTO dto) {
+		return this.dao.outOfPrint(dto);
+	}
+
+	@Override
+	public int cancelOutOfPrint(BookDTO dto) {
+		return this.dao.cancelOutOfPrint(dto);
+	}
+
+	@Override
+	public int qnaAnswer(BoardDTO dto) {
+		return this.dao.qnaAnswer(dto);
+	}
+
+	@Override
+	public List<MemberDTO> memberSearch(String keyword) {
+		return this.dao.memberSearch(keyword);
+	}
+
+	@Override
+	public List<BookDTO> bookSearch(String keyword) {
+		return this.dao.bookSearch(keyword);
+	}
+
+	@Override
+	public List<BoardDTO> boardSearch(String keyword) {
+		return this.dao.boardSearch(keyword);
+	}
+
 }

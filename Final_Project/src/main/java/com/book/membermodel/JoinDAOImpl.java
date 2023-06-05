@@ -43,4 +43,19 @@ public class JoinDAOImpl implements JoinDAO{
 		return sqlSession.selectOne("getmemberone", phone);
 	}
 
+	@Override
+	public int insertCoupon1000(MemberDTO memberDto) {
+		return sqlSession.insert("insertCoupon1000", memberDto);
+	}
+	
+	@Override
+	public int insertCoupon2000(MemberDTO memberDto) {
+		return sqlSession.insert("insertCoupon2000", memberDto);
+	}
+	
+	@Override
+	public int insertCoupon3000(MemberDTO memberDto) {
+		return sqlSession.insert("insertCoupon3000", memberDto);
+	}
+
 }

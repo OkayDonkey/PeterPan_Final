@@ -14,4 +14,20 @@ public interface AdminPageDAO {
 
 	List<BoardDTO> qnaList();
 
+	int blockMember(MemberDTO dto);
+
+	int unblockMember(MemberDTO dto);
+
+	int outOfPrint(BookDTO dto);
+
+	int cancelOutOfPrint(BookDTO dto);
+
+	int qnaAnswer(BoardDTO dto);
+
+	List<MemberDTO> memberSearch(String keyoword);
+
+	List<BookDTO> bookSearch(String keyword);
+
+	List<BoardDTO> boardSearch(String keyword);
+
 }

@@ -64,8 +64,24 @@
 					<section id="contents" class="section_wrap" style="margin-bottom: 85px;">
 						<div class="title_wrap title_size_md has_btn">
 							<div class="memberwrap">
-								<div class="title_wrap title_size_md">
-								    <p class="title_heading">1:1 문의 내역 관리</p>
+								<div class="top_wrap">
+									<div class="title_wrap title_size_md">
+									    <p class="title_heading">1:1 문의 내역 관리</p>
+									</div>
+									<div>
+										<form method="post" action="<%=request.getContextPath()%>/admin_search.go?manage=qna">
+											<div class="input_text_box">
+												<div class="form_ip_search">
+													<input type="search" name="keyword" class="form_ip" placeholder="찾는 문의글 정보 입력">
+												</div>
+												<div class="form_btn">
+													<button type="submit" class="search_btn">
+														<span class="text">검색</span>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
 								</div>
 								<c:if test="${!empty qnaList }">
 								<c:forEach items="${qnaList }" var="qdto">
@@ -97,12 +113,12 @@
 							            </div>
 							            <div class="order_history_box" style="flex: 0.6 0;">
 							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">답변대기</span>
+							                    <span class="history_desc">${qdto.memberName }</span>
 							                </button>
 							            </div>
 							            <div class="order_history_box" style="flex: 0.3 0;">
 							                <button type="button" class="btn_filter_history">
-							                    <span class="history_desc">답변작성</span>
+							                    <span class="history_desc" onclick="qnaAnswerModal('${qdto.boardNO}', '${qdto.boardContent }')">답변작성</span>
 							                </button>
 							            </div>
 							        </div>
@@ -115,6 +131,30 @@
 			</section>
 		</main>
 	</div>
+	
+	<div id="qnaInsertPopup" class="qnaInsertPopup"  hidden>
+      <div class="qnaInsertPopupBox">
+      	 <p>문의 내용</p>
+         <span class="qna_first_write">문의 내용</span>
+         <br>
+         <p>답변 작성</p>
+         <textarea rows="7" cols="62" class="answerContent" style="font-size: 13px; padding: 10px;">
+고객님의 문의에 대한 답변입니다.
+안녕하세요. //이름// 고객님
+피터팬1:1상담 담당자입니다.
+먼저, 피터팬을 이용해주셔서 감사드립니다.
+고객님의 문의 내용 ~~~
+기타 문의사항이 있으시면 언제든지 고객센터(1544-0000)나 1:1상담을 통해 문의주시길 바랍니다. 감사합니다.
+		</textarea>
+		<span style="font-size: 12px; margin-top: 8px;">* 소중한 고객님께 예쁜말로 문의를 해결해드립니다.</span>
+         <div class="qnaInsertBox_btn"  style="display: flex; margin-top: 40px;">
+            <div class="RoundBox1"  onclick="qnaCloseModal()"><span>취소</span></div>
+            <div class="RoundBox2"><span class="qnaAnswer">답변 등록</span></div>
+         </div>
+      </div>
+   </div>
+	
+	<script type="text/javascript" src="resources/js/member/admin.js"></script>
 	
 	<jsp:include page="../../top/footer.jsp" />
 

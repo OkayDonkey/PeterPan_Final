@@ -152,16 +152,16 @@
 						<div id="VoucherStats" class="benefit_info_wrap">
 							<div class="benefit_ico_group">
 								<div class="benefit_item benefit_ico_box coupon" data-role="coupon">
-								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '쿠폰', '');">
+								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link">
 								        <span class="benefit_title">쿠폰</span>
 								        <div class="benefit_val">
-								            <span class="val">0</span>
+								            <span class="val">${couponList.size() }</span>
 								            <span class="unit">장</span>
 								        </div>
 								    </a>
 								</div>
 								<div class="benefit_item benefit_ico_box point" data-role="point">
-								    <a href="https://order.kyobobook.co.kr/myroom/benefit/point" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '통합포인트', '');">
+								    <a href="https://order.kyobobook.co.kr/myroom/benefit/point" class="benefit_link">
 								        <span class="benefit_title">통합포인트</span>
 								        <div class="benefit_val">
 								        	<fmt:formatNumber value="${session.point}" pattern="#,##0" var="formattedPoint" />
@@ -171,7 +171,7 @@
 								    </a>
 								</div>
 								<div class="benefit_item benefit_ico_box e_voucher" data-role="e_voucher">
-								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '쿠폰', '');">
+								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link">
 								        <span class="benefit_title">e교환권</span>
 								        <div class="benefit_val">
 								            <span class="val">0</span>
@@ -180,7 +180,7 @@
 								    </a>
 								</div>
 								<div class="benefit_item benefit_ico_box e_cash" data-role="e_cash">
-								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '쿠폰', '');">
+								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link">
 								        <span class="benefit_title">피터팬e캐시</span>
 								        <div class="benefit_val">
 								            <span class="val">0</span>
@@ -191,7 +191,7 @@
 							</div>
 							<div class="benefit_sub_group">
 								<div class="benefit_item benefit_sub_box" data-role="deposit">
-									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '예치금', '');">
+									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link">
 										<span class="benefit_title">예치금</span>
 										<div class="benefit_val">
 											<span class="val">0</span>
@@ -200,7 +200,7 @@
 									</a>
 								</div>
 								<div class="benefit_item benefit_sub_box" data-role="deposit">
-									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '예치금', '');">
+									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link">
 										<span class="benefit_title">피터팬캐시</span>
 										<div class="benefit_val">
 											<span class="val">0</span>
@@ -209,7 +209,7 @@
 									</a>
 								</div>
 								<div class="benefit_item benefit_sub_box" data-role="deposit">
-									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '예치금', '');">
+									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link">
 										<span class="benefit_title">기프트카드</span>
 										<div class="benefit_val">
 											<span class="val">0</span>
@@ -218,7 +218,7 @@
 									</a>
 								</div>
 								<div class="benefit_item benefit_sub_box" data-role="deposit">
-									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link" onclick="ga360.GA_Event('click_마이룸_PC', '혜택/포인트', '', '예치금', '');">
+									<a href="https://order.kyobobook.co.kr/myroom/benefit/deposit" class="benefit_link">
 										<span class="benefit_title">마일리지</span>
 										<div class="benefit_val">
 											<span class="val">0</span>
@@ -232,7 +232,7 @@
 							<p class="title_heading">라이브러리 리스트</p>
 							<div class="right_area">
 								<a href="https://my.kyobobook.co.kr/library" class="btn_more_view">
-									<span class="text" onclick="ga360.GA_Event('click_마이룸_PC', '라이브러리리스트', '', '더보기', '');">더보기</span>
+									<span class="text">더보기</span>
 									<span class="ico_arw"></span>
 								</a>
 							</div>
@@ -335,7 +335,7 @@
        									<div class="right_area" style="display: none;">
            									<button type="button" class="btn_change">
                									<span class="ico_change"></span>
-               									<span class="text" onclick="ga360.GA_Event('click_마이룸_PC', '바로가기', '', '편집', '')">순서변경</span>
+               									<span class="text">순서변경</span>
            									</button>
                								<button type="button" class="btn_link_control cancel"><span class="text">취소</span></button>
                								<button type="button" class="btn_link_control save"><span class="text">저장</span></button>    
@@ -344,14 +344,14 @@
     								</div>
         							<div data-role="no-data" class="no_data_line">
     									<p class="no_data_desc">자주 쓰는 메뉴, 꺼내 두고 사용해요!</p>
-    									<button type="button" data-role="btn-dialog" data-target="#popShortcuts" style="" onclick="ga360.GA_Event('click_마이룸_PC', '바로가기', '', '추가하기', '')" class="btn_add_cont">
+    									<button type="button" data-role="btn-dialog" data-target="#popShortcuts" class="btn_add_cont">
 									        <span class="ico_add_cont"></span>
 									        <span class="text">추가하기PCPC</span>
 									    </button>
 									</div>
 								</div>
 	        					<div class="sam_voucher_wrap">
-	        						<div id="SamInfo" class="sam_info_box" onclick="ga360.GA_Event('click_마이룸_PC', '서비스추천', '', 'sam이용안내', '');">
+	        						<div id="SamInfo" class="sam_info_box">
 	        							<a class="sam_info_link" href="https://sam.kyobobook.co.kr/dig/sam/samintro">
 	        								<span class="info_desc">eBook부터 종이책까지, <br>폭넓은 독서생활의 시작 <br>
 	        									<span class="sam_logo">
@@ -364,7 +364,7 @@
 	        								</span>
 	        							</a>
 	        						</div>
-	        						<div id="ReviewInfo" class="induce_box" onclick="ga360.GA_Event('click_마이룸_PC', '서비스추천', '', '라이브러리', '');">
+	        						<div id="ReviewInfo" class="induce_box">
 	        							<a class="sam_info_link" href="/library/review">
 	        								<span class="info_desc">리뷰 작성하고 <br><span class="fw_bold">리워드</span>를 <br>받아보세요.</span>
 	        								<span class="count_val">

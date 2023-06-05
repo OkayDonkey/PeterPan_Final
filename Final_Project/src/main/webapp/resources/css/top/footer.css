@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+.footer {
+ clear: both;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer_body {
+  padding: 40px 0 50px;
+  border-top: 1px solid #eaeaea;
+}
+
+/* Horizontal line */
+.footer hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px auto;
+  width: 50%;
+}
+
+/* Location information */
+.footer_box > div:not(.footer_Rbox) span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Right-aligned content */
+.footer_Rbox {
+  text-align: left;
+  margin-top: 100px;
+  margin-left: 550px;
+}
+
+.fa-instagram{
+   background: linear-gradient(45deg, #FFDE83, #FFB241, #FF732C, #FF5834, #FF3138, #F91966, #D72188, #8828C8, #473DE9, #2A4EFB);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.link_box img {
+  max-width: 30px;
+  top: 30px;
+}
+
+.footer_Rbox_span{
+  font-size: 13px;
+	color: #666;
+}
+.fontA{
+	font-size: 50px;
+    margin-bottom: 30px;
+}
+.footer_wrap {
+  margin-top: 100px;
+}
+
+.footer_inner {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.footer_box1 {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_box2 {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_box2 >.team{
+  text-align:left;
+  font-size: 15px;
+  color: #595959;;
+}
+.footer_box2 a{
+  color: #595959;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer_box2 span:last-of-type a[href^="tel:"] {
+  border-inline-end: none;
+}
+
+.footer_box3{
+	position: relative;
+	margin-top:200px;
+	margin-left:250px;
+	
+}
+
+.footer_menu_list {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+}
+
+.footer_menu_item {
+  font-size: 14px;
+}
+
+.footer_menu_item + .footer_menu_item {
+  margin-left: 5px;
+}
+
+.footer_menu_item + .footer_menu_item:before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 4px 12px 0;
+  background-color: #d5d5d5;
+}
+
+.footer_contents_left {
+  flex: 1;
+}
+
+.info_text {
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  color: #595959;
+}
+
+.gap {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 9px;
+  margin: 8px 6px 0;
+  background-color: #d5d5d5;
+  vertical-align: top;
+}
+
+.btn_footer_link {
+  display: inline-block;
+  padding: 5px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: top;
+}
+
+.btn_footer_link:after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 3px 0 0 2px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+  background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/arw_footer_link@2x.png);
+  vertical-align: top;
+}
+
+.team {
+  margin-top: 20px;
+}
+
+.copyright {
+    margin-top: 23px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    color: #767676;
+}
+
+.service_text {
+  display: inline-block;
+  margin: 3px 6px 0 0;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #595959;
+  vertical-align: top;
+}
+
+.service_desc {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #767676;
+}
+
+.footer_mark_isms {
+  display: flex;
+  flex-direction: row;
+  margin-top: 22px;
+}
+
+.mark_link {
+  display: block;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #767676;
+  padding: 7px 0 7px 54px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 48px 48px;
+  background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_mark_isms@2x.png);
+}
+
+.mark_desc {
+  display: block;
+  margin-left: 17px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #767676;
+  margin-top: 7px;
+}

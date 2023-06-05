@@ -15,7 +15,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
-		<div class="row justify-content-sm-between" style="width: 1200px;">
+		<div class="row justify-content-sm-between" style="width: 1200px;, padding-bottom: 100px;">
 
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -54,7 +54,7 @@
 													<!-- valid_check -->
 													<div class="valid_check w_full">
 														<div class="form_sel_multi">
-															<div class="form_sel">
+															<div class="form_sel" style="width: 141%;">
 
 																<input type="hidden" value="QNA" name="boardArea">
 																<input type="hidden" value="${session.memberNo }"
@@ -172,7 +172,7 @@
 									<td>
 										<div class="form_col_group w_full">
 											<div class="col_box">
-												<div class="valid_check">
+												<div class="valid_check" style="width: 141%;">
 													<input name="boardTitle" data-kbbfn-field=""
 														id="InquiryTitle" type="text" class="form_ip w_full"
 														title="제목 입력" placeholder="제목을 입력해 주세요." required=""
@@ -182,7 +182,7 @@
 											<div class="col_box">
 												<div class="valid_check">
 													<!-- byte_check_wrap -->
-													<div class="byte_check_wrap w_full" style="width: 280%;">
+													<div class="byte_check_wrap w_full" style="width: 250%;">
 														<textarea name="boardContent" data-kbbfn-field=""
 															id="InquiryContent" class="form_textarea"
 															title="문의 내용 입력"
@@ -201,7 +201,7 @@
 
 
 								<tr>
-									<th>첨부파일</th>
+									<th style="font-weight: 600;">첨부파일</th>
 									<td><input type="file" name="file1"></td>
 								</tr>
 							</tbody>

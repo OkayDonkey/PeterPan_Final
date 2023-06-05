@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.PageDTO;
 
 public interface BoardDAO {
 	
@@ -19,6 +20,14 @@ public interface BoardDAO {
 
 	List<BoardDTO> searchList(Map<String, String> map);
 
+	List<BoardDTO> noticeList(PageDTO p);
 
+	int getNoticeCount();
+
+	BoardDTO noticeDetail(int dno);
+	
+	int KeywordCount(String keyword);
+
+	List<BoardDTO> noticeSearchList(PageDTO pdto);
 
 }

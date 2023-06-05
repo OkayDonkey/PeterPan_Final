@@ -14,6 +14,7 @@ import com.book.member.Signature;
 import com.book.member.TempKey;
 import com.book.model.BoardDTO;
 import com.book.model.BookDTO;
+import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
 
@@ -83,6 +84,11 @@ public class MypageServiceImpl implements MypageService{
 	@Override
 	public List<BoardDTO> answerOkqnaList(int memberNo) {
 		return this.dao.answerOkqnaList(memberNo);
+	}
+
+	@Override
+	public List<CouponDTO> getcoupon(String memberId) {
+		return this.dao.getcoupon(memberId);
 	}
 
 	
