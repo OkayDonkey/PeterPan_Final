@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/* 책 검색 및 선택 모달 css */
+.insertPopupBox {
+    width: 550px;
+    padding: 30px;
+    color: black;
+    z-index: 2010;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1em;
+    position: fixed;
+    opacity: 1;
+}
+
+.insertPopup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: #0000007d;
+   border-radius: 5px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   height: 100%;
+   z-index: 2000;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+}
+
+.qnaInsertBox_btn {
+   display: flex;
+}
+
+  .RoundBox1 {
+    cursor: pointer;
+  }
+
+  .bookWrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* QNA 답변 모달 css end */
