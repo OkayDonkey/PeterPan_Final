@@ -293,11 +293,9 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 									<div class="widget widget-links">
 										<h3 class="widget-title">게시판</h3>
 										<ul>
-											<li><a
-												href="<%=request.getContextPath()%>/review_board.do"> <i
-													class="widget-categories-indicator"
-													data-feather="chevron-right"> </i><span
-													class="font-size-sm">후기 게시판</span></a></li>
+											<li><a href="album.go"> 
+											<i class="widget-categories-indicator"	data-feather="chevron-right">
+											</i><span class="font-size-sm">앨범 -상우</span></a></li>
 
 
 											<li><a href="<%=request.getContextPath()%>/boardPage.go">
@@ -316,8 +314,7 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 
 											<li><a href="board_write.jsp"><i
 													class="widget-categories-indicator"
-													data-feather="chevron-right"></i><span class="font-size-sm">리뷰
-														작성 </span></a></li>
+													data-feather="chevron-right"></i><span class="font-size-sm">리뷰작성 </span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -334,7 +331,7 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 			</div>
 			<div class="login" style="right: 165PX;">
 
-						<a href="$">회원가입</a>					
+						<a href="join.go">회원가입</a>					
 					
 						<c:set var="session" value="${session }" />
 						<c:if test="${session.memberId == null }">
@@ -369,8 +366,7 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 						</div>
 					</c:when>
 					<c:when test="${!empty session.memberId }">
-						<a href="cartList.go"> <img
-							src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
+						<a href="cartList.go"> <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
 						</a>
 					</c:when>
 				</c:choose>

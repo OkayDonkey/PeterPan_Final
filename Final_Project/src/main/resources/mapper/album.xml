@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="albumDao">
+
+	<select id="albumAll" resultType="int">
+	  		select count(*) from album 
+	</select> 
+	
+	<select id="albumList" parameterType="pageDto" resultType="albumDto">
+		select * from album
+	</select>
+  
+	<insert id="albumIns" parameterType="bookDto">
+ 		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
+ 			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
+ 	</insert>
+  </mapper>
