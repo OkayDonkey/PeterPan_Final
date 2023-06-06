@@ -197,8 +197,9 @@ public class CartController {
 			usedCouponPrice = 0; 
 			
 		}
-
 		
+		// 해당 유저의 장바구니 내역과 사용한 쿠폰을 삭제처리한다.
+		this.Cdao.deleteMemCart(memberId);
 		
 		for (int i = 0; i < list.size(); i++) {
 			
@@ -216,10 +217,12 @@ public class CartController {
 			
 			// 장바구니 목록의 크기만큼 insert문을 실행해준다.
 			this.Cdao.insertPurchase(dto);
+			
+			// 시퀀스 작업해주기
+			System.out.println("카트 DTO:"+list.get(i));
+			this.Cdao.deletecheck(list.get(i));
 		}
 		
-		// 해당 유저의 장바구니 내역과 사용한 쿠폰을 삭제처리한다.
-		this.Cdao.deleteMemCart(memberId);
 		
 		System.out.println("삭제할 쿠폰번호"+couponNo);
 		int checkCoupon = this.Cdao.deleteCoupon(couponNo);

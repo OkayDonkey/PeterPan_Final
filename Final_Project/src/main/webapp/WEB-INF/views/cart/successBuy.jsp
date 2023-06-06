@@ -18,8 +18,7 @@
 <body>
 <c:set var="session" value="${session }" /> 
 <c:set var="list" value="${pList }" />
-<c:set var="cp" value="${coupon}" />
-<c:set var ="cartTotalPrice" value="0" />
+ㅛ<c:set var ="cartTotalPrice" value="0" />
 <c:set var="totalPrice" value="0" />
 <c:forEach items="${list}" var="product">
   <c:set var="totalPrice" value="${totalPrice + ( product.bookPrice - ( product.bookPrice * 0.1 ))}" />

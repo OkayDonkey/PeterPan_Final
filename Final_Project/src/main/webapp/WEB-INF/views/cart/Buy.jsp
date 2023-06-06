@@ -20,6 +20,7 @@
 <c:set var="cp" value="${coupon}" />
 <c:set var ="cartTotalPrice" value="0" />
 <input type="hidden" id="memberId" value="${session.memberId }">
+<input type="hidden" name="cartDTO" value="${session.memberId }">
 
 
 <jsp:include page="../top/top.jsp" /> 
@@ -156,47 +157,47 @@
 				      <div class="card-body borderRoundBGray p-3">
 				      
 			      	<div id="cartItems">
-  <c:forEach items="${cp}" var="coupon" varStatus="status">
-    <c:if test="${not empty coupon}">
-      <div class="column">
-        <div class="row align-content-center pl-4" id="coupon${coupon.couponNo}">
-          <div class="flex-space-between px-4 py-2" style="width: 800px;">
-            <span><b>${status.index + 1}</b></span> <!-- 순서대로 넘버링 -->
-            <c:if test="${coupon.couponSale == 1000}">
-              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
-                피터팬 회원가입 증정 할인 쿠폰
-              </div>
-            </c:if>
-            <c:if test="${coupon.couponSale == 2000}">
-              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
-                피터팬 회원가입 증정 할인 쿠폰
-              </div>
-            </c:if>
-            <c:if test="${coupon.couponSale == 3000}">
-              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
-                피터팬 회원가입 증정 할인 쿠폰
-              </div>
-            </c:if>
-            <c:if test="${coupon.couponSale > 100000}">
-              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
-                특가 무적 쿠폰
-              </div>
-            </c:if>
-            <div class="float-right" style="font-size: 1em; font-weight: 700;">
-              <fmt:formatNumber value="${coupon.couponSale}" type="currency" />원
-            </div>
-            <div id="costBtn_${coupon.couponNo}">
-              <button class="RoundBox_l" onclick="couponCostCal(${coupon.couponSale}, ${coupon.couponNo});">사용하기</button>
-            </div>
-            <div id="costCancelBtn_${coupon.couponNo}" hidden>
-              <button class="RoundBox_l" onclick="couponCostCancel(${coupon.couponSale}, ${coupon.couponNo});">사용취소</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </c:if>
-  </c:forEach>
-</div><!-- 반복구간 끝 -->
+					  <c:forEach items="${cp}" var="coupon" varStatus="status">
+					    <c:if test="${not empty coupon}">
+					      <div class="column">
+					        <div class="row align-content-center pl-4" id="coupon${coupon.couponNo}">
+					          <div class="flex-space-between px-4 py-2" style="width: 800px;">
+					            <span><b>${status.index + 1}</b></span> <!-- 순서대로 넘버링 -->
+					            <c:if test="${coupon.couponSale == 1000}">
+					              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+					                피터팬 회원가입 증정 할인 쿠폰
+					              </div>
+					            </c:if>
+					            <c:if test="${coupon.couponSale == 2000}">
+					              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+					                피터팬 회원가입 증정 할인 쿠폰
+					              </div>
+					            </c:if>
+					            <c:if test="${coupon.couponSale == 3000}">
+					              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+					                피터팬 회원가입 증정 할인 쿠폰
+					              </div>
+					            </c:if>
+					            <c:if test="${coupon.couponSale > 100000}">
+					              <div class="text-center" style="font-size: 1em; font-weight: 700; width: 60%;">
+					                특가 무적 쿠폰
+					              </div>
+					            </c:if>
+					            <div class="float-right" style="font-size: 1em; font-weight: 700;">
+					              <fmt:formatNumber value="${coupon.couponSale}" type="currency" />원
+					            </div>
+					            <div id="costBtn_${coupon.couponNo}">
+					              <button class="RoundBox_l" onclick="couponCostCal(${coupon.couponSale}, ${coupon.couponNo});">사용하기</button>
+					            </div>
+					            <div id="costCancelBtn_${coupon.couponNo}" hidden>
+					              <button class="RoundBox_l" onclick="couponCostCancel(${coupon.couponSale}, ${coupon.couponNo});">사용취소</button>
+					            </div>
+					          </div>
+					        </div>
+					      </div>
+					    </c:if>
+					  </c:forEach>
+					</div><!-- 반복구간 끝 -->
 
 			      </div>
 			    </div>
@@ -379,7 +380,6 @@
 <input type="hidden"  id="useCouponNo"> 
 
  
-<br><br><br><br><br><br><br><br>
 <jsp:include page="../top/footer.jsp" /> 
 <script>
 	
@@ -392,7 +392,7 @@
 	  var oldAddr = document.getElementById("text_line");
 	  
 	  oldAddr.style.textDecoration = "line-through";
-	  targetInput.placeholder ="[" + post + "]"+ addr + enterInput.value;
+	  targetInput.placeholder ="[ " + post + " ]"+ " "+addr + " "+enterInput.value;
 	}
 
 	

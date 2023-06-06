@@ -17988,6 +17988,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	width: 345px;
 }
 
+.hover_bold:hover	{
+	color:black;
+	font-weight: 700;
+}
+
 
 
 }
