@@ -20,13 +20,8 @@
 		<c:if test="${!empty list }">
 			<c:forEach items="${list}" var="dto">
 				<tr>	
-					<th>
-						${dto.albumImg1}
-					</th>
-					
 					<td>
-						${dto.albumTitle }
-						${dto.albumwWiter }리스트
+						<a href="<%=request.getContextPath() %>/album_detail.go">${dto.albumTitle }</a>
 					</td>
 					<td>						
 						${dto.albumCont }리스트

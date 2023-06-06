@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class AlbumDTO {
 
 	private int albumNo;
-	private	int bookNo;
 	private	String memberId;
 	private	String albumTitle;
 	private	String bookCover;
