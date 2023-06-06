@@ -21,9 +21,28 @@
  	</insert>
  	
  	<select id="albumNoList" parameterType="int" resultType="albumDto">
-      select * from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
-         LEFT JOIN book b on b.bookNO = d.bookNo where a.albumNo = #{value}
+     select * from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
+         LEFT JOIN book b on b.bookNO = d.bookNo LEFT JOIN `member` m on m.memberNo = a.memberNo where a.albumNo = ${value};
    </select>
  	
- 	
+ 	<select id="albumLikeCheck"  parameterType="albumLikeDto" resultType="albumLikeDto">
+			select * from fianlB.albumLike where memberNo = #{memberNo} and albumNo = #{albumNo}
+	</select>
+	
+	<insert id="insertAlbumLike" parameterType="albumLikeDto" >
+		insert into fianlB.albumLike values(#{memberNo},#{albumNo})
+	</insert>
+	
+	<delete id="deleteAlbumLike" parameterType="albumLikeDto">
+		DELETE FROM fianlB.albumLike WHERE memberNo = #{memberNo} AND albumNo = #{albumNo}
+	</delete>
+	
+	<select id="likeCount" parameterType="int" resultType="int">
+		select count(*) from fianlB.albumLike where albumNo = ${value}
+	</select>
+	
+	<select id="albumCommentList" parameterType="int" resultType="albumCommentDto">
+		select * from fianlB.album_comment where albumNo = #{value}
+	</select>
+	
   </mapper>

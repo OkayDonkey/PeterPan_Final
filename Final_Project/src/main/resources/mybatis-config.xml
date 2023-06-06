@@ -21,6 +21,8 @@
   	<typeAlias type="com.book.model.CouponDTO" alias="couponDto"/>		
   	<typeAlias type="com.book.model.PurchaseDTO" alias="purchaseDto"/>		
   	<typeAlias type="com.book.model.AlbumDTO" alias="albumDto" />		
+  	<typeAlias type="com.book.model.AlbumLikeDTO" alias="albumLikeDto" />		
+  	<typeAlias type="com.book.model.AlbumCommentDTO" alias="albumCommentDto" />		
 	
 	
 	

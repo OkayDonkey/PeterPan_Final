@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+.sectionPadding {
+    min-width: 940px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.sectionPadding.contents {
+    padding-top: 42px;
+    padding-bottom: 30px;
+    border-top: 1px solid #D9D9D9;
+}
+
+header {
+    font-size: 100%;
+}
+
+.sectionPadding .sectionTitle {
+    position: relative;
+    overflow: hidden;
+}
+
+.listControls {
+    overflow: hidden;
+    min-height: 28px;
+    min-width: 940px;
+    padding-top: 14px;
+}
+
+.listControls .innerContainer {
+    position: relative;
+    max-width: 1580px;
+    margin: 0 auto;
+}
+
+.listControls .innerContainer > .rightActions {
+    float: right;
+    padding-right: 6px;
+    font-size: 12px;
+    color: #757271;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+label {
+    cursor: pointer;
+}
+
+.listControls .innerContainer .checkbox {
+    float: left;
+    width: 28px;
+    margin: 7px 3px 0 0;
+    text-align: center;
+}
+
+input[type=checkbox] {
+    height: 16px;
+    width: 16px;
+}
+
+.listControls .innerContainer > .btns {
+    float: left;
+}
+
+.btnNormal.play {
+    position: relative;
+    padding: 1px 10px 0 8px;
+}
+
+.listControls .innerContainer > .btns > .btnNormal {
+    margin-right: 1px;
+    vertical-align: top;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    color: #3a3635;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.btnNormal {
+    display: inline-block;
+    overflow: hidden;
+    height: 25px;
+    padding: 0px 14px 0px 14px;
+    font-size: 12px;
+    color: #3a3635;
+    line-height: 2.1;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #b4b2b3;
+    background-color: #FFF;
+}
+
+a:link, a:visited, a:active, a:focus {
+    text-decoration: none;
+}
+
+.listControls .innerContainer > .btns > .btnNormal {
+    margin-right: 1px;
+    vertical-align: middle;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.trackList {
+    width: 100%;
+    margin-top: 14px;
+    margin-bottom: 20px;
+    table-layout: fixed;
+    border-top: 2px solid #4C4C4C;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.thead, tbody {
+   margin: 0;
+    padding: 0;
+    font-size: 100%;
+    text-decoration: inherit;
+    vertical-align: baseline;
+    word-break: break-all;
+    word-wrap: break-word;
+    word-wrap: normal\9;
+    outline: 0;
+    border: 0;
+    background: transparent;
+}
+
+.trackList > thead th {
+    height: 38px;
+    width: 70px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #3A3635;
+    line-height: 38px;
+    vertical-align: middle;
+}
+
+.trackList > thead th.check {
+    width: 32px;
+    padding-right: 10px;
+    padding-left: 6px;
+}
+
+.trackList > thead th.albumArt {
+    width: 105px;
+}
+
+.trackList > thead th.title {
+    width: 370px;
+    text-align: left;
+}
+
+.trackList > tbody th, .trackList > tbody td {
+    height: 120px;
+    font-size: 12px;
+    color: #757271;
+    line-height: 20px;
+    vertical-align: middle;
+    border-top: 1px solid #EFEFEF;
+}
+
+.trackList > tbody td.check {
+    padding-right: 10px;
+    padding-left: 6px;
+}
+
+input[type=checkbox] {
+    height: 16px;
+    width: 16px;
+}
+
+.trackList > tbody input[type=checkbox] {
+    vertical-align: middle;
+}
+
+.trackList > tbody a {
+    color: #757271;
+    vertical-align: middle;
+}
+
+.trackList > tbody .thumbnail {
+    display: block;
+    position: relative;
+    height: 100px;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #F2F3F7;
+    margin-left: 13px;
+}
+
+.mask {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #000;
+    opacity: 0.1;
+}
+
+.trackList > tbody .thumbnail img {
+    display: inline-block;
+    max-height: 100%;
+    max-width: 100%;
+    margin-top: 0;
+    vertical-align: middle;
+}
+
+.trackList > tbody th {
+    font-size: 13px;
+    font-weight: 400;
+    color: #3A3635;
+    text-align: left;
+}
+
+.trackList > tbody .title {
+    overflow: hidden;
+    max-height: 60px;
+    min-width: 210px;
+    margin-top: 2px;
+    padding-right: 30px;
+    color: #3A3635;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-left: 13px;
+}
+
+.title, .artist {
+   margin-top: 15px;
+}
+
+.sectionPadding .sectionTitle > h1 {
+    float: left;
+    padding-right: 5px;
+    padding-left: 6px;
+    font-size: 19px;
+    font-weight: normal;
+    color: #3A3635;
+    line-height: 22px;
+}
