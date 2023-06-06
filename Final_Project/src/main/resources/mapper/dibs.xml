@@ -25,5 +25,6 @@
   		<delete id="deleteDib" parameterType="DibsDto">
   			DELETE FROM dibs WHERE memberNo =#{memberNo} AND bookNo = #{bookNo}
   		</delete>
+  		
 	</mapper>
   

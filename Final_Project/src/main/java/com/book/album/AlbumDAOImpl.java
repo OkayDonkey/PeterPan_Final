@@ -7,7 +7,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.book.model.AlbumCommentDTO;
 import com.book.model.AlbumDTO;
+import com.book.model.AlbumLikeDTO;
 import com.book.model.BookDTO;
 import com.book.model.PageDTO;
 
@@ -43,5 +45,35 @@ public class AlbumDAOImpl implements AlbumDAO{
 
 		return this.SqlSession.selectList("albumNoList", no);
 	}
+	
+	@Override
+	public AlbumLikeDTO checkLike(AlbumLikeDTO dto) {
+		 
+		return this.SqlSession.selectOne("albumLikeCheck", dto);
+	}
+	
+	@Override
+	public int insertLike(AlbumLikeDTO dto) {
 
+		return this.SqlSession.insert("insertAlbumLike", dto );
+	}
+	
+	@Override
+	public int deleteLike(AlbumLikeDTO dto) {
+	 
+		return this.SqlSession.delete("deleteAlbumLike", dto);
+	}
+	
+	@Override
+	public int getLikeCount(int num) {
+		 
+		return this.SqlSession.selectOne("likeCount", num);
+	}
+	
+	@Override
+	public List<AlbumCommentDTO> getAlbumComment(int num) {
+		 
+		return this.SqlSession.selectList("albumCommentList", num);
+	}
+	
 }
