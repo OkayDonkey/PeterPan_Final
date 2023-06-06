@@ -37,5 +37,11 @@ public class AlbumDAOImpl implements AlbumDAO{
 	public List<AlbumDTO> getalbum() {
 		return this.SqlSession.selectList("alist");
 	}
+	
+	@Override
+	public List<AlbumDTO> getAlbumNoList(int no) {
+
+		return this.SqlSession.selectList("albumNoList", no);
+	}
 
 }

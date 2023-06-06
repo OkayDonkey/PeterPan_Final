@@ -19,4 +19,11 @@
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
  			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
  	</insert>
+ 	
+ 	<select id="albumNoList" parameterType="int" resultType="albumDto">
+      select * from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
+         LEFT JOIN book b on b.bookNO = d.bookNo where a.albumNo = #{value}
+   </select>
+ 	
+ 	
   </mapper>
