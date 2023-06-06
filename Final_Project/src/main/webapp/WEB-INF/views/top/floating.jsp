@@ -24,7 +24,7 @@ html {
 				<div class="h5">최근 본 도서</div>
 				<div class="ico_dialog_close float-right" onclick="popupToggle()"></div>
 			</div>
-			<div class="row m-0 justify-content-between" style="width: 100%; font-size: 18px; ">
+			<div class="row m-0 justify-content-between mb-3" style="width: 100%; font-size: 18px; ">
 				<div class="greenText"><b id="number-Display">0</b><span style="color:black">건</span></div>
 				<div class="float-right" style="color:black; cursor: pointer;" onclick="localStorage.clear(), displayReset()"><b>전체삭제</b></div>
 			</div>

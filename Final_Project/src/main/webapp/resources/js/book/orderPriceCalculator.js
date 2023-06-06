@@ -78,9 +78,15 @@ function pointCal() {
     var totalPrice = Number(document.getElementById("orderTotalCost").value);
     var usePoint = parseFloat(document.getElementById("usePoint").value);
 
+    if (isNaN(usePoint) || usePoint <= 0) {
+      alert("사용할 포인트는 유효한 숫자여야 합니다.");
+      pointCalExecuted = false;
+      return;
+    }
+
     if (usePoint > memPoint) {
       alert("사용할 포인트는 보유 포인트보다 작아야 합니다.");
-      pointCalExecuted = false; // 함수 재실행을 허용하기 위해 플래그를 재설정합니다.
+      pointCalExecuted = false;
       return;
     }
 
