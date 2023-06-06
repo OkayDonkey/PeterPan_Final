@@ -48,6 +48,7 @@
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     border: 1px solid #d5d5d5;
+    border-bottom: none;
 }
 
 .pwd_text {

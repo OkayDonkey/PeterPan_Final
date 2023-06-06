@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.bookmodel.CartDAO;
 import com.book.membermodel.LoginService;
 import com.book.membermodel.MypageService;
 import com.book.model.BoardDTO;
@@ -31,6 +32,9 @@ public class MypageController {
 	
 	@Autowired
 	private LoginService Loginservice;
+	
+	@Autowired
+	private CartDAO Cdao;
 	
 	@RequestMapping("myPage.go")
 	public void myPage(HttpSession session, MemberDTO dto, HttpServletResponse response, Model model) throws Exception {
@@ -221,6 +225,16 @@ public class MypageController {
 			
 			return "member/myPage/qnaList";
 		}
+	}
+	
+	@RequestMapping("order_history_detail.go")
+	public String orderHistoryDetail(Model model, @RequestParam("purchasNo") String purchasNo) {
+		
+		List<PurchaseDTO> pList = this.Cdao.purchasList(purchasNo);
+		
+		model.addAttribute("pList", pList);
+		
+		return "member/myPage/orderHistoryDetail";
 	}
 
 }
