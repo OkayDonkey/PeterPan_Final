@@ -155,20 +155,30 @@
 				<h6 class="normal-text">댓글 ( ${commentList.size() } )</h6>
 				<div class="row m-0 p-0" >
 	      			<div><textarea id="commentInput" rows="10"></textarea></div>
-	      			<div class="buyTextBoxBlue flex_center_center ml-3" style="width:88px; height: 66px; border-radius: 0;">등록</div>
+      				  <c:choose>
+		      			<c:when test="${empty session.memberId }">
+							<div class="buyTextBoxBlue flex_center_center ml-3" style="width:88px; height: 66px; border-radius: 0;" onclick="needLogin()">등록</div>
+						</c:when>
+						<c:when test="${!empty session.memberId }">
+							<div class="buyTextBoxBlue flex_center_center ml-3" style="width:88px; height: 66px; border-radius: 0;" onclick="comment()">등록</div>
+						</c:when>
+					 </c:choose>
       			</div>
       		</div>
       		
-      		<div class="reviewBoxBottom" id="reviewInnerAjax">
+      		<div class="reviewBoxBottom" id="CommentInnerAjax">
 					<c:if test="${empty commentList }">
 						<div class="flex_center_center p-5">
 							<img class="mb-2" width="36px" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png">
 							<p class="flex_center_center">이 앨범에 첫 댓글을 달아주세요.</p>
 						</div>
 					</c:if>
+					<div id="commentContainer"></div>
 							<c:forEach  items="${commentList }" var="Cmt">
 								<div class="reviewBlock pl-0">
-										<p class="mb-2">${Cmt.memberId }</p>
+										<p class="mb-3">${Cmt.memberId }</p>
+										<p class="mb-2">${Cmt.comment }</p>
+										<p class="mb-2 smallGrayText">${Cmt.commentDate }  |  신고  |  답글쓰기</p>
 								</div>
 							</c:forEach>
 					</div>
@@ -178,9 +188,11 @@
    </div>
    
    <input type="hidden" id="memberNo" value="${session.memberNo }">
+   <input type="hidden" id="memberId" value="${session.memberId }">
    <input type="hidden" id="albumNo" value="${list[0].albumNo }">
    
    <jsp:include page="../top/footer.jsp" />
 	<script src="resources/js/book/albumLike.js"></script>	
+	<script src="resources/js/book/albumComment.js"></script>	
 </body>
 </html>

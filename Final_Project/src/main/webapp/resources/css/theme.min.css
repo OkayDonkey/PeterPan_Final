@@ -18054,5 +18054,16 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	font-weight: 400;
 }
 
+.smallGrayText	{
+	color: #808080;
+	font-size: 13px;
+	font-weight: 300;
+}
+
+#CommentInnerAjax	{
+	height: 600px;
+	overflow: auto;
+}
+
 }
 	/*# sourceMappingURL=theme.min.css.map */

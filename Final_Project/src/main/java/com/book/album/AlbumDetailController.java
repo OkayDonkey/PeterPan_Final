@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.model.AlbumCommentDTO;
 import com.book.model.AlbumDTO;
+import com.book.model.ReviewDTO;
 
 @Controller
 public class AlbumDetailController {
@@ -45,6 +47,36 @@ public class AlbumDetailController {
 		
 		return "album/albumDetail";
 	}
+	
+	@RequestMapping("commentInsert.go")
+	@ResponseBody
+	public List<AlbumCommentDTO> insertComment(Model model, AlbumCommentDTO aDto) {
+		
+		System.out.println("insertReview 컨트롤러 진입");
+		 
+		int result = this.dao.insertComment(aDto);
 
+		if (result > 0) {
+		        
+		        System.out.println("댓글 등록완료: " + result);
+		        List<AlbumCommentDTO> commentList = this.dao.getAlbumComment(aDto.getAlbumNo());
+		        System.out.println("댓글 로딩 책번호: " + aDto.getAlbumNo());
+		        System.out.println("댓글 정보: " + commentList);
+		       
+		        return commentList;
+		        
+		    } else {
+		    	
+		    	return null;
+		    	
+		    }
+		
+	}
+
+	
+	
+	
+	
+	
 }
 
