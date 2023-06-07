@@ -1,20 +1,24 @@
 package com.book.album;
 
 import java.awt.print.Book;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.plaf.multi.MultiDesktopPaneUI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.bookmodel.plusListDAO;
 import com.book.model.AlbumDTO;
@@ -74,14 +78,15 @@ public class AlbumController {
 	
 	@RequestMapping("insertalbum.go")
 	public String upload(Model model, BookDTO bookDTO, HttpServletRequest request, HttpSession session,AlbumDTO albumDTO) {
-		 albumInsert(model, bookDTO, request, session, albumDTO );  // 앨범 추가 로직 호출
-
+		/*
+		 * albumInsert(model, bookDTO, request, session, albumDTO ); // 앨범 추가 로직 호출
+		 */
 		return "album/albumUpload";
 	}
 	
-	
+	@ResponseBody
 	@RequestMapping("modal_search.go")
-	public String search(Model model,HttpServletRequest request,@RequestParam("field") String field,
+	public List<BookDTO> search(Model model,HttpServletRequest request,@RequestParam("field") String field,
 									@RequestParam("keyword") String keyword) {
 		// 검색 페이징 처리 작업
 		int page;    // 현재 페이지 변수
@@ -93,7 +98,8 @@ public class AlbumController {
 			// 처음으로 "게시물 전체 목록" 태그를 클릭한 경우
 			page = 1;
 		}
-
+		System.out.println("필드"+field);
+		System.out.println("키워드"+keyword);
 		//검색분류와 검색어에 해당하는 게시글의 수를 DB에서 확인하는 작업
 		//value
 		Map<String, String> map = 
@@ -124,37 +130,58 @@ public class AlbumController {
 			 .addAttribute("Paging", dto);
 		
 		
-		return "album/albumUpload";				
+
+		return searchList;				
 		}
 	
-	@RequestMapping("albumInsert.go")
-	public void albumInsert(Model model,BookDTO dto,HttpServletRequest request,HttpSession session,AlbumDTO adto) {
+		/*
+		 * @RequestMapping("albumInsert.go") public void albumInsert(Model
+		 * model,HttpServletRequest request,HttpSession session,BookDTO dto) {
+		 * 
+		 * 
+		 * 
+		 * MemberDTO mdto =(MemberDTO) session.getAttribute("session");
+		 * 
+		 * 
+		 * 
+		 * dto.setMemberId(mdto.getMemberId());
+		 * 
+		 * 
+		 * this.dao.insertalbumCover(dto);
+		 * 
+		 * 
+		 * return; }
+		 */
+	
+	@ResponseBody
+	@RequestMapping("insertBookOk.go")
+	public BookDTO insBook(Model model,@RequestParam("bookNo") int bookNo) {
+		BookDTO dto = this.dao.getBookAlbum(bookNo);
+					
+		return dto;
+	}
+	
+	
+	@RequestMapping("insertOk.go")
+	public void insertOk(Model model, @RequestParam("bookNo") int bookNo ,HttpServletResponse response, @RequestParam("albumTitle") String albumTitle , @RequestParam("albumCont") String albumCont,AlbumDTO dto) throws IOException {
+		System.out.println("책번호"+bookNo);
+		int check = this.dao.albumInsert(dto);
 		
-		// 페이징 처리 작업
-		int page;    // 현재 페이지 변수
+		response.setContentType("text/html;charset=UTF-8");
+
+		PrintWriter out =response.getWriter();
 		
-		if(request.getParameter("page") != null) {
-			page = 
-				Integer.parseInt(request.getParameter("page"));
-		}else {
-			// 처음으로 "게시물 전체 목록" 태그를 클릭한 경우
-			page = 1;
+		if(check>0) {
+			out.println("<script>");
+			out.println("alert('회원 등록 성공')");
+			out.println("</script>");
+		}else{
+			out.println("<script>");
+			out.println("alert('회원 등록 실패')");
+			out.println("history.back()");
+			out.println("</script>");
 		}
 		
-		MemberDTO mdto =(MemberDTO) session.getAttribute("session");
-		
-		// DB 상의 전체 게시물의 수를 확인하는 메서드 호출
-		totalRecord = 
-				this.dao.getAlbumCount();
-		
-		dto.setMemberId(mdto.getMemberId());
-		
-		this.dao.insertalbumCover(dto);
-		
-			PageDTO pdto = 
-					new PageDTO(page, rowsize, totalRecord);
-
-			 
-			return;
 	}
+	
 }

@@ -14,4 +14,8 @@ public interface AlbumDAO {
 
 	int insertalbumCover(BookDTO dto);
 
+	BookDTO getBookAlbum(int bookNo);
+
+	int albumInsert(AlbumDTO dto);
+
 }

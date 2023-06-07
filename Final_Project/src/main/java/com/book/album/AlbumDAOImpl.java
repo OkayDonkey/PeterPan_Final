@@ -27,11 +27,19 @@ public class AlbumDAOImpl implements AlbumDAO{
 		return this.SqlSession.selectList("albumList",pdto);
 	}
 	
+	
 	@Override
 	public int insertalbumCover(BookDTO dto) {
 		return this.SqlSession.insert("albumIns", dto);
-				
+	}
+	@Override
+	public BookDTO getBookAlbum(int bookNo) {
+		return this.SqlSession.selectOne("getbook",bookNo);
 	}
 	
-
+	@Override
+	public int albumInsert(AlbumDTO dto) {
+		return this.SqlSession.insert("insertOk",dto);
+	}
+	
 }

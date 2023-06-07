@@ -16,13 +16,11 @@
 	<c:set value="${list }" var="list" />
 	<c:set var="paging" value="${Paging }" />
 	
-	<table>
+<%-- 	<table>
 		<c:if test="${!empty list }">
 			<c:forEach items="${list}" var="dto">
 				<tr>	
-					<th>
-						${dto.albumImg1}
-					</th>
+					
 					
 					<td>
 						${dto.albumTitle }
@@ -45,7 +43,7 @@
 				</tr>
 		
 		</c:if>
-	</table>
+	</table> --%>
 		<button onclick="location.href='insertalbum.go'">앨범 만들기</button> 
 	
 </div>
