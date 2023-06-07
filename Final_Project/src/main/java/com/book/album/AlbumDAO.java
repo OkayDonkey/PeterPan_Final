@@ -20,7 +20,8 @@ public interface AlbumDAO {
 	BookDTO getBookAlbum(int bookNo);
 
 	int albumInsert(AlbumDTO dto);
-	List<AlbumDTO> getalbum();
+	
+	/* List<AlbumDTO> getalbum(); */
 	
 	List<AlbumDTO> getAlbumNoList(int no);
 
@@ -34,8 +35,6 @@ public interface AlbumDAO {
 
 	List<AlbumCommentDTO> getAlbumComment(int num);
 	
-	
-
 	List<AlbumDTO> getTotalAlbum(int albumNo);
 
 

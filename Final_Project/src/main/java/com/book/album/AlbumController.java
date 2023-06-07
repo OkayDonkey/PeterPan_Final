@@ -3,6 +3,7 @@ package com.book.album;
 import java.awt.print.Book;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -183,12 +184,19 @@ public class AlbumController {
 	
 	@ResponseBody
 	@RequestMapping("getCover.go")
-	public List<AlbumDTO> getCover(@RequestParam("albumNo") int albumNo) {
-		List<AlbumDTO> totalAlbumList = this.dao.getTotalAlbum(albumNo);
-		return totalAlbumList;
+	public List<AlbumDTO> getCover(@RequestParam("albumNo") int[] albumNoArray) {
+	    List<AlbumDTO> totalAlbumList = new ArrayList<AlbumDTO>();
+	    	System.out.println("albumNoArray >>> " + albumNoArray);
+	    
+	    for (int albumNo : albumNoArray) {
+	        List<AlbumDTO> albumList = this.dao.getTotalAlbum(albumNo);
+	        totalAlbumList.addAll(albumList);
+	        System.out.println("albumList >>> " + albumList);
+	    }
+	    System.out.println("totalAlbumList >>> " + totalAlbumList);
+	    return totalAlbumList;
 	}
-	
-	
+
 	
 	
 }
