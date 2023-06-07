@@ -1,6 +1,8 @@
 package com.book.boardmodel;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +16,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.book.model.BoardDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PageDTO;
+import com.google.gson.JsonObject;
 
 @Controller
 public class BoardController {
@@ -202,7 +208,64 @@ public class BoardController {
 	public String noticeWrite() {
 		return "board/noticeWrite";
 	}
-	
-	
-
-}
+}	
+/*
+ * @ResponseBody
+ * 
+ * @RequestMapping(value="/uploadSummernoteImageFile",method=RequestMethod.POST)
+ * public JsonObject uploadSummernoteImageFile(@RequestParam("file")
+ * MultipartFile multipartFile, HttpServletRequest request) { JsonObject
+ * jsonObject = new JsonObject();
+ * 
+ * //파일저장 외부 경로, 파일명, 저장할 파일명 try { String originalFileName =
+ * multipartFile.getOriginalFilename();
+ * 
+ * String root =
+ * request.getSession().getServletContext().getRealPath("resources");
+ * 
+ * String savePath = root + "\\image\\review\\summerImageFiles";
+ * 
+ * SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+ * 
+ * String extension =
+ * originalFileName.substring(originalFileName.lastIndexOf(".")+1);
+ * 
+ * String boardFileRename = sdf.format(new Date(System.currentTimeMillis())) +
+ * "." + extension;
+ * 
+ * File targetFile = new File(savePath);
+ * 
+ * if(!targetFile.exists()) {
+ * 
+ * targetFile.mkdir();
+ * 
+ * }
+ * 
+ * multipartFile.transferTo(new File(savePath+"\\"+boardFileRename));
+ * 
+ * System.out.println(savePath);
+ * 
+ * jsonObject.addProperty("url",
+ * "C:\\Users\\jjyou\\Documents\\githurb\\Final_Froject_book\\Final_Project\\src\\main\\webapp\\resources\\upload"
+ * +boardFileRename);
+ * 
+ * jsonObject.addProperty("originName",originalFileName);
+ * 
+ * jsonObject.addProperty("reponseCode","success");
+ * 
+ * } catch (IllegalStateException e) {
+ * 
+ * e.printStackTrace();
+ * 
+ * } catch (IOException e) {
+ * 
+ * e.printStackTrace();
+ * 
+ * }
+ * 
+ * return jsonObject; }
+ * 
+ * }
+ * 
+ * 
+ */

@@ -37,8 +37,7 @@
 	</delete>
 	
 	<update id="deletecheck" parameterType="cartDto">
-		<![CDATA[update bookCart set cartNo= cartNo-1 where cartNo > #{cartNo} ]]>
-
+		<![CDATA[update bookCart set cartNo = cartNo - 1 where cartNo > #{cartNo} ]]>
 	</update>
 	
 	<update id="minusCartEa" parameterType="cartDto">

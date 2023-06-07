@@ -23,8 +23,7 @@
 					
 					
 					<td>
-						${dto.albumTitle }
-						${dto.albumwWiter }리스트
+						<a href="<%=request.getContextPath() %>/album_detail.go">${dto.albumTitle }</a>
 					</td>
 					<td>						
 						${dto.albumCont }리스트

@@ -191,9 +191,47 @@
 						        minHeight: 370,
 						        maxHeight: null,
 						        focus: true, 
-						        lang : 'ko-KR'
+						        lang : 'ko-KR',
+						        
+						        callbacks:{ 
+		                            onImageUpload : function(files){ 
+		                               uploadSummernoteImageFile(files[0],this); 
+		                           } 
+		                        } 
 						  });
+						  
+						  function uploadSummernoteImageFile(file,editor){ 
+
+		                        data = new FormData(); 
+
+		                        data.append("file",file); 
+		      
+		                        $.ajax({ 
+		      
+			                     data:data, 
+			      
+			                     type:"POST", 
+			      
+			                     url:"/uploadSummernoteImageFile", 
+			      
+			                     dataType:"JSON", 
+			      
+			                     contentType:false, 
+			      
+			                     processData:false, 
+			      
+			                     success:function(data){ 
+		      
+			                         $(editor).summernote("insertImage",data.url); 
+			      
+			                         $("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
+		                     } 
+		                 }); 
+		                    } 
+						  
 						});
+					
+					
 				
 					</script>
 					<!-- //tbl_row_wrap -->

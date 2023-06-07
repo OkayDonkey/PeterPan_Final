@@ -17988,7 +17988,48 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	width: 345px;
 }
 
+.hover_bold:hover	{
+	color:black;
+	font-weight: 700;
+}
 
+.borderGrayBox	{
+	border: 1px solid #ccc;
+	height: 50px;
+}
+
+.borderGrayBoxSmall {
+	border: 1px solid #ccc;
+	height: 30px;
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.borderGrayBoxSmall:hover {
+	border: 1px solid #ccc;
+	height: 30px;
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.boderTopLine	{
+	border-top: 1px solid #ccc;
+}
+
+.boderRightLine	{
+	border-right: 1px solid #ccc;
+}
+
+.boderBottomLine	{
+	border-bottom: 1px solid #ccc;
+}
+
+.boderLeftLine	{
+	border-left: 1px solid #ccc;
+}
 
 }
 	/*# sourceMappingURL=theme.min.css.map */

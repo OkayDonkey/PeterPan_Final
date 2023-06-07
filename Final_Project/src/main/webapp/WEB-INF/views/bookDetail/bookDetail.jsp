@@ -124,20 +124,20 @@ response.setDateHeader("Expires", 0); // Proxies
 	</ul>
 	<!-- 히든팝업1 -->
 	<div id="catePopup1" hidden >
-		<a href="#"><span>국내도서</span></a>
-		<a href="#"><span>해외도서</span></a>
-		<a href="#"><span>일본도서</span></a>
+		<a href="#" class="hover_bold"><span>국내도서</span></a>
+		<a href="#" class="hover_bold"><span>해외도서</span></a>
+		<a href="#" class="hover_bold"><span>일본도서</span></a>
 	</div>
 	
 	<!-- 히든팝업2 -->
 	<div id="catePopup2" hidden>
-		<a href="#"><span>문학</span></a>
-		<a href="#"><span>역사</span></a>
-		<a href="#"><span>자기계발</span></a>
-		<a href="#"><span>취미</span></a>
-		<a href="#"><span>참고서</span></a>
-		<a href="#"><span>공포/호러</span></a>
-		<a href="#"><span>자기계발</span></a>
+		<a href="#" class="hover_bold"><span>문학</span></a>
+		<a href="#" class="hover_bold"><span>역사</span></a>
+		<a href="#" class="hover_bold"><span>자기계발</span></a>
+		<a href="#" class="hover_bold"><span>취미</span></a>
+		<a href="#" class="hover_bold"><span>참고서</span></a>
+		<a href="#" class="hover_bold"><span>공포/호러</span></a>
+		<a href="#" class="hover_bold"><span>자기계발</span></a>
 	</div> 
 </div>
 
@@ -310,7 +310,7 @@ response.setDateHeader("Expires", 0); // Proxies
 				<!-- 팝업 -->
 				<div id="popupDrvInfo" hidden 
 					style="position: absolute; background-color: white; border: 1px solid black;
-							width:330px; border-radius: 0.5em; margin-top:10px; padding:20px; 
+							width:330px; border-radius: 0.5em; margin-top:-10px; padding:20px; 
 							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);">
 					<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#2c2c2c">국내도서/외국도서</p>
 					<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:#595959;">
@@ -378,7 +378,7 @@ response.setDateHeader("Expires", 0); // Proxies
 	                <li class="tab_item"><a href="#book_detail_info_event" ><span class="tab_text">이벤트</span></a></li>
 	                <li class="tab_item"><a href="#book_detail_info_img" ><span class="tab_text">상품정보</span></a></li>
 	                <li class="tab_item"><a href="#totalReviewNum" ><span class="tab_text">리뷰(${reviewCount})</span></a></li>
-	                <li class="tab_item" ><a href="#" ><span class="tab_text">교환/반품/품절</span></a></li>
+	                <li class="tab_item" ><a href="#ExchangeInformation" ><span class="tab_text">교환/반품/품절</span></a></li>
 	            </ul>
        		</div>
        		
@@ -475,7 +475,7 @@ response.setDateHeader("Expires", 0); // Proxies
        			</section>
        			<!-- 하단 리뷰영역 End -->
        			<section>
-       				<div class="infoBoxTop row">
+       				<div class="infoBoxTop row" id="ExchangeInformation">
 	       				<div class="BorderBlackBottomText2 mt-5">교환/반품/품절 안내</div>
        						<div class="reviewBlock-info">
 									<div class="container">
