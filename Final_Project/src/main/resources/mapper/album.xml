@@ -11,6 +11,7 @@
 		select count(*) from album 
 	</select> 
 	
+	
 	<select id="albumList" parameterType="pageDto" resultType="albumDto">
 		<![CDATA[
 		  		SELECT *
@@ -23,18 +24,35 @@
 					ORDER BY albumNo DESC
 			]]>	
 	</select>
+	
+	
   <select id="getbook" parameterType="int" resultType="bookDto">
   	select * from book where bookNo=#{bookNo}
   </select>
   
+  
+  
+  
   <insert id="insertOk" parameterType="albumDto">
-  	insert into album values(albumNo=#{albumNo},memberNo=#{memberNo},albumCont=#{albumCont},albumTitle={albumTitle} )
+  
+  	<selectKey resultType="int" keyProperty="albumNo" order="BEFORE">
+  		  select count(*) from album
+	</selectKey>
+	insert into album values(#{albumNo}+1,#{memberNo},#{albumTitle},#{albumCont},now()) 
   </insert>
+  
+  
+  
+  
   
 	<insert id="albumIns" parameterType="bookDto">
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
  			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
  	</insert>
+ 	
+ 	
+ 	
+ 	
  	
  	<select id="totalAlbum" parameterType="int" resultType="albumDto">
       select b.bookCover from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
@@ -79,5 +97,46 @@
 			]]>	
 	</select>
 	
+	
+	<select id="bookN" parameterType="String" resultType="bookDto">
+		select * from book where bookName = #{bookName} 	
+	</select>
+	
+	<select id="numberCount" parameterType="bookDto" resultType="int">
+		select COUNT(DISTINCT albumNo) from album_detail
+	</select>
+	
+	
+	
+	<insert id="bookDetailIns1" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto1.bookNo})
+	</insert>
+	
+	
+	<insert id="bookDetailIns2" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto2.bookNo})
+	</insert>
+	
+	
+	<insert id="bookDetailIns3" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto3.bookNo})
+	</insert>
+	
+	
+	<insert id="bookDetailIns4" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto4.bookNo})
+	</insert>
 	
   </mapper>

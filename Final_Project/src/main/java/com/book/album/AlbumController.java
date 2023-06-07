@@ -166,11 +166,59 @@ public class AlbumController {
 		return dto;
 	}
 	
-	
+
 	@RequestMapping("insertOk.go")
-	public void insertOk(Model model, @RequestParam("bookNo") int bookNo ,HttpServletResponse response, @RequestParam("albumTitle") String albumTitle , @RequestParam("albumCont") String albumCont,AlbumDTO dto) throws IOException {
-		System.out.println("책번호"+bookNo);
-		int check = this.dao.albumInsert(dto);
+	public void insertOk(Model model ,HttpServletResponse response,AlbumDTO dto,@RequestParam("bookname2") String bookname2,@RequestParam("bookname3") String bookname3,
+			@RequestParam("bookname4") String bookname4,@RequestParam("bookname1") String bookname1,HttpSession session,@RequestParam("albumTitle") String albumTitle,@RequestParam("albumCont") String albumCont) throws IOException {
+		
+		MemberDTO mdto =
+				(MemberDTO)session.getAttribute("session");
+	
+		BookDTO bdto1 =this.dao.getBookNamealbum(bookname1);
+		BookDTO bdto2 =this.dao.getBookNamealbum(bookname2);
+		BookDTO bdto3 =this.dao.getBookNamealbum(bookname3);
+		BookDTO bdto4 =this.dao.getBookNamealbum(bookname4);
+		
+		
+		int avg = this.dao.albumNumberCount(bdto1);
+		
+		
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		Map<String, Object> map3 = new HashMap<String, Object>();
+		Map<String, Object> map4 = new HashMap<String, Object>();
+		
+		map1.put("avg", avg);
+		map1.put("dto1",bdto1);
+		
+		map2.put("avg", avg);
+		map2.put("dto2",bdto2);
+
+		map3.put("avg", avg);
+		map3.put("dto3",bdto3);
+		
+		map4.put("avg", avg);
+		map4.put("dto4",bdto4);
+
+
+		this.dao.albumbookins1(map1);		
+		this.dao.albumbookins2(map2);		
+		this.dao.albumbookins3(map3);		
+		this.dao.albumbookins4(map4);	
+		
+			dto.setAlbumCont(albumCont);
+			dto.setAlbumTitle(albumTitle);
+			
+		
+		  dto.setMemberNo(mdto.getMemberNo());
+		  
+		  System.out.println("dto 값 전"+dto);
+		  
+		  
+		  int check = this.dao.albumInsert(dto);
+		  
+
+		  System.out.println("dto 값 후"+dto);
 		
 		response.setContentType("text/html;charset=UTF-8");
 
