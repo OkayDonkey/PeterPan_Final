@@ -11,6 +11,7 @@
 .title_header_total {
 	font-size: 25px;
 	font-weight: 900;
+	padding-left: 10px;
 }
 
 .total {
@@ -149,6 +150,12 @@
 .pagingout_num:hover {
 	color: black; 
 }
-
 /* 페이징 처리 부분 end */
+
+.title_header_a > a:hover {
+	color: black;
+}
+
+
+
 

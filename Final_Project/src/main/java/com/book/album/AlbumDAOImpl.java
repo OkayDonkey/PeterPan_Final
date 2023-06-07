@@ -84,6 +84,14 @@ public class AlbumDAOImpl implements AlbumDAO{
 		return this.SqlSession.selectList("albumCommentList", num);
 	}
 	
+	/*
+	 * @Override public List<AlbumDTO> getalbum() { return
+	 * this.SqlSession.selectList("alist"); }
+	 */
+
+	@Override
+	public List<AlbumDTO> getAlbumPopList(PageDTO pdto) {
+		return this.SqlSession.selectList("albumPop", pdto);
 	@Override
 	public BookDTO getBookNamealbum(String bookname) {
 		return this.SqlSession.selectOne("bookN",bookname);

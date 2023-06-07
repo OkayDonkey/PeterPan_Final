@@ -135,7 +135,7 @@
 									<td class="fc_light_gray">${size - 3}</td>
 									<td class="align_left">
 										<a href="<%=request.getContextPath() %>/noticeDetail.go?no=${dto.boardNO }">
-										<span class="align_left_text">${dto.boardTitle }</span>
+										<span class="align_left_text" style="text-decoration: none; padding-left: 10px;">${dto.boardTitle }</span>
 										</a></td>
 									<td class="fc_light_gray">고객센터</td>
 									<td class="fc_light_gray">${dto.boardRegdate }</td>
