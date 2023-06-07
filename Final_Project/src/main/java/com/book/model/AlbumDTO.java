@@ -15,7 +15,7 @@ public class AlbumDTO {
 	private int bookNo;
 	private int memberNo;
 	
-	private	String memberName;
+	private	String memberName; // 디테일
 	private	String albumTitle;
 	private	String albumCont;
 	private	String albumSysDate;
@@ -34,6 +34,5 @@ public class AlbumDTO {
 	private	String bookImg3;
 	private	String bookImg4;
 	private	String bookWeekBest;
-
-   
+	
 }

@@ -24,5 +24,6 @@ public class BookDTO {
 	private String bookImg4;
 	private int bookWeekBest;
 	private String memberId;
+	private int albumNo;
 
 }
