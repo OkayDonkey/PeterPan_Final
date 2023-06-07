@@ -65,4 +65,8 @@
 		]]>	
   	</select>
   	
+  	<select id="mainNotice" resultType="boarddto">
+  		SELECT * FROM board WHERE boardArea = 'NOTICE' ORDER BY boardRegdate DESC LIMIT 3
+  	</select>
+  	
   </mapper>

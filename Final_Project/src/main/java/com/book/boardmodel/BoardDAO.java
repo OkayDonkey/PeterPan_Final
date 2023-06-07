@@ -30,4 +30,6 @@ public interface BoardDAO {
 
 	List<BoardDTO> noticeSearchList(PageDTO pdto);
 
+	List<BoardDTO> mainNotice();
+
 }

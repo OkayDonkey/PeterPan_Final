@@ -14,9 +14,11 @@
 }
 
 .total {
-	/* margin-left: 10%;
-    margin-right: 10%; */
+ 	margin: 0 auto; 
+	display: flex;
+    flex-direction: column;
     width: 1200px;
+    align-items: center;
 }
 
 .title_header_a > a {
@@ -63,11 +65,24 @@
 }
 
 .total_ul {
+	padding:0px;
 	list-style: none;
-    width: 320px;
-    height: 380px;
+    height: 305px;
+	width: 100%;
+	list-style: none;
+	margin: 0;
 }
 
+.total_cont_D {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.total_cont_D:nth-child(1),~
+.total_cont_D:nth-child(4) {
+	margin-left: 60px;
+}
 .albumArt > div > div > img {
 	width: 130px;
     height: 180px;
@@ -82,18 +97,58 @@
 .info_box {
 	border: 2px solid #f7f7f7;
     width: 252px;
-    height: 160px;
+    height: 130px;
 }
 
 .album_back {
-	background-color: black;
+	background-color: #f7f7f7;
 	width: 252px;
     height: 180px;
 }
 
 .total_cont {
-	display: flex;
-	margin-left: -40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 40px;
 }
 
+.info > a {
+	color: black;
+	font-size: 15px;
+}
+
+.info > a:hover {
+	color: black;
+}
+
+.subInfo > a, .theme > a, .date {
+	color: #757271;
+	font-size: 12px;
+}
+
+.subInfo > a:hover, .theme > a:hover {
+	color: #757271;
+}
+
+.theme > a {
+	border: 1px solid #E0E0E0;
+    border-radius: 13px;
+    padding: 0 8px;
+}
+
+/* 페이징 처리 부분 */
+.pagingout {
+	text-align: center;
+    margin-top: 33px;
+}
+
+.pagingout_num {
+	color: black; 
+}
+
+.pagingout_num:hover {
+	color: black; 
+}
+
+/* 페이징 처리 부분 end */
 

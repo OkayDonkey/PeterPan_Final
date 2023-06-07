@@ -34,7 +34,13 @@ public class BoardController {
 	private BoardDAO dao;
 
 	@RequestMapping("boardPage.go")
-	public String mainPage() {
+	public String mainPage(Model model) {
+		
+		List<BoardDTO> list = this.dao.mainNotice();
+		
+		model.addAttribute("mainNotice", list);
+		
+		
 		return "board/boardPage";
 	}
 
@@ -112,6 +118,7 @@ public class BoardController {
 	@RequestMapping("board_search.go")
     public String boardSearch(Model model, @RequestParam(defaultValue = "1") int page, PageDTO pdto) {
 
+		
 
         if(pdto.getBoardArea().equals("FAQ")) {
         	
@@ -208,64 +215,11 @@ public class BoardController {
 	public String noticeWrite() {
 		return "board/noticeWrite";
 	}
+	
+	@RequestMapping("main_notice.go")
+	public String mainNotice(Model model) {
+		
+		return "board/boardPage";
+	}
+	
 }	
-/*
- * @ResponseBody
- * 
- * @RequestMapping(value="/uploadSummernoteImageFile",method=RequestMethod.POST)
- * public JsonObject uploadSummernoteImageFile(@RequestParam("file")
- * MultipartFile multipartFile, HttpServletRequest request) { JsonObject
- * jsonObject = new JsonObject();
- * 
- * //파일저장 외부 경로, 파일명, 저장할 파일명 try { String originalFileName =
- * multipartFile.getOriginalFilename();
- * 
- * String root =
- * request.getSession().getServletContext().getRealPath("resources");
- * 
- * String savePath = root + "\\image\\review\\summerImageFiles";
- * 
- * SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
- * 
- * String extension =
- * originalFileName.substring(originalFileName.lastIndexOf(".")+1);
- * 
- * String boardFileRename = sdf.format(new Date(System.currentTimeMillis())) +
- * "." + extension;
- * 
- * File targetFile = new File(savePath);
- * 
- * if(!targetFile.exists()) {
- * 
- * targetFile.mkdir();
- * 
- * }
- * 
- * multipartFile.transferTo(new File(savePath+"\\"+boardFileRename));
- * 
- * System.out.println(savePath);
- * 
- * jsonObject.addProperty("url",
- * "C:\\Users\\jjyou\\Documents\\githurb\\Final_Froject_book\\Final_Project\\src\\main\\webapp\\resources\\upload"
- * +boardFileRename);
- * 
- * jsonObject.addProperty("originName",originalFileName);
- * 
- * jsonObject.addProperty("reponseCode","success");
- * 
- * } catch (IllegalStateException e) {
- * 
- * e.printStackTrace();
- * 
- * } catch (IOException e) {
- * 
- * e.printStackTrace();
- * 
- * }
- * 
- * return jsonObject; }
- * 
- * }
- * 
- * 
- */

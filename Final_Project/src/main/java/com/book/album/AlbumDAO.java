@@ -38,8 +38,6 @@ public interface AlbumDAO {
 
 	List<AlbumCommentDTO> getAlbumComment(int num);
 	
-	
-
 	List<AlbumDTO> getTotalAlbum(int albumNo);
 
 	//책의 이름을 가지고 책정보(책번호)를 뽑는 함수
