@@ -86,12 +86,12 @@ public class Upload {
 		
 		if (check > 0) {
 			out.println("<script>");
-			out.println("alert('접수 성공')");
-			out.println("location.href='boardQna.go'");
+			out.println("alert('1:1 문의가 등록되었습니다. 빠른 시일 내에 답변 드리도록 하겠습니다.')");
+			out.println("location.href='qnaList.go'");
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('접수 실패')");
+			out.println("alert('1:1 문의 등록 실패하였습니다.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
