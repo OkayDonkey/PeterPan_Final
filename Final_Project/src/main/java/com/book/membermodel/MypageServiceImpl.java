@@ -91,5 +91,24 @@ public class MypageServiceImpl implements MypageService{
 		return this.dao.getcoupon(memberId);
 	}
 
+	@Override
+	public int qnaDelete(int boardNo) {
+		return this.dao.qnaDelete(boardNo);
+	}
+	
+	@Override
+	public void qnaAnswerDelete(int boardNo) {
+		this.dao.qnaAnswerDelete(boardNo);
+	}
+	
+	@Override
+	public int qnaAnwerCount(int boardNo) {
+		return this.dao.qnaAnswerCount(boardNo);
+	}
+	
+	@Override
+	public BoardDTO getBoardDtoAtboardNo(int boardNo) {
+		return this.dao.getBoardDtoAtboardNo(boardNo);
+	}
 	
 }

@@ -57,5 +57,25 @@ public class MypageDAOImpl implements MypageDAO{
 	public List<CouponDTO> getcoupon(String memberId) {
 		return this.sqlSession.selectList("getcoupon", memberId);
 	}
+	
+	@Override
+	public int qnaDelete(int boardNo) {
+		return this.sqlSession.delete("qnaDelete", boardNo);
+	}
+	
+	@Override
+	public void qnaAnswerDelete(int boardNo) {
+		this.sqlSession.delete("qnaAnswerDelete", boardNo);
+	}
+	
+	@Override
+	public int qnaAnswerCount(int boardNo) {
+		return this.sqlSession.selectOne("qnaAnswerCount", boardNo);
+	}
+	
+	@Override
+	public BoardDTO getBoardDtoAtboardNo(int boardNo) {
+		return this.sqlSession.selectOne("getBoardDtoAtboardNo", boardNo);
+	}
 
 }

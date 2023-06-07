@@ -1,5 +1,6 @@
 package com.book.member;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -235,6 +236,45 @@ public class MypageController {
 		model.addAttribute("pList", pList);
 		
 		return "member/myPage/orderHistoryDetail";
+	}
+	
+	@RequestMapping("qna_delete.go")
+	public void qnaDelete(@RequestParam("boardNo") int boardNo, HttpServletResponse response) throws Exception {
+		
+		int qnaAnwercount = this.service.qnaAnwerCount(boardNo);
+		
+		if(qnaAnwercount > 0) {
+			this.service.qnaAnswerDelete(boardNo);
+		}
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		int check = this.service.qnaDelete(boardNo);
+		
+		if(check > 0) {
+			out.println("<script>");
+	        out.println("alert('1:1 문의하신 글이 삭제되었습니다.')");
+	        out.println("location.href='qnaList.go';");
+	        out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('1:1 문의하신 글 삭제에 실패하였습니다.)");
+	        out.println("history.back()");
+	        out.println("</script>");
+		}
+		
+	}
+	
+	@RequestMapping("qna_modify.go")
+	public String qnaModify(@RequestParam("boardNo") int boardNo, Model model) {
+		
+		BoardDTO dto = this.service.getBoardDtoAtboardNo(boardNo);
+		
+		model.addAttribute("DTO", dto);
+		
+		return "member/myPage/qnaModify";
 	}
 
 }
