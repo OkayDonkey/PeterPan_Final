@@ -18,6 +18,36 @@
 	<c:set value="${list }" var="list" />
 	<c:set var="paging" value="${Paging }" />
 	
+<%-- 	<table>
+		<c:if test="${!empty list }">
+			<c:forEach items="${list}" var="dto">
+				<tr>	
+					
+					
+					<td>
+						<a href="<%=request.getContextPath() %>/album_detail.go">${dto.albumTitle }</a>
+					</td>
+					<td>						
+						${dto.albumCont }리스트
+					</td>
+					<td>
+						${dto.albumSysdate }
+					</td>			
+				</tr>
+			</c:forEach>
+		</c:if>
+		<c:if test="${empty list }">
+				<tr>	
+					<th colspan="3">
+						현재 등록된 앨범이 없네요
+					</th>		
+				</tr>
+		
+		</c:if>
+	</table> --%>
+		<button onclick="location.href='insertalbum.go'">앨범 만들기</button> 
+	
+</div>
 
 	<div class="total">
 		<div class="total_title">

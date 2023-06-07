@@ -16,52 +16,73 @@
 
 	<div class="container">
 		<h2>게시물 등록</h2>
-		<form action="<%=request.getContextPath() %>/insertOk.go" method="post" enctype="multipart/form-data">
-			<table>
+		<c:set value="${albumlist }" var="alist" />	
+	<form action="<%=request.getContextPath() %>/insertOk.go?" method="post">
+		  <div id="searchResults">
+    <!-- 검색 결과를 동적으로 표시하는 부분 -->
+		
+	  
+		  </div>
+		
+			<input type="text" name="albumTitle" placeholder="앨범의 제목을 입력해주세요">
+			<input type="text" name="albumCont" placeholder="앨범에 대한 가벼운 소개를 적어주세요">
+			<input type ="hidden" name ="bookNo" id ="bookNo"> 
+			<br>
+			<br>
+		
+			 <table>
 				<tr>
-					<th>책 사진</th>
+					<td>책 사진</td>
 					<td>제목</td>
-					<td>내용</td>
-					
 				</tr>
 			
 				<tr>
-					<th>
-					<input type="button" value="책 검색" onclick="bookSearchModal()">
-					
-					</th>
-					<td><input name="albumTitle"></td>
-					<td><input name="albumCont"></td>
+				
+				<tr>
+					  <th>
+					  	<img id="bookCover1"  style="width: 200px;">
+					  	<br>
+					  	<input type="button" value="책 검색" onclick="bookSearchModal(1)">
+					  </th>
+					  <td><span id="bookTitle1"></span></td>
 				</tr>
 				<tr>
-					<th><input type="button" value="책 검색"></th>
-					<td><input name="albumTitle"></td>
-					<td><input name="albumCont"></td>
+					  <th>
+					  	<img id="bookCover2"  style="width: 200px;">
+					  	<br>
+					  	<input type="button" value="책 검색" onclick="bookSearchModal(2)">
+					  </th>
+					  <td><span id="bookTitle2"></span></td>
 				</tr>
 				<tr>
-					<th><input type="button" value="책 검색"></th>
-					<td><input name="albumTitle"></td>
-					<td><input name="albumCont"></td>
+					  <th>
+					  	<img id="bookCover3"  style="width: 200px;">
+					  	<br>
+					  	<input type="button" value="책 검색" onclick="bookSearchModal(3)">
+					  </th>
+					  <td><span id="bookTitle3"></span></td>
 				</tr>
 				<tr>
-					<th><input type="button" value="책 검색"></th>
-					<td><input name="albumTitle"></td>
-					<td><input name="albumCont"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type ="submit" value ="등록하기">
-					</td>
+					  <th>
+					  	<img id="bookCover4"  style="width: 200px;">
+					  	<br>
+					  	<input type="button" value="책 검색" onclick="bookSearchModal(4)">
+					  </th>
+					  <td><span id="bookTitle4"></span></td>
 				</tr>
 			</table>
+			
+			<input type ="submit" value ="등록하기">
+			
 		</form>
 		
 	</div>
 	
 	<!-- 모달 검색 시작 -->
 	<div class="insertPopup" id="insertPopup" hidden>
+	<input type="hidden" id="idNo">
 	  <div class="insertPopupBox">
-		<form method="post"	action="<%=request.getContextPath()%>/modal_search.go">
+		<%-- <form method="post"	action="<%=request.getContextPath()%>/modal_search.go"> --%>																																						
 				<!--서치 링크-->
 				<div class="flex-grow-1 my-1 order-sm-2" id="keyboard">
 					<div class="input-group flex-nowrap keywordlist">
@@ -75,42 +96,22 @@
 								<option value="writer" class="opitem">작가</option>
 								<option value="genre" class="opitem">장르</option>
 							</select>
-	
+							
 							<!-- 서치 옵션 end -->
-							<input name="keyword"
+							<input name="keyword" id="keyword"
 								style="width: 400px; height: 30px; border: none; margin-left: 1px; margin-top: 10px;">
-							<input type="image" src="resources\css\s_img\ser_img.png"
-								alt="제출버튼"
+							<input type="button" alt="제출버튼" onclick="serchalbum()"
 								style="border-bottom-right-radius: 20px; bg-coloer: white; width: 34px; height: 30px; margin-top: 10px;">
 						</div>
 					</div>
 				</div>
-			</form>
+			<!-- </form> -->
 			
 			<div class="bookWrap">
-				<c:set value="${List }" var="list"/>
-				<c:set value="${Paging }" var="page"/>
-				
-				<c:if test="${!empty list }">
-					<c:forEach var="dto" items="${list }">
-						<table>
-							<tr>
-								<th>
-									<img src="${dto.bookCover }" width="55px">
-								</th>
-								<td>
-								${dto.bookName }
-								</td>
-								
-								<td>
-									<input type="button" value="선택하기" onclick="<%=request.getContextPath()%>/albumInsert.go?bookNo=${bookNo}">
-								</td>
-							</tr>
-						
-						</table>
-					</c:forEach>
-				</c:if>
+
 			</div>
+			
+			
 			<div class="qnaInsertBox_btn"  style="display: flex; margin-top: 40px;">
             <div class="RoundBox1"  onclick="closeModal()"><span>취소</span></div>
             <div class="RoundBox2"><span class="qnaAnswer">등록</span></div>
@@ -123,32 +124,6 @@
 	
 		<jsp:include page="../top/footer.jsp" />
 	
-	
-	<!-- -->
-	
-				        <!-- <a href="#this" onclick="addFile()">파일추가</a>
-				        <a href='#this' name='file-delete'>삭제</a> -->
-<!-- 	<script type="text/javascript">
-    $(document).ready(function() {
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    })
- 
-    function addFile() {
-        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
-        $("#file-list").append(str);
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    }
- 
-    function deleteFile(obj) {
-        obj.parent().remove();
-    }
-</script>
-	 -->
+
 </body>
 </html> 

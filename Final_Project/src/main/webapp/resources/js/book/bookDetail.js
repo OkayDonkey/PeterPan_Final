@@ -18,7 +18,7 @@ function togglePopup(popupId, imgId, defaultImgSrc, activeImgSrc) {
 
     // 이미지 소스를 활성화된 이미지로 변경
     imgElement.setAttribute("src", activeImgSrc);
-  } else {
+ 	 } else {
     // 선택한 팝업을 닫기
     popupElement.setAttribute("hidden", "");
     activePopup = null;
@@ -153,64 +153,70 @@ function insertReview(){
 	console.log("리뷰내용:"+reviewCont);
 	
 	$.ajax({
-  type: 'POST',
-  url: 'insertReview.go',
-  dataType: "json",
-  data: {
-    bookNo: bookNo,
-    memberId: memberId,
-    memberNo: memberNo,
-    reviewTitle: reviewTitle,
-    reviewCont: reviewCont,
-    recommend: checkedLike,
-  },
- success: function (data) {
-  console.log("AJAX호출 성공");
-  console.log("데이터 송신완료 값:");
-  console.log(data);
-
-  var card_Elem_id = document.querySelector('#reviewInnerAjax');
-  var num = document.querySelector('#totalReviewNum');
-
-  card_Elem_id.innerHTML = ''; // 기존 내용 지우기
-
-  if (data.length > 0) {
-    data.forEach(function (obj) {
-    
-    if(data.recommend === true){
-    	
-    	card_Elem_id.innerHTML += `
-        <div class="reviewBlock">
-          <div class="container">
-            <p>
-              <span class="reviewBuyerBox">구매자</span>
-              <span class="smallTextGray mr-1">${obj.memberId}</span>
-              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
-              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
-              <span class="recommend_img"></span>
-            </p>
-          </div>
-          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
-        </div>
-      `;
-    	
-    } else {
-      card_Elem_id.innerHTML += `
-        <div class="reviewBlock">
-          <div class="container">
-            <p>
-              <span class="reviewBuyerBox">구매자</span>
-              <span class="smallTextGray mr-1">${obj.memberId}</span>
-              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
-              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
-              <span class="notRecommend_img"></span>
-            </p>
-          </div>
-          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
-        </div>
-      `;
-      }
-    });
+	  type: 'POST',
+	  url: 'insertReview.go',
+	  dataType: "json",
+	  data: {
+			    bookNo: bookNo,
+			    memberId: memberId,
+			    memberNo: memberNo,
+			    reviewTitle: reviewTitle,
+			    reviewCont: reviewCont,
+			    recommend: checkedLike,
+			  },
+ 	 success: function (data) {
+ 	 
+		  console.log("AJAX호출 성공");
+		  console.log("데이터 송신완료 값:");
+		  console.log(data);
+		
+	  var card_Elem_id = document.querySelector('#reviewInnerAjax');
+	  var num = document.querySelector('#totalReviewNum');
+	
+	  card_Elem_id.innerHTML = ''; // 기존 내용 지우기
+	
+	  if (data.length > 0) {
+	    data.forEach(function (obj) {
+	    
+	    if( obj.recommend == true ){
+	    	
+	    	console.log("해당 책 추천 함");
+	    	
+	    	card_Elem_id.innerHTML += `
+	        <div class="reviewBlock">
+	          <div class="container">
+	            <p>
+	              <span class="reviewBuyerBox">구매자</span>
+	              <span class="smallTextGray mr-1">${obj.memberId}</span>
+	              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
+	              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
+	              <span class="recommend_img"></span>
+	            </p>
+	          </div>
+	          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
+	        </div>
+	      `;
+	    	
+	    } else {
+	    
+	    console.log("해당 책 추천 안함");
+	    
+	      card_Elem_id.innerHTML += `
+	        <div class="reviewBlock">
+	          <div class="container">
+	            <p>
+	              <span class="reviewBuyerBox">구매자</span>
+	              <span class="smallTextGray mr-1">${obj.memberId}</span>
+	              <span class="smallTextGray mr-1">${obj.reviewRegdate}</span>
+	              <span class="smallTextGray mr-1">${obj.reviewTitle}</span>
+	              <span class="notRecommend_img"></span>
+	            </p>
+	          </div>
+	          <div class="container"><p class="TextGray">${obj.reviewCont}</p></div>
+	        </div>
+	      `;
+	      }
+	    });
 
     num.innerText = parseInt(num.innerText) + 1;
   }
