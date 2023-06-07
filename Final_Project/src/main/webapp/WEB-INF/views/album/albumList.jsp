@@ -16,10 +16,12 @@
 	<c:set value="${list }" var="list" />
 	<c:set var="paging" value="${Paging }" />
 	
-	<table>
+<%-- 	<table>
 		<c:if test="${!empty list }">
 			<c:forEach items="${list}" var="dto">
 				<tr>	
+					
+					
 					<td>
 						<a href="<%=request.getContextPath() %>/album_detail.go">${dto.albumTitle }</a>
 					</td>
@@ -40,7 +42,7 @@
 				</tr>
 		
 		</c:if>
-	</table>
+	</table> --%>
 		<button onclick="location.href='insertalbum.go'">앨범 만들기</button> 
 	
 </div>

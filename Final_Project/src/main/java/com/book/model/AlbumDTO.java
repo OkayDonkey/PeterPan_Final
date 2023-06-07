@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class AlbumDTO {
 
 	private int albumDetailNo;
@@ -34,5 +35,5 @@ public class AlbumDTO {
 	private	String bookImg4;
 	private	String bookWeekBest;
 
-	
+   
 }

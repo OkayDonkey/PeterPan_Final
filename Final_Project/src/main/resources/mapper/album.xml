@@ -14,7 +14,14 @@
 	<select id="albumList" parameterType="pageDto" resultType="albumDto">
 		select * from album
 	</select>
+  <select id="getbook" parameterType="int" resultType="bookDto">
+  	select * from book where bookNo=#{bookNo}
+  </select>
   
+  <insert id="insertOk" parameterType="albumDto">
+  	
+  	insert into album values(albumNo=#{albumNo},memberNo=#{memberNo},albumCont=#{albumCont},albumTitle={albumTitle} )
+  </insert>
 	<insert id="albumIns" parameterType="bookDto">
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
  			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
