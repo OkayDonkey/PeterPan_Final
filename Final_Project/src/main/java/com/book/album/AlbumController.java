@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.book.bookmodel.plusListDAO;
 import com.book.model.AlbumDTO;
@@ -55,16 +56,13 @@ public class AlbumController {
 		}
 		
 		// DB 상의 전체 게시물의 수를 확인하는 메서드 호출
-		totalRecord = 
-				this.dao.getAlbumCount();
+		totalRecord = this.dao.getAlbumCount();
 		
 		
-			PageDTO pdto = 
-					new PageDTO(page, rowsize, totalRecord);
+		PageDTO pdto = new PageDTO(page, rowsize, totalRecord);
 			
 			
-		List<AlbumDTO> list =
-				this.dao.getAlbumList(pdto);
+		List<AlbumDTO> list = this.dao.getAlbumList(pdto);
 		
 		 model.addAttribute("list",list)
 			  .addAttribute("Paging",pdto );
@@ -153,4 +151,15 @@ public class AlbumController {
 			System.out.println(adto);
 			return "album/albumUpload";
 	}
+	
+	@ResponseBody
+	@RequestMapping("getCover.go")
+	public List<AlbumDTO> getCover(@RequestParam("albumNo") int albumNo) {
+		List<AlbumDTO> totalAlbumList = this.dao.getTotalAlbum(albumNo);
+		return totalAlbumList;
+	}
+	
+	
+	
+	
 }

@@ -9,13 +9,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AlbumDTO {
 
-	private int albumNo;
-	private	int bookNo;
-	private	String memberId;
-	private	String albumTitle;
-	private	String bookCover;
-	private	String albumCont;
-	private	String albumSysdate;
-
-	
+	   private int albumDetailNo;
+	   private int albumNo;
+	   private int bookNo;
+	   private int memberNo;
+	   
+	   private  String memberName;
+	   private  String albumTitle;
+	   private  String albumCont;
+	   private  String albumSysDate;
+	   private  String bookName;
+	   private  String Price;
+	   private  String bookGenre;
+	   private  String bookWriter;
+	   private  String bookTrans;
+	   private  String bookRelDate;
+	   private  String bookCont;
+	   private  String bookLike;
+	   private  String bookCategory;
+	   private  String bookCover;
+	   private  String bookImg1;
+	   private  String bookImg2;
+	   private  String bookImg3;
+	   private  String bookImg4;
+	   private	String bookWeekBest;
 }

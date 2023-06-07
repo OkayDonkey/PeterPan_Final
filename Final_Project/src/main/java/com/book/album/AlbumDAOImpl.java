@@ -38,4 +38,10 @@ public class AlbumDAOImpl implements AlbumDAO{
 		return this.SqlSession.selectList("alist");
 	}
 
+	@Override
+	public List<AlbumDTO> getTotalAlbum(int albumNo) {
+		return this.SqlSession.selectList("totalAlbum", albumNo);
+	}
+
+
 }

@@ -16,4 +16,7 @@ public interface AlbumDAO {
 
 	List<AlbumDTO> getalbum();
 
+	List<AlbumDTO> getTotalAlbum(int albumNo);
+
+
 }
