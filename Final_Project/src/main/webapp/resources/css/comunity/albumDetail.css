@@ -2,14 +2,11 @@
 
 .sectionPadding {
     min-width: 940px;
-    padding-right: 40px;
-    padding-left: 40px;
 }
 
 .sectionPadding.contents {
     padding-top: 42px;
     padding-bottom: 30px;
-    border-top: 1px solid #D9D9D9;
 }
 
 header {
