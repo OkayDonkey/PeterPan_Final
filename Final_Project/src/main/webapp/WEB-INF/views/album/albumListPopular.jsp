@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,11 +21,10 @@
 			<div class="title_header">
 				<div><span class="title_header_total">전체</span> <span>(${totalRecord})</span></div>
 				<div style="margin-right: 11px;">
-					<span class="title_header_a">
-						<a href="<%=request.getContextPath() %>/albumPop.go">인기순</a> 
-						<a href="<%=request.getContextPath() %>/album.go" style="margin-left: 10px;">
-							<span style="color: #FF564C;">● </span>
-							<span style="color: black; font-weight: bolder;"> 최신순</span></a>
+					<span class="title_header_a"> 
+						<a href="<%=request.getContextPath() %>/albumPop.go"><span style="color: #FF564C;">● </span>
+							<span style="color: black; font-weight: bolder;"> 인기순</span></a> 
+						<a href="<%=request.getContextPath() %>/album.go" style="margin-left: 10px;">최신순</a>
 					</span>
 				</div>	
 			</div>
@@ -146,7 +144,7 @@
 		<div style="display: flex; width: 1200px;">
 			<div class="pagingout" style="width: 92%;">
 				 <c:if test="${paging.page > paging.block }">
-				      <a href="album.go?page=${paging.startBlock - 1 }&field=${paging.field}&keyword=&${paging.keyword}">
+				      <a href="albumPop.go?page=${paging.startBlock - 1 }&field=${paging.field}&keyword=&${paging.keyword}">
 				      	<img class="pagingout_btn_l" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png">
 				      </a>
 				 </c:if>
@@ -154,17 +152,17 @@
 				<c:forEach begin="${paging.startBlock }" end="${paging.endBlock }" var="i">
 				
 				  <c:if test="${i == paging.page }">
-				     <b><a style="margin-left: 12px" class="pagingout_num" href="album.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">${i }</a></b>
+				     <b><a style="margin-left: 12px" class="pagingout_num" href="albumPop.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">${i }</a></b>
 				  </c:if>
 				  
 				  <c:if test="${i != paging.page }">
-				     <a style="margin-left: 12px" class="pagingout_num" href="album.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">${i }</a>
+				     <a style="margin-left: 12px" class="pagingout_num" href="albumPop.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">${i }</a>
 				  </c:if>
 				  
 				</c:forEach>
 				   
 				<c:if test="${paging.endBlock < paging.allPage }">
-				  <a href="album.go?page=${paging.endBlock + 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">
+				  <a href="albumPop.go?page=${paging.endBlock + 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">
 				  	<img class="pagingout_btn_r" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"></a>
 				</c:if>
 				

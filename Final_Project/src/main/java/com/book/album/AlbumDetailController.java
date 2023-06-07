@@ -1,5 +1,6 @@
 package com.book.album;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,6 @@ public class AlbumDetailController {
 	
 	@RequestMapping("album_detail.go")
 	public String albumDetail(Model model) {
-		
-		
 		
 		return "album/albumDetail";
 	}

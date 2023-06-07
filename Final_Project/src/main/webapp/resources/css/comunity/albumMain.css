@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+.title_header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;	
+	margin-bottom: 17px;
+}
+
+.title_header_total {
+	font-size: 25px;
+	font-weight: 900;
+	padding-left: 10px;
+}
+
+.total {
+ 	margin: 0 auto; 
+	display: flex;
+    flex-direction: column;
+    width: 1200px;
+    align-items: center;
+}
+
+.title_header_a > a {
+	font-size: 13px;
+    color: #757271;
+}
+
+.albumArt {
+  position: relative;
+  background-color: 
+}
+
+.albumArt .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 200px;
+}
+
+.albumArt .album {
+  position: absolute;
+  top: 0;
+}
+
+.albumArt .album.front {
+  z-index: 3;
+}
+
+.albumArt .album.middle {
+  z-index: 2;
+  transform: translateX(60px); /* 이미지를 오른쪽으로 60px 이동 */
+}
+
+.albumArt .album.back {
+  z-index: 1;
+  transform: translateX(120px); /* 이미지를 오른쪽으로 120px 이동 */
+}
+
+.thumbnails {
+	background-color: #f7f7f7;
+    width: 190px;
+    height: 180px;
+}
+
+.total_ul {
+	padding:0px;
+	list-style: none;
+    height: 305px;
+	width: 100%;
+	list-style: none;
+	margin: 0;
+}
+
+.total_cont_D {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.total_cont_D:nth-child(1),~
+.total_cont_D:nth-child(4) {
+	margin-left: 60px;
+}
+.albumArt > div > div > img {
+	width: 130px;
+    height: 180px;
+    padding: 25px;
+}
+
+.info {
+	margin-top: 20px;
+	padding-left: 15px;
+}
+
+.info_box {
+	border: 2px solid #f7f7f7;
+    width: 252px;
+    height: 130px;
+}
+
+.album_back {
+	background-color: #f7f7f7;
+	width: 252px;
+    height: 180px;
+}
+
+.total_cont {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 40px;
+}
+
+.info > a {
+	color: black;
+	font-size: 15px;
+}
+
+.info > a:hover {
+	color: black;
+}
+
+.subInfo > a, .theme > a, .date {
+	color: #757271;
+	font-size: 12px;
+}
+
+.subInfo > a:hover, .theme > a:hover {
+	color: #757271;
+}
+
+.theme > a {
+	border: 1px solid #E0E0E0;
+    border-radius: 13px;
+    padding: 0 8px;
+}
+
+/* 페이징 처리 부분 */
+.pagingout {
+	text-align: center;
+    margin-top: 33px;
+}
+
+.pagingout_num {
+	color: black; 
+}
+
+.pagingout_num:hover {
+	color: black; 
+}
+/* 페이징 처리 부분 end */
+
+.title_header_a > a:hover {
+	color: black;
+}
+
+
+
+

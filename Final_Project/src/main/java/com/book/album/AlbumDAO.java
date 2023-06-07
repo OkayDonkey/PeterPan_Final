@@ -1,6 +1,7 @@
 package com.book.album;
 
 import java.util.List;
+import java.util.Map;
 
 import com.book.model.AlbumCommentDTO;
 import com.book.model.AlbumDTO;
@@ -17,7 +18,13 @@ public interface AlbumDAO {
 
 	int insertalbumCover(BookDTO dto);
 
-	List<AlbumDTO> getalbum();
+	BookDTO getBookAlbum(int bookNo);
+
+	int albumInsert(AlbumDTO dto);
+	
+	/*
+	 * List<AlbumDTO> getalbum();
+	 */	
 	
 	List<AlbumDTO> getAlbumNoList(int no);
 
@@ -31,6 +38,26 @@ public interface AlbumDAO {
 
 	List<AlbumCommentDTO> getAlbumComment(int num);
 	
+	List<AlbumDTO> getTotalAlbum(int albumNo);
+
+	List<AlbumDTO> getAlbumPopList(PageDTO pdto);
+
+
+	//책의 이름을 가지고 책정보(책번호)를 뽑는 함수
+	BookDTO getBookNamealbum(String bookname1);
+
+
 	
+	int albumNumberCount(BookDTO bdto);
+
+
+	
+	void albumbookins1(Map<String, Object> map1);
+
+	void albumbookins2(Map<String, Object> map2);
+
+	void albumbookins3(Map<String, Object> map3);
+	
+	void albumbookins4(Map<String, Object> map4);
 
 }

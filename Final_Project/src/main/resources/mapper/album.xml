@@ -8,17 +8,56 @@
   <mapper namespace="albumDao">
 
 	<select id="albumAll" resultType="int">
-	  		select count(*) from album 
+		select count(*) from album 
 	</select> 
 	
+	
 	<select id="albumList" parameterType="pageDto" resultType="albumDto">
-		select * from album
+		<![CDATA[
+		  		SELECT *
+					FROM (
+					    SELECT a.*, ROW_NUMBER() OVER (ORDER BY albumNo DESC) AS rnum
+					    FROM album a
+					    LEFT JOIN member m ON m.memberNo = a.memberNo
+					) AS f
+					WHERE rnum >= #{startNo} AND rnum <= #{endNo}
+					ORDER BY albumNo DESC
+			]]>	
 	</select>
+	
+	
+  <select id="getbook" parameterType="int" resultType="bookDto">
+  	select * from book where bookNo=#{bookNo}
+  </select>
+  
+  
+  
+  
+  <insert id="insertOk" parameterType="albumDto">
+  
+  	<selectKey resultType="int" keyProperty="albumNo" order="BEFORE">
+  		  select count(*) from album
+	</selectKey>
+	insert into album values(#{albumNo}+1,#{memberNo},#{albumTitle},#{albumCont},now()) 
+  </insert>
+  
+  
+  
+  
   
 	<insert id="albumIns" parameterType="bookDto">
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
  			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
  	</insert>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<select id="totalAlbum" parameterType="int" resultType="albumDto">
+      select b.bookCover from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
+         LEFT JOIN book b on b.bookNO = d.bookNo where d.albumNo = #{albumNo} limit 3
+   </select>
  	
  	<select id="albumNoList" parameterType="int" resultType="albumDto">
      select * from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
@@ -44,5 +83,60 @@
 	<select id="albumCommentList" parameterType="int" resultType="albumCommentDto">
 		select * from fianlB.album_comment where albumNo = #{value}
 	</select>
+	
+	<select id="albumPop" parameterType="pageDto" resultType="albumDto">
+		<![CDATA[
+		  		SELECT *
+					FROM (
+					    SELECT a.*, ROW_NUMBER() OVER (ORDER BY albumLike DESC) AS rnum
+					    FROM album a
+					    LEFT JOIN member m ON m.memberNo = a.memberNo
+					) AS f
+					WHERE rnum >= #{startNo} AND rnum <= #{endNo}
+					ORDER BY albumLike DESC
+			]]>	
+	</select>
+	
+	
+	<select id="bookN" parameterType="String" resultType="bookDto">
+		select * from book where bookName = #{bookName} 	
+	</select>
+	
+	<select id="numberCount" parameterType="bookDto" resultType="int">
+		select COUNT(DISTINCT albumNo) from album_detail
+	</select>
+	
+	
+	
+	<insert id="bookDetailIns1" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto1.bookNo})
+	</insert>
+	
+	
+	<insert id="bookDetailIns2" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto2.bookNo})
+	</insert>
+	
+	
+	<insert id="bookDetailIns3" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto3.bookNo})
+	</insert>
+	
+	
+	<insert id="bookDetailIns4" parameterType="map">
+  		<selectKey resultType="int" keyProperty="albumDetailNo" order="BEFORE">
+  		  select count(*) from album_detail
+	  </selectKey>
+	  		insert into album_detail values (#{albumDetailNo}+1, #{avg}+1,#{dto4.bookNo})
+	</insert>
 	
   </mapper>

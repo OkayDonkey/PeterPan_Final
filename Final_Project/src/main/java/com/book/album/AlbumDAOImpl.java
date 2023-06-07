@@ -1,6 +1,7 @@
 package com.book.album;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,20 +33,27 @@ public class AlbumDAOImpl implements AlbumDAO{
 	@Override
 	public int insertalbumCover(BookDTO dto) {
 		return this.SqlSession.insert("albumIns", dto);
-				
+	}
+	@Override
+	public BookDTO getBookAlbum(int bookNo) {
+		return this.SqlSession.selectOne("getbook",bookNo);
 	}
 	
 	@Override
-	public List<AlbumDTO> getalbum() {
-		return this.SqlSession.selectList("alist");
+	public int albumInsert(AlbumDTO dto) {
+		return this.SqlSession.insert("insertOk",dto);
 	}
 	
 	@Override
 	public List<AlbumDTO> getAlbumNoList(int no) {
-
 		return this.SqlSession.selectList("albumNoList", no);
 	}
-	
+
+	@Override
+	public List<AlbumDTO> getTotalAlbum(int albumNo) {
+		return this.SqlSession.selectList("totalAlbum", albumNo);
+	}
+
 	@Override
 	public AlbumLikeDTO checkLike(AlbumLikeDTO dto) {
 		 
@@ -76,4 +84,40 @@ public class AlbumDAOImpl implements AlbumDAO{
 		return this.SqlSession.selectList("albumCommentList", num);
 	}
 	
+	/*
+	 * @Override public List<AlbumDTO> getalbum() { return
+	 * this.SqlSession.selectList("alist"); }
+	 */
+
+	@Override
+	public List<AlbumDTO> getAlbumPopList(PageDTO pdto) {
+		return this.SqlSession.selectList("albumPop", pdto);
+	@Override
+	public BookDTO getBookNamealbum(String bookname) {
+		return this.SqlSession.selectOne("bookN",bookname);
+	}
+	@Override
+	public void albumbookins1(Map<String, Object> map1) {
+		this.SqlSession.insert("bookDetailIns1",map1);
+	}
+	@Override
+	public void albumbookins2(Map<String, Object> map2) {
+		this.SqlSession.insert("bookDetailIns2",map2);
+	}
+	
+	@Override
+	public void albumbookins3(Map<String, Object> map3) {
+		this.SqlSession.insert("bookDetailIns3",map3);	
+	}
+	
+	@Override
+	public void albumbookins4(Map<String, Object> map4) {
+		this.SqlSession.insert("bookDetailIns4",map4);	
+	}
+	
+	
+	@Override
+	public int albumNumberCount(BookDTO bdto) {
+		return this.SqlSession.selectOne("numberCount", bdto);
+	}
 }

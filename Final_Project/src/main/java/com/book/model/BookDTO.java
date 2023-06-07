@@ -23,7 +23,7 @@ public class BookDTO {
 	private String bookImg3;
 	private String bookImg4;
 	private int bookWeekBest;
-	
 	private String memberId;
+	private int albumNo;
 
 }

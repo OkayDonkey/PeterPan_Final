@@ -68,4 +68,8 @@ public class BoardDAOImpl implements BoardDAO{
 		return this.sqlSession.selectList("noticeSearchList", pdto);
 	}
 
+	@Override
+	public List<BoardDTO> mainNotice() {
+		return this.sqlSession.selectList("mainNotice");
+	}
 }
