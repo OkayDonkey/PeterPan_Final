@@ -34,4 +34,6 @@ public interface MypageDAO {
 
 	BoardDTO getBoardDtoAtboardNo(int boardNo);
 
+	int updateQna(BoardDTO dto);
+
 }

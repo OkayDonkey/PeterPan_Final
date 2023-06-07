@@ -28,7 +28,7 @@
 				<form enctype="multipart/form-data" method="post"
 					action="<%=request.getContextPath()%>/board_qna_modify_ok.go">
 					<div class="title_wrap title_size_lg">
-						<h1 class="title_heading">1:1문의 접수</h1>
+						<h1 class="title_heading">1:1문의 수정</h1>
 					</div>
 					<!-- tbl_row_wrap -->
 					<div class="tbl_row_wrap" id="inquiryForm" data-kbbfn="form-group"
@@ -58,20 +58,23 @@
 													<div class="valid_check w_full">
 														<div class="form_sel_multi">
 															<div class="form_sel" style="width: 141%;">
-
+																
+																<input type="hidden" value="${dto.boardNO }" name="boardNO">
 																<input type="hidden" value="QNA" name="boardArea">
 																<input type="hidden" value="${session.memberNo }" name="memberNo"> 
 																<select name="boardCategory" id="InquiryQuestList" title="문의유형 분류" class="graybg">
-																	<option disabled selected="selected" >문의 유형을 선택해 주세요.</option>
-																	<option value="배송/수령예정일안내">배송/수령예정일안내</option>
-																	<option value="회원">회원</option>
-																	<option value="도서/상품정보">도서/상품정보</option>
-																	<option value="주문/결제">주문/결제</option>
-																	<option value="배송/수령일 안내">배송/수령일 안내</option>
-																	<option value="반품/교환/환불">반품/교환/환불</option>
-																	<option value="서비스">서비스</option>
-																	<option value="eBook">eBook</option>
-																</select> 
+																    <option disabled>문의 유형을 선택해 주세요.</option>
+																    <option value="배송/수령예정일안내" ${dto.boardCategory == '배송/수령예정일안내' ? 'selected' : ''}>배송/수령예정일안내</option>
+																    <option value="회원" ${dto.boardCategory == '회원' ? 'selected' : ''}>회원</option>
+																    <option value="도서/상품정보" ${dto.boardCategory == '도서/상품정보' ? 'selected' : ''}>도서/상품정보</option>
+																    <option value="주문/결제" ${dto.boardCategory == '주문/결제' ? 'selected' : ''}>주문/결제</option>
+																    <option value="배송/수령일 안내" ${dto.boardCategory == '배송/수령일 안내' ? 'selected' : ''}>배송/수령일 안내</option>
+																    <option value="반품/교환/환불" ${dto.boardCategory == '반품/교환/환불' ? 'selected' : ''}>반품/교환/환불</option>
+																    <option value="서비스" ${dto.boardCategory == '서비스' ? 'selected' : ''}>서비스</option>
+																    <option value="eBook" ${dto.boardCategory == 'eBook' ? 'selected' : ''}>eBook</option>
+																</select>
+
+
 																<span tabindex="0" id="InquiryQuestList-button"
 																	role="combobox" aria-expanded="false"
 																	aria-autocomplete="list"
@@ -204,7 +207,7 @@
 
 								<tr>
 									<th style="font-weight: 600;">첨부파일</th>
-									<td><input type="file" name="file1"></td>
+									<td><input type="file" name="file1" value="${dto.boardFile }"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -272,7 +275,7 @@
 							<span class="text">취소</span>
 						</a>
 						<button data-kbbfn-form="inquiryForm" data-kbbfn-submit="" type="submit" class="btn_primary btn_lg">
-							<span class="text">문의접수</span>
+							<span class="text">문의 수정</span>
 						</button>
 					</div>	
 				</div>

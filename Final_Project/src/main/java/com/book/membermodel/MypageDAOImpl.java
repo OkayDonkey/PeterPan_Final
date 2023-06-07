@@ -77,5 +77,10 @@ public class MypageDAOImpl implements MypageDAO{
 	public BoardDTO getBoardDtoAtboardNo(int boardNo) {
 		return this.sqlSession.selectOne("getBoardDtoAtboardNo", boardNo);
 	}
+	
+	@Override
+	public int updateQna(BoardDTO dto) {
+		return this.sqlSession.update("updateQna", dto);
+	}
 
 }

@@ -111,4 +111,9 @@ public class MypageServiceImpl implements MypageService{
 		return this.dao.getBoardDtoAtboardNo(boardNo);
 	}
 	
+	@Override
+	public int updateQna(BoardDTO dto) {
+		return this.dao.updateQna(dto);
+	}
+	
 }

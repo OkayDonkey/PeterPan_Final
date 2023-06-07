@@ -71,4 +71,8 @@
 	<select id="getBoardDtoAtboardNo" parameterType="int" resultType="boarddto">
 		select * from board where boardNO = #{boardNo}
 	</select>
+	
+	<update id="updateQna" parameterType="boarddto">
+		update board set boardCategory = #{boardCategory}, boardTitle = #{boardTitle}, boardContent = #{boardContent}, boardFile = #{boardFile}, boardRegdate = now() where boardNO = #{boardNO}
+	</update>
   </mapper>

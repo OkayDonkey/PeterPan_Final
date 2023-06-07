@@ -38,4 +38,6 @@ public interface MypageService {
 
 	BoardDTO getBoardDtoAtboardNo(int boardNo);
 
+	int updateQna(BoardDTO dto);
+
 }
