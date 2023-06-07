@@ -107,24 +107,24 @@
 			 	   <div class="pagingout">
 					 <c:if test="${paging.page > paging.block }">
 					      <%-- <a href="board_notice.go?page=1&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a> --%>
-					      <a href="board_notice.go?page=${paging.startBlock - 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">
+					      <a href="board_notice.go?page=${paging.startBlock - 1 }&field=${paging.field}&keyword=&${paging.keyword}">
 					      	<img class="pagingout_btn_l" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a>
 					   </c:if>
 					   
 					   <c:forEach begin="${paging.startBlock }" end="${paging.endBlock }" var="i">
 					   
 					      <c:if test="${i == paging.page }">
-					         <b><a style="margin-left: 12px" class="pagingout_num" href="board_notice.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">${i }</a></b>
+					         <b><a style="margin-left: 12px" class="pagingout_num" href="board_notice.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}">${i }</a></b>
 					      </c:if>
 					      
 					      <c:if test="${i != paging.page }">
-					         <a style="margin-left: 12px" class="pagingout_num" href="board_notice.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">${i }</a>
+					         <a style="margin-left: 12px" class="pagingout_num" href="board_notice.go?page=${i }&field=${paging.field}&keyword=&${paging.keyword}">${i }</a>
 					      </c:if>
 					      
 					   </c:forEach>
 					   
 					   <c:if test="${paging.endBlock < paging.allPage }">
-					      <a href="board_notice.go?page=${paging.endBlock + 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">
+					      <a href="board_notice.go?page=${paging.endBlock + 1 }&field=${paging.field}&keyword=&${paging.keyword}">
 					      	<img class="pagingout_btn_r" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"></a>
 					      <%-- <a href="board_notice.go?page=${paging.allPage }&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"> </a> --%>
 					   </c:if>

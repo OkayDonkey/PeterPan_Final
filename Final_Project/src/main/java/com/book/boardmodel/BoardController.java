@@ -112,6 +112,7 @@ public class BoardController {
 	@RequestMapping("board_search.go")
     public String boardSearch(Model model, @RequestParam(defaultValue = "1") int page, PageDTO pdto) {
 
+		
 
         if(pdto.getBoardArea().equals("FAQ")) {
         	

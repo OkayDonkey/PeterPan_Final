@@ -36,9 +36,8 @@ public class AlbumController {
 	@Autowired
 	private plusListDAO pdao;
 	
-	
 	// 한 페이지당 보여질 게시물의 수
-	private final int rowsize = 5;	
+	private final int rowsize = 5;
 	
 	// DB 상의 전체 게시물의 수
 	private int totalRecord = 0;
@@ -46,25 +45,14 @@ public class AlbumController {
 	
 	
 	@RequestMapping("album.go")
-	public String albumList(Model model,HttpServletRequest request) {
+	public String albumList(Model model,HttpServletRequest request,  @RequestParam(defaultValue = "1") int page) {
 		
-		// 페이징 처리 작업
-		int page;    // 현재 페이지 변수
-		
-		if(request.getParameter("page") != null) {
-			page = 
-				Integer.parseInt(request.getParameter("page"));
-		}else {
-			// 처음으로 "게시물 전체 목록" 태그를 클릭한 경우
-			page = 1;
-		}
+		int albumrowsize = 12;
 		
 		// DB 상의 전체 게시물의 수를 확인하는 메서드 호출
 		totalRecord = this.dao.getAlbumCount();
 		
-		
-		PageDTO pdto = new PageDTO(page, rowsize, totalRecord);
-			
+		PageDTO pdto = new PageDTO(page, albumrowsize, totalRecord);
 			
 		List<AlbumDTO> list = this.dao.getAlbumList(pdto);
 		
