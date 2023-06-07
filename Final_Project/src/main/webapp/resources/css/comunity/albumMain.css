@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+.title_header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;	
+	margin-bottom: 17px;
+}
+
+.title_header_total {
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.total {
+	/* margin-left: 10%;
+    margin-right: 10%; */
+    width: 1200px;
+}
+
+.title_header_a > a {
+	font-size: 13px;
+    color: #757271;
+}
+
+.albumArt {
+  position: relative;
+  background-color: 
+}
+
+.albumArt .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 200px;
+}
+
+.albumArt .album {
+  position: absolute;
+  top: 0;
+}
+
+.albumArt .album.front {
+  z-index: 3;
+}
+
+.albumArt .album.middle {
+  z-index: 2;
+  transform: translateX(60px); /* 이미지를 오른쪽으로 60px 이동 */
+}
+
+.albumArt .album.back {
+  z-index: 1;
+  transform: translateX(120px); /* 이미지를 오른쪽으로 120px 이동 */
+}
+
+.thumbnails {
+	background-color: #f7f7f7;
+    width: 190px;
+    height: 180px;
+}
+
+.total_ul {
+	list-style: none;
+    width: 320px;
+    height: 380px;
+}
+
+.albumArt > div > div > img {
+	width: 130px;
+    height: 180px;
+    padding: 25px;
+}
+
+.info {
+	margin-top: 20px;
+	padding-left: 15px;
+}
+
+.info_box {
+	border: 2px solid #f7f7f7;
+    width: 252px;
+    height: 160px;
+}
+
+.album_back {
+	background-color: black;
+	width: 252px;
+    height: 180px;
+}
+
+.total_cont {
+	display: flex;
+	margin-left: -40px;
+}
+
+

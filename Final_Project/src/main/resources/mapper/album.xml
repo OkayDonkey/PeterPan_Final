@@ -8,24 +8,29 @@
   <mapper namespace="albumDao">
 
 	<select id="albumAll" resultType="int">
-	  		select count(*) from album 
+		select count(*) from album 
 	</select> 
 	
 	<select id="albumList" parameterType="pageDto" resultType="albumDto">
-		select * from album
+		select * from album a LEFT JOIN member m on m.memberNo = a.memberNo 
 	</select>
   <select id="getbook" parameterType="int" resultType="bookDto">
   	select * from book where bookNo=#{bookNo}
   </select>
   
   <insert id="insertOk" parameterType="albumDto">
-  	
   	insert into album values(albumNo=#{albumNo},memberNo=#{memberNo},albumCont=#{albumCont},albumTitle={albumTitle} )
   </insert>
+  
 	<insert id="albumIns" parameterType="bookDto">
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
  			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
  	</insert>
+ 	
+ 	<select id="totalAlbum" parameterType="int" resultType="albumDto">
+      select b.bookCover from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
+         LEFT JOIN book b on b.bookNO = d.bookNo where d.albumNo = #{albumNo} limit 3
+   </select>
  	
  	<select id="albumNoList" parameterType="int" resultType="albumDto">
      select * from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
