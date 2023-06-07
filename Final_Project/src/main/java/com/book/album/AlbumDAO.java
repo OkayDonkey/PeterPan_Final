@@ -37,5 +37,8 @@ public interface AlbumDAO {
 	
 	List<AlbumDTO> getTotalAlbum(int albumNo);
 
+	List<AlbumDTO> getAlbumPopList(PageDTO pdto);
+
+
 
 }

@@ -56,10 +56,29 @@ public class AlbumController {
 			
 		List<AlbumDTO> list = this.dao.getAlbumList(pdto);
 		
-		 model.addAttribute("list",list)
-			  .addAttribute("Paging",pdto );
+		 model.addAttribute("list", list)
+			  .addAttribute("Paging", pdto)
+		 	  .addAttribute("totalRecord", totalRecord);
 		 
 		 return "album/albumList";
+	}
+	
+	@RequestMapping("albumPop.go")
+	public String albumListPop(Model model, HttpServletRequest request, @RequestParam(defaultValue = "1") int page) {
+		
+		int albumrowsize = 12;
+		
+		totalRecord = this.dao.getAlbumCount();
+		
+		PageDTO pdto = new PageDTO(page, albumrowsize, totalRecord);
+			
+		List<AlbumDTO> list = this.dao.getAlbumPopList(pdto);
+		
+		 model.addAttribute("list", list)
+			  .addAttribute("Paging", pdto)
+		 	  .addAttribute("totalRecord", totalRecord);
+		 
+		 return "album/albumListPopular";
 	}
 	
 	@RequestMapping("insertalbum.go")
@@ -184,7 +203,5 @@ public class AlbumController {
 	    System.out.println("totalAlbumList >>> " + totalAlbumList);
 	    return totalAlbumList;
 	}
-
-	
 	
 }

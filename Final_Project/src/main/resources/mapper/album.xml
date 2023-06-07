@@ -66,4 +66,18 @@
 		select * from fianlB.album_comment where albumNo = #{value}
 	</select>
 	
+	<select id="albumPop" parameterType="pageDto" resultType="albumDto">
+		<![CDATA[
+		  		SELECT *
+					FROM (
+					    SELECT a.*, ROW_NUMBER() OVER (ORDER BY albumLike DESC) AS rnum
+					    FROM album a
+					    LEFT JOIN member m ON m.memberNo = a.memberNo
+					) AS f
+					WHERE rnum >= #{startNo} AND rnum <= #{endNo}
+					ORDER BY albumLike DESC
+			]]>	
+	</select>
+	
+	
   </mapper>
