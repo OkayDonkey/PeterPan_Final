@@ -17,8 +17,8 @@
  	margin: 0 auto; 
 	display: flex;
     flex-direction: column;
-    align-items: flex-start;
     width: 1200px;
+    align-items: center;
 }
 
 .title_header_a > a {
@@ -136,6 +136,19 @@
     padding: 0 8px;
 }
 
+/* 페이징 처리 부분 */
+.pagingout {
+	text-align: center;
+    margin-top: 33px;
+}
 
+.pagingout_num {
+	color: black; 
+}
 
+.pagingout_num:hover {
+	color: black; 
+}
+
+/* 페이징 처리 부분 end */
 

@@ -12,7 +12,16 @@
 	</select> 
 	
 	<select id="albumList" parameterType="pageDto" resultType="albumDto">
-		select * from album a LEFT JOIN member m on m.memberNo = a.memberNo 
+		<![CDATA[
+		  		SELECT *
+					FROM (
+					    SELECT a.*, ROW_NUMBER() OVER (ORDER BY albumNo DESC) AS rnum
+					    FROM album a
+					    LEFT JOIN member m ON m.memberNo = a.memberNo
+					) AS f
+					WHERE rnum >= #{startNo} AND rnum <= #{endNo}
+					ORDER BY albumNo DESC
+			]]>	
 	</select>
   <select id="getbook" parameterType="int" resultType="bookDto">
   	select * from book where bookNo=#{bookNo}
