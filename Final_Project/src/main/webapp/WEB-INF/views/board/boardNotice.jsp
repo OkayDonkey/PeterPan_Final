@@ -106,7 +106,6 @@
 			 	   <%-- 페이징 처리 출력 부분 --%>
 			 	   <div class="pagingout">
 					 <c:if test="${paging.page > paging.block }">
-					      <%-- <a href="board_notice.go?page=1&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a> --%>
 					      <a href="board_notice.go?page=${paging.startBlock - 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">
 					      	<img class="pagingout_btn_l" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a>
 					   </c:if>
@@ -126,7 +125,6 @@
 					   <c:if test="${paging.endBlock < paging.allPage }">
 					      <a href="board_notice.go?page=${paging.endBlock + 1 }&field=${paging.field}&keyword=&${paging.keyword}&boardArea=NOTICE">
 					      	<img class="pagingout_btn_r" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"></a>
-					      <%-- <a href="board_notice.go?page=${paging.allPage }&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"> </a> --%>
 					   </c:if>
 			   		</div>
 				</div>			

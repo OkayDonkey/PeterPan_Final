@@ -126,36 +126,23 @@
 							<col style="width: 180px;">
 							<col style="width: 174px;">
 						</colgroup>
-
-						<tbody class="notice_tbody">
-							<tr>
-								<td class="fc_light_gray">1</td>
-								<td class="align_left"><a href="#">
-									<span class="align_left_text">피터팬 개인정보 처리방침 변경 안내 (6/11)</span>
-								</a></td>
-								<td class="fc_light_gray">고객센터</td>
-								<td class="fc_light_gray">2023.06.01</td>
-							</tr>
-
-							<tr>
-								<td class="fc_light_gray">2</td>
-								<td class="align_left">
-									<a href="#">
-										<span class="align_left_text">도서상품권(북앤라이프), 해피머니상품권 긴급 점검 안내 (4/28~5/4)</span>
-									</a></td>
-								<td class="fc_light_gray">고객센터</td>
-								<td class="fc_light_gray">2023.04.28</td>
-							</tr>
-
-							<tr>
-								<td class="fc_light_gray">3</td>
-								<td class="align_left">
-									<a href="#"><span class="align_left_text">중고장터 서비스 종료</span></a>
-								</td>
-								<td class="fc_light_gray">고객센터</td>
-								<td class="fc_light_gray">2023.04.16</td>
-							</tr>
-						</tbody>
+						
+						<c:set value="${mainNotice}" var="List"/>
+						<c:set value="${mainNotice.size() + 1 }" var="size" />	
+						<c:forEach items="${List }"  var="dto"  varStatus="state">
+							<tbody class="notice_tbody">
+								<tr>
+									<td class="fc_light_gray">${size - 3}</td>
+									<td class="align_left">
+										<a href="<%=request.getContextPath() %>/noticeDetail.go?no=${dto.boardNO }">
+										<span class="align_left_text">${dto.boardTitle }</span>
+										</a></td>
+									<td class="fc_light_gray">고객센터</td>
+									<td class="fc_light_gray">${dto.boardRegdate }</td>
+								</tr>
+							</tbody>
+								<c:set value="${size + 1}" var="size" />	
+						</c:forEach>
 					</table>
 				</div>
 
