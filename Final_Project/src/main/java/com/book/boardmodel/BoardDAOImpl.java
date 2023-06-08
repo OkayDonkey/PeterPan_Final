@@ -72,4 +72,9 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<BoardDTO> mainNotice() {
 		return this.sqlSession.selectList("mainNotice");
 	}
+	
+	@Override
+	public int boardHit(BoardDTO dto) {
+		return this.sqlSession.update("boardHit", dto);
+	}
 }

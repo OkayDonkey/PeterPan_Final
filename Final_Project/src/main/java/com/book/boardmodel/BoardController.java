@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.book.model.BoardDTO;
 import com.book.model.MemberDTO;
@@ -206,6 +207,12 @@ public class BoardController {
 		
 		BoardDTO dto = dao.noticeDetail(dno);
 		
+		System.out.println(dto);
+		
+		dao.boardHit(dto);
+		
+		System.out.println(2);
+		
 		model.addAttribute("dto", dto);
 		
 		return "board/noticeDetail";
@@ -221,5 +228,6 @@ public class BoardController {
 		
 		return "board/boardPage";
 	}
+	
 	
 }	
