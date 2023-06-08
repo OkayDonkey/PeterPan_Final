@@ -8,9 +8,12 @@
 <!-- 부트스트랩 CSS -->
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/> 
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
+<!-- 부트스트랩 CSS -->
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
 </head>
 <body>
 	
@@ -159,8 +162,8 @@
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
 
-
 </body>
+
 <!-- 부트스트랩 JS -->
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>
