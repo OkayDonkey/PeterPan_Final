@@ -236,14 +236,6 @@
 									<div class="widget widget-links">
 										<h3 class="widget-title">게시판</h3>
 										<ul>
-											<c:if test="${empty session.memberId}">
-											    <li>
-													<a href="login.go"> 
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범 -상우</span>
-													</a>
-												</li>
-											</c:if>
 									    	<li>
 												<c:if test="${session.memberTier == 999 }">
 													<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
@@ -254,7 +246,7 @@
 												<c:if test="${session.memberTier != 999 }">
 													<a href="album.go"> 
 														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범 -상우</span>
+														<span class="font-size-sm">앨범</span>
 													</a>
 												</c:if>
 											</li>
@@ -262,7 +254,7 @@
 												<a href="<%=request.getContextPath()%>/boardPage.go">
 													<i class="widget-categories-indicator"
 													data-feather="chevron-right"> </i><span
-													class="font-size-sm">자유 게시판-지영</span>
+													class="font-size-sm">자유 게시판</span>
 												</a>
 											</li>
 										</ul>
