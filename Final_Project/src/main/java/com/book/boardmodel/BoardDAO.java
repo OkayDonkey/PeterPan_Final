@@ -32,4 +32,7 @@ public interface BoardDAO {
 
 	List<BoardDTO> mainNotice();
 
+	int boardHit(BoardDTO dto);
+	
+
 }

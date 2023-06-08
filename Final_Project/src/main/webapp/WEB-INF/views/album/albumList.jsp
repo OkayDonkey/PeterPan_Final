@@ -170,11 +170,17 @@
 				
 		   	</div>
 			
-			<c:if test="${!empty session.memberId }">
+			<c:if test="${session.memberTier != 999 && session.memberId != null}">
 				<div style="display: flex; align-items: flex-end;">
 					<button class="albumBtn" onclick="location.href='insertalbum.go'">앨범 만들기</button>
 				</div>
 			</c:if>
+			<c:if test="${session.memberTier == 999 }">
+				<div style="display: flex; align-items: flex-end;">
+					<button class="albumBtn"onclick="alert('커뮤니티가 차단된 아이디입니다');">앨범 만들기</button>
+				</div>
+			</c:if>
+			
 		</div>
 	</div>
 

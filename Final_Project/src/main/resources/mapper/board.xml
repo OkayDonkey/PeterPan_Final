@@ -69,4 +69,8 @@
   		SELECT * FROM board WHERE boardArea = 'NOTICE' ORDER BY boardRegdate DESC LIMIT 3
   	</select>
   	
+  	<update id="boardHit" parameterType="boarddto">
+		UPDATE board SET boardHit = boardHit + 1 WHERE boardTitle = #{boardTitle}
+	</update>
+  	
   </mapper>

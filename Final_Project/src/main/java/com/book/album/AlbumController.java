@@ -179,6 +179,7 @@ public class AlbumController {
 		BookDTO bdto3 =this.dao.getBookNamealbum(bookname3);
 		BookDTO bdto4 =this.dao.getBookNamealbum(bookname4);
 		
+		System.out.println("엠디티오"+mdto);
 		
 		int avg = this.dao.albumNumberCount(bdto1);
 		
@@ -225,12 +226,20 @@ public class AlbumController {
 		PrintWriter out =response.getWriter();
 		
 		if(check>0) {
-			out.println("<script>");
-			out.println("alert('회원 등록 성공')");
-			out.println("</script>");
+			if(mdto.getMemberId() != null) {
+				out.println("<script>");
+				out.println("alert('회원 등록 성공')");
+				out.println("location.href='/'");
+				out.println("</script>");
+			}else {
+				out.println("<script>");
+				out.println("alert('로그인 먼저 부탁드립니다')");
+				out.println("location.href='login.go'");
+				out.println("</script>");
+			}
 		}else{
 			out.println("<script>");
-			out.println("alert('회원 등록 실패')");
+			out.println("alert('앨범 등록에 실패했습니다')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
