@@ -7,6 +7,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
+<!-- 부트스트랩 CSS -->
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
 </head>
 <body>
 	
@@ -155,11 +158,7 @@
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
 
-
 </body>
-<!-- 부트스트랩 CSS -->
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
 
 <!-- 부트스트랩 JS -->
 <script src="resources/js/vendor.min.js"></script>
