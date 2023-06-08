@@ -34,10 +34,12 @@
 		<div class="header_wrap">
 		 <div class="container-fluid navbar-inner">
 			<div class="login">
-				<a href="">고객센터</a>
+				<a href="<%=request.getContextPath()%>/boardPage.go">고객센터</a>
 				
+				<c:if test="${empty session.memberId }">
 				<a href="join.go">회원가입</a>					
-			
+				</c:if>
+				
 				<c:set var="session" value="${session }" />
 				<c:if test="${session.memberId == null }">
 					<input type="button" value="로그인" onclick="location.href='login.go'" style="margin: 0; padding: 0;">
@@ -100,7 +102,7 @@
 						</c:when>
 						<c:when test="${!empty session.memberId }">
 							<a href="cartList.go">
-								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
+								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png" style="width:35px;">
 							</a>
 						</c:when>
 					</c:choose>
@@ -236,20 +238,6 @@
 									<div class="widget widget-links">
 										<h3 class="widget-title">게시판</h3>
 										<ul>
-									    	<li>
-												<c:if test="${session.memberTier == 999 }">
-													<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범</span>
-													</a>
-												</c:if>
-												<c:if test="${session.memberTier != 999 }">
-													<a href="album.go"> 
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범</span>
-													</a>
-												</c:if>
-											</li>
 											<li>
 												<a href="<%=request.getContextPath()%>/boardPage.go">
 													<i class="widget-categories-indicator"
