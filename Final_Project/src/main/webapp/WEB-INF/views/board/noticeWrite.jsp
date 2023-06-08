@@ -6,26 +6,27 @@
 <head>
 <link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
 <meta charset="UTF-8">
+<!-- include summernote css/js-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/qnaForm.css" />
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 <title>고객센터 - 피터팬</title>
 </head>
-<script type="text/javascript" src="resources/js/board/boardQNA.js"></script>
 <body>
 	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
-		<div class="row justify-content-sm-between" style="width: 1200px;, padding-bottom: 100px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
 
 			<!-- 문의 접수 내용 -->
 			<div class="customer_wrap">
-			<!-- ///////////////////////////////////// 아래줄 지우지마 -->
 				<form enctype="multipart/form-data" method="post" action="<%=request.getContextPath()%>/board_qna_ok.go">
 					<div class="title_wrap title_size_lg">
 						<h1>관리자 공지사항 작성 페이지</h1>
@@ -58,7 +59,6 @@
 													<div class="valid_check w_full">
 														<div class="form_sel_multi">
 															<div class="form_sel" style="width: 141%;">
-															<!-- //////////// 지우지 마 -->
 																<input type="hidden" value="NOTICE" name="boardArea">
 																<input type="hidden" value="${session.memberNo }"
 																	name="memberNo"> <select name="boardCategory"
@@ -170,12 +170,21 @@
 								
 								<!-- 내용 -->
 								<tr>
+									<th>
+										<label for="InquiryTitle" style="font-size: 15px;">제목
+											<span style="color: #3C9A17;">*</span></label> 
+											<span class="required"></span>
+									</th>
+									<td><input type="text" name="boardTitle" class="last_title" placeholder="제목을 입력해 주세요."></td>
+								</tr>
+								<tr>
 									<th scope="row" class="has_ip">
 										<label for="InquiryTitle" style="font-size: 15px;">내용
 											<span style="color: #3C9A17;">*</span></label> 
-											<span class="required"></span></th>
+											<span class="required"></span>
+									</th>
 									<td>
-										  <textarea id="summernote" name="content"></textarea>
+										  <textarea id="summernote" name="boardContent"></textarea>
 									</td>
 								</tr>
 								<tr>
@@ -195,14 +204,14 @@
 						        focus: true, 
 						        lang : 'ko-KR',
 						        
-						        callbacks:{ 
+						        /* callbacks:{ 
 		                            onImageUpload : function(files){ 
 		                               uploadSummernoteImageFile(files[0],this); 
 		                           } 
-		                        } 
+		                        }  */
 						  });
 						  
-						  function uploadSummernoteImageFile(file,editor){ 
+						/*   function uploadSummernoteImageFile(file,editor){ 
 
 		                        data = new FormData(); 
 
@@ -229,20 +238,18 @@
 			                         $("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
 		                     } 
 		                 }); 
-		                    } 
+		                    }   */
 						  
 						});
-					
-					
-				
 					</script>
+					
 					<!-- //tbl_row_wrap -->
 					<div class="btn_wrap page_bottom" id="insert_btn">
 					<div class="btn_wrap_de">
 						<a href="board_notice.go" class="btn_light_gray btn_lg"> 
 							<span class="text">취소</span>
 						</a>
-						<button data-kbbfn-form="inquiryForm" data-kbbfn-submit="" type="submit" class="btn_primary btn_lg">
+						<button type="submit" class="btn_primary btn_lg">
 							<span class="text">공지사항 등록</span>
 						</button>
 					</div></div>
@@ -254,14 +261,13 @@
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
 	
-	
 </body>
+<script type="text/javascript" src="resources/js/board/boardQNA.js"></script>
 <!-- 썸머 노트 -->
 <!-- include libraries(jQuery, bootstrap) -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 <!-- include summernote css/js-->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 <!-- include summernote-ko-KR -->
 <script src="/resources/js/summernote-ko-KR.js"></script>

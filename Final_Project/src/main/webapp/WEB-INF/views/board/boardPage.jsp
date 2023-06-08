@@ -22,7 +22,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
-	<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
+	<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 
 		<!-- 왼쪽 메뉴바 -->
 		<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -163,7 +163,6 @@
 	<jsp:include page="./../top/footer.jsp" />
 
 </body>
-
 <!-- 부트스트랩 JS -->
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>

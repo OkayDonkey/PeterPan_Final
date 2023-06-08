@@ -76,21 +76,17 @@
 				</div>
 			</div>
 			
-			
-<script type="text/javascript">
-	const menu = document.querySelectorAll("snb_list_box li");
-	for(let i = 0; i < menu.length; i++){
-		menu[i].addEventListener("click", act);
-		function act() {
-			for(let j = 0; j < menu.length; j++){
-				menu[j].removeAttribute("class", "active");
-			}
-			this.setAttribute("class", "active");
-		}
-	}
-</script>
-
+			<script type="text/javascript">
+				const menu = document.querySelectorAll("snb_list_box li");
+				for(let i = 0; i < menu.length; i++){
+					menu[i].addEventListener("click", act);
+					function act() {
+						for(let j = 0; j < menu.length; j++){
+							menu[j].removeAttribute("class", "active");
+						}
+						this.setAttribute("class", "active");
+					}
+				}
+			</script>
 </body>
-
-
 </html>

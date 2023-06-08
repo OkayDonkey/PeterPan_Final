@@ -12,11 +12,6 @@
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
 </head>
-<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
-<script type="text/javascript">
-
-
-</script>
 <body>
 
 	<input type="hidden" id="category" value="${category }">
@@ -26,7 +21,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;">
-		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 	
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -133,6 +128,5 @@
 	
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
-
 </body>
 </html>

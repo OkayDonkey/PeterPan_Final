@@ -12,11 +12,6 @@
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
 </head>
-<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
-<script type="text/javascript">
-
-
-</script>
 <body>
 
 	<input type="hidden" id="category" value="${category }">
@@ -26,7 +21,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;">
-		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 	
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -106,7 +101,6 @@
 			 	   <%-- 페이징 처리 출력 부분 --%>
 			 	   <div class="pagingout">
 					 <c:if test="${paging.page > paging.block }">
-					      <%-- <a href="board_notice.go?page=1&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a> --%>
 					      <a href="board_search.go?page=${paging.startBlock - 1 }&keyword=${paging.keyword}&boardArea=NOTICE">
 					      	<img class="pagingout_btn_l" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_prev@2x.png"></a>
 					   </c:if>
@@ -126,7 +120,6 @@
 					   <c:if test="${paging.endBlock < paging.allPage }">
 					      <a href="board_search.go?page=${paging.endBlock + 1 }&keyword=${paging.keyword}&boardArea=NOTICE">
 					      	<img class="pagingout_btn_r" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"></a>
-					      <%-- <a href="board_notice.go?page=${paging.allPage }&field=${paging.field}&keyword=&${paging.keyword}"><img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_pagination_next@2x.png"> </a> --%>
 					   </c:if>
 			   		</div>
 				</div>			
@@ -135,6 +128,8 @@
 	
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
-
+	
 </body>
+<script type="text/javascript" src="resources/js/board/searchboardFAQ.js"></script>
+<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
 </html>

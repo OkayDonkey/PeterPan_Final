@@ -9,14 +9,13 @@
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/qnaForm.css" />
 <title>고객센터 - 피터팬</title>
 </head>
-<script type="text/javascript" src="resources/js/board/boardQNA.js"></script>
 <body>
 	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
-		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -35,7 +34,7 @@
 					
 					<div class="detail_cont">
 						<div class="detailCont">${dto.boardContent }</div>
-						<div class="detailFile">${dto.boardFile }</div>
+						<div class="detailFile"><img src="resources/upload/${dto.boardFile }"></div>
 					</div>
 				</form>
 				
@@ -50,4 +49,5 @@
 	<jsp:include page="./../top/footer.jsp" />
 	
 </body>
+<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
 </html>

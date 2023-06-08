@@ -43,7 +43,8 @@
 						</c:choose>
       					
       				좋아요 &nbsp;<span id="likeDisplay">${likeCount }</span></div>
-      				<div class="mt-3"><b>댓글</b><span class="ml-5 pl-2">${cList.size()}</span> 개<span class="float-right borderGrayBoxSmall">쓰기</span></div>
+      				<div class="mt-3"><b>댓글</b><span class="ml-5 pl-2" id="commentDisplay1">${cList.size()}</span> 개
+      				<a style="color: black;"href="#commentA" class="float-right borderGrayBoxSmall">쓰기</a></div>
       				<div class="mt-2"><b>공유</b>
       				<span class="ml-5"><img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Facebook_Home_logo_old.svg/2048px-Facebook_Home_logo_old.svg.png"></span>
       				<span><img width="30" src="https://cdn.imweb.me/thumbnail/20220403/a8e484f2dfe39.png"></span>
@@ -104,7 +105,7 @@
             <c:forEach items="${list }" var="dto">
                <tr>
                   <td class="check">
-                     <input type="checkbox"name="check">
+                     <input type="checkbox" name="check" onclick="bookCheckCart()" data-bookNo="${dto.bookNo}" data-memberId="${session.memberId }">
                   </td>
                   <td>
                      <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}" class="thumbnail">
@@ -149,10 +150,10 @@
          </table>
       </section>
       
-      <section>
+      <section id="commentA">
    		<div class="p-5 boderTopLine">
       		<div class="flex_column boderBottomLine" style="height: 140px;">
-				<h6 class="normal-text">댓글 ( ${commentList.size() } )</h6>
+				<h6 class="normal-text">댓글 ( <span id="commentDisplay2">${commentList.size() }</span> )</h6>
 				<div class="row m-0 p-0" >
 	      			<div><textarea id="commentInput" rows="10"></textarea></div>
       				  <c:choose>

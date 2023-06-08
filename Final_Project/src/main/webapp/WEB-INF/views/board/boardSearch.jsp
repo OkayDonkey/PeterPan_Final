@@ -11,7 +11,6 @@
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
 </head>
-<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
 <body>
 
 	<!-- 상단 네비바  -->
@@ -19,7 +18,7 @@
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;">
-		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px;">
+		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 	
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -53,21 +52,21 @@
 				
 				<div class="asked_category_list">
 						<ul class="tab_menu">
-							<li class="tab_item"><a class="tab_a" href="#">BEST 10</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=BEST 10">BEST 10</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#">회원</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=회원">회원</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#" >도서/상품정보/교과서</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=도서/상품정보/교과서">도서/상품정보/교과서</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#">주문/결제</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=주문/결제">주문/결제</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#">배송/수령일 안내</a></li>
+							<li class="tab_item"><a class="tab_a"href="<%=request.getContextPath() %>/boardFAQ.go?category=배송/수령일 안내">배송/수령일 안내</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#">반품/교환/환불</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=반품/교환/환불">반품/교환/환불</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#">서비스</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=서비스">서비스</a></li>
 	
-							<li class="tab_item"><a class="tab_a" href="#">eBook</a></li>
+							<li class="tab_item"><a class="tab_a" href="<%=request.getContextPath() %>/boardFAQ.go?category=eBook">eBook</a></li>
 						</ul>
 					</div>
 			</div>
@@ -84,26 +83,27 @@
 						<p class="category_title">검색결과 <span style="color: #3c9a17;" class="number">${List.size()}</span>건</p>
 					</div>
 						 <div id="accordion">
-						<c:forEach items="${List }" var="dto">
-						    <div class="card">
-						      <button class="card-header" data-toggle="collapse" data-target="#collapse${dto.boardNO}" aria-expanded="false" aria-controls="collapse${dto.boardNO}" onclick="closeOtherAccordions(this)">
-						        <span class="Q">Q</span>
-						        <span class="acodianCategoryTitle">${dto.boardTitle}</span>
-						      </button>
-						      <div id="collapse${dto.boardNO}" class="collapse" aria-labelledby="heading${dto.boardNO}" data-parent="#accordion" style="padding: 0px 10px 30px 10px;">
-						        <div class="card-body">${dto.boardContent}</div>
-						      </div>
-						    </div>
-						</c:forEach>
+							<c:forEach items="${List }" var="dto">
+							    <div class="card">
+							      <button class="card-header" data-toggle="collapse" data-target="#collapse${dto.boardNO}" aria-expanded="false" aria-controls="collapse${dto.boardNO}" onclick="closeOtherAccordions(this)">
+							        <span class="Q">Q</span>
+							        <span class="acodianCategoryTitle">${dto.boardTitle}</span>
+							      </button>
+							      <div id="collapse${dto.boardNO}" class="collapse" aria-labelledby="heading${dto.boardNO}" data-parent="#accordion" style="padding: 0px 10px 30px 10px;">
+							        <div class="card-body">${dto.boardContent}</div>
+							      </div>
+							    </div>
+							</c:forEach>
 						  </div>
 				</c:if>
 			</div>
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="resources/js/board/searchboardFAQ.js"></script>
-	
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
+	
 </body>
+<script type="text/javascript" src="resources/js/board/searchboardFAQ.js"></script>
+<script type="text/javascript" src="resources/js/board/boardFAQ.js"></script>
 </html>
