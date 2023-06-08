@@ -12,7 +12,7 @@ function closeModal(no) {
   document.getElementById("insertPopup").setAttribute("hidden", true);
 }
 
-$("form").submit(function(event) {
+$("#searchform").submit(function(event) {
   event.preventDefault(); // 폼 기본 제출 동작 막기
   serchalbum(); // serchalbum() 함수 호출
 });

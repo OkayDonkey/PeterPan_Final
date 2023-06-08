@@ -293,16 +293,7 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 										<h3 class="widget-title">게시판</h3>
 										<ul>
 											
-											
-												<c:if test="${empty session.memberId}">
-												    <li>
-														<a href="login.go"> 
-															<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-															<span class="font-size-sm">앨범 -상우</span>
-														</a>
-													</li>
-												</c:if>
-												
+
 									    	<li>
 												<c:if test="${session.memberTier == 999 }">
 															<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
