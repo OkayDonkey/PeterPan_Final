@@ -172,7 +172,7 @@
 			
 			<c:if test="${!empty session.memberId }">
 				<div style="display: flex; align-items: flex-end;">
-					<button onclick="location.href='insertalbum.go'">앨범 만들기</button>
+					<button class="albumBtn" onclick="location.href='insertalbum.go'">앨범 만들기</button>
 				</div>
 			</c:if>
 		</div>
