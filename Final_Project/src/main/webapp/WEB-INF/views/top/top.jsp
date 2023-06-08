@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%-- <c:set var="path" value="${pageContext.request.contextPath}"/> --%>
-
 <!DOCTYPE html>
 <html>
 
@@ -30,151 +28,98 @@
 
 <link rel="stylesheet" href="resources/css/top/top.css">
 
-<style>
-@font-face {
-	font-family: 'SUIT-Light';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2')
-		format('woff2');
-	font-weight: Light;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SUIT-Regular';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
-		format('woff2');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SUIT-Bold';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2')
-		format('woff2');
-	font-weight: bold;
-	font-style: normal;
-}
-
-p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
-	tr, th, li, ul, ol {
-	font-family: 'SUIT-Regular';
-}
-
-.header {
-	width: 100%;
-}
-
-.login {
-	display: inline-block;
-	width: 150px;
-	z-index: 0;
-	display: flex;
-	position: absolute;
-	top: 0;
-	right: 10;
-}
-
-.login a {
-	color: gray;
-	text-decoration: none;
-	width: 70px;
-}
-
-.login a :hover {
-	border-bottom: 1px solid black;
-}
-
-.login input {
-	border: none;
-	color: gray;
-	background: none;
-}
-
-.my_info {
-	z-index: 0;
-	display: flex;
-}
-
-.my_info img {
-	margin-right: 5px;
-	margin-left: 5px;
-	width: 60px;
-}
-</style>
-
-
 <body>
 	<div id="HOME"></div>
-	<%-- 
-
- 	<c:if test="${sessionScope.Id == null }">
-		<input type="button" value="로그인" onclick="location.href='login.go'">
-	</c:if>
-
-	<c:if test="${sessionScope.Id != null }">
-		<input type="button" value="로그아웃" onclick="location.href='logout.go'">
-	</c:if>
-
- --%>
-	<header class="navbar navbar-expand-lg navbar-light bg-light header"
-		style="position: fixed; top: 0; width: 1900px;min-width:1400px; padding-left:10%;padding-right:10%;">
-
-
-		<div class="container-fluid navbar-inner" style="height: 150px;">
-			<!-- navbar brand-->
-			<div style="width:200px; margin-left: 30px;">
-				<a	href="<%=request.getContextPath()%>/"> 
-					<img src="resources/img/peterPanLogo.png" style=" width: 150px;  display: inline-block;" />
-				</a>
+	<header class="navbar navbar-expand-lg navbar-light bg-light header topHeader">
+		<div class="header_wrap">
+		 <div class="container-fluid navbar-inner">
+			<div class="login">
+				<a href="">고객센터</a>
+				
+				<a href="join.go">회원가입</a>					
+			
+				<c:set var="session" value="${session }" />
+				<c:if test="${session.memberId == null }">
+					<input type="button" value="로그인" onclick="location.href='login.go'" style="margin: 0; padding: 0;">
+				</c:if>
+				
+				<c:if test="${session.memberId != null }">
+				    <input type="button" value="로그아웃" onclick="location.href='logout.go'" style="margin: 0; padding: 0;">
+				</c:if>
+						
 			</div>
-			<!-- navbar collapse area-->
-
-
-			<!-- navbar buttons-->
-			<div class="navbar-btns" style="left: 300px; margin-top: 25px; margin-left: 200px;">
-				<div class="navbar-btns-inner">
-					<div class="navbar-toggler navbar-btn collapsed"
-						data-toggle="collapse" data-target="#menu">
-						<i class="mx-auto mb-1" data-feather="menu"></i>Menu
-					</div>
-
-					<!--  -->
-					<form method="post"
-						action="<%=request.getContextPath()%>/total_main_search.go">
-						<!--서치 링크-->
-						<div class="flex-grow-1 my-1 order-sm-2" id="keyboard">
-							<div class="input-group flex-nowrap keywordlist">
-								<div class="input-group-prepend" style="align-content: center;">
-
-									<!-- 서치 옵션 -->
-
-									<select name="field"
-										style="height: 47px; border-top-left-radius: 15px; border-bottom-right-radius: 15px; width: 100px; border: none; text-align: center;">
-										<option value="title" class="opitem">제목</option>
-										<option value="writer" class="opitem">작가</option>
-										<option value="genre" class="opitem">장르</option>
-									</select>
-
-									<!-- 서치 옵션 end -->
-									<input name="keyword"
-										style="width: 400px; height: 30px; border: none; margin-left: 1px; margin-top: 10px;">
-									<input type="image" src="resources\css\s_img\ser_img.png"
-										alt="제출버튼"
-										style="border-bottom-right-radius: 20px; bg-coloer: white; width: 34px; height: 30px; margin-top: 10px;">
+			<div class="top_middle">
+				<div>
+					<a	href="<%=request.getContextPath()%>/"> 
+						<img src="resources/img/peterPanLogo.png" style="width: 162px;" />
+					</a>
+				</div>
+				
+				<!-- navbar buttons-->
+				<div class="navbar-btns">
+					<div class="navbar-btns-inner">
+						<form method="post"
+							action="<%=request.getContextPath()%>/total_main_search.go">
+							<!--서치 링크-->
+							<div class="flex-grow-1 my-1 order-sm-2" id="keyboard">
+								<div class="input-group flex-nowrap keywordlist">
+									<div class="input-group-prepend">
+	
+										<!-- 서치 옵션 -->
+	
+										<select name="field"
+											style="height: 47px; border-top-left-radius: 15px; border-bottom-right-radius: 15px; width: 100px; border: none; text-align: center;">
+											<option value="title" class="opitem">제목</option>
+											<option value="writer" class="opitem">작가</option>
+											<option value="genre" class="opitem">장르</option>
+										</select>
+	
+										<!-- 서치 옵션 end -->
+										<input name="keyword"
+											style="width: 400px; height: 30px; border: none; margin-left: 1px; margin-top: 10px;">
+										<input type="image" src="resources\css\s_img\ser_img.png"
+											alt="제출버튼"
+											style="border-bottom-right-radius: 20px; bg-coloer: white; width: 34px; height: 30px; margin-top: 10px;">
+									</div>
 								</div>
 							</div>
+						</form>
+						<div class="navbar-toggler navbar-btn collapsed"
+							data-toggle="collapse" data-target="#menu">
+							<i class="mx-auto mb-1" data-feather="menu"></i>
 						</div>
-					</form>
-
+					</div>
+				</div>
+				
+				<div class="my_info">
+					<c:choose>
+						<c:when test="${empty session.memberId }">
+							<div onclick="needLogin();">
+								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png" style="width:35px;">
+							</div>
+						</c:when>
+						<c:when test="${!empty session.memberId }">
+							<a href="cartList.go">
+								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
+							</a>
+						</c:when>
+					</c:choose>
+					<c:if test="${session.memberTier == 1 || empty session.memberTier }">
+						<div class="myPagebtnWrap">
+							<a href="<%=request.getContextPath() %>/myPage.go">
+								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_my@2x.png">
+							</a>
+						</div>
+					</c:if>
+						
+					<c:if test="${session.memberTier == 2 }">
+						<a href="<%=request.getContextPath() %>/adminPage.go">
+							<img src="resources\css\images\logo\managerIcon.png">
+						</a>
+					</c:if>
 				</div>
 			</div>
-
-
-			<div class="collapse navbar-collapse" id="menu"
-				style="top: 100px; margin-top: 100px; margin-left: 100px;">
+			<div class="collapse navbar-collapse" id="menu">
 				<!-- Site menu-->
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown mega-dropdown"><a
@@ -242,13 +187,12 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 												href="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=취미"><i
 													class="widget-categories-indicator"
 													data-feather="chevron-right"></i><span class="font-size-sm">취미</span></a></li>
-											<li><a
-												href="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=자기개발"><i
-													class="widget-categories-indicator"
-													data-feather="chevron-right"></i><span class="font-size-sm">자기개발</span></a></li>
-
-
-
+											<li>
+												<a href="<%=request.getContextPath()%>/genreList.go?bookCategory=일본도서 &bookGenre=자기개발">
+													<i class="widget-categories-indicator" data-feather="chevron-right"></i>
+													<span class="font-size-sm">자기개발</span>
+												</a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -292,41 +236,35 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 									<div class="widget widget-links">
 										<h3 class="widget-title">게시판</h3>
 										<ul>
-											
-											
-												<c:if test="${empty session.memberId}">
-												    <li>
-														<a href="login.go"> 
-															<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-															<span class="font-size-sm">앨범 -상우</span>
-														</a>
-													</li>
-												</c:if>
-												
+											<c:if test="${empty session.memberId}">
+											    <li>
+													<a href="login.go"> 
+														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
+														<span class="font-size-sm">앨범 -상우</span>
+													</a>
+												</li>
+											</c:if>
 									    	<li>
 												<c:if test="${session.memberTier == 999 }">
-															<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
-																<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-																<span class="font-size-sm">앨범 -상우</span>
-															</a>
+													<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
+														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
+														<span class="font-size-sm">앨범 -상우</span>
+													</a>
 												</c:if>
-											
 												<c:if test="${session.memberTier != 999 }">
-															<a href="album.go"> 
-																<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-																<span class="font-size-sm">앨범 -상우</span>
-															</a>
+													<a href="album.go"> 
+														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
+														<span class="font-size-sm">앨범 -상우</span>
+													</a>
 												</c:if>
 											</li>
-											
-
-
-											<li><a href="<%=request.getContextPath()%>/boardPage.go">
+											<li>
+												<a href="<%=request.getContextPath()%>/boardPage.go">
 													<i class="widget-categories-indicator"
 													data-feather="chevron-right"> </i><span
 													class="font-size-sm">자유 게시판-지영</span>
-											</a></li>
-
+												</a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -334,10 +272,13 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 									<div class="widget widget-links">
 										<h3 class="widget-title">리뷰 남기기</h3>
 										<ul>
-
-											<li><a href="board_write.jsp"><i
-													class="widget-categories-indicator"
-													data-feather="chevron-right"></i><span class="font-size-sm">리뷰작성 </span></a></li>
+											<li>
+												<a href="board_write.jsp">
+													<i class="widget-categories-indicator"
+													data-feather="chevron-right"></i>
+													<span class="font-size-sm">리뷰작성 </span>
+												</a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -352,53 +293,8 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
 						href="newbook.go"><i class="mr-1"></i>신작</a></li>
 				</ul>
 			</div>
-			<div class="login" style="right: 165PX;">
-
-						<a href="join.go">회원가입</a>					
-					
-						<c:set var="session" value="${session }" />
-						<c:if test="${session.memberId == null }">
-							    <input type="button" value="로그인" onclick="location.href='login.go'">
-						</c:if>
-						
-						<c:if test="${session.memberId != null }">
-						    <input type="button" value="로그아웃" onclick="location.href='logout.go'">
-						</c:if>
-						
-				</div>
-				<div class="my_info">
-					
-					<c:if test="${session.memberTier == 1 || empty session.memberTier }">
-						<a href="<%=request.getContextPath() %>/myPage.go">
-							<img src="resources\css\s_img\us23.png">
-						</a>
-					</c:if>
-					
-					<c:if test="${session.memberTier == 2 }">
-						<a href="<%=request.getContextPath() %>/adminPage.go">
-							<img src="resources\css\images\logo\managerIcon.png">
-						</a>
-					</c:if>
-					
-
-				<c:choose>
-					<c:when test="${empty session.memberId }">
-						<div onclick="needLogin();" style="margin-left: 15px;">
-							<img
-								src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
-						</div>
-					</c:when>
-					<c:when test="${!empty session.memberId }">
-						<a href="cartList.go"> <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
-						</a>
-					</c:when>
-				</c:choose>
-				<!-- 	<a href="cartList.go">
-					<img src="resources\css\s_img\cart_b.png">
-					</a>
-				</div> -->
-
-			</div>
+		</div>
+	</div>
 
 
 			<div id="needLoginPopup" class="needLoginPopup" hidden>

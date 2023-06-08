@@ -210,6 +210,7 @@ button[class^=btn_], a[class^=btn_] {
 a:-webkit-any-link {
     color: -webkit-link;
     cursor: pointer;
+    color: black;
 }
 
 .hidden {
@@ -2079,3 +2080,106 @@ a.btn_xs .ico_list_plus, button.btn_xs .ico_list_plus {
     font-weight: 700;
     overflow-wrap: anywhere;
 }
+
+/* 쿠폰 정보 모달 css */
+.couponInsertPopupBox {
+    width: 550px;
+    padding: 30px;
+    color: black;
+    z-index: 2010;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1em;
+    position: fixed;
+    opacity: 1;
+}
+
+.couponInsertPopup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: #0000007d;
+   border-radius: 5px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   height: 100%;
+   z-index: 2000;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+}
+
+.coupon_first_write {
+   font-weight: 900;
+    color: black;
+    font-size: 20px;
+    width: 292px;
+    text-align: end;
+}
+
+.couponInsertPopupBox	p	{
+	color: black;
+	z-index: 2002;
+}
+
+.couponWrap {
+    width: 412px;
+    margin-bottom: 15px;
+}
+
+.couponHead {
+    display: flex;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid gray;
+}
+
+.head {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.content {
+    font-size: 14px;
+}
+
+.couponNo {
+    width: 15%;
+}
+
+.couponSale {
+    width: 35%;
+}
+
+.couponName {
+    width: 55%;
+}
+
+.couponContent {
+    display: flex;
+    text-align: center;
+}
+
+.couponContent ~ .couponContent {
+    margin-top: 10px;
+}
+
+.couponModalTop {
+  display: flex;
+  width: 415px;
+}
+
+.closeModal {
+    width: 207px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+  /* 쿠폰 정보 모달 css end */

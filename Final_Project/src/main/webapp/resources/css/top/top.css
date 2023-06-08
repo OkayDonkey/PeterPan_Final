@@ -1,5 +1,67 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: 'SUIT-Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2')
+		format('woff2');
+	font-weight: Light;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2')
+		format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td,
+	tr, th, li, ul, ol {
+	font-family: 'SUIT-Regular';
+}
+
+.topHeader {
+	position: fixed;
+	width: 100%;
+	padding-left:0;
+	padding-right:0;
+	top: 0;
+  min-width: 1200px;
+	display: flex;
+  justify-content: center;
+}
+
+.header_wrap {
+	width: 1200px;
+}
+
+.login a :hover {
+	border-bottom: 1px solid black;
+}
+
+.login input {
+	border: none;
+	color: gray;
+	background: none;
+}
+
+.my_info img {
+	margin-right: 5px;
+  width: 48px;
+}
+
 
 @font-face {
     font-family: 'SUIT-Light';
@@ -26,24 +88,20 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td, tr, th, 
 	font-family: 'SUIT-Regular';
 }
 
-.header {
-	width: 100%;
-	
+.navbar-btns {
+	position: relative;
 }
+
 .login{
-	display:inline-block;
-	width:150px;
-	z-index: 0;
 	display: flex;
-	position: absolute;
-	top: 0;
-	right: 10;
-	
+  justify-content: flex-end;
+	font-size: 13px;
+	margin-top: 10px;
 }
 .login a{
 	color:gray;
 	text-decoration: none;
-	width: 70px;
+	width: 56px;
 }
 .login a :hover{
 	border-bottom: 1px solid black;
@@ -55,15 +113,25 @@ p, span, button, a, h1, h2, h3, h4, h5, h6, input, label, textarea, td, tr, th, 
 	background: none;
 
 }
-.my_info{
-	z-index:0;
-	display: flex;
+
+.myPagebtnWrap {
+	width: 48px;
+	height: 48px;
+	margin-left: 15px;
+	box-shadow: 0 5px 10px 0 rgba(77, 172, 39, 0.5);
+	border-radius: 100%;
 }
 
-.my_info img{
-margin-right: 5px;
-margin-left: 5px;
-width: 60px;
+.top_middle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.my_info {
+	display: flex;
+  justify-content: space-around;
+	align-items: center;
 }
 
 #keyboard{
