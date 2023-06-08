@@ -40,7 +40,7 @@ public class Upload {
 		// getFileNames() : 업로드된 파일들의 이름 목록을 제공해 주는 메서드.
 		Iterator<String> iterator = mRequest.getFileNames();
 
-			String uploadFileName = iterator.next();
+			String uploadFileName = "file1";
 
 			// file1으로 뜸.
 			MultipartFile mFile = mRequest.getFile(uploadFileName);
@@ -76,24 +76,43 @@ public class Upload {
 				}
 
 			}
+		saveFileName = year + "-" + month + "-" + day + "/" + saveFileName;
 			
 		dto.setBoardFile(saveFileName);
+		
 		int check = this.dao.insertQna(dto);
 		
 		response.setContentType("text/html; charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
 		
-		if (check > 0) {
-			out.println("<script>");
-			out.println("alert('1:1 문의가 등록되었습니다. 빠른 시일 내에 답변 드리도록 하겠습니다.')");
-			out.println("location.href='qnaList.go'");
-			out.println("</script>");
-		} else {
-			out.println("<script>");
-			out.println("alert('1:1 문의 등록 실패하였습니다.')");
-			out.println("history.back()");
-			out.println("</script>");
+		if(dto.getBoardArea().equals("QNA")) {
+			if (check > 0) {
+				out.println("<script>");
+				out.println("alert('1:1 문의가 등록되었습니다. 빠른 시일 내에 답변 드리도록 하겠습니다.')");
+				out.println("location.href='qnaList.go'");
+				out.println("</script>");
+			} else {
+				out.println("<script>");
+				out.println("alert('1:1 문의 등록 실패하였습니다.')");
+				out.println("history.back()");
+				out.println("</script>");
+			}
+		
+		}else {
+			if (check > 0) {
+				out.println("<script>");
+				out.println("alert('공지사항이 등록되었습니다.')");
+				out.println("location.href='board_notice.go'");
+				out.println("</script>");
+			} else {
+				out.println("<script>");
+				out.println("alert('공지사항 등록에 실패하였습니다.')");
+				out.println("history.back()");
+				out.println("</script>");
+			}
+			
+			
 		}
 	}
 }
