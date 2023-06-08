@@ -79,21 +79,21 @@ public class AlbumDAOImpl implements AlbumDAO{
 	}
 	
 	@Override
+	public int insertComment(AlbumCommentDTO aDto) {
+		 
+		return this.SqlSession.insert("insertComment", aDto);
+	}
+	
+	@Override
 	public List<AlbumCommentDTO> getAlbumComment(int num) {
 		 
 		return this.SqlSession.selectList("albumCommentList", num);
 	}
-	
-	/*
-	 * @Override public List<AlbumDTO> getalbum() { return
-	 * this.SqlSession.selectList("alist"); }
-	 */
 
 	@Override
 	public List<AlbumDTO> getAlbumPopList(PageDTO pdto) {
 		return this.SqlSession.selectList("albumPop", pdto);
 	}
-	
 	@Override
 	public BookDTO getBookNamealbum(String bookname) {
 		return this.SqlSession.selectOne("bookN",bookname);
@@ -122,4 +122,18 @@ public class AlbumDAOImpl implements AlbumDAO{
 	public int albumNumberCount(BookDTO bdto) {
 		return this.SqlSession.selectOne("numberCount", bdto);
 	}
+	
+	@Override
+	public void insertAlbumLike(AlbumLikeDTO dto) {
+
+		this.SqlSession.insert("insertAlbum_Like", dto );
+	}
+	
+	@Override
+	public void deleteAlbumLike(AlbumLikeDTO dto) {
+	 
+		this.SqlSession.delete("deleteAlbum_Like", dto);
+	}
+	
+	
 }

@@ -152,7 +152,7 @@
 						<div id="VoucherStats" class="benefit_info_wrap">
 							<div class="benefit_ico_group">
 								<div class="benefit_item benefit_ico_box coupon" data-role="coupon">
-								    <a href="https://order.kyobobook.co.kr/myroom/benefit/coupon-list" class="benefit_link">
+								    <a href="#" class="benefit_link" onclick="">
 								        <span class="benefit_title">쿠폰</span>
 								        <div class="benefit_val">
 								            <span class="val">${couponList.size() }</span>
@@ -161,7 +161,7 @@
 								    </a>
 								</div>
 								<div class="benefit_item benefit_ico_box point" data-role="point">
-								    <a href="https://order.kyobobook.co.kr/myroom/benefit/point" class="benefit_link">
+								    <a href="#" class="benefit_link" onclick="">
 								        <span class="benefit_title">통합포인트</span>
 								        <div class="benefit_val">
 								        	<fmt:formatNumber value="${session.point}" pattern="#,##0" var="formattedPoint" />

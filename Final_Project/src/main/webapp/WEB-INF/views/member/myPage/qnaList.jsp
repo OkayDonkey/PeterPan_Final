@@ -214,11 +214,13 @@
 							    				</div>
 							    				<div class="inquiry_content_footer">
 							    					<div class="func_group">
-							    						<button class="btn_text_link" type="button">
+							    					<c:if test="${empty dto.content }">
+							    						<button class="btn_text_link" type="button" onclick="location.href='<%=request.getContextPath() %>/qna_modify.go?boardNo=${dto.boardNO}'">
 							    							<span class="text">수정</span>
 							    						</button>
+							    					</c:if>
 							    						<span class="gap"></span>
-							    						<button class="btn_text_link" type="button">
+							    						<button class="btn_text_link" type="button" onclick="location.href='<%=request.getContextPath() %>/qna_delete.go?boardNo=${dto.boardNO}'">
 							    							<span class="text">삭제</span>
 							    						</button>
 							    					</div>

@@ -26,4 +26,14 @@ public interface MypageDAO {
 
 	List<CouponDTO> getcoupon(String memberId);
 
+	int qnaDelete(int boardNo);
+
+	void qnaAnswerDelete(int boardNo);
+
+	int qnaAnswerCount(int boardNo);
+
+	BoardDTO getBoardDtoAtboardNo(int boardNo);
+
+	int updateQna(BoardDTO dto);
+
 }

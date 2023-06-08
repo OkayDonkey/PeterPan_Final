@@ -33,8 +33,14 @@ public interface AlbumDAO {
 	int insertLike(AlbumLikeDTO dto);
 
 	int deleteLike(AlbumLikeDTO dto);
+	
+	void insertAlbumLike(AlbumLikeDTO dto);
+
+	void deleteAlbumLike(AlbumLikeDTO dto);
 
 	int getLikeCount(int num);
+
+	int insertComment(AlbumCommentDTO aDto);
 
 	List<AlbumCommentDTO> getAlbumComment(int num);
 	
@@ -59,5 +65,8 @@ public interface AlbumDAO {
 	void albumbookins3(Map<String, Object> map3);
 	
 	void albumbookins4(Map<String, Object> map4);
+
+
+	
 
 }

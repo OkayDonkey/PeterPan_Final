@@ -41,18 +41,17 @@
 	insert into album values(#{albumNo}+1,#{memberNo},#{albumTitle},#{albumCont},now()) 
   </insert>
   
-  
-  
-  
-  
 	<insert id="albumIns" parameterType="bookDto">
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)
  			values(#{bookNo}, #{memberId},#{albumTitle},#{albumCont},now())	
  	</insert>
  	
- 	
- 	
- 	
+ 	<insert id="insertComment" parameterType="albumLikeDto" >
+ 		<selectKey resultType="int" keyProperty="commentNo" order="BEFORE">
+  		  select count(*) from album_comment
+	   </selectKey>
+ 		insert into album_comment values(#{albumNo}, #{memberNo},#{memberId},#{comment}, now(), #{commentNo} + 1)
+ 	</insert>
  	
  	<select id="totalAlbum" parameterType="int" resultType="albumDto">
       select b.bookCover from album_detail d LEFT JOIN album a ON d.albumNo = a.albumNo
@@ -76,12 +75,20 @@
 		DELETE FROM fianlB.albumLike WHERE memberNo = #{memberNo} AND albumNo = #{albumNo}
 	</delete>
 	
+	<insert id="insertAlbum_Like" parameterType="albumLikeDto" >
+		UPDATE album SET albumLike = albumLike + 1 WHERE memberNo = #{memberNo} AND albumNo = #{albumNo}
+	</insert>
+	
+	<delete id="deleteAlbum_Like" parameterType="albumLikeDto">
+		UPDATE album SET albumLike = albumLike - 1 WHERE memberNo = #{memberNo} AND albumNo = #{albumNo}
+	</delete>
+	
 	<select id="likeCount" parameterType="int" resultType="int">
 		select count(*) from fianlB.albumLike where albumNo = ${value}
 	</select>
 	
 	<select id="albumCommentList" parameterType="int" resultType="albumCommentDto">
-		select * from fianlB.album_comment where albumNo = #{value}
+		select * from fianlB.album_comment where albumNo = #{value} order by commentNo desc
 	</select>
 	
 	<select id="albumPop" parameterType="pageDto" resultType="albumDto">

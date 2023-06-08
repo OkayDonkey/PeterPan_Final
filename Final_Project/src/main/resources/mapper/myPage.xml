@@ -55,4 +55,24 @@
 	<select id="getcoupon" parameterType="String" resultType="couponDto">
 		select * from coupon where memberId = #{memberId}
 	</select>
+	
+	<delete id="qnaDelete" parameterType="int">
+		delete from board where boardNO = #{boardNo}
+	</delete>
+	
+	<delete id="qnaAnswerDelete" parameterType="int">
+		delete from qna_answer where boardNO = #{boardNo}
+	</delete>
+	
+	<select id="qnaAnswerCount" parameterType="int" resultType="int">
+		select count(*) from qna_answer where boardNO = #{boardNo}
+	</select>
+	
+	<select id="getBoardDtoAtboardNo" parameterType="int" resultType="boarddto">
+		select * from board where boardNO = #{boardNo}
+	</select>
+	
+	<update id="updateQna" parameterType="boarddto">
+		update board set boardCategory = #{boardCategory}, boardTitle = #{boardTitle}, boardContent = #{boardContent}, boardFile = #{boardFile}, boardRegdate = now() where boardNO = #{boardNO}
+	</update>
   </mapper>

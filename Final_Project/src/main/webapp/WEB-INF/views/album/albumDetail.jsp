@@ -19,18 +19,18 @@
    
    <div class="container">
       <section>
-      	<div class="flex_column">
-      		<div class="p-3 pt-4 pb-4 boderTopLine boderBottomLine" style="font-size: 1.5em; font-weight: 400;">${list[0].albumTitle }</div>
+      	<div class="flex_column_center">
+      		<div class="p-3 pt-4 pb-4 boderTopLine boderBottomLine" style="font-size: 1.5em; font-weight: 400; width:1200px;">${list[0].albumTitle }</div>
       		
-      		<div class="row pl-3 boderBottomLine">
+      		<div class="row pl-3 boderBottomLine" style="width:1200px;">
       			<div class="row p-3 " >
       				<div><img width="200" src="${list[0].bookCover }"></div>
-      				<div class="flex_column" style="width: 600px;">
+      				<div class="flex_column" style="width: 580px;">
       					<div class="ml-2 mt-2"><b>앨범 PD</b><span class="ml-3">${list[0].memberName}</span></div>
       					<div class="ml-2 mt-2"><b>등록일</b><span class="ml-3">${list[0].albumSysDate}</span></div>
       				</div>
       			</div>
-      			<div class="flex_column p-3 boderLeftLine" style="width: 400px;">
+      			<div class="flex_column p-4 boderLeftLine" style="width: 400px;">
       				<div class="borderGrayBox flex_center">
       					
       					<c:choose>
@@ -50,7 +50,7 @@
       				<span><img width="30" src="https://icon-library.com/images/share-button-icon-png/share-button-icon-png-23.jpg"></span>
       				
       				</div>
-      				<div class="mt-3 pt-2 boderTopLine"><b>시리즈</b>
+      				<div class="mt-3 pt-3 boderTopLine"><b>시리즈</b>
       				<span class="ml-4"><a href="#" style="color:black;">목록 보기 ></a></span>
       				</div>
       			</div>
@@ -148,13 +148,51 @@
          </tbody>
          </table>
       </section>
+      
+      <section>
+   		<div class="p-5 boderTopLine">
+      		<div class="flex_column boderBottomLine" style="height: 140px;">
+				<h6 class="normal-text">댓글 ( ${commentList.size() } )</h6>
+				<div class="row m-0 p-0" >
+	      			<div><textarea id="commentInput" rows="10"></textarea></div>
+      				  <c:choose>
+		      			<c:when test="${empty session.memberId }">
+							<div class="buyTextBoxBlue flex_center_center ml-3" style="width:88px; height: 66px; border-radius: 0;" onclick="needLogin()">등록</div>
+						</c:when>
+						<c:when test="${!empty session.memberId }">
+							<div class="buyTextBoxBlue flex_center_center ml-3" style="width:88px; height: 66px; border-radius: 0;" onclick="comment()">등록</div>
+						</c:when>
+					 </c:choose>
+      			</div>
+      		</div>
+      		
+      		<div class="reviewBoxBottom" id="CommentInnerAjax">
+					<c:if test="${empty commentList }">
+						<div class="flex_center_center p-5">
+							<img class="mb-2" width="36px" src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_nodata@2x.png">
+							<p class="flex_center_center">이 앨범에 첫 댓글을 달아주세요.</p>
+						</div>
+					</c:if>
+					<div id="commentContainer"></div>
+							<c:forEach  items="${commentList }" var="Cmt">
+								<div class="reviewBlock pl-0">
+										<p class="mb-3">${Cmt.memberId }</p>
+										<p class="mb-2">${Cmt.comment }</p>
+										<p class="mb-2 smallGrayText">${Cmt.commentDate }  |  신고  |  답글쓰기</p>
+								</div>
+							</c:forEach>
+					</div>
+      	</div>
+      </section>
 
    </div>
    
    <input type="hidden" id="memberNo" value="${session.memberNo }">
+   <input type="hidden" id="memberId" value="${session.memberId }">
    <input type="hidden" id="albumNo" value="${list[0].albumNo }">
    
    <jsp:include page="../top/footer.jsp" />
 	<script src="resources/js/book/albumLike.js"></script>	
+	<script src="resources/js/book/albumComment.js"></script>	
 </body>
 </html>

@@ -30,4 +30,14 @@ public interface MypageService {
 
 	List<CouponDTO> getcoupon(String memberId);
 
+	int qnaDelete(int boardNo);
+
+	void qnaAnswerDelete(int boardNo);
+
+	int qnaAnwerCount(int boardNo);
+
+	BoardDTO getBoardDtoAtboardNo(int boardNo);
+
+	int updateQna(BoardDTO dto);
+
 }
