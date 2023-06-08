@@ -38,8 +38,9 @@
   	<selectKey resultType="int" keyProperty="albumNo" order="BEFORE">
   		  select count(*) from album
 	</selectKey>
-	insert into album values(#{albumNo}+1,#{memberNo},#{albumTitle},#{albumCont},now()) 
+	insert into album values(#{albumNo}+1,#{memberNo},#{albumTitle},#{albumCont},now(),0) 
   </insert>
+  
   
 	<insert id="albumIns" parameterType="bookDto">
  		insert into album (bookNo,memberId,albumTitle,albumCont,albumSysdate)

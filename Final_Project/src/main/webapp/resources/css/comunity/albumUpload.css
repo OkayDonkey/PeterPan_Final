@@ -1,5 +1,191 @@
 @charset "UTF-8";
 
+
+.formcontainer{
+}
+
+.input_wrap{
+margin-left: 100px;
+}
+.table_class{
+border-collapse:collapse;
+ margin: 0 auto;
+width:1000px; 
+text-align: center;
+
+}
+
+.table_tr{
+	border-bottom:1px solid rgba(0, 0, 0, 0.2);
+	height: 200px;
+	width: 150px;
+	
+}
+.table_class td{
+width: 150px;
+}
+.table_class img{
+width: 120px;
+}
+
+.table_td_input{
+border: none;
+
+}
+
+.from_inputA{
+margin-bottom: 50px;
+height:50px;
+font-size: 20px;
+border:none;
+border-bottom:1px solid black;
+width:300px;
+
+}
+
+.from_inputB{
+height:35px;
+font-size: 15px;
+border:none;
+border-bottom:1px solid black;
+width:300px;
+
+}
+.modal_input{
+	border: none;
+	width: 100px;
+	background-color:rgb(78, 84, 225);
+	color: white;
+	height:35px;
+	border-radius: 10px;
+	text-align: center;
+	align-content: center;
+	margin-bottom: 10px;
+}
+
+.modal_input:hover{
+	border:1px solid rgb(60, 64, 174);
+	background-color:transparent;
+	color:rgb(49, 47, 254) ;
+}
+.table_class {
+	border: none;
+}
+.imgbax{
+margin:0 auto;
+margin-top: 20px;
+border: 1px solid black;
+width: 80%;
+height: 70%;
+
+}
+.noimg{
+width: 120px;
+height: 150px;
+}
+
+
+.btn_wrap.page_bottom {
+    margin-top: 40px;
+}
+
+.btn_wrap {
+    display: block;
+    font-size: 0;
+    text-align: center;
+}
+
+a.btn_light_gray, button.btn_light_gray {
+    color: #fff;
+    background: #767676;
+    border: 2px solid #767676;
+}
+
+
+input.btn_lg {
+	min-width: 200px;
+    height: 50px;
+    padding: 0 23px 1px;
+    border-radius: 6px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    background-color: #5055b1;
+    border: #5055b1;
+    color: white;
+}
+
+input.btn_lg:hover {
+	color: #fff;
+    background: #2c307c;
+    border-color: #2c307c;
+}
+	
+a.btn_lg {
+	min-width: 200px;
+    height: 50px;
+    padding: 13px 85px 13px 85px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+a.btn_lg:hover {
+	background-color: #595959;
+	color: white;
+}
+
+.btn_wrap .btn_lg + .btn_lg {
+    margin-left: 10px;
+}
+
+.modal_submit{
+
+border-bottom-right-radius: 15px; 
+width: 47px; 
+height: 49px;
+background-color: white;
+border:none;
+border-left:1px solid rgb(85, 83, 242);
+border-bottom:1px solid rgb(85, 83, 242);
+}
+.modal_submit:hover {
+background-color: rgb(85, 83, 242);
+color: white;
+}
+.bookWrap tr{
+	text-align: center;
+}
+.bookWrap td{
+	width: 200px;
+}
+.bookWrap input{
+width: 70px; 
+height: 35px;
+background-color: rgb(85, 83, 242);
+border:none;
+color:white;
+}
+
+.bookWrap input:hover{
+width: 70px; 
+height: 35px;
+background-color: white; 
+border:1px solid rgb(85, 83, 242);
+color:rgb(85, 83, 242);
+}
+
+
+
+
+
+
+
+
 /* 책 검색 및 선택 모달 css */
 .insertPopupBox {
     width: 550px;
