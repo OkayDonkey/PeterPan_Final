@@ -165,5 +165,5 @@
 <script src="resources/js/vendor.min.js"></script>
 <script src="resources/js/theme.min.js"></script>
 
-<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
+<link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>  
 </html>

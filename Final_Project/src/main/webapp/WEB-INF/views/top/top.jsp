@@ -236,33 +236,11 @@
 									<div class="widget widget-links">
 										<h3 class="widget-title">게시판</h3>
 										<ul>
-											<c:if test="${empty session.memberId}">
-											    <li>
-													<a href="login.go"> 
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범 -상우</span>
-													</a>
-												</li>
-											</c:if>
-									    	<li>
-												<c:if test="${session.memberTier == 999 }">
-													<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범 -상우</span>
-													</a>
-												</c:if>
-												<c:if test="${session.memberTier != 999 }">
-													<a href="album.go"> 
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범 -상우</span>
-													</a>
-												</c:if>
-											</li>
 											<li>
 												<a href="<%=request.getContextPath()%>/boardPage.go">
 													<i class="widget-categories-indicator"
 													data-feather="chevron-right"> </i><span
-													class="font-size-sm">자유 게시판-지영</span>
+													class="font-size-sm">자유 게시판</span>
 												</a>
 											</li>
 										</ul>
@@ -270,15 +248,24 @@
 								</div>
 								<div class="dropdown-column">
 									<div class="widget widget-links">
-										<h3 class="widget-title">리뷰 남기기</h3>
+										<h3 class="widget-title">커뮤니티</h3>
 										<ul>
-											<li>
-												<a href="board_write.jsp">
-													<i class="widget-categories-indicator"
-													data-feather="chevron-right"></i>
-													<span class="font-size-sm">리뷰작성 </span>
-												</a>
+										
+									    	<li>
+												<c:if test="${session.memberTier == 999 }">
+													<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
+														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
+														<span class="font-size-sm">앨범</span>
+													</a>
+												</c:if>
+												<c:if test="${session.memberTier != 999 }">
+													<a href="album.go"> 
+														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
+														<span class="font-size-sm">앨범</span>
+													</a>
+												</c:if>
 											</li>
+										
 										</ul>
 									</div>
 								</div>
