@@ -1,7 +1,13 @@
 package com.book.album;
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.book.bookmodel.CartDAO;
 import com.book.model.AlbumCommentDTO;
 import com.book.model.AlbumDTO;
+import com.book.model.BookDTO;
+import com.book.model.CartDTO;
+import com.book.model.MemberDTO;
 import com.book.model.ReviewDTO;
 
 @Controller
@@ -19,6 +29,9 @@ public class AlbumDetailController {
 	
 	@Autowired
 	private AlbumDAO dao;
+	
+	@Autowired
+	private CartDAO Cdao;
 	
 	@RequestMapping("album_detail.go")
 	public String albumDetail(Model model, @RequestParam("albumNo") int albumNo) {
@@ -68,10 +81,27 @@ public class AlbumDetailController {
 		
 	}
 
-	
-	
-	
-	
+	@ResponseBody
+	@RequestMapping("albumBookCart.go")
+	public String albumBookCart(Model model,CartDTO dto, HttpSession session,BookDTO bdto) throws IOException {
+		
+		MemberDTO mdto = (MemberDTO)session.getAttribute("session");
+		
+		if(mdto.getMemberId() == null || dto.getMemberId().equals("")) {
+			return "1";
+		} else{
+			
+			int check = Cdao.getCartCkeck(dto);
+			
+			if(check == 0) {
+				this.Cdao.insertCart(dto);
+				return "2";
+			}else {
+				this.Cdao.cartIf(dto);
+				return "3";
+			} 
+		}
+	}
 	
 }
 

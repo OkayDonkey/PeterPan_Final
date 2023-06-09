@@ -65,6 +65,7 @@
       		
       </section>
       
+      <input type="hidden" name="sessionId" id="sessionId" value="${session.memberId }">
        <section class="sectionPadding contents">
          <div class="innerContainer">
             <header class="sectionTitle">
@@ -78,10 +79,10 @@
             <div class="innerContainer">
                <div class="rightActions"></div>
                <label class="checkbox">
-                  <input type="checkbox" name="checkAll" title="곡 목록 전체">
+                  <input type="checkbox" name="checkAll" title="책 목록 전체" onclick="toggleCheckboxes(this)">
                </label>
                <span class="btns">
-                  <a href="#" class="btnNormal addAlbum" aria-label="새창">장바구니 담기</a>
+                  <a href="javascript:void(0)" class="btnNormal addAlbum" aria-label="새창" onclick="addAlbumToCart()">장바구니 담기</a>
                </span>
                <span class="btns play">
                   <span class="leftBar"></span>
@@ -107,7 +108,7 @@
             <c:forEach items="${list }" var="dto">
                <tr>
                   <td class="check">
-                     <input type="checkbox" name="check" onclick="bookCheckCart()" data-bookNo="${dto.bookNo}" data-memberId="${session.memberId }">
+                     <input type="checkbox" name="check" data-bookNo="${dto.bookNo}" data-memberId="${session.memberId }" data-bookPrice="${dto.bookPrice }">
                   </td>
                   <td>
                      <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}" class="thumbnail">

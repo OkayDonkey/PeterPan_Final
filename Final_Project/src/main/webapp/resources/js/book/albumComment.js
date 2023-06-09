@@ -42,9 +42,6 @@ function comment(){
 			commentDisplay1.innerText = data.length.toString();
 			commentDisplay2.innerText = data.length.toString();
 
-
-
-
 	if (data.length > 0) {
 		data.forEach(function (obj) {
 							
@@ -72,67 +69,76 @@ function comment(){
 
 }
 
+// 앨범 장바구니 
 
+function addAlbumToCart() {
+  var checkboxes = document.getElementsByName("check");
+  var selectedAlbums = [];
+  var sessionId = document.getElementById("sessionId").value;
 
-
-
-
-
-// 앨범 장바구니
-
-var cart = []; // 장바구니를 배열로 선언합니다.
-
-
-function bookCheckCart() {
-	
-  var checkbox = event.target;
-  var no = checkbox.getAttribute('data-bookNo');
-  var id = checkbox.getAttribute('data-memberId');
-	
-  var existingItemIndex = cart.findIndex(item => item.bookNo === no); // 동일한 no 값을 가진 아이템의 인덱스를 찾습니다.
-
-  if (existingItemIndex !== -1) {
-  
-    console.log("이미 장바구니에 해당 책이 존재합니다. 데이터를 삭제합니다.");
-    cart.splice(existingItemIndex, 1); // 이미 있는 아이템을 장바구니에서 삭제합니다.
-    
-  } else {
-  
-    var newItem = { bookNo: no, bookId: id };
-    cart.push(newItem); // 새로운 아이템을 장바구니에 추가합니다.
-    console.log("새로운 책을 장바구니에 추가했습니다.");
-    
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      var bookNo = checkboxes[i].getAttribute("data-bookNo");
+      var bookPrice = checkboxes[i].getAttribute("data-bookPrice");
+      var album = {
+        bookNo: bookNo,
+        memberId: sessionId,
+        bookPrice: bookPrice,
+        cartCount: 1,
+      };
+      selectedAlbums.push(album);
+    }
   }
 
-  console.log("장바구니 데이터:", cart);
-}
+  if (selectedAlbums.length > 0) {
+    var currentIndex = 0;
 
+    function processNextAlbum() {
+      if (currentIndex < selectedAlbums.length) {
+        var album = selectedAlbums[currentIndex];
+        var url = "albumBookCart.go";
 
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: {
+            memberId: album.memberId,
+            bookNo: album.bookNo,
+            bookPrice: album.bookPrice,
+            cartCount: album.cartCount,
+          },
+          success: function (result) {
+            if (result == 1) {
+              alert("로그인 후 장바구니 담기가 가능합니다.");
+              window.location.href = "login.go";
+            } else if (result == 2) {
+              
+            } else if (result == 3) {
+              alert("기존 상품에 수량을 추가했습니다.");
+            }
+          },
+          error: function (request, status, error) {
+            console.log(status + " : " + error);
+          },
+          complete: function () {
+            currentIndex++;
+            processNextAlbum(); // 다음 앨범 처리
+          },
+        });
+      } else {
+        // 모든 앨범 처리가 완료된 경우
+				alert("장바구니에 담았습니다.");
+        window.location.href = "cartList.go"; // 장바구니 페이지로 이동
+      }
+    }
 
-function toggleCheckboxes() {
-
-  var checkAll = document.getElementsByName('checkAll')[0];
-  var checkboxes = document.getElementsByName('check');
-
- for (var i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].checked = checkAll.checked;
+    processNextAlbum(); // 첫 번째 앨범 처리 시작
   }
-
-  // 모든 체크박스 상태 변경 후 bookCheckCart 함수 호출
-  if (checkAll.checked) {
-    for (var i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].checked) {
-       		
-       		bookCheckCart();
-       		
-	 	 }
-	   }
-	}
- 
 }
 
-// checkAll 체크박스 클릭 이벤트 핸들러 등록
-var checkAllCheckbox = document.getElementsByName('checkAll')[0];
-checkAllCheckbox.addEventListener('click', toggleCheckboxes);
-
-
+function toggleCheckboxes(checkbox) {
+  var checkboxes = document.getElementsByName("check");
+  for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = checkbox.checked;
+  }
+}

@@ -14,9 +14,6 @@ $(document).ready(function () {
   var albumNo = document.getElementById("albumNo").value;
   var heartIcon = document.getElementById("heartIcon"); // heartIcon 변수 정의 필요
   
-  console.log("albumNo:"+albumNo);
-  console.log("memberNo:"+memberNo);
-  
   $.ajax({
     type: "POST",
     url: 'checkAlbumLike.go',
