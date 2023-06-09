@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" />
 <meta charset="UTF-8">
 <title>피터팬/로그인</title>
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>

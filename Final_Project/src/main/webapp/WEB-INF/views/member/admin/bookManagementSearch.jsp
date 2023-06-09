@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" />
 <head>
 <meta charset="UTF-8">
 <title>피터팬/관리자/회원관리</title>

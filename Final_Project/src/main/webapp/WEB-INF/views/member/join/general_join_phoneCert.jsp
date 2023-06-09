@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" />
 <meta charset="UTF-8">
 <title>피터팬/휴대폰 인증</title>
 <link rel="stylesheet" href="${path }/resources/css/member/memberMain.css" />
