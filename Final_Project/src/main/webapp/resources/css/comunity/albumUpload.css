@@ -117,6 +117,7 @@ input.btn_lg {
     color: white;
 }
 
+ 	
 input.btn_lg:hover {
 	color: #fff;
     background: #2c307c;
@@ -188,7 +189,7 @@ color:rgb(85, 83, 242);
 
 /* 책 검색 및 선택 모달 css */
 .insertPopupBox {
-    width: 550px;
+    width: 600px;
     padding: 30px;
     color: black;
     z-index: 2010;

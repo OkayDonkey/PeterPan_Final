@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
 <!-- 부트스트랩 CSS -->
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />

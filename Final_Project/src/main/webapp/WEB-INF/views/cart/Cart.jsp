@@ -13,6 +13,8 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" type ="text/css" href ="resources/css/main/main.css">
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 </head>
 <body>
 <c:set var="session" value="${session }" /> 

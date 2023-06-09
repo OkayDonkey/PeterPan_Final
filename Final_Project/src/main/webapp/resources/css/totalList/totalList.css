@@ -1,126 +1,133 @@
 @charset "UTF-8";
 
-.list_container{
-	width:1200px;
-	margin:0 auto;
+.list_container {
+	width: 1200px;
+	margin: 0 auto;
 	text-align: center;
 	min-height: 900px;
-
 }
 
-.table_cont{
+.table_cont {
 	text-align: center;
+}
+
+.cate_kind {
+	right: 10px;
+}
+
+.cate_kind a{
+	margin-bottom: 20px;
 	
 }
-.cate_kind{
-	right: 10px;	
-}
-.table_img{
+
+.table_img {
 	width: 140px;
 	height: 200px;
 }
-.table_list{
-	float:right;
-	 /* 
+
+.table_list {
+	float: right;
+	/* 
 	 margin-left: 300px;
 	 왼쪽 바 완성시 삭제할것 */
 	width: 1000px;
 }
-.table_list tr{
-	height:230px;
+
+.table_list tr {
+	height: 230px;
 	border-bottom: 1px solid black;
 }
-.table_list th td{
+
+.table_list th td {
 	margin-bottom: 10px;
 }
-.inputA{
-		width: 200px;
-		padding:10px;
-		margin-bottom:10px;
-		background-color: rgb(178, 178, 178);
-		border:none;
-		border-radius:10px;
-		color: white;
-}	
-.inputB{
+
+.inputA {
 	width: 200px;
-		padding:10px;
-		margin-bottom:10px;
-		background-color: rgb(85, 83, 242);
-		border:none;
-		border-radius:10px;
-		color: white;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(178, 178, 178);
+	border: none;
+	border-radius: 10px;
+	color: white;
 }
 
-.Bcountg{
-	font-size:15px;
+.inputB {
+	width: 200px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(85, 83, 242);
+	border: none;
+	border-radius: 10px;
+	color: white;
+}
+
+.Bcountg {
+	font-size: 15px;
 	font-weight: 600;
 	margin: 10px;
-	float:left; 
-	
-	
+	float: left;
 }
 
-.cate_kind{
-	
-	float:left;
-	width: 200px; 
-	}
-	
-.pagingout{
-	clear:both;
+.cate_kind {
+	float: left;
+	width: 200px;
+}
+
+.pagingout {
+	padding-top: 70px;
+	clear: both;
 	height: 100px;
-	}
-	
-.table_list span{
+}
+
+.pagingout a {
+	color: #6a6a6a;
+}
+
+.table_list span {
 	color: black;
 }
 
-.bookname,.bookpri{
+.bookname, .bookpri {
 	font-weight: 600;
 }
 
-#nav{
+#nav {
 	margin-top: 50px;
 }
-#nav ul{
-	text-align:left;
-	margin:0 auto; 
 
-	}
+#nav ul {
+	text-align: left;
+	margin: 0 auto;
+}
 
-#nav ul.menu li{
-	list-style-type:none; 
-	font-size:20px;
-	}
-	
-#nav ul.menu li a{
-	display:block; 
-	width:100%; 
-	height:100%; 
-	text-indent:10px; 
-	color:#000; 
-	font-weight:bold; 
-	text-decoration:none; 
-	}
-	
-#nav ul.menu li a:hover{ 
-	color:red; 
-	}
-#nav ul.menu li .sub a{
-	float:left; 
-	display:block;
-	 width:100%;
-	  z-index:999;
-	   }
-	   
-#nav ul.menu li .sub a:hover{ 
-	background:#444;
-	 color:#fff; 
-	 }
-	 
+#nav ul.menu li {
+	list-style-type: none;
+	font-size: 20px;
+}
 
-	
+#nav ul.menu li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-indent: 10px;
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
 
+#nav ul.menu li a:hover {
+	color: red;
+}
 
-	
+#nav ul.menu li .sub a {
+	float: left;
+	display: block;
+	width: 100%;
+	z-index: 999;
+}
+
+#nav ul.menu li .sub a:hover {
+	background: #444;
+	color: #fff;
+}

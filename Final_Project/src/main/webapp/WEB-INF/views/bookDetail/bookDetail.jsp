@@ -10,7 +10,8 @@ response.setDateHeader("Expires", 0); // Proxies
 %>
 <!DOCTYPE html>
 <html>
-<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 <head>
 <meta charset="UTF-8">
 <c:set var="book" value="${Cont}"/>  	 

@@ -10,6 +10,8 @@
 <title>피터팬</title>
 
 <link rel="stylesheet" href="resources/css/comunity/albumUpload.css" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 <script type="text/javascript">
 function check() {
 
