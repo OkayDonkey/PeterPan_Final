@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" />
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/member/mypage.css" />
 </head>
