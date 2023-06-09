@@ -6,6 +6,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
 <meta charset="UTF-8">
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/ars.css"/>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 <title>고객센터 - 피터팬</title>
 </head>
 <body>

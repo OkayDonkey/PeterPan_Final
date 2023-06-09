@@ -216,7 +216,6 @@ public class AlbumController {
 		  System.out.println("dto 값 전"+dto);
 		  
 		  
-		  int check = this.dao.albumInsert(dto);
 		  
 
 		  System.out.println("dto 값 후"+dto);
@@ -225,11 +224,13 @@ public class AlbumController {
 
 		PrintWriter out =response.getWriter();
 		
-		if(check>0) {
-			if(mdto.getMemberId() != null) {
+		int check = this.dao.albumInsert(dto);
+
+		if(mdto.getMemberId() != null) {
+			if(check>0) {
 				out.println("<script>");
-				out.println("alert('회원 등록 성공')");
-				out.println("location.href='/'");
+				out.println("alert('앨범 등록 성공')");
+				out.println("location.href='myPage.go'");
 				out.println("</script>");
 			}else {
 				out.println("<script>");

@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
 <!-- 부트스트랩 CSS -->
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/vendor.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/mainboard.css"/>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 <meta charset="UTF-8">
 <title>고객센터 - 피터팬</title>
 </head>

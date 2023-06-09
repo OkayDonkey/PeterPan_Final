@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
 <meta charset="UTF-8">
 <!-- include summernote css/js-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">

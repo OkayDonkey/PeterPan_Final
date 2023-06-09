@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/comunity/albumMain.css" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 <title>Insert title here</title>
 </head>
 <body>

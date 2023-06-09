@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" type="image/png" sizes="16x16" href="resources/img/hatLogo1.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
 <meta charset="UTF-8">
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/qnaForm.css" />
 <title>고객센터 - 피터팬</title>

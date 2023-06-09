@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/comunity/albumDetail.css" />
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+
 
 <title>피터팬</title>
 </head>

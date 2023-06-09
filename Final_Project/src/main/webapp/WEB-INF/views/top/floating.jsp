@@ -1,4 +1,5 @@
 <%@ page session="true" pageEncoding="UTF-8" %>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
 
 <style>
 html {

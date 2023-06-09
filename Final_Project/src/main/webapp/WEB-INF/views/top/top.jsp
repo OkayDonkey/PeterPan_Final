@@ -25,7 +25,6 @@
 	href="resources/css/theme.min.css" />
 <link rel="stylesheet" media="screen" id="main-styles"
 	href="resources/css/vendor.min.css" />
-
 <link rel="stylesheet" href="resources/css/top/top.css">
 
 <body>

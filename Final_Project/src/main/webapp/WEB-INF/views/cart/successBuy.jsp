@@ -12,6 +12,8 @@
 </script> 
 <title>Insert title here</title>
  <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/theme.min.css" />
+ <link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+ 
 <link rel="stylesheet" href="resources/css/member/mypage.css" />
 <link rel="stylesheet" href="resources/css/member/orderHistory.css" />
 </head>
