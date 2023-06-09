@@ -105,7 +105,7 @@
 							</a>
 						</c:when>
 					</c:choose>
-					<c:if test="${session.memberTier == 1 || empty session.memberTier }">
+					<c:if test="${session.memberTier == 1 || session.memberTier == 999 || empty session.memberTier}">
 						<div class="myPagebtnWrap">
 							<a href="<%=request.getContextPath() %>/myPage.go">
 								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_my@2x.png">
