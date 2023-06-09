@@ -12,11 +12,6 @@
 <link rel="stylesheet" href="${path }/resources/css/member/join.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/login.css" />
 <link rel="stylesheet" href="${path }/resources/css/member/id_pwd_search.css" />
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-
 </head>
 <body>
 
@@ -210,7 +205,7 @@
 					              </div>
 					              <div class="form_cont">
 					                <div class="valid_check">
-					                  <input type="text" id="phoneFormFindPwd04" class="form_ip" placeholder="이메일을 입력해 주세요." maxlength="30" data-autocomplete="false">
+					                  <input type="text" id="phoneFormFindPwd04" class="form_ip" placeholder="숫자만 입력해 주세요." maxlength="30" data-autocomplete="false">
 					                  <span class="valid_desc" id="phoneFormFindPwd04_valid">경고 메시지 영역입니다</span>
 					                </div>
 					              </div>
@@ -303,4 +298,6 @@
 	</div>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 </html>

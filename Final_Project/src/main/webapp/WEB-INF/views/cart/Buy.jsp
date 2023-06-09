@@ -325,7 +325,7 @@
 				<span class="float-right" id="cartTotalPrice2"><fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
 				</span></b></div>
 				<div class="mb-3"><span class="float-left">적립예정 포인트</span>
-					<img style="width:22px" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
+					<img style="width:22px; margin-left: 10px;" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">
 					
 					<c:if test="${cartTotalPrice > 50000 }">			
 					<span class="float-right" id="pointDisplay">

@@ -61,10 +61,10 @@
 									
 									<div class="info_box">
 										<div class="info">
-											<a href="#" class="title hyrend" title="달짝지근 기분 좋아지는 Daily Pop 19" target="_self">${dto.albumTitle}</a>
+											<a href="<%=request.getContextPath() %>/album_detail.go?albumNo=${dto.albumNo}" class="title hyrend" title="달짝지근 기분 좋아지는 Daily Pop 19" target="_self">${dto.albumTitle}</a>
 											<div class="subInfo">
 												<a href="#" class="mPD hyrend" title="세렌디피티" target="_self">${dto.memberName}</a>
-												<div class="date" date="">${dto.albumSysDate}</div>
+												<div class="date" date="">${dto.albumSysDate.substring(0, 10)}</div>
 											</div>
 											<div class="theme">
 													<a href="#" class="hyrend"><span>#해외</span></a>

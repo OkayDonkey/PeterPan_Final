@@ -19,7 +19,7 @@
 			<div class="header_inner">
 				<div class="logo_box">
 					<a class="logo_link">
-						<img src="resources/css/images/logo/peterpan_logo.png" height="90px" width="180px">
+						<img src="resources/img/peterPanLogo.png" width="162px" style="height: fit-content; width: -webkit-fill-available;">
 					</a>
 				</div>
 				<div class="member_gnb_wrap">

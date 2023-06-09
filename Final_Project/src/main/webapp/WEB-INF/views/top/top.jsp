@@ -33,10 +33,12 @@
 		<div class="header_wrap">
 		 <div class="container-fluid navbar-inner">
 			<div class="login">
-				<a href="">고객센터</a>
+				<a href="<%=request.getContextPath()%>/boardPage.go">고객센터</a>
 				
+				<c:if test="${empty session.memberId }">
 				<a href="join.go">회원가입</a>					
-			
+				</c:if>
+				
 				<c:set var="session" value="${session }" />
 				<c:if test="${session.memberId == null }">
 					<input type="button" value="로그인" onclick="location.href='login.go'" style="margin: 0; padding: 0;">
@@ -99,7 +101,7 @@
 						</c:when>
 						<c:when test="${!empty session.memberId }">
 							<a href="cartList.go">
-								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png">
+								<img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_header_cart@2x.png" style="width:35px;">
 							</a>
 						</c:when>
 					</c:choose>

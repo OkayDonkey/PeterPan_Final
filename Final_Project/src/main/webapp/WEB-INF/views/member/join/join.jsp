@@ -17,7 +17,7 @@
 <body>
 	
 	<div class="wrapper member_join" id="main">
-		<header class="header_wrapper">
+		<header class="header_wrapper" style="margin-bottom: 30px;">
 			<div class="header_inner">
 				<div class="logo_box">
 					<a class="logo_link">

@@ -8,14 +8,13 @@
 <link rel="stylesheet" media="screen" id="main-styles" href="resources/css/board/qnaForm.css" />
 <title>고객센터 - 피터팬</title>
 </head>
-<script type="text/javascript" src="resources/js/board/boardQNA.js"></script>
 <body>
 	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 
 	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
-		<div class="row justify-content-sm-between" style="width: 1200px;, padding-bottom: 100px;">
+		<div class="row justify-content-sm-between" style="width: 1200px;, padding-bottom: 100px; padding-top: 40px;">
 
 			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
@@ -300,17 +299,6 @@
 		</div>
 	</div>
 	
-<!-- 	<div id="insertPopup" class="insertPopup"  hidden>
-		<div class="insertPopupBox">
-			<p class="first_write">문의를 등록하시겠습니까?</p>
-			<p>빠른 시간 내에 답변드리겠습니다.</p>
-			<div class="insertBox_btn"  style="display: flex;">
-				<div class="RoundBox1"  onclick="closeModal()"><button>취소</span></div>
-				<div class="RoundBox2"  onclick="location.href=''"><span>확인</span></div>
-			</div>
-		</div>
-	</div>
- -->
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
 	
@@ -323,15 +311,7 @@
 		      fileInput.value = ''; // 첨부파일 필드의 값을 초기화하여 파일을 제거
 		    });
 		  }
-		  
-/* 		function openModal() {
-			document.getElementById("insertPopup").removeAttribute("hidden");
-		}
-
-		function closeModal() {
-			document.getElementById("insertPopup").setAttribute("hidden", true);
-		} */
 	</script>
-
 </body>
+<script type="text/javascript" src="resources/js/board/boardQNA.js"></script>
 </html>
