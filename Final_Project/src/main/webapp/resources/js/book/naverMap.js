@@ -144,8 +144,8 @@ const contentString = [
 ].join('');
 
 var markerIcon = {
-  url: 'resources/img/hatLogo1.png',
-  size: new naver.maps.Size(32, 32),
+  url: 'resources/img/hatMarker.png',
+  size: new naver.maps.Size(27, 40),
   origin: new naver.maps.Point(0, 0),
   anchor: new naver.maps.Point(16, 32)
 };
