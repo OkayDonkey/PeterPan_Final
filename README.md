@@ -19,7 +19,6 @@
 - <h4><b>💬 프로젝트 Notion Link -<br> https://www.notion.so/Final-Project-c11d9571cb45418091e87b01ab99b421?pvs=4</b></h4>
 
 <h1> 프로젝트 기술 스택</h1>
-
 <p>Back-end</p>
         <p>
             <img src="https://img.shields.io/badge/Java-FF5722?style=for-the-badge&logo=Java&logoColor=white"/> 
@@ -67,7 +66,7 @@
      </thead>
      <tbody>
        <tr>
-         <td align="center"><a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/gami03/FInalProject/assets/128332485/c7dbacb7-0893-4875-9f63-fe8efb58be21"><img src="https://github.com/gami03/FInalProject/assets/128332485/c7dbacb7-0893-4875-9f63-fe8efb58be21" width="100%" style="max-width: 100%;"></a></td>
+         <td align="center"><a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/gami03/Final_Froject_book/assets/128332485/1ac64b8a-6142-4c34-985c-cf2b36694e55"><img src="https://github.com/gami03/Final_Froject_book/assets/128332485/1ac64b8a-6142-4c34-985c-cf2b36694e55" width="100%" style="max-width: 100%;"></a></td>
         </tr>
     </tbody>
 </table>
