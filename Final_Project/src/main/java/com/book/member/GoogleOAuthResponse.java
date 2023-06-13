@@ -13,5 +13,4 @@ public class GoogleOAuthResponse {
 	private String tokenType;
 	private String idToken;
 	
-	
 };

@@ -27,7 +27,6 @@
 	    </choose>
 	</insert>
 
-	
 	<select id="checkId" parameterType="String" resultType="int">
 		select count(*) from member where memberId = #{memberId}
 	</select>

@@ -27,7 +27,6 @@ public class PageDTO {
 	
 	private String boardArea; // board 테이블
 	
-	
 	//검색 관련 멤버 선언
 	private String field;
 	private String keyword; 

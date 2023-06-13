@@ -44,9 +44,6 @@ $(document).ready(function () {
   var bookNo = document.getElementById("bookNo").value;
   var heartIcon = document.getElementById("heartIcon"); // heartIcon 변수 정의 필요
   
-  console.log("bookNo"+bookNo);
-  console.log("memberNo"+memberNo);
-  
   $.ajax({
     type: "POST",
     url: path+"checkDibs.go",
@@ -55,7 +52,6 @@ $(document).ready(function () {
       bookNo: bookNo
     },
     success: function (result) {
-      console.log("Ajax반환 성공 데이터:" + result);
       if (result > 0) {
         heartIcon.setAttribute("src", "resources/img/heart_fill.png");
         isLiked = true;
@@ -81,10 +77,6 @@ $(document).ready(function () {
       popupElement.hidden = false;
     }
   }
-
- 
-
-
 
  function toggleLike() {
     console.log("ToggleLike ajax호출");
@@ -145,13 +137,6 @@ function insertReview(){
   	  var reviewCont = document.getElementById("reviewCont").value;
   	  var like = document.getElementById("checkBox").value;
 		  	  
-	console.log("insertReview  Ajax호출");
-	console.log("회원번호:"+memberNo);
-	console.log("회원아이디:"+memberId);
-	console.log("책번호:"+bookNo);
-	console.log("리뷰소제목:"+reviewTitle);
-	console.log("리뷰내용:"+reviewCont);
-	
 	$.ajax({
 	  type: 'POST',
 	  url: 'insertReview.go',
@@ -165,10 +150,6 @@ function insertReview(){
 			    recommend: checkedLike,
 			  },
  	 success: function (data) {
- 	 
-		  console.log("AJAX호출 성공");
-		  console.log("데이터 송신완료 값:");
-		  console.log(data);
 		
 	  var card_Elem_id = document.querySelector('#reviewInnerAjax');
 	  var num = document.querySelector('#totalReviewNum');
@@ -179,8 +160,6 @@ function insertReview(){
 	    data.forEach(function (obj) {
 	    
 	    if( obj.recommend == true ){
-	    	
-	    	console.log("해당 책 추천 함");
 	    	
 	    	card_Elem_id.innerHTML += `
 	        <div class="reviewBlock">
@@ -198,8 +177,6 @@ function insertReview(){
 	      `;
 	    	
 	    } else {
-	    
-	    console.log("해당 책 추천 안함");
 	    
 	      card_Elem_id.innerHTML += `
 	        <div class="reviewBlock">

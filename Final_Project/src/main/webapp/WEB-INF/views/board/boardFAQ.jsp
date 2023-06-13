@@ -13,30 +13,23 @@
 <title>고객센터 - 피터팬</title>
 </head>
 <body>
-
 	<input type="hidden" id="category" value="${category }">
 
-	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 
-	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;">
 		<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 	
-			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
 			
-			<!-- 창마다 바뀜 -->
 			<div class="main" style="width: 900px; font-size: 24px; color: black">
 				<div class="main_heading">
 					<h2 class="main_heading_1" >자주 묻는 질문</h2>
 				</div>
-			<!-- 검색창 -->
 			<div>
 				<div>
 					<h2 class="title_heading">질문 검색</h2>
 				</div>
-				<!-- 검색창 -->
 				<form method="post" action="<%=request.getContextPath()%>/board_search.go?boardArea=FAQ">
 					<div class="input_text_box">
 						<div class="input_btn_box">
@@ -51,7 +44,6 @@
 						</div>
 					</div>
 				</form>
-				
 				
 				<div class="asked_category_list">
 						<ul class="tab_menu">
@@ -72,14 +64,12 @@
 							<li class="tab_item"><a class="tab_a" href="#">eBook</a></li>
 						</ul>
 					</div>
-			</div>
+				</div>
 			
-				<!-- 아코디언 형식 리스트 -->	
 				<div id="title_category">
 					<p class="category_title"></p>
 				</div>
 				<div id="accordion"></div>	
-				
 			</div>
 		</div>
 	</div>

@@ -141,8 +141,6 @@ public class JoinServiceIpl  implements JoinService{
         }
         br.close();
         
-        System.out.println(response.toString());
-        
         session.setAttribute("validateNo", validCode);
         
 		return responseCode;

@@ -12,19 +12,14 @@
 </head>
 <body>
 
-	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 
-	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px; margin-bottom: 150px;">
 		<div class="row justify-content-sm-between" style="width: 1200px; padding-top: 40px;">
 	
-			<!-- 왼쪽 메뉴바 -->
 			<jsp:include page="../boardInclude/boardLeft.jsp" />
 			
-			<!-- 창마다 바뀜 -->
 			<div class="customer_wrap">
-	             <!-- title_wrap -->
 	             <div>
 	                 <h2>전화상담서비스 안내도</h2>
 	                 <p>
@@ -32,9 +27,7 @@
 	                     2. 밑줄 친 내용의 경우 사이트 내에서 확인 가능한 메뉴이며, 선택 시 해당 페이지로 이동됩니다.
 	                 </p>
 	             </div>
-	             <!-- //title_wrap -->
 	             
-	             <!-- tbl_col_wrap -->
 	             <div> 
 	                 <table>
 	                     <tbody>
@@ -191,7 +184,6 @@
 	         </div>
 		</div>		
 	</div>
-			
 	<!-- footer -->
 	<jsp:include page="./../top/footer.jsp" />
 </body>

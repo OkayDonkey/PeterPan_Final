@@ -67,7 +67,6 @@ public class LoginController {
 	    response.setContentType("text/html; charset=UTF-8");
 
 	    if (memberdto == null || !BCrypt.checkpw(dto.getMemberPwd(), memberdto.getMemberPwd())) {
-	        System.out.println("로그인 실패");
 	        String errorMessage = "아이디나 비밀번호를 확인해주세요.";
 	        model.addAttribute("errorMessage", errorMessage);
 	        return "member/login";
@@ -75,7 +74,6 @@ public class LoginController {
 
 	    // 이메일 인증 했는지 확인
 	    if (loginService.emailAuthFail(dto.getMemberId()) != 1) {
-	        System.out.println("이메일 인증 안됨");
 	        String errorMessage = "이메일 인증 후 로그인 해주세요.";
 	        model.addAttribute("errorMessage", errorMessage);
 	        return "member/login";
@@ -120,18 +118,12 @@ public class LoginController {
 	@RequestMapping("kakao_login_ok.go")
 	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, Model model, HttpSession httpSession) throws Exception {
 		
-		System.out.println("#########" + code);
-		
 		String access_Token = loginService.getAccessToken(code);
 		
 		HashMap<String, Object> userInfo = loginService.getUserInfo(access_Token);
 		
 		String nickname = (String) userInfo.get("nickname");
 		String email = (String) userInfo.get("email");
-		
-		System.out.println("###kakao_access_Token#### : " + access_Token);
-		System.out.println("###kakao_nickname#### : " + userInfo.get("nickname"));
-		System.out.println("###kakao_email#### : " + userInfo.get("email"));
 		
 		int isLoggedIn = this.dao.checkLoginStatus(email);
 		
@@ -140,7 +132,6 @@ public class LoginController {
 			
 			// 이메일 인증 했는지 확인
 		    if (loginService.emailAuthFail(dto.getMemberId()) != 1) {
-		        System.out.println("이메일 인증 안됨");
 		        String errorMessage = "이메일 인증 후 로그인 해주세요.";
 		        model.addAttribute("errorMessage", errorMessage);
 		        return "member/login";
@@ -161,8 +152,6 @@ public class LoginController {
 	@RequestMapping("naver_login_ok.go")
 	public String naverLoginOk(@RequestParam(value = "code", required = false) String code, Model model, HttpSession httpSession) throws Exception {
 		
-		System.out.println("#########" + code);
-		
 		String access_Token = loginService.getnaverAccessToken(code, httpSession);
 		
 		HashMap<String, Object> userInfo = loginService.getnaverUserInfo(access_Token);
@@ -177,14 +166,6 @@ public class LoginController {
 		String birth = birthyear + cleanedbirthday;
 		String gender = (String) userInfo.get("gender");
 		
-		System.out.println("###naver_access_Token#### : " + access_Token);
-		System.out.println("###naver_nickname#### : " + userInfo.get("nickname"));
-		System.out.println("###naver_email#### : " + userInfo.get("email"));
-		System.out.println("###naver_phone#### : " + userInfo.get("phone"));
-		System.out.println("###naver_birth#### : " + birth);
-		System.out.println("###naver_birth#### : " + userInfo.get("gender"));
-		
-		
 		int isLoggedIn = this.dao.checkLoginStatus(email);
 		
 		if(isLoggedIn == 1) {
@@ -192,7 +173,6 @@ public class LoginController {
 			
 			// 이메일 인증 했는지 확인
 		    if (loginService.emailAuthFail(dto.getMemberId()) != 1) {
-		        System.out.println("이메일 인증 안됨");
 		        String errorMessage = "이메일 인증 후 로그인 해주세요.";
 		        model.addAttribute("errorMessage", errorMessage);
 		        return "member/login";
@@ -266,8 +246,6 @@ public class LoginController {
 
 		String resultJson = restTemplate.getForObject(requestUrl, String.class);
 		
-		System.out.println("resultJson >>>" + resultJson);
-		
 		Map<String,String> userInfo = mapper.readValue(resultJson, new TypeReference<Map<String, String>>(){});
 		
 		String email = userInfo.get("email");
@@ -279,7 +257,6 @@ public class LoginController {
 			
 			// 이메일 인증 했는지 확인
 		    if (loginService.emailAuthFail(dto.getMemberId()) != 1) {
-		        System.out.println("이메일 인증 안됨");
 		        String errorMessage = "이메일 인증 후 로그인 해주세요.";
 		        model.addAttribute("errorMessage", errorMessage);
 		        return "member/login";

@@ -25,10 +25,6 @@ function requestPay() {
 		if ( originCost < 15000) {
 		   integerCost += 2500;
 		} 
-
-		
-		console.log("추가될 포인트:"+ addPoint);
-		console.log("선택된 쿠폰 번호"+pickedCouponNo);
 		
 		if (pickedCouponNo === null || pickedCouponNo === "") {
 		    pickedCouponNo = 0;
@@ -41,9 +37,6 @@ function requestPay() {
 		} else {
 		    usePoint = parseInt(usePoint);
 		}
-		
-		console.log("call pay");
-		console.log("결제금액 : "+integerCost);
 		
 		if(integerCost !== 0){
 		
@@ -59,16 +52,13 @@ function requestPay() {
 		      buyer_addr: addr,
 		      buyer_postcode: "01181"
 		    }, function (rsp) { // callback
-		     	console.log(rsp);
 		  		  location.href="buySuccess.go?couponNo="
 		  		  +pickedCouponNo+"&usePoint="+usePoint+
 		  		  "&payMoney="+integerCost+"&addPoint="+addPoint;
 		    });
 		    
    		 } else {
-    		
     		location.href="buySuccess.go"
-    		
   		 }
   		  
   }
@@ -93,7 +83,6 @@ function handleClick(event) {
 
     // 클릭한 payBox 요소 안의 img 태그의 alt 속성 값 추출
     var altValue = event.currentTarget.querySelector("img").getAttribute("alt");
-    console.log("Alt Value: " + altValue);
 }
 
 // 각 payBox 요소에 클릭 이벤트 핸들러 등록

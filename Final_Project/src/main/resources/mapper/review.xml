@@ -35,5 +35,4 @@
 		values(#{memberNo},#{bookNo})
 	</insert>
 
-
 </mapper>

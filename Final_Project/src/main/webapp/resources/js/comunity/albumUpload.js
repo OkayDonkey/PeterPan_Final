@@ -1,9 +1,7 @@
 // qna 답변 작성
 
 function bookSearchModal(no) {
-
   document.getElementById("insertPopup").removeAttribute("hidden");
-  console.log(no);
   var idNo = document.getElementById("idNo");
   idNo.value = no;
 }
@@ -20,21 +18,13 @@ $("#searchform").submit(function(event) {
 
 function serchalbum() {
   var keyword = document.getElementById("keyword").value;
-  // var field = $("select[name='field']").val();
-   var field = $("#field").val();
-  // var field = $("select[name='field']").find(":selected").val();
-  // var field = $("select[name='field'] option:selected").val();
+  var field = $("#field").val();
   
-console.log("keyword"+keyword);
-console.log("field"+field);
-
   $.ajax({
     type: "GET",
     url: "modal_search.go",
     data: { keyword: keyword, field: field },
     success: function (response) {
-      // 서버 응답 성공 시 처리할 내용
-      console.log(response); // 응답 데이터 확인 또는 처리 로직 추가
      // 리스트 내용 변경
      if (response && response.length > 0) {
       var html = '';
@@ -53,20 +43,14 @@ console.log("field"+field);
         html += '</tr>';
 
       }
-      // 리스트 테이블에 변경된 HTML 적용
       $('.bookWrap').html(html);
-      
     }
   },
     error: function (jqXHR, textStatus, errorThrown) {
-      // 서버 응답 실패 시 처리할 내용
       console.error(textStatus, errorThrown);
     },
   });
 }
-
-//// html += '<input type="button" value="선택하기" onclick="location.href = \'insertOk.go?bookNo=' + dto.bookNo + '\'">';
-
 
 function selectAlbum(bookNo) {
   
@@ -77,10 +61,6 @@ function selectAlbum(bookNo) {
     url: "insertBookOk.go",   //"insertBookOk.go"
     data: { bookNo: bookNo },
     success: function (response) {
-      // 응답 데이터 확인
-      console.log(response);
-
-      // 응답 데이터를 span 태그에 넣어주기
       if (response) {
         $('#bookCover'+no).attr('src', response.bookCover);
         $('#bookTitle'+no).val(response.bookName);

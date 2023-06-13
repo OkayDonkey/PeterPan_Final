@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
-import java.util.Iterator;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -37,45 +36,40 @@ public class Upload {
 
 		int day = cal.get(Calendar.DAY_OF_MONTH);
 
-		// getFileNames() : 업로드된 파일들의 이름 목록을 제공해 주는 메서드.
-		Iterator<String> iterator = mRequest.getFileNames();
+		String uploadFileName = "file1";
 
-			String uploadFileName = "file1";
+		// file1으로 뜸.
+		MultipartFile mFile = mRequest.getFile(uploadFileName);
 
-			// file1으로 뜸.
-			MultipartFile mFile = mRequest.getFile(uploadFileName);
+		// 실제 파일 이름
+		String originalFileName = mFile.getOriginalFilename();
 
-			// 실제 파일 이름
-			String originalFileName = mFile.getOriginalFilename();
+		String homedir = uploadPath + "/" + year + "-" + month + "-" + day;
 
-			// 실제 폴더를 만들어 보자
-			// ..........\\resourcess\\upload\\2023-05-12
-			String homedir = uploadPath + "/" + year + "-" + month + "-" + day;
+		File path1 = new File(homedir);
 
-			File path1 = new File(homedir);
+		if (!path1.exists()) {
+			path1.mkdirs();
+		}
 
-			if (!path1.exists()) {
-				path1.mkdirs();
+		// 실제 파일을 만들어 보자.
+		String saveFileName = originalFileName;
+
+		if (!saveFileName.equals("")) {
+			// currentTimeMillis ==> 1000분의 1초 단위로 이름이 바뀐다.
+			saveFileName = System.currentTimeMillis() + "_" + saveFileName;
+
+			try {
+				File origin = new File(homedir + "/" + saveFileName);
+
+				// transferTo() : 파일데이터를 지정한 폴더로 실제 저장시키는 메서드.
+				mFile.transferTo(origin);
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 
-			// 실제 파일을 만들어 보자.
-			String saveFileName = originalFileName;
-
-			if (!saveFileName.equals("")) {
-				// currentTimeMillis ==> 1000분의 1초 단위로 이름이 바뀐다.
-				saveFileName = System.currentTimeMillis() + "_" + saveFileName;
-
-				try {
-					File origin = new File(homedir + "/" + saveFileName);
-
-					// transferTo() : 파일데이터를 지정한 폴더로 실제 저장시키는 메서드.
-					mFile.transferTo(origin);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-			}
+		}
 		saveFileName = year + "-" + month + "-" + day + "/" + saveFileName;
 			
 		dto.setBoardFile(saveFileName);

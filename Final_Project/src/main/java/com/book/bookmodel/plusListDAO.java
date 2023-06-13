@@ -11,7 +11,6 @@ public interface plusListDAO {
 	//전체 수량 새기
 	int getListCount();
 
-
 	List<BookDTO> getplusList(PageDTO pdto);
 
 	List<BookDTO> toList(PageDTO dto);
@@ -24,7 +23,6 @@ public interface plusListDAO {
 
 	int genreList(Map<String, String> map);
 
-
 	List<BookDTO> genList(PageDTO dto);
 
 	//베스트 리스트 뽑기
@@ -32,9 +30,7 @@ public interface plusListDAO {
 	
 	int BestCount();
 
-
 	List<BookDTO> newbook(PageDTO pdto);
-
 
 	int newCount();
 

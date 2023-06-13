@@ -1,7 +1,5 @@
 var checkedLike = false;
 
-// 좋아요 Ajax===============
-
 var isLiked = false; // 좋아요 상태를 저장하는 변수
 var heartIcon = document.getElementById("heartIcon");
 var memberNo = document.getElementById("memberNo").value;
@@ -22,7 +20,6 @@ $(document).ready(function () {
       albumNo: albumNo
     },
     success: function (result) {
-      console.log("Ajax반환 성공 데이터:" + result);
       if (result > 0) {
         heartIcon.setAttribute("src", "resources/img/heart_fill.png");
         isLiked = true;
@@ -38,9 +35,6 @@ $(document).ready(function () {
 });
 
  function toggleLike() {
-    console.log("ToggleLike ajax호출");
-      console.log("albumNo:"+albumNo);
-  console.log("memberNo:"+memberNo);
     $.ajax({
       type: 'POST',
       url: 'albumLike.go',
@@ -49,7 +43,6 @@ $(document).ready(function () {
         albumNo: albumNo,
       },
       success: function (result) {
-      console.log(result);
       if (result > 0) {
         heartIcon.setAttribute("src", "resources/img/heart_fill.png");
         isLiked = true;
@@ -106,12 +99,10 @@ function reviewPopup() {
         imgElement.setAttribute("src", activeImgSrc);
         checkBox.value = true;
         checkedLike = true;
-        console.log("추천 체크됨");
     } else {
         // 이미지 소스를 기본 이미지로 변경
         imgElement.setAttribute("src", defaultImgSrc);
         checkBox.value = false;
         checkedLike = false;
-        console.log("추천 체크해제됨");
     }
 }

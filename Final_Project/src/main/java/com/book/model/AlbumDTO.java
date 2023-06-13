@@ -14,7 +14,6 @@ public class AlbumDTO {
 	private int albumNo;
 	private int bookNo;
 	private int memberNo;
-	
 	private	String memberName; // 디테일
 	private	String albumTitle;
 	private	String albumCont;

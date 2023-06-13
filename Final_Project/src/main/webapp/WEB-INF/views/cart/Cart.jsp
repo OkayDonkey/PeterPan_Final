@@ -25,8 +25,6 @@
 
 <jsp:include page="../top/top.jsp" /> 
 
-
-
 <div class="container align-content-center" style="min-width:1250px; z-index: 101;"><!-- 가로폭 컨테이너 -->
 	<div class="row justify-content-sm-between" style=" padding:10px;" ><!-- Flex Row 컨테이너 -->
 		<div  class="detail_info_main mb-5"><!-- 메인 좌측 컨테이너 -->

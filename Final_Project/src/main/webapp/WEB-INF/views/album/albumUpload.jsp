@@ -48,36 +48,29 @@ function check() {
 	} 
 
 }
-
 </script>
 </head>
 <body>
 
 	<jsp:include page="../top/top.jsp" />
 	
-
 	<div class="container">
 	<h2 style="margin-left: 100px;margin-bottom: 40px;">
 	앨범 등록
 	</h2>
-		<%-- <c:set value="${albumlist }" var="alist" />	 --%>
 	<div class="formcontainer">
 		<form action="<%=request.getContextPath() %>/insertOk.go" method="post" name="f"
 				onsubmit="return check()">
 			  <div id="searchResults">
 	    <!-- 검색 결과를 동적으로 표시하는 부분 -->
-			
-		  
 			  </div>
 				<div class="input_wrap">
 					<input type="text" name="albumTitle" placeholder="앨범의 제목을 입력해주세요" class ="from_inputA">
 					<br>
 					<input type="text" name="albumCont" placeholder="앨범에 대한 가벼운 소개를 적어주세요" class ="from_inputB">
 				</div>
-					
 				<br>
 				<br>
-			
 				 <table class ="table_class" >
 					<tr style="background-color: #f7f7f7; margin-bottom: 20px;height:40px;border-bottom: 2px solid black; ">
 						<td>책 사진</td>
@@ -227,12 +220,9 @@ function check() {
 		<div class="bookWrap">
 
 		</div>
-			
-			
 			<div class="qnaInsertBox_btn"  style="display: flex; margin-top: 40px;">
 	            <div class="RoundBox1"  onclick="closeModal()"><span>취소</span></div>
          	</div>
-         	
 		</div>		
 		</div>
 		<!-- 모달 검색 끝 -->

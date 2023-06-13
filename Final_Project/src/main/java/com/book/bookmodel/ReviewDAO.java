@@ -14,5 +14,4 @@ public interface ReviewDAO{
 	
 	public int insertLike(LikeDTO likeDto);
 	
-	
 }

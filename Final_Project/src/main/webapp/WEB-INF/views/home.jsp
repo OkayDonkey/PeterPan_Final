@@ -59,21 +59,9 @@
 										<thead>
 											<tr>
 												<th>
-												
-													<%--  <a href="<%=request.getContextPath()%>/cart.go?bookNo=${dto.bookNo}&memberId=${session.memberId}" id="modalOpen"> --%>
 													 <a href="<%=request.getContextPath() %>/bookDetail.go?bookNo=${dto.bookNo}">
  														<img id="book_img" src="${dto.bookCover }">														
 													</a> 
-													
-													
-													<%--
-																아래 스크립트에 클릭을 통한 스크립트 실행
-													 data-context-path="<%=request.getContextPath()%>" data-book-no="${dto.bookNo}" data-member-id="${sessionScope.Id}" --%>
-													<%-- <a href="#" data-context-path="<%=request.getContextPath()%>" data-book-no="${dto.bookNo}" data-member-id="${session.memberNo}" onclick="modalOpen(event);">
-													    <img id="book_img" src="${dto.bookCover}">
-													</a> --%>
-													
-													
 												</th>
 											</tr>
 										</thead>
@@ -168,22 +156,6 @@
 			});
 		
 		});
-	    
-	   <%--  function modalOpen(event) {
-	        event.preventDefault();
-
-	        var contextPath = event.currentTarget.getAttribute('data-context-path');
-	        var bookNo = event.currentTarget.getAttribute('data-book-no');
-	        var memberId = '<%=(String)session.getAttribute("memberNo")%>';
-
-	        if (memberId != null) {
-	            document.location.href = contextPath + '/cart.go?bookNo=' + bookNo + '&memberId=' + memberId;
-	        } else {
-	            alert("로그인 먼저 부탁드립니다");
-	            history.back();
-	        }
-	    }
- --%>
 	</script>
 
 </body>

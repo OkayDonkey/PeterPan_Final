@@ -17,25 +17,19 @@
 </head>
 <body>
 	
-	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 
-	<!-- 화면 나누기 구성 -->
 	<div class="container align-content-center" style="min-width: 1200px;" id="totalBoard">
 	<div class="row justify-content-sm-between" style="width: 1200px; padding-bottom: 100px; padding-top: 40px;">
 
-		<!-- 왼쪽 메뉴바 -->
 		<jsp:include page="../boardInclude/boardLeft.jsp" />
 			
-			<!-- 오른쪽 메뉴바 -->
-			<!-- 창마다 바뀜 -->
 			<div class="main" style="width: 900px;">
 				<div class="main_heading">
 					<span class="main_heading_1">무엇을 도와드릴까요?</span><br>
 					<span class="main_heading_2">피터팬 고객센터</span>
 					<span class="main_heading_1">입니다.</span>
 			</div>
-				
 				<div>
 					<div>
 						<h2 class="title_heading">자주 묻는 질문</h2>
@@ -78,7 +72,6 @@
 					</div>
 		
 				</div>
-
 				
 				<div>
 					<h2 class="title_heading">1:1 문의</h2>
@@ -111,7 +104,6 @@
 						</a>
 					</div>
 				</div>
-				<!-- end. customer_wrap -->
 
  				<div class="notice_wrap">
 					<div class="notice_head">

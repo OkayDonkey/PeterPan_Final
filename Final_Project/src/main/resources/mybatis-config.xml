@@ -7,7 +7,6 @@
   
   <typeAliases>
   
-  
 	<!-- book -->
 	<typeAlias type="com.book.model.CartDTO" alias="cartDto"/>
   	<typeAlias type="com.book.model.BookDTO" alias="bookDto"/>	
@@ -24,15 +23,12 @@
   	<typeAlias type="com.book.model.AlbumLikeDTO" alias="albumLikeDto" />		
   	<typeAlias type="com.book.model.AlbumCommentDTO" alias="albumCommentDto" />		
 	
-	
-	
 	<typeAlias type="com.book.album.AlbumDAO" alias="albumDao" />
 	<typeAlias type="com.book.bookmodel.plusListDAO" alias="pluslistDao"/>
 	<typeAlias type="com.book.bookmodel.CartDAO" alias="cartDao"/>
   	<typeAlias type="com.book.bookmodel.BookDAO" alias="bookDao"/>
   	<typeAlias type="com.book.bookmodel.ReviewDAO" alias="reviewDao"/>
 	<!-- book End-->
-	
 	
 	<!-- member -->
    	<typeAlias type="com.book.model.MemberDTO" alias="memberdto" />

@@ -64,8 +64,6 @@ public class LoginServiceImpl implements LoginService{
 			
 			int responseCode = conn.getResponseCode();
 			
-			System.out.println("responseCode : " + responseCode);
-			
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			
 			String line = "";
@@ -75,16 +73,11 @@ public class LoginServiceImpl implements LoginService{
 				result += line;
 			}
 			
-			System.out.println("response body : " + result);
-			
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			
 			access_Token = element.getAsJsonObject().get("access_token").getAsString();
 			refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
-			
-			System.out.println("access_token : " + access_Token);
-			System.out.println("refresh_token : " + refresh_Token);
 			
 			br.close();
 			bw.close();
@@ -191,16 +184,11 @@ public class LoginServiceImpl implements LoginService{
 			result += line;
 		}
 		
-		System.out.println("response body : " + result);
-		
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(result);
 		
 		access_token = element.getAsJsonObject().get("access_token").getAsString();
 		refresh_token = element.getAsJsonObject().get("refresh_token").getAsString();
-		
-		System.out.println("access_token : " + access_token);
-		System.out.println("refresh_token : " + refresh_token);
 		
 		br.close();
 		bw.close();

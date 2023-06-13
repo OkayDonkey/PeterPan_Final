@@ -1,8 +1,6 @@
 package com.book.boardmodel;
 
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,21 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.book.model.BoardDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PageDTO;
-import com.google.gson.JsonObject;
 
 @Controller
 public class BoardController {
@@ -52,8 +44,6 @@ public class BoardController {
 
 		model.addAttribute("category", category);
 		
-		System.out.println(category);
-		
 		return "board/boardFAQ";
 	}
 
@@ -62,7 +52,6 @@ public class BoardController {
 	public Map<String, Object> categoryList(@RequestParam("category") String category, BoardDTO dto) {
 		Map<String, Object> maplist = new HashMap<String, Object>();
 
-		System.out.println(category);
 		List<BoardDTO> list = null;
 
 		if (category.equals("BEST 10") || category.equals("자주 묻는 질문")) {
@@ -108,9 +97,6 @@ public class BoardController {
 		return "board/ars";
 	}
 	
-	@Autowired
-	private Upload upload;
-	
 	@RequestMapping("upload.do")
 	public String upload() {
 		return "board/qnaForm";
@@ -118,8 +104,6 @@ public class BoardController {
 	
 	@RequestMapping("board_search.go")
     public String boardSearch(Model model, @RequestParam(defaultValue = "1") int page, PageDTO pdto) {
-
-		
 
         if(pdto.getBoardArea().equals("FAQ")) {
         	
@@ -129,7 +113,6 @@ public class BoardController {
            map.put("boardArea", pdto.getBoardArea());
 
            List<BoardDTO> searchList = this.dao.searchList(map);
-           System.out.println("searchList >>> " + searchList);
 
            model.addAttribute("searchList", searchList);
         	 
@@ -141,7 +124,6 @@ public class BoardController {
 
             if(pdto.getKeyword().equals("")) {   
                 totalCount = this.dao.getNoticeCount();
-                System.out.println("totalCount >>> " +  totalCount);
                 
                 int rowsize = 10;
                 
@@ -163,13 +145,8 @@ public class BoardController {
                 int rowsize = 10;
                 
                 PageDTO p = new PageDTO(page, rowsize, pdto.getBoardArea(), totalCount, pdto.getKeyword());
-                System.out.println("keyword >>> " +  pdto.getKeyword());
-                System.out.println("boardArea >>> " +  pdto.getBoardArea());
                 
-                System.out.println("p >>" + p);
-
                 List<BoardDTO> searchList = dao.noticeSearchList(p);
-                System.out.println("searchList >>> " + searchList);
                 
                 int totalEndNo = totalCount - ((page-1) * rowsize);
 
@@ -179,7 +156,6 @@ public class BoardController {
                 return "board/boardNoticeSearch";
 
             }
- 
         }
     }
 	
@@ -207,11 +183,7 @@ public class BoardController {
 		
 		BoardDTO dto = dao.noticeDetail(dno);
 		
-		System.out.println(dto);
-		
 		dao.boardHit(dto);
-		
-		System.out.println(2);
 		
 		model.addAttribute("dto", dto);
 		

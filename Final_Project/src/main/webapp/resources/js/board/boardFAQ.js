@@ -21,9 +21,6 @@ function handleClick(element) {
   // 클릭한 카테고리 가져오기
   var category = element.innerText;
 
-  // 클릭한 카테고리 출력
-  console.log("Clicked category:", category);
-
   // 아코디언 내용 초기화
   accordionElement.empty();
 
@@ -47,7 +44,6 @@ tabs.forEach(function (tab) {
     tab.classList.add("clicked");
   }
   
-  console.log("Clicked category:", category);
 });
 
 // 각 탭에 클릭 이벤트 등록

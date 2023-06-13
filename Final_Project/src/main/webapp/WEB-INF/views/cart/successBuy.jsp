@@ -141,9 +141,6 @@
 						</div>
 					</div>
 				</div>    
-	           	
-	           	
-	           	
 			</div>			
 					
 			<br>		
@@ -151,8 +148,6 @@
 			<br>		
 			<br>		
 			<br>		
-		
-				
 		</div><!-- 메인 좌측 컨테이너 -->
 		
 		<!-- 메인 우측 컨테이너 -->
@@ -203,9 +198,6 @@
 								</c:if>
 						</span>
 					</div>
-					
-					
-					
 <!-- 팝업 -->
 	<div id="popupDrvInfo" hidden 
 		style="position: absolute; background-color: white; border: 1px solid gray;

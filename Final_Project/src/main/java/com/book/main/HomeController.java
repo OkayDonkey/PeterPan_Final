@@ -25,22 +25,14 @@ public class HomeController {
 	private BookDAO dao;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String home(Model model) {
 	
 		List<BookDTO> list =this.dao.getbooklist();
 		List<BookDTO> bestlist =this.dao.getbestlist();
 		
-		System.out.println("aa");
-		System.out.println(list);
-		
 		model.addAttribute("List", list)
 			 .addAttribute("bestList",bestlist);
-		
 		
 		return "home";
 	}

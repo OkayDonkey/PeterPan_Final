@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/comunity/albumDetail.css" />
-<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" /><!-- 파비 -->
+<link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon.png" />
 
 
 <title>피터팬</title>
@@ -59,10 +59,6 @@
       			</div>
       		</div>
       	</div>
-      
-      
-      
-      		
       </section>
       
       <input type="hidden" name="sessionId" id="sessionId" value="${session.memberId }">

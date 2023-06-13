@@ -10,12 +10,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <!-- 
-  	namespace 명은 패키지명을 포함하여 DAO 인터페이스 이름으로 작성하는 것이 관려임 
-  	namespace 명은 mapper들을 구분하는데 식별자로 사용이됨
-  -->
   	<mapper namespace="bookDao">
-  	
   		<select id="detail" parameterType="int" resultType="bookDto" >
   			select * from book where bookNo = #{bookNo}
   		</select>
@@ -30,7 +25,6 @@
     (SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo} AND recommend = true) AS like_count,
     (SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo}) AS review_count,
     CONVERT((SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo} AND recommend = true) / (SELECT COUNT(*) FROM review WHERE bookNo = #{bookNo}) * 100, UNSIGNED) AS like_percentage;
-
 		</select>
 		<select id="newRelBook" resultType="newRelBookDto">
 			SELECT * FROM book ORDER BY bookRelDate DESC LIMIT 10 

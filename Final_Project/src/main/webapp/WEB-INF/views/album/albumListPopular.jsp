@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<!-- 상단 네비바  -->
 	<jsp:include page="./../top/top.jsp" />
 	
@@ -30,7 +29,6 @@
 					</span>
 				</div>	
 			</div>
-			
 			<!-- test -->
 			<div>
 				<div class="total_cont">
@@ -58,7 +56,6 @@
 											</div>
 										</a>
 									</div>
-									
 									<div class="info_box">
 										<div class="info">
 											<a href="<%=request.getContextPath() %>/album_detail.go?albumNo=${dto.albumNo}" class="title hyrend" title="달짝지근 기분 좋아지는 Daily Pop 19" target="_self">${dto.albumTitle}</a>

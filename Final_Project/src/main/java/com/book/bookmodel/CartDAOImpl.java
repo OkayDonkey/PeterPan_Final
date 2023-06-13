@@ -20,11 +20,6 @@ public class CartDAOImpl implements CartDAO{
 	@Autowired
 	private SqlSessionTemplate SqlSession;
 	
-	/*
-	 * @Override public int insertCart(Map<Integer,String> map) {
-	 * this.SqlSession.insert("insert", map); }
-	 */
-
 	@Override
 	public int insertCart(CartDTO dto) {
 	

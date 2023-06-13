@@ -8,7 +8,6 @@
 <title>고객센터 - 피터팬</title>
 </head>
 <body>
-
 			<!-- 왼쪽 메뉴바 -->
 			<div class="left_list">
 				<p class="boder_header" style="margin-bottom: 20px;">고객센터</p>
@@ -16,7 +15,6 @@
 					<ul class="snb_list category">
 						<li class="snb_list" style="margin-bottom: 16px;">
 							<a href="<%=request.getContextPath()%>/boardPage.go">메인</a></li>
-
 						<div>
 							<li class="snb_list" style="margin-bottom: 16px;">
 								<a onclick="handleClick(this);" href="<%=request.getContextPath() %>/boardFAQ.go?category=자주 묻는 질문">자주 묻는 질문</a>

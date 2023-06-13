@@ -49,8 +49,6 @@ public class MypageServiceImpl implements MypageService{
         sendMail.setTo(email);
         sendMail.send();
         
-        System.out.println("발송된 이메일 인증코드 >>> "+ mail_key);
-		
         session.setAttribute("mail_key", mail_key);
         
         return mail_key;

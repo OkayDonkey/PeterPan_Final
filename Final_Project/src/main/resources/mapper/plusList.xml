@@ -16,37 +16,27 @@
   	select count(*) from book where bookCategory=#{category}
   </select>
   
-  
-  
   <select id="List" parameterType="pageDto" resultType="bookDto">
- <![CDATA[
-SELECT * FROM (
-    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = '한국도서')
-    AS sub
-		WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
-    		
-
- ]]>
-
+	 <![CDATA[
+		SELECT * FROM (
+		    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = '한국도서')
+		    AS sub
+				WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
+	 ]]>
   </select>
-  
-  
-  
   
   <select id="tolist" parameterType="pageDto" resultType="bookDto">
- <![CDATA[
-SELECT * FROM (
-    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = #{Category}) AS sub
-		WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
- ]]>
+	 <![CDATA[
+		SELECT * FROM (
+		    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookRelDate DESC) AS rnum FROM book b WHERE bookCategory = #{Category}) AS sub
+				WHERE rnum >= #{startNo} AND rnum <= #{endNo} 
+	 ]]>
   </select>
-
 
   <!-- 장르, 카테고리 카운트 쿼리문   -->
   <select id="genre" parameterType="map" resultType="int">
 	select count(*) from book where bookCategory=#{Category} and bookGenre=#{Genre}
   </select>
-  
   
 	  <select id="gen" parameterType="pageDto" resultType="bookDto">
 			SELECT * FROM (
@@ -56,79 +46,70 @@ SELECT * FROM (
 			 ]]>
 	  </select>
   
-  
-  
-  
-<select id="search" parameterType="map" resultType="int">
-    select count(*) from book
-    
-    <if test="field == 'title'">
-        where bookName like concat('%', #{keyword} ,'%')
-    </if>
-    <if test="field == 'writer'">
-        where bookWriter like concat('%', #{keyword}, '%')
-    </if>
-    <if test="field == 'genre'">
-        where bookGenre like concat('%', #{keyword}, '%')
-    </if>
-    
-</select>
-    
-    
-    
+	<select id="search" parameterType="map" resultType="int">
+	    select count(*) from book
+	    
+	    <if test="field == 'title'">
+	        where bookName like concat('%', #{keyword} ,'%')
+	    </if>
+	    <if test="field == 'writer'">
+	        where bookWriter like concat('%', #{keyword}, '%')
+	    </if>
+	    <if test="field == 'genre'">
+	        where bookGenre like concat('%', #{keyword}, '%')
+	    </if>
+	    
+	</select>
     
 	<select id="searchOk" parameterType="pageDto" resultType="bookDto">
-    select * from (
-        select b.*, row_number() over(order by bookNo desc) as rnum
-        from book b
-        <choose>
-            <when test="field=='title'">
-                where bookName like concat('%', #{keyword}, '%')
-            </when>
-            <when test="field=='genre'">
-                where bookGenre like concat('%', #{keyword}, '%')
-            </when>
-            <when test="field=='writer'">
-                where bookWriter like concat('%', #{keyword}, '%')
-            </when>
-        </choose>
-    ) as sub
-   <![CDATA[
-    where rnum >= #{startNo} and rnum <= #{endNo};
-   ]]>
-</select>
+	    select * from (
+	        select b.*, row_number() over(order by bookNo desc) as rnum
+	        from book b
+	        <choose>
+	            <when test="field=='title'">
+	                where bookName like concat('%', #{keyword}, '%')
+	            </when>
+	            <when test="field=='genre'">
+	                where bookGenre like concat('%', #{keyword}, '%')
+	            </when>
+	            <when test="field=='writer'">
+	                where bookWriter like concat('%', #{keyword}, '%')
+	            </when>
+	        </choose>
+	    ) as sub
+	   <![CDATA[
+	    where rnum >= #{startNo} and rnum <= #{endNo};
+	   ]]>
+	</select>
 
-
-<!-- 베스트 탭 나열 -->
+	<!-- 베스트 탭 나열 -->
 	<select id="bestL" resultType="int" >
-SELECT count(*)
-	FROM book
-	WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)	
+		SELECT count(*)
+			FROM book
+			WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)	
 	</select>
 	
 	
 	<select id="bestList" parameterType="pageDto" resultType="bookDto">
-SELECT *
-FROM (
-    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookLike DESC) AS rnum
-    FROM (
-        SELECT *
-        FROM book
-        WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
-    ) AS b
-) AS sub
-				<![CDATA[
-    where sub.rnum >= #{startNo} and sub.rnum <= #{endNo};
+		SELECT *
+		FROM (
+		    SELECT b.*, ROW_NUMBER() OVER (ORDER BY bookLike DESC) AS rnum
+		    FROM (
+		        SELECT *
+		        FROM book
+		        WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+		    ) AS b
+		) AS sub
+	<![CDATA[
+    	where sub.rnum >= #{startNo} and sub.rnum <= #{endNo};
    ]]>
 	</select>
 	
-	
-	
 	<!-- 시간 탭 나열 -->
 		<select id="newL" resultType="int" >
-		SELECT count(*)
-		FROM book
-		WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)	
+			SELECT count(*)
+			FROM book
+			WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)	
 		</select>
 	
 	
@@ -142,10 +123,9 @@ FROM (
 		        WHERE STR_TO_DATE(bookRelDate, '%Y년 %m월 %d일') >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
 		    ) AS b
 		) AS sub
-				<![CDATA[
-    where sub.rnum >= #{startNo} and sub.rnum <= #{endNo};
-   ]]>
-  </select>
-
+		<![CDATA[
+	    where sub.rnum >= #{startNo} and sub.rnum <= #{endNo};
+	   ]]>
+	  </select>
 
   </mapper>

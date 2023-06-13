@@ -2,11 +2,8 @@ package com.book.album;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +19,6 @@ import com.book.model.AlbumDTO;
 import com.book.model.BookDTO;
 import com.book.model.CartDTO;
 import com.book.model.MemberDTO;
-import com.book.model.ReviewDTO;
 
 @Controller
 public class AlbumDetailController {
@@ -45,10 +41,6 @@ public class AlbumDetailController {
 		// 앨범 댓글을 앨범 번호로 가져오는 메서드
 		List<AlbumCommentDTO> commentList = this.dao.getAlbumComment(albumNo);
 		
-		System.out.println("앨범 리스트 구성요소 :" + list);
-		System.out.println("해당 앨범 좋아요 갯수 :" + likeCount);
-		System.out.println("해당 앨범 댓글 정보 :" + commentList);
-		
 		model.addAttribute("albumList",list);
 		model.addAttribute("likeCount",likeCount);
 		model.addAttribute("commentList",commentList);
@@ -60,23 +52,16 @@ public class AlbumDetailController {
 	@ResponseBody
 	public List<AlbumCommentDTO> insertComment(Model model, AlbumCommentDTO aDto) {
 		
-		System.out.println("insertReview 컨트롤러 진입");
-		 
 		int result = this.dao.insertComment(aDto);
 
 		if (result > 0) {
 		        
-		        System.out.println("댓글 등록완료: " + result);
 		        List<AlbumCommentDTO> commentList = this.dao.getAlbumComment(aDto.getAlbumNo());
-		        System.out.println("댓글 로딩 책번호: " + aDto.getAlbumNo());
-		        System.out.println("댓글 정보: " + commentList);
 		       
 		        return commentList;
 		        
 		    } else {
-		    	
 		    	return null;
-		    	
 	    }
 		
 	}

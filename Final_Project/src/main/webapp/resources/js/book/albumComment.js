@@ -8,12 +8,6 @@ function comment(){
   	  var commentDisplay1 = document.getElementById('commentDisplay1');
   	  var commentDisplay2 = document.getElementById('commentDisplay2');
 		
-		console.log("앨범 댓글  Ajax호출");
-		console.log("회원번호:"+ memberNo); 
-		console.log("회원아이디:"+ memberId);
-		console.log("앨범번호:"+ albumNo);
-		console.log("리뷰내용:"+ comment);
-	
 		if (comment === "") {
 			alert("댓글 내용을 입력해주세요.");
 			return; // 함수 종료
@@ -30,10 +24,6 @@ function comment(){
 			comment: comment,
 		},
 		success: function (data) { 
-			
-			console.log("AJAX호출 성공");
-			console.log("데이터 송신완료 값:");
-			console.log(data);
 			
 		var commentContainer = document.getElementById("CommentInnerAjax"); 
 			commentContainer.innerHTML = ""; // 기존 내용 지우기
@@ -62,7 +52,6 @@ function comment(){
 },
 
   error: function (request, status, error) {
-    console.log(error); // 오류 발생시 콘솔에 출력
 	alert("댓글 등록에 오류가 발생하였습니다. 잠시 후 다시 시도해주세요.");
   }
 });

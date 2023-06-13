@@ -21,5 +21,4 @@ public class CartDTO {
 	private int bookPrice;
 	private int totalPrice;
 	
-
 }

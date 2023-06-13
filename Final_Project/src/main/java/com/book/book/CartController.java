@@ -2,16 +2,11 @@ package com.book.book;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.http.HttpResponse;
-import java.nio.channels.SeekableByteChannel;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-import javax.mail.Session;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,9 +24,6 @@ import com.book.model.CartDTO;
 import com.book.model.CouponDTO;
 import com.book.model.MemberDTO;
 import com.book.model.PurchaseDTO;
-import com.github.scribejava.core.model.Response;
-
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 @Controller
 public class CartController {
@@ -43,16 +34,10 @@ public class CartController {
 	@RequestMapping("cart.go")
 	public void cartList(Model model,CartDTO dto,HttpServletResponse response,HttpServletRequest request,HttpSession session,BookDTO bdto) throws IOException {		
 		
-		MemberDTO mdto = (MemberDTO)session.getAttribute("session");
-		
-		String memberId =mdto.getMemberId();
-		
 		response.setContentType("text/html; charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
 
-		System.out.println(dto.getMemberId());
-		
 		if(dto.getMemberId() == null || dto.getMemberId().equals("")) {
 			out.println("<script>");
 			out.println("alert('로그인 먼저 부탁드립니다')");
@@ -60,7 +45,6 @@ public class CartController {
 			out.println("</script>");			
 
 		} else{
-			
 			int check = Cdao.getCartCkeck(dto);
 			
 			if(check == 0) {
@@ -71,8 +55,6 @@ public class CartController {
 				out.println("</script>");		
 			}else {
 			// 확인 대화 상자 표시
-		/*	 if (dto.getMemberId() != null && dto.getMemberId().equals(dto.getMemberId())) {*/
-				 
 					this.Cdao.cartIf(dto);
 					out.println("<script>");	
 					out.println("alert('기존 상품에 추가했습니다')");
@@ -85,18 +67,12 @@ public class CartController {
 	@RequestMapping("cartList.go")
 	public String cartList(Model model,HttpSession session){
 		
-			MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
-			
-			System.out.println(sessiondto);
-			
-			String memberId =sessiondto.getMemberId(); 
-			
-			System.out.println(memberId);
-
+		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
+		
+		String memberId =sessiondto.getMemberId(); 
+		
 		List<CartDTO> list = this.Cdao.getcartList(memberId);
 		
-		System.out.println(list);
-
 		model.addAttribute("cList",list );		
 		return "cart/Cart";
 		}
@@ -155,10 +131,8 @@ public class CartController {
 		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
 
 		List<CartDTO> list = this.Cdao.getcartList(sessiondto.getMemberId());
-		System.out.println("장바구니 정보:"+list);
 		
 		List<CouponDTO> couponList = this.Cdao.getCouponList(sessiondto.getMemberId());
-		System.out.println("쿠폰 정보"+couponList);
 	
 		model.addAttribute("cList",list );		
 		model.addAttribute("coupon", couponList );		
@@ -174,12 +148,10 @@ public class CartController {
 		MemberDTO sessiondto = (MemberDTO) session.getAttribute("session");
 		
 		String memberId =sessiondto.getMemberId(); 
-		System.out.println(memberId);
 		
 		int usePoint = sessiondto.getPoint() - point;
 		sessiondto.setPoint(usePoint);
 		
-		System.out.println("포인트 사용액: "+point+"기존 잔액: "+ sessiondto.getPoint()+"사용 후 잔액: "+(sessiondto.getPoint()));
 		// 장바구니 목록 불러오기
 		List<CartDTO> list = this.Cdao.getcartList(memberId);
 		
@@ -213,36 +185,28 @@ public class CartController {
 			dto.setUsedPoint(point);
 			dto.setPaymentCost(paymentCost);
 			
-			System.out.println("구매정보 "+dto);
-			
 			// 장바구니 목록의 크기만큼 insert문을 실행해준다.
 			this.Cdao.insertPurchase(dto);
 			
 			// 시퀀스 작업해주기
-			System.out.println("카트 DTO:"+list.get(i));
 			this.Cdao.deletecheck(list.get(i));
 		}
 		
-		
-		System.out.println("삭제할 쿠폰번호"+couponNo);
 		int checkCoupon = this.Cdao.deleteCoupon(couponNo);
 		
 		if(checkCoupon > 0) {
-		System.out.println("삭제된 쿠폰번호 : "+couponNo);
 		}
 		
 		// 포인트 적립 부분
 		int calPoint = sessiondto.getPoint();
 		calPoint += addPoint;
 		sessiondto.setPoint(calPoint);
-		System.out.println("추가할 포인트:"+addPoint+"계산된 포인트"+sessiondto.getPoint());
 		
 		this.Cdao.updatePoint(sessiondto);
 		
+		List<PurchaseDTO> pList = this.Cdao.purchasList(PurchaseLabel);
 		
-		 List<PurchaseDTO> pList = this.Cdao.purchasList(PurchaseLabel);
-		
-		 model.addAttribute("pList", pList);
+		model.addAttribute("pList", pList);
 		
 		
 		return "cart/successBuy";
@@ -252,14 +216,10 @@ public class CartController {
 	@RequestMapping("directBuy.go")
 	public void directBuy(Model model,CartDTO dto,HttpServletResponse response,HttpServletRequest request,HttpSession session,BookDTO bdto) throws IOException {		
 		
-		MemberDTO mdto = (MemberDTO)session.getAttribute("session");
-		
 		response.setContentType("text/html; charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
 
-		System.out.println(dto.getMemberId());
-		
 		if(dto.getMemberId() == null || dto.getMemberId().equals("")) {
 			out.println("<script>");
 			out.println("alert('로그인 먼저 부탁드립니다')");
@@ -278,14 +238,12 @@ public class CartController {
 				out.println("</script>");		
 			}else {
 			// 확인 대화 상자 표시
-		/*	 if (dto.getMemberId() != null && dto.getMemberId().equals(dto.getMemberId())) {*/
-				 
-					this.Cdao.cartIf(dto);
-					out.println("<script>");	
-					out.println("alert('기존 상품에 추가했습니다')");
-					out.println("history.back()");
-					out.println("</script>");	
-				 } 
+			this.Cdao.cartIf(dto);
+			out.println("<script>");	
+			out.println("alert('기존 상품에 추가했습니다')");
+			out.println("history.back()");
+			out.println("</script>");	
+		 } 
 		
 		}
 	}
@@ -294,17 +252,9 @@ public class CartController {
 	@RequestMapping("test.go")
 	public String test(Model model,PurchaseDTO pdto ,HttpSession session) {
 		
-		
 		 List<PurchaseDTO> pList = this.Cdao.purchasList("2023060212351283");
 		 
-		 MemberDTO mdto = (MemberDTO)session.getAttribute("session");
-		 
-		 System.out.println("멤버정보"+mdto);
-		 
-		 System.out.println("구매내역:"+pList);
-		 
 		 model.addAttribute("pList", pList);
-		
 		
 		return "cart/successBuy";
 		
