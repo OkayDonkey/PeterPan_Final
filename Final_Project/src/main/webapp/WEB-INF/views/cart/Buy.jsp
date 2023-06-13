@@ -322,7 +322,13 @@
 				</div>
 				<div id="pointDisplay" class="mb-3" style="font-weight: 500; color:#5055b1;" hidden></div><br>
 				<div class="mb-3 mt-3"><b><span class="text-left">결제 예정 금액</span>
-				<span class="float-right" id="cartTotalPrice2"><fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
+				<span class="float-right" id="cartTotalPrice2">
+				<c:if test="${cartTotalPrice < 15000 }">
+						<fmt:formatNumber>${ (cartTotalPrice - (cartTotalPrice * 0.1 ))+ 2500}</fmt:formatNumber>원
+					</c:if>
+					<c:if test="${cartTotalPrice > 15000 }">
+						<fmt:formatNumber>${ cartTotalPrice - (cartTotalPrice * 0.1 )}</fmt:formatNumber>원
+					</c:if>
 				</span></b></div>
 				<div class="mb-3"><span class="float-left">적립예정 포인트</span>
 					<img style="width:22px; margin-left: 10px;" id="pointIco" src="resources/img/pointIco.png" onclick="togglePopup('popupPoint', 'pointIco', 'resources/img/pointIco.png', 'resources/img/pointIco_active.png')">

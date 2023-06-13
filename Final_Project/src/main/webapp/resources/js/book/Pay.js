@@ -19,8 +19,12 @@ function requestPay() {
 		  addPoint = Math.round((originCost * 0.05) + 2000);
 		} else {
 		  addPoint = Math.round(originCost * 0.05);
-		  integerCost += 2500;
+		  
 		}
+		
+		if ( originCost < 15000) {
+		   integerCost += 2500;
+		} 
 
 		
 		console.log("추가될 포인트:"+ addPoint);

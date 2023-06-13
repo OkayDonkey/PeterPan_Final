@@ -130,10 +130,10 @@
 							<div class="dropdown-inner">
 								<div class="dropdown-column">
 									<div
-										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-4 mb-3">
+										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-1 mb-3">
 										<a
 											href="<%=request.getContextPath()%>/tolist.go?bookCategory=국내도서 ">
-											<h3 class="h5 text-shadow my-3">국내</h3>
+											<h3 class="h5 text-shadow my-1">국내</h3>
 										</a>
 									</div>
 									<div class="widget widget-links">
@@ -168,10 +168,10 @@
 
 								<div class="dropdown-column">
 									<div
-										class="bg-position-center bg-	no-repeat bg-size-cover text-center px-3 py-4 mb-3">
+										class="bg-position-center bg-	no-repeat bg-size-cover text-center px-3 py-1 mb-3">
 										<a
 											href="<%=request.getContextPath()%>/tolist.go?bookCategory=일본도서 ">
-											<h3 class="h5 text-shadow my-3">일본</h3>
+											<h3 class="h5 text-shadow my-1">일본</h3>
 										</a>
 									</div>
 									<div class="widget widget-links">
@@ -199,10 +199,10 @@
 								</div>
 								<div class="dropdown-column">
 									<div
-										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-4 mb-3">
+										class="bg-position-center bg-no-repeat bg-size-cover text-center px-3 py-1 mb-3">
 										<a
 											href="<%=request.getContextPath()%>/tolist.go?bookCategory=해외도서 ">
-											<h3 class="h5 text-shadow my-3">해외</h3>
+											<h3 class="h5 text-shadow my-1">해외</h3>
 										</a>
 									</div>
 									<div class="widget widget-links">
