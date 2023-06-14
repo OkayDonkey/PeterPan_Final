@@ -16,7 +16,7 @@
 
 - 🌱 프로젝트에서 사용한 주요 언어 및 기능 **Java, Spring Framework, MySql**
 
-- <h4><b>💬 프로젝트 Notion Link -<br> https://www.notion.so/Final-Project-c11d9571cb45418091e87b01ab99b421?pvs=4</b></h4>
+- <h4><b>💬 프로젝트 Notion Link -<br> https://ossified-jump-374.notion.site/Final-Project-7640a6eee4ed4324bb48026df80d883d?pvs=4 </b></h4>
 
 <h1> 프로젝트 기술 스택</h1>
 <p>Back-end</p>
