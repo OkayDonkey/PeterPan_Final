@@ -177,7 +177,7 @@ public class AlbumController {
 			if(check>0) {
 				out.println("<script>");
 				out.println("alert('앨범 등록 성공')");
-				out.println("location.href='myPage.go'");
+				out.println("location.href='album.go'");
 				out.println("</script>");
 			}else {
 				out.println("<script>");

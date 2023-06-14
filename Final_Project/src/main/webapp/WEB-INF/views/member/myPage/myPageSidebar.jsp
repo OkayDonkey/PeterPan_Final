@@ -219,10 +219,10 @@
 	         	<div class="couponContentWrap">
 	         	<c:if test="${!empty clist }">
 	         	<c:set value="${clist.size() + 1 }" var="size" />	
-	         		<c:forEach items="${clist }" var="dto">
+	         		<c:forEach items="${clist }" var="dto" varStatus="status">
 	         			<div class="couponContent">
 	         				<div class="couponNo content">
-			         			<span class="couponNoInfo">${size - 3}</span>	
+			         			<span class="couponNoInfo">${status.index + 1}</span>	
 			         		</div>
 			         		<div class="couponSale content">
 			         			<span class="couponSaleInfo">${dto.couponSale } 원</span>	

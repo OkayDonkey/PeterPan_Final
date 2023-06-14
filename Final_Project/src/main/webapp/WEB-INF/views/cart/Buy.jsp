@@ -262,29 +262,29 @@
 						</span>
 					</div>
 					
-<!-- 팝업 -->
-	<div id="popupDrvInfo" hidden 
-		style="position: absolute; background-color: white; border: 1px solid gray;
-				width:350px; border-radius: 0.5em; padding:20px; right: 0px;
-				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); color:black !important; z-index: 3000;">
-		<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:black;">국내도서/외국도서</p>
-		<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
-			도서만 15,000원 이상 구매 시 무료배송 
-		</p>
-		<p style="font-size: 12px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
-			* 15,000원 미만 시 2,500원 배송비 부과
-		</p>
-	<div style="margin-top: 20px;">
-		<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; ">해외주문 서양도서/해외주문 일본도서</p>
-		<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
-			각각 구매하거나 함께 15,000원 이상 구매 시 무료배송
-		</p>
-		<p style="font-size: 12px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
-			* 15,000원 미만 시 2,500원 배송비 부과
-		</p>
+	<!-- 팝업 -->
+		<div id="popupDrvInfo" hidden 
+			style="position: absolute; background-color: white; border: 1px solid gray;
+					width:350px; border-radius: 0.5em; padding:20px; right: 0px;
+					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); color:black !important; z-index: 3000;">
+			<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; color:black;">국내도서/외국도서</p>
+			<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
+				도서만 15,000원 이상 구매 시 무료배송 
+			</p>
+			<p style="font-size: 12px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
+				* 15,000원 미만 시 2,500원 배송비 부과
+			</p>
+		<div style="margin-top: 20px;">
+			<p style="font-size: 15px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px; ">해외주문 서양도서/해외주문 일본도서</p>
+			<p style="font-size: 13px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
+				각각 구매하거나 함께 15,000원 이상 구매 시 무료배송
+			</p>
+			<p style="font-size: 12px; line-height: 19px;  letter-spacing: -0.01em; margin-bottom: 6px;">
+				* 15,000원 미만 시 2,500원 배송비 부과
+			</p>
+		</div>
 	</div>
-</div>
-<!-- 팝업 End-->					
+	<!-- 팝업 End-->					
 	<!-- 팝업 -->		
 			<div id="popupPoint" hidden 
 					style="position: absolute; background-color: white; border: 1px solid gray;
@@ -372,7 +372,6 @@
 			</div>
 			</div>
 			
-			
 		</div><!-- 메인 우측 컨테이너 -->
 	</div><!-- Flex Row 컨테이너 -->
 </div><!-- 가로폭 컨테이너 -->
@@ -387,7 +386,6 @@
 <input type="hidden" value="${session.point}" id="memPoint"> 
 <input type="hidden"  id="useCouponNo"> 
 
- 
 <jsp:include page="../top/footer.jsp" /> 
 <script>
 	
@@ -403,13 +401,10 @@
 	  targetInput.placeholder ="[ " + post + " ]"+ " "+addr + " "+enterInput.value;
 	}
 
-	
-	
-	
 	var memberId = document.getElementById("memberId").value;
 	var ajaxCheck = 0;
 
-function costPlusCalculator(bookNo, bookCost, bookEA) {
+	function costPlusCalculator(bookNo, bookCost, bookEA) {
 	  console.log("책번호: " + bookNo + ", 책가격: " + bookCost + ", 책수량: " + bookEA);
 	  
 	  var displayNo = document.getElementById("numberDisplay" + bookNo);
@@ -443,7 +438,7 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 	  
 	  
 	  console.log("변경된 책의 수량 및 변수값: " + displayNo.innerText);
-	}
+		}
 
 	function costMinusCalculator(bookNo, bookCost, bookEA) {
 	  console.log("책번호: " + bookNo + ", 책가격: " + bookCost + ", 책수량: " + bookEA);
@@ -532,8 +527,8 @@ function costPlusCalculator(bookNo, bookCost, bookEA) {
 	}
 	
 </script>
-  <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
