@@ -228,50 +228,19 @@
 								</div>
 							</div>
 						</div></li>
-					<li class="nav-item dropdown mega-dropdown"><a
-						class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-						style="padding: 1em;">게시판</a>
-						<div class="dropdown-menu">
-							<div class="dropdown-inner">
-								<div class="dropdown-column">
-									<div class="widget widget-links">
-										<h3 class="widget-title">게시판</h3>
-										<ul>
-											<li>
-												<a href="<%=request.getContextPath()%>/boardPage.go">
-													<i class="widget-categories-indicator"
-													data-feather="chevron-right"> </i><span
-													class="font-size-sm">자유 게시판</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="dropdown-column">
-									<div class="widget widget-links">
-										<h3 class="widget-title">커뮤니티</h3>
-										<ul>
-										
-									    	<li>
-												<c:if test="${session.memberTier == 999 }">
-													<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');">
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범</span>
-													</a>
-												</c:if>
-												<c:if test="${session.memberTier != 999 }">
-													<a href="album.go"> 
-														<i class="widget-categories-indicator"	data-feather="chevron-right"></i>
-														<span class="font-size-sm">앨범</span>
-													</a>
-												</c:if>
-											</li>
-										
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div></li>
+						
+						<li class="nav-item dropdown">
+							<c:if test="${session.memberTier == 999 }">
+								<a href="#" onclick="alert('커뮤니티가 차단된 아이디입니다');" class="nav-link dropdown-toggle"  style="padding: 1em;">
+									<i class="mr-1"></i>
+								커뮤니티</a>
+							</c:if>
+							<c:if test="${session.memberTier != 999 }">
+								<a href="album.go" class="nav-link dropdown-toggle"  style="padding: 1em;"> 
+									<i class="mr-1"	></i>
+								커뮤니티</a>
+							</c:if>
+						</li>
 
 					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" style="padding: 1em;"
 						href="bestListbook.go"><i class="mr-1"></i>베스트</a></li>

@@ -124,24 +124,23 @@ response.setDateHeader("Expires", 0); // Proxies
 	</ul>
 	<!-- 히든팝업1 -->
 	<div id="catePopup1" hidden >
-		<a href="#" class="hover_bold"><span>국내도서</span></a>
-		<a href="#" class="hover_bold"><span>해외도서</span></a>
-		<a href="#" class="hover_bold"><span>일본도서</span></a>
+		<a href="${path }tolist.go?bookCategory=국내도서" class="hover_bold"><span>국내도서</span></a>
+		<a href="${path }tolist.go?bookCategory=해외도서" class="hover_bold"><span>해외도서</span></a>
+		<a href="${path }tolist.go?bookCategory=일본도서" class="hover_bold"><span>일본도서</span></a>
 	</div>
 	
 	<!-- 히든팝업2 -->
 	<div id="catePopup2" hidden>
-		<a href="#" class="hover_bold"><span>문학</span></a>
-		<a href="#" class="hover_bold"><span>역사</span></a>
-		<a href="#" class="hover_bold"><span>자기계발</span></a>
-		<a href="#" class="hover_bold"><span>취미</span></a>
-		<a href="#" class="hover_bold"><span>참고서</span></a>
-		<a href="#" class="hover_bold"><span>공포/호러</span></a>
-		<a href="#" class="hover_bold"><span>자기계발</span></a>
+		<a href="${path }genreList.go?bookCategory=국내도서 &bookGenre=문학" class="hover_bold"><span>문학</span></a>
+		<a href="${path }genreList.go?bookCategory=국내도서 &bookGenre=역사" class="hover_bold"><span>역사</span></a>
+		<a href="${path }genreList.go?bookCategory=국내도서 &bookGenre=자기계발" class="hover_bold"><span>자기계발</span></a>
+		<a href="${path }genreList.go?bookCategory=국내도서 &bookGenre=취미" class="hover_bold"><span>취미</span></a>
+		<a href="${path }genreList.go?bookCategory=국내도서 &bookGenre=참고서" class="hover_bold"><span>참고서</span></a>
+		<a href="${path }genreList.go?bookCategory=국내도서 &bookGenre=공포" class="hover_bold"><span>공포/호러</span></a>
 	</div> 
 </div>
 
-		<h2 class="pt-4 pb-4 text-center" style="font-weight: 700;">${book.bookName}</h2>
+<h2 class="pt-4 pb-4 text-center" style="font-weight: 700;">${book.bookName}</h2>
 	<div class="row justify-content-sm-between" style=" padding:10px;" >
 	
 		<div class="flex-column pt-5" style="width:330px; ">
@@ -335,7 +334,6 @@ response.setDateHeader("Expires", 0); // Proxies
 			<button type="button" class="btn-dark" data-toggle="modal" data-target=".modal" style="width:330px; height: 40px; border-radius: 0.3em; /* border-color: none; background-color: #282828; color:white; font-size: 10px;*/">
 			<span style="font-size: 13px;  font-weight: 600; ">매장 &nbsp;재고·위치</span>
 			  </button>
-			
 			  
 			  <div class="modal" tabindex="-1" role="dialog">
 				  <div class="modal-dialog modal-xl" role="document">
@@ -425,7 +423,6 @@ response.setDateHeader("Expires", 0); // Proxies
        				<div class="reviewBoxTop">
 	       				<div class="BorderBlackBottomText">전체 리뷰(<span id="totalReviewNum" >${reviewCount}</span>)</div>
 	       				<div>
-	       				
 	       					<c:choose>
 								<c:when test="${empty session.memberId }">
 									<button class="writeBtn"  onclick="needLogin();">
@@ -442,7 +439,6 @@ response.setDateHeader("Expires", 0); // Proxies
 							</c:choose>
 	       				</div>
        				</div>
-       				
 					<div class="reviewBoxBottom" id="reviewInnerAjax">
 					<c:if test="${empty reviewList }">
 						<div class="flex_center_center p-5">
@@ -572,19 +568,11 @@ response.setDateHeader("Expires", 0); // Proxies
 				</div>
 				</section>
 			</div>
-			
 		</div>		<!-- flex row container -->
-		
 </div>		<!-- width 1250 container -->
 
 		<!-- 리뷰작성 팝업 -->
 	<div id="reviewPopup"  class="needLoginPopup" hidden>
-		<!-- 
-				1. 입력창을 만들어서 name값 매칭시키기. 
-				2. 팝업창에 데이터를 Ajax로 받아서 Controller에 전송 및 insert문 수행
-				3. insert성공 시 reviewPopup()을 다시 호출하여 창을 닫은 후 innerHTML로 리뷰블럭 쏘기
-				4. 실패시 오류메세지 출력하기 ( 다시 시도해주세요 )
-		 -->
  		<div class="reviewWritePop mt-3">
 		 		<div>
 					<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo }">
@@ -633,7 +621,7 @@ response.setDateHeader("Expires", 0); // Proxies
 		<!-- 리뷰작성 팝업 End-->
 		
 		<!-- 		Incloud Footer Area		 -->
-		<jsp:include page="../top/footer.jsp" />
+	<jsp:include page="../top/footer.jsp" />
 		
 	<script src="resources/js/book/bookDetail.js"></script>	
     <script src="resources/js/vendor.min.js"></script>

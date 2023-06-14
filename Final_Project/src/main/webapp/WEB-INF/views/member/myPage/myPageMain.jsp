@@ -383,64 +383,6 @@
 		</main>
 	</div>
 	
-	<!-- 쿠폰 모달창 -->
-	<c:set value="${couponList }" var="clist" />
-		<div id="couponInsertPopup" class="couponInsertPopup"  hidden>
-	      <div class="couponInsertPopupBox">
-	      	<div class="couponModalTop">
-	         <span class="coupon_first_write">쿠폰 내역</span>
-		     <div class="closeModal">
-			  	<a href="javascript:void(0)" class="closeModalbtn" onclick="couponCloseModal()">x</a>
-			 </div>
-	        </div>
-	         <br>
-	         <div class="couponWrap">
-	         	<div class="couponHead">
-	         		<div class="couponNo head">
-	         			<span>번호</span>	
-	         		</div>
-	         		<div class="couponSale head">
-	         			<span>쿠폰 할인</span>	
-	         		</div>
-	         		<div class="couponName head">
-	         			<span>쿠폰 명</span>	
-	         		</div>
-	         	</div>
-	         	<div class="couponContentWrap">
-	         	<c:if test="${!empty clist }">
-	         	<c:set value="${clist.size() + 1 }" var="size" />	
-	         		<c:forEach items="${clist }" var="dto">
-	         			<div class="couponContent">
-	         				<div class="couponNo content">
-			         			<span class="couponNoInfo">${size - 3}</span>	
-			         		</div>
-			         		<div class="couponSale content">
-			         			<span class="couponSaleInfo">${dto.couponSale } 원</span>	
-			         		</div>
-			         		<div class="couponName content">
-			         			<c:if test="${dto.couponSale == 1000 }">
-			         				<span class="couponNameInfo">피터팬 회원가입 증정 할인 쿠폰</span>
-			         			</c:if>
-			         			<c:if test="${dto.couponSale == 2000 }">
-			         				<span class="couponNameInfo">피터팬 회원가입 증정 할인 쿠폰</span>
-			         			</c:if>
-			         			<c:if test="${dto.couponSale == 3000 }">
-			         				<span class="couponNameInfo">피터팬 회원가입 증정 할인 쿠폰</span>
-			         			</c:if>	
-			         		</div>
-	         			</div>
-	         			<c:set value="${size + 1}" var="size" />
-	         		</c:forEach>
-	         	</c:if>
-	         	</div>
-	         </div>
-			<span style="font-size: 12px; margin-top: 8px;">* 쿠폰 관련 문의는 자주묻는 질문 게시판이나 1:1문의로 주시기 바랍니다.</span>
-	      </div>
-	    </div>
-	    
-		<script type="text/javascript" src="resources/js/member/myPageMainModal.js"></script>
-		<!-- 쿠폰 모달창 end -->
-		
 	
 	<jsp:include page="../../top/footer.jsp" />
 
