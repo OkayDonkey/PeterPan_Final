@@ -1,7 +1,7 @@
 <h2 align="center">피터팬 : 커뮤니티 공간이 있는 도서구매사이트</h2>
 
 <div align="center" dir="auto">
-<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/45676906/122062627-8af21000-ce2a-11eb-86cf-bc67d2e97ebb.png"><img src="https://github.com/gami03/Final_Froject_book/assets/128332485/8eb0cbf8-3377-4232-bcb3-0221a64ea2c8" width="30%" alt="buok" style="max-width: 30%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/45676906/122062627-8af21000-ce2a-11eb-86cf-bc67d2e97ebb.png"><img src="https://github.com/gami03/PeterPan_Final/assets/128332485/8b4245c9-a1a3-4f0c-a1cf-aeed67868c8f" width="30%" alt="buok" style="max-width: 30%;"></a></p>
     <p dir="auto"><b>당신의 책 앨범, 독서의 새로운 시작!</b></p>
     <p dir="auto">벅스라는 음원 사이트에는 <b>뮤직 PD 앨범 제도</b>가 있습니다.</p>
 <p dir="auto">개인이 선호하는 음악 리스트를 만들어 대중에게 소개하는 방식입니다.</p>
@@ -66,7 +66,7 @@
      </thead>
      <tbody>
        <tr>
-         <td align="center"><a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/gami03/Final_Froject_book/assets/128332485/1ac64b8a-6142-4c34-985c-cf2b36694e55"><img src="https://github.com/gami03/Final_Froject_book/assets/128332485/1ac64b8a-6142-4c34-985c-cf2b36694e55" width="100%" style="max-width: 100%;"></a></td>
+         <td align="center"><a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/gami03/PeterPan_Final/assets/128332485/b6f51403-4703-4677-ab7f-6ab7716b0f4b"><img src="https://github.com/gami03/PeterPan_Final/assets/128332485/b6f51403-4703-4677-ab7f-6ab7716b0f4b" width="100%" style="max-width: 100%;"></a></td>
         </tr>
     </tbody>
 </table>
